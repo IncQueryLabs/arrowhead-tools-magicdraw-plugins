@@ -1,0 +1,26 @@
+2019-06-26 08:31:07, com.zaxxer.hikari.HikariDataSource, INFO, Gatekeeper - Starting...
+2019-06-26 08:31:07, com.zaxxer.hikari.pool.PoolBase, INFO, Gatekeeper - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-06-26 08:31:07, com.zaxxer.hikari.HikariDataSource, INFO, Gatekeeper - Start completed.
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8446
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8448
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8442/serviceregistry
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8440/orchestrator/orchestration
+2019-06-26 08:31:08, eu.arrowhead.core.gatekeeper.GatekeeperMain, INFO, Started inbound server at: http://0.0.0.0:8446
+2019-06-26 08:31:08, eu.arrowhead.core.gatekeeper.GatekeeperMain, INFO, Started outbound server at: http://0.0.0.0:8448
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, ERROR, Request returned with DUPLICATE_ENTRY: There is already an entry in the database with these parameters. Please check the unique fields of the class eu.arrowhead.common.database.ServiceRegistryEntry
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, ERROR, Request returned with DUPLICATE_ENTRY: There is already an entry in the database with these parameters. Please check the unique fields of the class eu.arrowhead.common.database.ServiceRegistryEntry
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/query
+2019-06-26 08:31:08, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8444/authorization
+2019-06-26 08:34:55, eu.arrowhead.core.gatekeeper.GatekeeperMain, INFO, Stopping server at: http://0.0.0.0:8446
+2019-06-26 08:34:55, eu.arrowhead.core.gatekeeper.GatekeeperMain, INFO, Stopping server at: http://0.0.0.0:8448
+2019-06-26 08:34:55, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:34:55, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:34:55, com.zaxxer.hikari.HikariDataSource, WARN, The shutdown() method has been deprecated, please use the close() method instead
+2019-06-26 08:34:55, com.zaxxer.hikari.HikariDataSource, INFO, Gatekeeper - Shutdown initiated...
+2019-06-26 08:34:55, com.zaxxer.hikari.HikariDataSource, INFO, Gatekeeper - Shutdown completed.

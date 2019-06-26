@@ -1,0 +1,20 @@
+2019-06-26 08:28:56, com.zaxxer.hikari.HikariDataSource, INFO, EventHandler - Starting...
+2019-06-26 08:28:56, com.zaxxer.hikari.pool.PoolBase, INFO, EventHandler - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-06-26 08:28:56, com.zaxxer.hikari.HikariDataSource, INFO, EventHandler - Start completed.
+2019-06-26 08:28:57, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8454
+2019-06-26 08:28:57, eu.arrowhead.common.ArrowheadMain, INFO, Started server at: http://0.0.0.0:8454
+2019-06-26 08:28:57, eu.arrowhead.common.Utility, INFO, Utility:getUri returning this: http://0.0.0.0:8442/serviceregistry
+2019-06-26 08:28:57, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, ERROR, Request returned with DUPLICATE_ENTRY: There is already an entry in the database with these parameters. Please check the unique fields of the class eu.arrowhead.common.database.ServiceRegistryEntry
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, ERROR, Request returned with DUPLICATE_ENTRY: There is already an entry in the database with these parameters. Please check the unique fields of the class eu.arrowhead.common.database.ServiceRegistryEntry
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:28:58, eu.arrowhead.common.Utility, INFO, Sending POST request to: http://0.0.0.0:8442/serviceregistry/register
+2019-06-26 08:35:05, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:35:05, eu.arrowhead.common.Utility, INFO, Sending PUT request to: http://0.0.0.0:8442/serviceregistry/remove
+2019-06-26 08:35:05, com.zaxxer.hikari.HikariDataSource, WARN, The shutdown() method has been deprecated, please use the close() method instead
+2019-06-26 08:35:05, com.zaxxer.hikari.HikariDataSource, INFO, EventHandler - Shutdown initiated...
+2019-06-26 08:35:05, com.zaxxer.hikari.HikariDataSource, INFO, EventHandler - Shutdown completed.
+2019-06-26 08:35:05, eu.arrowhead.common.ArrowheadMain, INFO, Stopping server at: http://0.0.0.0:8454

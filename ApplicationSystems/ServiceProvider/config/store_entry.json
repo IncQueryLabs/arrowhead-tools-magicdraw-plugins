@@ -1,0 +1,27 @@
+[
+  {
+    "service": {
+      "serviceDefinition": "IndoorTemperature",
+      "interfaces": [
+        "JSON"
+      ],
+      "serviceMetadata": {
+        "unit": "celsius"
+      }
+    },
+    "consumer": {
+      "systemName": "client1",
+      "address": "localhost",
+      "port": 0,
+      "authenticationInfo": "null"
+    },
+    "providerSystem": {
+      "systemName": "InsecureTemperatureSensor",
+      "address": "0.0.0.0",
+      "port": 8460
+    },
+    "priority": 0,
+    "defaultEntry": false,
+    "attributes": {}
+  }
+]

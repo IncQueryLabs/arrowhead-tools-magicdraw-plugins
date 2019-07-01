@@ -328,18 +328,5 @@ CREATE TABLE `table_generator` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-CREATE DATABASE  IF NOT EXISTS `log`;
-USE `log`;
-
-DROP TABLE IF EXISTS `logs`;
-CREATE TABLE `logs` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
-  `origin` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `level` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `message` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1557 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 flush privileges;

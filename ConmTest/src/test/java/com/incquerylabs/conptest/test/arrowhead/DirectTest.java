@@ -1,13 +1,13 @@
-package com.incquerylabs.conptest.test;
+package com.incquerylabs.conptest.test.arrowhead;
 
 import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.incquerylabs.conptest.ArrowheadDirectSend;
-import com.incquerylabs.conptest.ArrowheadDirectRec;
 import com.incquerylabs.conptest.Server;
+import com.incquerylabs.conptest.arrowhead.ArrowheadDirectRec;
+import com.incquerylabs.conptest.arrowhead.ArrowheadDirectSend;
 
 public class DirectTest {
 	Server server;

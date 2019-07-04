@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest;
+package com.incquerylabs.conptest.arrowhead;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.incquerylabs.conptest.Sender;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.model.ArrowheadSystem;

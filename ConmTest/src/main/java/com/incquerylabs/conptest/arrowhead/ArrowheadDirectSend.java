@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest;
+package com.incquerylabs.conptest.arrowhead;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.core.Response;
+
+import com.incquerylabs.conptest.Sender;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.model.ArrowheadService;

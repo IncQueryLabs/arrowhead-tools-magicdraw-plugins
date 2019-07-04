@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.test;
+package com.incquerylabs.conptest.test.arrowhead;
 
 import org.junit.Test;
 

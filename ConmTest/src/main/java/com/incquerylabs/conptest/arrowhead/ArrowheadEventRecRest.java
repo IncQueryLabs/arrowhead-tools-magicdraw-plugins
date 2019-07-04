@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest;
+package com.incquerylabs.conptest.arrowhead;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

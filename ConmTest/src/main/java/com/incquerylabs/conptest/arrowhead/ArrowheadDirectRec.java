@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest;
+package com.incquerylabs.conptest.arrowhead;
 
 import java.io.DataInputStream;
 import java.io.IOException;

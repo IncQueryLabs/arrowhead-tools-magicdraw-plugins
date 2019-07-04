@@ -6,4 +6,8 @@ public class Server {
 	public Server(Sender Sender) {
 		sender = Sender;
 	}
+	
+	public void go() {
+		//TODO
+	}
 }

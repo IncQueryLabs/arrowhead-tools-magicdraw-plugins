@@ -21,6 +21,7 @@ import eu.arrowhead.client.common.model.OrchestrationResponse;
 import eu.arrowhead.client.common.model.ServiceRequestForm;
 
 public class ArrowheadDirect extends Thread implements Sender{
+	
 	public static final String ORCH_IP =  "0.0.0.0";
 	public static final int ORCH_PORT =  8440;
 	public static final String SERVICE_NAME = "conptest";

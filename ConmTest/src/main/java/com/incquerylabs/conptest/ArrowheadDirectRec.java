@@ -1,7 +1,6 @@
 package com.incquerylabs.conptest;
 
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,10 +16,7 @@ import eu.arrowhead.client.common.model.ArrowheadService;
 import eu.arrowhead.client.common.model.ArrowheadSystem;
 import eu.arrowhead.client.common.model.ServiceRegistryEntry;
 
-public class ArrowheadDirectRec extends Thread implements Sender{
-	
-	File file;
-	
+public class ArrowheadDirectRec extends Thread{
 	public static final String SR_IP = "0.0.0.0";
 	public static final int SR_PORT =  8442;
 	public static final int PROVIDER_PORT =  9112;
@@ -28,9 +24,6 @@ public class ArrowheadDirectRec extends Thread implements Sender{
 	public static final String INTERFACE =  ArrowheadDirect.INTERFACE;
 	public static final String SR_PATH =  "serviceregistry/register";
 	
-	public ArrowheadDirectRec(File File) {
-		file = File;
-	}
 	
 	@Override
 	public void run() {
@@ -79,10 +72,5 @@ public class ArrowheadDirectRec extends Thread implements Sender{
 				}
 			}
 		}
-	}
-	
-	@Override
-	public void send() {
-		this.start();
 	}
 }

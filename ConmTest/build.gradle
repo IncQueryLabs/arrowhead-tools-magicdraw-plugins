@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'eu.arrowhead:arrowhead-client-common:4.0.0'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}

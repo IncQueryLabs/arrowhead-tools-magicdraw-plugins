@@ -5,7 +5,7 @@ import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.incquerylabs.conptest.ArrowheadDirect;
+import com.incquerylabs.conptest.ArrowheadDirectSend;
 import com.incquerylabs.conptest.ArrowheadDirectRec;
 import com.incquerylabs.conptest.Server;
 
@@ -16,7 +16,7 @@ public class DirectTest {
 	public void setup() {
 		ArrowheadDirectRec rec = new ArrowheadDirectRec();
 		File file = new File(".gitignore");
-		ArrowheadDirect sender = new ArrowheadDirect(file);
+		ArrowheadDirectSend sender = new ArrowheadDirectSend(file);
 		server = new Server(sender);
 		rec.start();
 	}

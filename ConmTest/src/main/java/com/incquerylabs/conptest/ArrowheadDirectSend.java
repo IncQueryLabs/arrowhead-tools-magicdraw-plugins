@@ -20,7 +20,7 @@ import eu.arrowhead.client.common.model.OrchestrationForm;
 import eu.arrowhead.client.common.model.OrchestrationResponse;
 import eu.arrowhead.client.common.model.ServiceRequestForm;
 
-public class ArrowheadDirect extends Thread implements Sender{
+public class ArrowheadDirectSend implements Sender{
 	
 	public static final String ORCH_IP =  "0.0.0.0";
 	public static final int ORCH_PORT =  8440;
@@ -28,12 +28,12 @@ public class ArrowheadDirect extends Thread implements Sender{
 	public static final String INTERFACE =  "TCP";
 	File file;
 	
-	public ArrowheadDirect(File File) {
+	public ArrowheadDirectSend(File File) {
 		file = File;
 	}
 	
 	@Override
-	public void run() {
+	public void send() {
 		String orchUri = Utility.getUri(ORCH_IP, ORCH_PORT, "orchestrator/orchestration", false, false);
 		ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);
 		Set<String> interfaces = new HashSet<String>();
@@ -76,10 +76,5 @@ public class ArrowheadDirect extends Thread implements Sender{
 				}
 			}
 		}	
-	}
-	
-	@Override
-	public void send() {
-		this.start();
 	}
 }

@@ -20,8 +20,8 @@ public class ArrowheadDirectRec extends Thread{
 	public static final String SR_IP = "0.0.0.0";
 	public static final int SR_PORT =  8442;
 	public static final int PROVIDER_PORT =  9112;
-	public static final String SERVICE_NAME = ArrowheadDirect.SERVICE_NAME;
-	public static final String INTERFACE =  ArrowheadDirect.INTERFACE;
+	public static final String SERVICE_NAME = ArrowheadDirectSend.SERVICE_NAME;
+	public static final String INTERFACE =  ArrowheadDirectSend.INTERFACE;
 	public static final String SR_PATH =  "serviceregistry/register";
 	
 	

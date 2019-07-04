@@ -6,6 +6,4 @@ public class Server {
 	public Server(Sender Sender) {
 		sender = Sender;
 	}
-	
-	
 }

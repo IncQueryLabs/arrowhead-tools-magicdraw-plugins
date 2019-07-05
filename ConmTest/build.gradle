@@ -12,5 +12,5 @@ dependencies {
     implementation 'eu.arrowhead:arrowhead-client-common:4.0.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.1'
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.0'
 }

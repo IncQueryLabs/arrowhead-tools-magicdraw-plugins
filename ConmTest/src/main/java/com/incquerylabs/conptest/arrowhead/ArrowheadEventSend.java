@@ -3,6 +3,7 @@ package com.incquerylabs.conptest.arrowhead;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class ArrowheadEventSend implements Sender {
 	}
 	
 	@Override
-	public void send() {
+	public Instant send() {
 		String ehUri = Utility.getUri(EH_IP, EH_PORT, "eventhandler/publish", false, false);
 		Map<String, String> metadata = new HashMap<String, String>();
 		metadata.put("port", "9024");
@@ -46,5 +47,7 @@ public class ArrowheadEventSend implements Sender {
 		PublishEvent pubE = new PublishEvent(me, event, null);
 		
 		Utility.sendRequest(ehUri, "POST", pubE);
+		
+		return Instant.now();
 	}
 }

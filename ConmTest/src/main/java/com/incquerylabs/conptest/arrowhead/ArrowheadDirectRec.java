@@ -4,10 +4,13 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import com.incquerylabs.conptest.Receiver;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.exception.ArrowheadException;
@@ -16,13 +19,15 @@ import eu.arrowhead.client.common.model.ArrowheadService;
 import eu.arrowhead.client.common.model.ArrowheadSystem;
 import eu.arrowhead.client.common.model.ServiceRegistryEntry;
 
-public class ArrowheadDirectRec extends Thread{
-	public static final String SR_IP = "0.0.0.0";
-	public static final int SR_PORT =  8442;
-	public static final int PROVIDER_PORT =  9112;
+public class ArrowheadDirectRec extends Thread implements Receiver{
+	
+	static final String SR_IP = "0.0.0.0";
+	static final int SR_PORT =  8442;
+	static final int PROVIDER_PORT =  9112;
 	public static final String SERVICE_NAME = ArrowheadDirectSend.SERVICE_NAME;
 	public static final String INTERFACE =  ArrowheadDirectSend.INTERFACE;
-	public static final String SR_PATH =  "serviceregistry/register";
+	static final String SR_PATH =  "serviceregistry/register";
+	Instant endTime;
 	
 	
 	@Override
@@ -72,5 +77,17 @@ public class ArrowheadDirectRec extends Thread{
 				}
 			}
 		}
+	}
+
+
+	@Override
+	public Instant getEnd() {
+		return endTime;
+	}
+
+
+	@Override
+	public void setEnd(Instant in) {
+		endTime = in;		
 	}
 }

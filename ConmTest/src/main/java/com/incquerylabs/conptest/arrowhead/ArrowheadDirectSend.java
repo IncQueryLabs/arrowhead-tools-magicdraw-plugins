@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -29,33 +30,37 @@ public class ArrowheadDirectSend implements Sender{
 	public static final String SERVICE_NAME = "conptest";
 	public static final String INTERFACE =  "TCP";
 	File file;
+	ArrowheadSystem provider = null;
 	
 	public ArrowheadDirectSend(File File) {
 		file = File;
 	}
 	
 	@Override
-	public void send() {
-		String orchUri = Utility.getUri(ORCH_IP, ORCH_PORT, "orchestrator/orchestration", false, false);
-		ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);
-		Set<String> interfaces = new HashSet<String>();
-		interfaces.add(INTERFACE);
-		Map<String, String> serviceMetadata = new HashMap<String, String>();
-		ArrowheadService service = new ArrowheadService(SERVICE_NAME, interfaces, serviceMetadata);
-		Map<String, Boolean> flags = new HashMap<String, Boolean>();
-		flags.put("overrideStore", true);
-		
-		ServiceRequestForm srf = new ServiceRequestForm.Builder(me).requestedService(service).orchestrationFlags(flags).build();
-		Response r = null;
-		r = Utility.sendRequest(orchUri, "POST", srf);	
-		OrchestrationResponse or = r.readEntity(OrchestrationResponse.class);
-		OrchestrationForm of =  or.getResponse().get(0);
-		
-		ArrowheadSystem provider = of.getProvider();
+	public Instant send() {
+		if(provider == null) {
+			String orchUri = Utility.getUri(ORCH_IP, ORCH_PORT, "orchestrator/orchestration", false, false);
+			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);
+			Set<String> interfaces = new HashSet<String>();
+			interfaces.add(INTERFACE);
+			Map<String, String> serviceMetadata = new HashMap<String, String>();
+			ArrowheadService service = new ArrowheadService(SERVICE_NAME, interfaces, serviceMetadata);
+			Map<String, Boolean> flags = new HashMap<String, Boolean>();
+			flags.put("overrideStore", true);
+			
+			ServiceRequestForm srf = new ServiceRequestForm.Builder(me).requestedService(service).orchestrationFlags(flags).build();
+			Response r = null;
+			r = Utility.sendRequest(orchUri, "POST", srf);	
+			OrchestrationResponse or = r.readEntity(OrchestrationResponse.class);
+			OrchestrationForm of =  or.getResponse().get(0);
+			provider = of.getProvider();
+		}
 		
 		Socket socket = null;
+		Instant mid = null;
 		try {
 			socket = new Socket(provider.getAddress(), provider.getPort());
+			mid = Instant.now();
 			FileInputStream fip = new FileInputStream(file);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			while(fip.available() > 0) {
@@ -63,20 +68,18 @@ public class ArrowheadDirectSend implements Sender{
 			}
 			fip.close();
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("What host?");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("IOException");
 		} finally {
 			if(socket != null) {
 				try {
 					socket.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("IOException on closiong");
 				}
 			}
-		}	
+		}
+		return mid;
 	}
 }

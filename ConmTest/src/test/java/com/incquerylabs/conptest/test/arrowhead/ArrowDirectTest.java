@@ -82,7 +82,7 @@ public class ArrowDirectTest {
 				lat = "" + latl;
 			}
 			if (!bw.equals("null")) {
-				long t = Duration.between(mid, end).toMillis();
+				long t = Duration.between(start, end).toMillis();
 				long bwl = 1000 * l / t;
 				totalBW = totalBW + bwl;
 				bw = "" + bwl;

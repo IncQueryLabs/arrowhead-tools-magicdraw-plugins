@@ -59,13 +59,14 @@ public class ArrowheadDirectSend implements Sender{
 		Socket socket = null;
 		Instant mid = null;
 		try {
+			byte[] buffer = new byte[1024];
 			socket = new Socket(provider.getAddress(), provider.getPort());
 			FileInputStream fip = new FileInputStream(file);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			mid = Instant.now();
 			out.writeInt(n);
-			while(fip.available() > 0) {
-				out.write(fip.read());
+			while(fip.read(buffer) != -1) {
+				out.write(buffer);
 			}
 			fip.close();
 			socket.close();

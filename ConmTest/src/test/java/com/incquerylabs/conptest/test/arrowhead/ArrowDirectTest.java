@@ -16,7 +16,7 @@ import com.incquerylabs.conptest.arrowhead.ArrowheadDirectSend;
 public class ArrowDirectTest {
 
 	Receiver rec = new ArrowheadDirectRec();
-	File file = new File(".gitignore");
+	File file = new File("L3.pdf");
 	Sender send = new ArrowheadDirectSend(file);
 	Map<Integer, Row> map = new HashMap<Integer, ArrowDirectTest.Row>();
 
@@ -29,7 +29,7 @@ public class ArrowDirectTest {
 		}
 	}
 
-	private void sendSmallFile(Integer index) {
+	private void sendFile(Integer index) {
 		Instant start = Instant.now();
 		Instant mid = send.send(index);
 		
@@ -106,7 +106,7 @@ public class ArrowDirectTest {
 		ArrowDirectTest test = new ArrowDirectTest();
 		test.startup();
 		for (Integer i = 0; i < 12; ++i) {
-			test.sendSmallFile(i);
+			test.sendFile(i);
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

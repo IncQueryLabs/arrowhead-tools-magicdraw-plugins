@@ -20,7 +20,7 @@ public class ArrowDirectTest {
 	Sender send = new ArrowheadDirectSend(file);
 	Map<Integer, Row> map = new HashMap<Integer, ArrowDirectTest.Row>();
 
-	private void startup() {
+	public void startup() {
 		rec.start();
 		try {
 			Thread.sleep(5000);
@@ -29,14 +29,14 @@ public class ArrowDirectTest {
 		}
 	}
 
-	private void sendFile(Integer index) {
+	public void sendFile(Integer index) {
 		Instant start = Instant.now();
 		Instant mid = send.send(index);
 		
 		map.put(index, new Row(start, mid));
 	}
 
-	private void wrapup(String filename) {
+	public void wrapup(String filename) {
 		long l = file.length();
 		
 		FileWriter out = null;
@@ -122,7 +122,7 @@ public class ArrowDirectTest {
 		test.wrapup("ArrowDirectOut.csv");
 	}
 	
-	private static class Row{
+	protected static class Row{
 		
 		public Row(Instant start, Instant mid) {
 			super();

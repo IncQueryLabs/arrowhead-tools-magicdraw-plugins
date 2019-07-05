@@ -21,7 +21,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver{
 	    public static final String TOPIC = "test";
 	    private MqttClient rec;
 	    private String IP = "127.0.0.1";
-	    private int port = 9002;
+	    public static final int MOSQUITTO_PORT = 1883;
 	    private String recName = "Mqtt rec";
 	    Map<Integer, Instant> map = new HashMap<Integer, Instant>();
 	    
@@ -31,7 +31,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver{
 	        options.setAutomaticReconnect(true);
 	        options.setCleanSession(true);
 	        options.setConnectionTimeout(10);
-	        String url = "tcp://" + IP + ":" + port;
+	        String url = "tcp://" + IP + ":" + MOSQUITTO_PORT;
 
 	        try {
 				rec = new MqttClient(url, recName, new MemoryPersistence());

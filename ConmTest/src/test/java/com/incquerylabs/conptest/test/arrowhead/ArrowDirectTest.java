@@ -1,6 +1,5 @@
 package com.incquerylabs.conptest.test.arrowhead;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,105 +8,126 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import com.incquerylabs.conptest.Receiver;
 import com.incquerylabs.conptest.Sender;
 import com.incquerylabs.conptest.arrowhead.ArrowheadDirectRec;
 import com.incquerylabs.conptest.arrowhead.ArrowheadDirectSend;
 
 public class ArrowDirectTest {
-	
-	Receiver rec;
-	Sender send;
-	static Map<Integer, Row> map = new HashMap<Integer, ArrowDirectTest.Row>();
-	File file;
-	static BufferedWriter out;
-	
-	
-	@BeforeAll
-	public void setup() throws InterruptedException {
-		rec = new ArrowheadDirectRec();
-		send = new ArrowheadDirectSend(file);
-		file = new File(".gitignore");		
+
+	Receiver rec = new ArrowheadDirectRec();
+	File file = new File(".gitignore");
+	Sender send = new ArrowheadDirectSend(file);
+	Map<Integer, Row> map = new HashMap<Integer, ArrowDirectTest.Row>();
+
+	private void startup() {
 		rec.start();
 		try {
-			out = new BufferedWriter(new FileWriter(new File("ArrowDirectOut.csv"), true));
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+	private void sendSmallFile(Integer index) {
+		Instant start = Instant.now();
+		Instant mid = send.send(index);
+		
+		map.put(index, new Row(start, mid));
+	}
+
+	private void wrapup() {
+		long l = file.length();
+		//Instant end = rec.getEnd(index);
+		
+		FileWriter out = null;
+		try {
+			out = new FileWriter(new File("ArrowDirectOut.csv"), true);
 		} catch (IOException e) {
 			System.out.println("Writer down!!!?");
 		}
-		Thread.sleep(2000);
-	}
-	
-	@ParameterizedTest
-	@ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
-	public void sendSmallFile(Integer index) {
-		long length = file.length();
-		Instant start = Instant.now();
-		Instant mid = send.send();
-		Instant end = rec.getEnd();
-		map.put(index, new Row(length, start, mid, end));
-		rec.setEnd(null);
-	}
-	
-	@AfterAll
-	public static void wrapup() {
-		String len = "";
-		String start = "";
-		String mid = "";
-		String end = "";
+		
+		String len = "" + l;
+		String startS = "";
+		String midS = "";
+		String endS = "";
 		String lat = "";
 		String bw = "";
-		for(Integer i = 0; i < 12; ++i) {
-			Row row = map.get(i);
-			len = "" + row.fileSize;
-			start = row.start.toString();
-			if(row.mid != null) {
-				mid = row.mid.toString();
+		Row row;
+		
+		Integer totalLat = 0;
+		Integer totalBW = 0;
+		
+		for(Integer i = 0; i < map.size(); ++i) {
+			row = map.get(i);
+			startS = row.start.toString();
+			
+			if (row.mid != null) {
+				midS = row.mid.toString();
 			} else {
-				mid = "null";
+				midS = "null";
 				lat = "null";
 				bw = "null";
 			}
-			if(row.end != null) {
-				end = row.end.toString();
+			if (rec.getEnd(i) != null) {
+				endS = rec.getEnd(i).toString();
 			} else {
-				end = "null";
+				endS = "null";
 				lat = "null";
 				bw = "null";
 			}
-			if(!lat.equals("null")) {
-				lat = "" + Duration.between(row.mid, row.end).toMillis();
+			if (!lat.equals("null")) {
+				int latl = (int) Duration.between(row.start, row.mid).toMillis();
+				totalLat = totalLat + latl;
+				lat = "" + latl;
 			}
-			if(!bw.equals("null")) {
-				bw = "" + 1000*row.fileSize/(Duration.between(row.mid, row.end).toMillis());
+			if (!bw.equals("null")) {
+				long t = Duration.between(row.mid, rec.getEnd(i)).toMillis();
+				int bwl = (int) ( 1000 * l / t );
+				totalBW = totalBW + bwl;
+				bw = "" + bwl;
 			}
+			
 			try {
-				out.write(len + "," + start + "," + mid + "," + end + "," + lat + "," + bw + ",\n");
+				String mess = len + "," + startS + "," + midS + "," + endS + "," + lat + "," + bw + ",\n";
+				out.write(mess);
+				System.out.println(mess);
 			} catch (IOException e) {
 				System.out.println("Writer downed!!!?");
 			}
-			lat = "";
-			bw = "";
 		}
+		
+		System.out.println("Average latency: " + totalLat/map.size());
+		System.out.println("Average bandwidth: " + totalBW/map.size());
+	}
+	
+	public static void main(String[] args) {
+		ArrowDirectTest test = new ArrowDirectTest();
+		test.startup();
+		for (Integer i = 0; i < 12; ++i) {
+			test.sendSmallFile(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+		test.wrapup();
 	}
 	
 	private static class Row{
 		
-		public Row(long fileSize, Instant start, Instant mid, Instant end) {
+		public Row(Instant start, Instant mid) {
 			super();
-			this.fileSize = fileSize;
 			this.start = start;
 			this.mid = mid;
-			this.end = end;
 		}
-		
-		long fileSize;
 		Instant start;
 		Instant mid;
-		Instant end;
 	}
 }

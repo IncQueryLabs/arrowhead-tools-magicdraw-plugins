@@ -27,7 +27,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver{
 	public static final String SERVICE_NAME = ArrowheadDirectSend.SERVICE_NAME;
 	public static final String INTERFACE =  ArrowheadDirectSend.INTERFACE;
 	static final String SR_PATH =  "serviceregistry/register";
-	Instant endTime;
+	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
 	
 	
 	@Override
@@ -56,24 +56,31 @@ public class ArrowheadDirectRec extends Thread implements Receiver{
 		
 		try {
 			serverSocket = new ServerSocket(PROVIDER_PORT);
-			
+			System.out.println("waiting");
 			while(true) {
 				Socket socket = serverSocket.accept();
+				System.out.println("gott");
 				DataInputStream in = new DataInputStream(socket.getInputStream());
-				while(!socket.isClosed()) {
-					in.read();
+				int index = in.readInt();
+				boolean on = true;
+				while(on) {
+					try {
+						in.readDouble();
+					} catch (IOException e) {
+						on = false;
+					}					
 				}
+				System.out.println("putt: " + index);
+				map.put(index, Instant.now());
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Server downed!!!?");
 		} finally {
 			if(serverSocket != null) {
 				try {
 					serverSocket.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Writer unclosing!!!?");
 				}
 			}
 		}
@@ -81,13 +88,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver{
 
 
 	@Override
-	public Instant getEnd() {
-		return endTime;
-	}
-
-
-	@Override
-	public void setEnd(Instant in) {
-		endTime = in;		
+	public Instant getEnd(Integer n) {
+		return map.get(n);
 	}
 }

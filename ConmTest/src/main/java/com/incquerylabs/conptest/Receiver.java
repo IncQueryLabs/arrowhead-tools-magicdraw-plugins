@@ -3,9 +3,7 @@ package com.incquerylabs.conptest;
 import java.time.Instant;
 
 public interface Receiver{
-	public Instant getEnd();
+	public Instant getEnd(Integer n);
 	
 	public void start();
-
-	public void setEnd(Instant in);
 }

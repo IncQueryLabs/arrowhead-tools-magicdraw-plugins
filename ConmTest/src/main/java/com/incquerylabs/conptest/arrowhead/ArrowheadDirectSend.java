@@ -37,7 +37,7 @@ public class ArrowheadDirectSend implements Sender{
 	}
 	
 	@Override
-	public Instant send() {
+	public Instant send(int n) {
 		if(provider == null) {
 			String orchUri = Utility.getUri(ORCH_IP, ORCH_PORT, "orchestrator/orchestration", false, false);
 			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);
@@ -60,13 +60,16 @@ public class ArrowheadDirectSend implements Sender{
 		Instant mid = null;
 		try {
 			socket = new Socket(provider.getAddress(), provider.getPort());
-			mid = Instant.now();
 			FileInputStream fip = new FileInputStream(file);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+			mid = Instant.now();
+			out.writeInt(n);
 			while(fip.available() > 0) {
 				out.write(fip.read());
 			}
+			System.out.println("wf");
 			fip.close();
+			socket.close();
 		} catch (UnknownHostException e) {
 			System.out.println("What host?");
 		} catch (IOException e) {

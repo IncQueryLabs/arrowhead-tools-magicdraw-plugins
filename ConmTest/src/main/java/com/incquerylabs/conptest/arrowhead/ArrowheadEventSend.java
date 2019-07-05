@@ -30,7 +30,7 @@ public class ArrowheadEventSend implements Sender {
 	}
 	
 	@Override
-	public Instant send() {
+	public Instant send(int n) {
 		String ehUri = Utility.getUri(EH_IP, EH_PORT, "eventhandler/publish", false, false);
 		Map<String, String> metadata = new HashMap<String, String>();
 		metadata.put("port", "9024");

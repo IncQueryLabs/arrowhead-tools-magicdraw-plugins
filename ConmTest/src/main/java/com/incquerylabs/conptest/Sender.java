@@ -1,7 +1,7 @@
 package com.incquerylabs.conptest;
 
-import java.time.Instant;
 
 public interface Sender {
-	public Instant send(int n);
+	
+	public void send(int n);
 }

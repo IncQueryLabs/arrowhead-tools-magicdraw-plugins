@@ -6,7 +6,7 @@ import com.incquerylabs.conptest.mqtt.MqttRec;
 import com.incquerylabs.conptest.mqtt.MqttSend;
 
 public class MqttFileTest extends ArrowDirectTest {
-	
+
 	public MqttFileTest() {
 		rec = new MqttRec();
 		try {
@@ -15,7 +15,7 @@ public class MqttFileTest extends ArrowDirectTest {
 			System.out.println("Problem in MqttSend creation.");
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		MqttFileTest test = new MqttFileTest();
 		test.startup();

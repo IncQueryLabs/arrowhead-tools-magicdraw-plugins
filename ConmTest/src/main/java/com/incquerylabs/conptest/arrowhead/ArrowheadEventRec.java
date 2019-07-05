@@ -17,4 +17,10 @@ public class ArrowheadEventRec implements Receiver{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Instant getMid(Integer n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

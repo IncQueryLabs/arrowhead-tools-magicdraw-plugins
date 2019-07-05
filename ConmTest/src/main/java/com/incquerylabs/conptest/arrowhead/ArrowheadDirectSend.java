@@ -67,7 +67,6 @@ public class ArrowheadDirectSend implements Sender{
 			while(fip.available() > 0) {
 				out.write(fip.read());
 			}
-			System.out.println("wf");
 			fip.close();
 			socket.close();
 		} catch (UnknownHostException e) {

@@ -36,13 +36,12 @@ public class ArrowDirectTest {
 		map.put(index, new Row(start, mid));
 	}
 
-	private void wrapup() {
+	private void wrapup(String filename) {
 		long l = file.length();
-		//Instant end = rec.getEnd(index);
 		
 		FileWriter out = null;
 		try {
-			out = new FileWriter(new File("ArrowDirectOut.csv"), true);
+			out = new FileWriter(new File(filename), true);
 		} catch (IOException e) {
 			System.out.println("Writer down!!!?");
 		}
@@ -55,8 +54,8 @@ public class ArrowDirectTest {
 		String bw = "";
 		Row row;
 		
-		Integer totalLat = 0;
-		Integer totalBW = 0;
+		long totalLat = 0;
+		long totalBW = 0;
 		
 		for(Integer i = 0; i < map.size(); ++i) {
 			row = map.get(i);
@@ -77,21 +76,22 @@ public class ArrowDirectTest {
 				bw = "null";
 			}
 			if (!lat.equals("null")) {
-				int latl = (int) Duration.between(row.start, row.mid).toMillis();
+				long latl = Duration.between(row.start, row.mid).toMillis();
 				totalLat = totalLat + latl;
 				lat = "" + latl;
 			}
 			if (!bw.equals("null")) {
 				long t = Duration.between(row.mid, rec.getEnd(i)).toMillis();
-				int bwl = (int) ( 1000 * l / t );
+				long bwl = 1000 * l / t;
 				totalBW = totalBW + bwl;
 				bw = "" + bwl;
 			}
 			
 			try {
-				String mess = len + "," + startS + "," + midS + "," + endS + "," + lat + "," + bw + ",\n";
+				String mess = len + ", " + startS + ", " + midS + ", " + endS + ", " + lat + ", " + bw + ",\n";
 				out.write(mess);
-				System.out.println(mess);
+				//System.out.println(mess);
+				out.flush();
 			} catch (IOException e) {
 				System.out.println("Writer downed!!!?");
 			}
@@ -99,6 +99,7 @@ public class ArrowDirectTest {
 		
 		System.out.println("Average latency: " + totalLat/map.size());
 		System.out.println("Average bandwidth: " + totalBW/map.size());
+		
 	}
 	
 	public static void main(String[] args) {
@@ -112,12 +113,13 @@ public class ArrowDirectTest {
 				Thread.currentThread().interrupt();
 			}
 		}
+		System.out.println("Wrapping up.");
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
-		test.wrapup();
+		test.wrapup("ArrowDirectOut.csv");
 	}
 	
 	private static class Row{

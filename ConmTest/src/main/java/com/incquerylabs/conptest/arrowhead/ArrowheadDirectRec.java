@@ -56,10 +56,10 @@ public class ArrowheadDirectRec extends Thread implements Receiver{
 		
 		try {
 			serverSocket = new ServerSocket(PROVIDER_PORT);
-			System.out.println("waiting");
+			System.out.println("Listener started.");
 			while(true) {
 				Socket socket = serverSocket.accept();
-				System.out.println("gott");
+				System.out.println("Connection Received");
 				DataInputStream in = new DataInputStream(socket.getInputStream());
 				int index = in.readInt();
 				boolean on = true;
@@ -70,7 +70,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver{
 						on = false;
 					}					
 				}
-				System.out.println("putt: " + index);
+				System.out.println("Test " + index + " finished.");
 				map.put(index, Instant.now());
 			}
 		} catch (IOException e) {

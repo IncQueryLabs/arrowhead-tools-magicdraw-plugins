@@ -16,14 +16,21 @@ import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectSend;
 
 public class ArrowDirectTest {
 
-	Receiver rec = new ArrowheadDirectRec();
-	File file = new File("L3.pdf");
-	Sender send = new ArrowheadDirectSend(file);
+	Receiver rec;
+	Sender send;
+	File file;
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
 
+	public ArrowDirectTest() {
+		rec = new ArrowheadDirectRec();
+		send = new ArrowheadDirectSend(file);
+	}
+	
 	public void test(Integer rep, File outFile) {
 		System.out.println("Starting Test.");
+		file = outFile;
 		rec.start();
+		
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {

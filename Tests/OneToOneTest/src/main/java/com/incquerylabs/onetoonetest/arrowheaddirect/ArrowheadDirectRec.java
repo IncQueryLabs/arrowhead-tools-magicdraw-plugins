@@ -21,7 +21,7 @@ import eu.arrowhead.client.common.model.ServiceRegistryEntry;
 
 public class ArrowheadDirectRec extends Thread implements Receiver {
 
-	static final String SR_IP = "0.0.0.0";
+	static final String SR_IP = "127.0.0.1";
 	static final int SR_PORT = 8442;
 	static final int PROVIDER_PORT = 9112;
 	public static final String SERVICE_NAME = ArrowheadDirectSend.SERVICE_NAME;

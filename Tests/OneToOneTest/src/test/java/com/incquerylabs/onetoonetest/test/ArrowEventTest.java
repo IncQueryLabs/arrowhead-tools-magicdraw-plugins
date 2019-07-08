@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.test.arrowhead;
+package com.incquerylabs.onetoonetest.test;
 
 public class ArrowEventTest {
 	

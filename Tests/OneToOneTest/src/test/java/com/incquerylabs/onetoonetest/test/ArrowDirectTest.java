@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.test.arrowhead;
+package com.incquerylabs.onetoonetest.test;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,10 +8,11 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.incquerylabs.conptest.arrowheaddirect.ArrowheadDirectRec;
-import com.incquerylabs.conptest.arrowheaddirect.ArrowheadDirectSend;
+
 import com.incquerylabs.onetoonetest.Receiver;
 import com.incquerylabs.onetoonetest.Sender;
+import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectRec;
+import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectSend;
 
 public class ArrowDirectTest {
 

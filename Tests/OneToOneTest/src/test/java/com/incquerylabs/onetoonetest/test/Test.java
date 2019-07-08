@@ -11,26 +11,25 @@ import java.util.Map;
 
 import com.incquerylabs.onetoonetest.Receiver;
 import com.incquerylabs.onetoonetest.Sender;
-import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectRec;
-import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectSend;
 
-public class ArrowDirectTest {
+public class Test {
 
 	Receiver rec;
 	Sender send;
-	File file;
+	File inputFile;
+	File outputFile;
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
-
-	public ArrowDirectTest() {
-		rec = new ArrowheadDirectRec();
-		send = new ArrowheadDirectSend(file);
-	}
 	
-	public void test(Integer rep, File outFile) {
+	public Test(Receiver rec, Sender send, File inputFile, File outputFile) {
+		this.rec = rec;
+		this.send = send;
+		this.inputFile = inputFile;
+		this.outputFile = outputFile;
+	}
+
+	public void test(Integer rep) {
 		System.out.println("Starting Test.");
-		file = outFile;
 		rec.start();
-		
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -50,22 +49,22 @@ public class ArrowDirectTest {
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
-		wrapup(outFile);
+		wrapup();
 	}
 
 	public void sendFile(Integer index) {
 		Instant start = Instant.now();
-		send.send(index);
+		send.send(index, inputFile);
 
 		map.put(index, start);
 	}
 
-	public void wrapup(File file) {
-		long l = file.length();
+	public void wrapup() {
+		long l = inputFile.length();
 
 		FileWriter out = null;
 		try {
-			out = new FileWriter(file, true);
+			out = new FileWriter(outputFile, true);
 		} catch (IOException e) {
 			System.out.println("Writer down!!!?");
 		}
@@ -128,10 +127,5 @@ public class ArrowDirectTest {
 		} catch (IOException e) {
 			System.out.println("Writer downed 2!!!?");
 		}
-	}
-
-	public static void main(String[] args) {
-		ArrowDirectTest test = new ArrowDirectTest();
-		test.test(12, new File("ArrowDirect.csv"));
 	}
 }

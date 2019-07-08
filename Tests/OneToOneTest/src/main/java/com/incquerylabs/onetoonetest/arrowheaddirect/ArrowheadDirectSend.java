@@ -30,15 +30,11 @@ public class ArrowheadDirectSend implements Sender {
 	public static final int ORCH_PORT = 8440;
 	public static final String SERVICE_NAME = "conptest";
 	public static final String INTERFACE = "TCP";
-	File file;
 	ArrowheadSystem provider = null;
 
-	public ArrowheadDirectSend(File File) {
-		file = File;
-	}
 
 	@Override
-	public void send(int n) {
+	public void send(int n, File file) {
 		if (provider == null) {
 			String orchUri = Utility.getUri(ORCH_IP, ORCH_PORT, "orchestrator/orchestration", false, false);
 			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);

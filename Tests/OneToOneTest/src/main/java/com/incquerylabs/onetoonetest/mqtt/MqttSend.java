@@ -12,33 +12,36 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.onetoonetest.Sender;
 
-public class MqttSend extends MqttClient implements Sender {
+public class MqttSend implements Sender {
 
-	File file;
 	public static final String TOPIC = MqttRec.TOPIC;
 	private static String IP = "127.0.0.1";
 	private static int port = MqttRec.MOSQUITTO_PORT;
 	private static String name = "MY life";
+	MqttClient mqc;
 
-	public MqttSend(File file) throws MqttException {
-		super("tcp://" + IP + ":" + port, name, new MemoryPersistence());
-		this.file = file;
-		MqttConnectOptions options = new MqttConnectOptions();
-		options.setAutomaticReconnect(true);
-		options.setCleanSession(true);
-		options.setConnectionTimeout(10);
-
-		connect(options);
+	public MqttSend() {
+		try {
+			mqc = new MqttClient("tcp://" + IP + ":" + port, name, new MemoryPersistence());
+			MqttConnectOptions options = new MqttConnectOptions();
+			options.setAutomaticReconnect(true);
+			options.setCleanSession(true);
+			options.setConnectionTimeout(10);
+		
+			mqc.connect(options);
+		} catch (MqttException e) {
+			System.out.println("Excepton in MQTT creation.");
+		}
 	}
 
 	@Override
-	public void send(int n) {
+	public void send(int n,  File file) {
 		try {
 			ByteBuffer buf = ByteBuffer.allocate((int) (file.length() + 5)).putInt(n)
 					.put(Files.readAllBytes(file.toPath()));
 			MqttMessage message = new MqttMessage(buf.array());
 			message.setQos(2);
-			publish(TOPIC, message);
+			mqc.publish(TOPIC, message);
 		} catch (IOException e) {
 			System.out.println("bad");
 		} catch (MqttException e) {

@@ -16,18 +16,13 @@ import eu.arrowhead.client.common.model.PublishEvent;
 
 public class ArrowheadEventSend implements Sender {
 
-	File file;
 	public static final String IP = "127.0.0.1";
 	public static final int EH_PORT = 8454;
 	public static final int PUB_PORT = 9023;
 	public static final String EVENT_NAME = "file incoming";
 
-	public ArrowheadEventSend(File File) {
-		file = File;
-	}
-
 	@Override
-	public void send(int n) {
+	public void send(int n, File file) {
 		String ehUri = Utility.getUri(IP, EH_PORT, "eventhandler/publish", false, false);
 		Map<String, String> metadata = new HashMap<String, String>();
 		String payload = null;

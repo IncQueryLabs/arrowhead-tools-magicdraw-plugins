@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -58,14 +60,11 @@ public class ArrowheadDirectSend implements Sender {
 
 		Socket socket = null;
 		try {
-			byte[] buffer = new byte[1024];
 			socket = new Socket(provider.getAddress(), provider.getPort());
 			FileInputStream fip = new FileInputStream(file);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-			out.writeInt(n);
-			while (fip.read(buffer) != -1) {
-				out.write(buffer);
-			}
+			ByteBuffer buf = ByteBuffer.allocate((int) file.length() + 4).putInt(n).put(Files.readAllBytes(file.toPath()));
+			out.write(buf.array());
 			fip.close();
 			socket.close();
 		} catch (UnknownHostException e) {

@@ -64,14 +64,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				DataInputStream in = new DataInputStream(socket.getInputStream());
 				int index = in.readInt();
 				mid.put(index, Instant.now());
-				boolean on = true;
-				while (on) {
-					try {
-						in.readDouble();
-					} catch (IOException e) {
-						on = false;
-					}
-				}
+				in.readAllBytes();
 				System.out.println("Test " + index + " finished.");
 				end.put(index, Instant.now());
 			}

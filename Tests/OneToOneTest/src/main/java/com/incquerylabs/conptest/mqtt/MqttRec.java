@@ -60,7 +60,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 		ByteBuffer buf = ByteBuffer.wrap(message.getPayload());
 		Integer index = buf.getInt();
 		mid.put(index, Instant.now());
-		System.out.println("Rec: " + index + " ar " + Instant.now().toString());
+		System.out.println("Rec: " + index + " at: " + Instant.now().toString());
 		end.put(index, Instant.now());
 	}
 

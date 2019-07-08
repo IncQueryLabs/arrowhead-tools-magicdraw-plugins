@@ -19,6 +19,7 @@ public class ArrowDirectTest {
 	File file = new File("L3.pdf");
 	Sender send = new ArrowheadDirectSend(file);
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
+	public static final Integer REP = 12;
 
 	public void startup() {
 		rec.start();
@@ -92,21 +93,24 @@ public class ArrowDirectTest {
 				String mess = len + ", " + startS + ", " + midS + ", " + endS + ", " + lat + ", " + bw + ",\n";
 				out.write(mess);
 				// System.out.println(mess);
-				out.flush();
 			} catch (IOException e) {
 				System.out.println("Writer downed!!!?");
 			}
 		}
-
-		System.out.println("Average latency: " + totalLat / map.size());
-		System.out.println("Average bandwidth: " + totalBW / map.size());
-
+		try {
+			out.write(" , , , , , , " + totalLat / map.size() + ", " + totalBW / map.size() + ",\n");
+			out.flush();
+			System.out.println("Average latency: " + totalLat / map.size());
+			System.out.println("Average bandwidth: " + totalBW / map.size());
+		} catch (IOException e) {
+			System.out.println("Writer downed 2!!!?");
+		}
 	}
 
 	public static void main(String[] args) {
 		ArrowDirectTest test = new ArrowDirectTest();
 		test.startup();
-		for (Integer i = 0; i < 12; ++i) {
+		for (Integer i = 0; i < REP; ++i) {
 			test.sendFile(i);
 			try {
 				Thread.sleep(1000);

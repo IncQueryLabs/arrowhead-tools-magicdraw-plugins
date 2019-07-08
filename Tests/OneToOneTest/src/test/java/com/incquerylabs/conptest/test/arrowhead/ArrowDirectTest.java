@@ -8,10 +8,10 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.incquerylabs.conptest.Receiver;
-import com.incquerylabs.conptest.Sender;
-import com.incquerylabs.conptest.arrowhead.ArrowheadDirectRec;
-import com.incquerylabs.conptest.arrowhead.ArrowheadDirectSend;
+import com.incquerylabs.conptest.arrowheaddirect.ArrowheadDirectRec;
+import com.incquerylabs.conptest.arrowheaddirect.ArrowheadDirectSend;
+import com.incquerylabs.onetoonetest.Receiver;
+import com.incquerylabs.onetoonetest.Sender;
 
 public class ArrowDirectTest {
 

@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.mqtt;
+package com.incquerylabs.onetoonetest.mqtt;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import com.incquerylabs.conptest.Sender;
+import com.incquerylabs.onetoonetest.Sender;
 
 public class MqttSend extends MqttClient implements Sender {
 

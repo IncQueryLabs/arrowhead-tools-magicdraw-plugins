@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.arrowhead;
+package com.incquerylabs.onetoonetest.arrowheadevent;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

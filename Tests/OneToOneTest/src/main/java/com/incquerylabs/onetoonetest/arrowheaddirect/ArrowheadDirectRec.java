@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.arrowhead;
+package com.incquerylabs.onetoonetest.arrowheaddirect;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.incquerylabs.conptest.Receiver;
+import com.incquerylabs.onetoonetest.Receiver;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.exception.ArrowheadException;

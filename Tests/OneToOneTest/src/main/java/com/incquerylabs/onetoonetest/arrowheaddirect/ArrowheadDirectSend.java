@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.arrowhead;
+package com.incquerylabs.onetoonetest.arrowheaddirect;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.util.Set;
 
 import javax.ws.rs.core.Response;
 
-import com.incquerylabs.conptest.Sender;
+import com.incquerylabs.onetoonetest.Sender;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.model.ArrowheadService;

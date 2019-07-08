@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.arrowhead;
+package com.incquerylabs.onetoonetest.arrowheadevent;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.incquerylabs.conptest.Receiver;
+import com.incquerylabs.onetoonetest.Receiver;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;

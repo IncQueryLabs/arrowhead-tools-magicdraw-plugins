@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest;
+package com.incquerylabs.onetoonetest;
 
 import java.time.Instant;
 

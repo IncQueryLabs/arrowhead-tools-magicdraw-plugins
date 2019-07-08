@@ -1,4 +1,4 @@
-package com.incquerylabs.conptest.arrowhead;
+package com.incquerylabs.onetoonetest.arrowheadevent;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.incquerylabs.conptest.Sender;
+import com.incquerylabs.onetoonetest.Sender;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.model.ArrowheadSystem;

@@ -27,15 +27,17 @@ public class ArrowheadEventSend implements Sender {
 		Map<String, String> metadata = new HashMap<String, String>();
 		String payload = null;
 		try {
-			payload = Files.readString(file.toPath());
+			String temp = Files.readString(file.toPath());
+			payload = n + "\n";
+			payload.concat(temp);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("File read wrong.");
 		}
 		Event event = new Event(EVENT_NAME, payload, ZonedDateTime.now(), metadata);
-		ArrowheadSystem me = new ArrowheadSystem("cordek test pub", IP, PUB_PORT, null);
+		ArrowheadSystem me = new ArrowheadSystem("cordek", IP, PUB_PORT, null);
 		PublishEvent pubE = new PublishEvent(me, event, null);
 
 		Utility.sendRequest(ehUri, "POST", pubE);
+		System.out.println("Event sent with index: " + n);
 	}
 }

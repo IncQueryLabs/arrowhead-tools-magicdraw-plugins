@@ -20,15 +20,30 @@ public class ArrowDirectTest {
 	File file = new File("L3.pdf");
 	Sender send = new ArrowheadDirectSend(file);
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
-	public static final Integer REP = 12;
 
-	public void startup() {
+	public void test(Integer rep, File outFile) {
+		System.out.println("Starting Test.");
 		rec.start();
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
+		for (Integer i = 0; i < rep; ++i) {
+			sendFile(i);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}
+		System.out.println("Wrapping up.");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+		wrapup(outFile);
 	}
 
 	public void sendFile(Integer index) {
@@ -38,12 +53,12 @@ public class ArrowDirectTest {
 		map.put(index, start);
 	}
 
-	public void wrapup(String filename) {
+	public void wrapup(File file) {
 		long l = file.length();
 
 		FileWriter out = null;
 		try {
-			out = new FileWriter(new File(filename), true);
+			out = new FileWriter(file, true);
 		} catch (IOException e) {
 			System.out.println("Writer down!!!?");
 		}
@@ -110,21 +125,6 @@ public class ArrowDirectTest {
 
 	public static void main(String[] args) {
 		ArrowDirectTest test = new ArrowDirectTest();
-		test.startup();
-		for (Integer i = 0; i < REP; ++i) {
-			test.sendFile(i);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-			}
-		}
-		System.out.println("Wrapping up.");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-		}
-		test.wrapup("ArrowDirectOut.csv");
+		test.test(12, new File("ArrowDirect.csv"));
 	}
 }

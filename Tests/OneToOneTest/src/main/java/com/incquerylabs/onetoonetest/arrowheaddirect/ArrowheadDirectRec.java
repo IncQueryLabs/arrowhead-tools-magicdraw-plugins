@@ -38,10 +38,8 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(INTERFACE);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
-
 		ArrowheadService service = new ArrowheadService(SERVICE_NAME, interfaces, serviceMetadata);
 		ServiceRegistryEntry sre = new ServiceRegistryEntry(service, me, "NOTRESTFUL");
-
 		try {
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
@@ -52,7 +50,6 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				Utility.sendRequest(srUri, "POST", sre);
 			}
 		}
-
 		try {
 			serverSocket = new ServerSocket(PROVIDER_PORT);
 			System.out.println("Listener started.");
@@ -67,7 +64,17 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				end.put(index, Instant.now());
 			}
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			//Expected: TCP server shouldn't be rebinded as quickly as in this test
+			//System.out.println("In diect rec: " + e.getMessage());
+		} finally {
+			if (serverSocket != null) {
+				try {
+					serverSocket.close();
+					serverSocket = null;
+				} catch (IOException e) {
+					System.out.println("Writer unclosing!!!?");
+				}
+			}
 		}
 	}
 
@@ -83,7 +90,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 
 	@Override
 	public void kill() {
-		if(serverSocket != null) {
+		if (serverSocket != null) {
 			try {
 				serverSocket.close();
 				serverSocket = null;

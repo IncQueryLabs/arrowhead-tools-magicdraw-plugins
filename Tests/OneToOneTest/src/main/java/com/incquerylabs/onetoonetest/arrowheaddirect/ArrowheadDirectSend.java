@@ -44,7 +44,6 @@ public class ArrowheadDirectSend implements Sender {
 			ArrowheadService service = new ArrowheadService(SERVICE_NAME, interfaces, serviceMetadata);
 			Map<String, Boolean> flags = new HashMap<String, Boolean>();
 			flags.put("overrideStore", true);
-
 			ServiceRequestForm srf = new ServiceRequestForm.Builder(me).requestedService(service)
 					.orchestrationFlags(flags).build();
 			Response r = null;
@@ -53,7 +52,6 @@ public class ArrowheadDirectSend implements Sender {
 			OrchestrationForm of = or.getResponse().get(0);
 			provider = of.getProvider();
 		}
-
 		try {
 			socket = new Socket(provider.getAddress(), provider.getPort());
 			FileInputStream fip = new FileInputStream(file);
@@ -61,19 +59,29 @@ public class ArrowheadDirectSend implements Sender {
 			ByteBuffer buf = ByteBuffer.allocate((int) file.length() + 4).putInt(n).put(Files.readAllBytes(file.toPath()));
 			out.write(buf.array());
 			fip.close();
+			socket.close();
 		} catch (UnknownHostException e) {
 			System.out.println("What host?");
 		} catch (IOException e) {
 			System.out.println("IOException");
+		} finally {
+			if (socket != null) {
+				try {
+					socket.close();
+					socket = null;
+				} catch (IOException e) {
+					System.out.println("IOException on closiong");
+				}
+			}
 		}
 	}
-
 
 	@Override
 	public void kill() {
 		if (socket != null) {
 			try {
 				socket.close();
+				socket = null;
 			} catch (IOException e) {
 				System.out.println("IOException on closiong");
 			}

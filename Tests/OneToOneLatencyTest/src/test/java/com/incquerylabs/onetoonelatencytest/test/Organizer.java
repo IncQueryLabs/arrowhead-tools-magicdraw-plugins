@@ -3,13 +3,9 @@ package com.incquerylabs.onetoonelatencytest.test;
 import java.io.File;
 import java.util.Random;
 
-import com.incquerylabs.onetoonelatencytest.Receiver;
 import com.incquerylabs.onetoonelatencytest.Sender;
-import com.incquerylabs.onetoonelatencytest.arrowheaddirect.ArrowheadDirectRec;
 import com.incquerylabs.onetoonelatencytest.arrowheaddirect.ArrowheadDirectSend;
-import com.incquerylabs.onetoonelatencytest.dds.DdsRec;
 import com.incquerylabs.onetoonelatencytest.dds.DdsSend;
-import com.incquerylabs.onetoonelatencytest.mqtt.MqttRec;
 import com.incquerylabs.onetoonelatencytest.mqtt.MqttSend;
 
 public class Organizer{
@@ -25,14 +21,13 @@ public class Organizer{
 		Test test = null;
 		File file = null;
 		Integer nOfRuns = 12;
-		Integer testToRun = 1;
+		Integer testToRun = 0;
 		Integer fileToSend = 2;
 		
 		while(run) {
 			Random r = new Random();
-			fileToSend = r.nextInt(4);
-			testToRun = r.nextInt(3);
-			Receiver rec = null;
+			//fileToSend = r.nextInt(4);
+			//testToRun = r.nextInt(3);
 			Sender send = null;
 			
 			switch (fileToSend) {
@@ -53,25 +48,21 @@ public class Organizer{
 			switch (testToRun) {
 			case 0:
 				System.out.println("Arrowhead Direct Test.");
-				rec = new ArrowheadDirectRec();
 				send = new ArrowheadDirectSend();
-				test = new Test(rec, send, file, new File("Out/ArrowheadDirect.csv"));
+				test = new Test(send, file, new File("Out/ArrowheadDirect.csv"));
 				break;
 			case 1:
-				rec = new DdsRec();
 				send = new DdsSend();
 				System.out.println("DDS Test.");
-				test = new Test(rec, send, file, new File("Out/Dds.csv"));
+				test = new Test(send, file, new File("Out/Dds.csv"));
 				break;
 			case 2:
-				rec = new MqttRec();
 				send = new MqttSend();
 				System.out.println("MQTT Test.");
-				test = new Test(rec, send, file, new File("Out/Mqtt.csv"));
+				test = new Test(send, file, new File("Out/Mqtt.csv"));
 				break;
 			}
 			test.test(nOfRuns);
-			rec.kill();
 			send.kill();
 		}
 	}

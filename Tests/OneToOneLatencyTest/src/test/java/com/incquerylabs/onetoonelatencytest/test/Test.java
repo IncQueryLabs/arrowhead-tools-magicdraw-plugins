@@ -13,14 +13,12 @@ import com.incquerylabs.onetoonelatencytest.Sender;
 
 public class Test {
 
-	Receiver rec;
 	Sender send;
 	File inputFile;
 	File outputFile;
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
 
-	public Test(Receiver rec, Sender send, File inputFile, File outputFile) {
-		this.rec = rec;
+	public Test(Sender send, File inputFile, File outputFile) {
 		this.send = send;
 		this.inputFile = inputFile;
 		this.outputFile = outputFile;
@@ -28,20 +26,12 @@ public class Test {
 
 	public void test(Integer rep) {
 		System.out.println("Starting Test.");
-		rec.start();
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
-		for (Integer i = 0; i < rep; ++i) {
-			sendFile(i);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-			}
-		}
+		sendFile(rep);
 		System.out.println("Wrapping up.");
 		try {
 			Thread.sleep(5000);
@@ -78,6 +68,9 @@ public class Test {
 		long totalLat = 0;
 		long totalBW = 0;
 
+		map = send.getTimes();
+		
+		/*
 		for (Integer i = 0; i < map.size(); ++i) {
 			Instant start = map.get(i);
 			Instant mid = rec.getMid(i);
@@ -128,6 +121,6 @@ public class Test {
 			System.out.println("Average bandwidth: " + totalBW / map.size());
 		} catch (IOException e) {
 			System.out.println("Writer downed 2!!!?");
-		}
+		}*/
 	}
 }

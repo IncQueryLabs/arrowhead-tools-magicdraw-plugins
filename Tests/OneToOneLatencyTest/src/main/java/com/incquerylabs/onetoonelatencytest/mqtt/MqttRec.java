@@ -65,16 +65,6 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 	}
 
 	@Override
-	public Instant getEnd(Integer n) {
-		return end.get(n);
-	}
-
-	@Override
-	public Instant getMid(Integer n) {
-		return mid.get(n);
-	}
-
-	@Override
 	public void kill() {
 		if(rec != null) {
 			try {

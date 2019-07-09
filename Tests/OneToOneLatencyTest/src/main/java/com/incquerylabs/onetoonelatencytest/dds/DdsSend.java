@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.incquerylabs.onetoonelatencytest.Sender;
 import com.rti.dds.domain.DomainParticipant;
@@ -24,6 +27,7 @@ public class DdsSend implements Sender {
 	Topic topic = null;
 	FileChunkTypeDataWriter writer = null;
 	public static final String TOPIC_NAME = "Chunkyfile";
+	Map<Integer, Instant> times = new HashMap<Integer, Instant>();
 
 	public DdsSend() {
 		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(domainId,
@@ -88,5 +92,10 @@ public class DdsSend implements Sender {
 			DomainParticipantFactory.TheParticipantFactory.delete_participant(participant);
 			participant = null;
 		}
+	}
+
+	@Override
+	public Map<Integer, Instant> getTimes() {
+		return times;
 	}
 }

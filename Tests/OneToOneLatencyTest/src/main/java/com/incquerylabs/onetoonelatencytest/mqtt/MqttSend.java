@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -19,6 +23,7 @@ public class MqttSend implements Sender {
 	private static int port = MqttRec.MOSQUITTO_PORT;
 	private static String name = "MY life";
 	MqttClient mqc = null;
+	Map<Integer, Instant> times = new HashMap<Integer, Instant>();
 
 	public MqttSend() {
 		try {
@@ -64,5 +69,11 @@ public class MqttSend implements Sender {
 			}
 			mqc = null;
 		}
+	}
+
+
+	@Override
+	public Map<Integer, Instant> getTimes() {
+		return times;
 	}
 }

@@ -70,22 +70,6 @@ public class DdsRec extends Thread implements Receiver {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		super.run();
-	}
-
-	@Override
-	public Instant getEnd(Integer n) {
-		return end.get(n);
-	}
-
-	@Override
-	public Instant getMid(Integer n) {
-		return mid.get(n);
-	}
-
-	@Override
 	public void kill() {
 		if (participant != null) {
 			participant.delete_contained_entities();

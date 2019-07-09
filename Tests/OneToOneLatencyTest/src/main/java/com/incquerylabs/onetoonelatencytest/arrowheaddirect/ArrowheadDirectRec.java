@@ -1,7 +1,10 @@
 package com.incquerylabs.onetoonelatencytest.arrowheaddirect;
 
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.Instant;
@@ -53,19 +56,24 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 		try {
 			serverSocket = new ServerSocket(PROVIDER_PORT);
 			System.out.println("Listener started.");
+			BufferedReader checker;
+			PrintWriter out;
+			InputStream in;
 			while (true) {
 				Socket socket = serverSocket.accept();
-				System.out.println("Connection Received");
-				DataInputStream in = new DataInputStream(socket.getInputStream());
-				int index = in.readInt();
-				mid.put(index, Instant.now());
-				in.readAllBytes();
-				System.out.println("Test " + index + " finished.");
-				end.put(index, Instant.now());
+				System.out.println("Arrowhead direct message Received");
+				in = socket.getInputStream();
+				checker = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				out = new PrintWriter(socket.getOutputStream());
+				while(checker.readLine() != null) {
+					in.readAllBytes();
+					out.println("Gotttttttttttt!");
+				}
+				socket.close();
 			}
 		} catch (IOException e) {
 			//Expected: TCP server shouldn't be rebinded as quickly as in this test
-			//System.out.println("In diect rec: " + e.getMessage());
+			System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {
@@ -76,16 +84,6 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				}
 			}
 		}
-	}
-
-	@Override
-	public Instant getEnd(Integer n) {
-		return end.get(n);
-	}
-
-	@Override
-	public Instant getMid(Integer n) {
-		return mid.get(n);
 	}
 
 	@Override

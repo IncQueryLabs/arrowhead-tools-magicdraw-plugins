@@ -19,7 +19,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 
 	private final int qos = 1;
 	public static final String TOPIC = "test";
-	private MqttClient rec;
+	private MqttClient rec = null;
 	private String IP = "127.0.0.1";
 	public static final int MOSQUITTO_PORT = 1883;
 	private String recName = "Mqtt rec";
@@ -72,5 +72,23 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 	@Override
 	public Instant getMid(Integer n) {
 		return mid.get(n);
+	}
+
+	@Override
+	public void kill() {
+		if(rec != null) {
+			try {
+				rec.disconnect();
+			} catch (MqttException e) {
+				System.out.println("MQTT rec unable to disconnect");
+			}
+			try {
+				rec.close();
+			} catch (MqttException e) {
+				System.out.println("MQTT rec unable to close");
+			}
+			rec = null;
+			this.interrupt();
+		}
 	}
 }

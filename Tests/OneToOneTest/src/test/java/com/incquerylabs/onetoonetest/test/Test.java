@@ -8,7 +8,6 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import com.incquerylabs.onetoonetest.Receiver;
 import com.incquerylabs.onetoonetest.Sender;
 
@@ -19,7 +18,7 @@ public class Test {
 	File inputFile;
 	File outputFile;
 	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
-	
+
 	public Test(Receiver rec, Sender send, File inputFile, File outputFile) {
 		this.rec = rec;
 		this.send = send;
@@ -31,21 +30,21 @@ public class Test {
 		System.out.println("Starting Test.");
 		rec.start();
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
 		for (Integer i = 0; i < rep; ++i) {
 			sendFile(i);
 			try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 			}
 		}
 		System.out.println("Wrapping up.");
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
@@ -106,6 +105,9 @@ public class Test {
 			}
 			if (!bw.equals("null")) {
 				long t = Duration.between(start, end).toMillis();
+				if (t <= 0) {
+					t = 1;
+				}
 				long bwl = 1000 * l / t;
 				totalBW = totalBW + bwl;
 				bw = "" + bwl;

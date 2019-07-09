@@ -31,7 +31,7 @@ public class ArrowheadDirectSend implements Sender {
 	public static final String SERVICE_NAME = "conptest";
 	public static final String INTERFACE = "TCP";
 	ArrowheadSystem provider = null;
-
+	Socket socket = null;
 
 	@Override
 	public void send(int n, File file) {
@@ -54,7 +54,6 @@ public class ArrowheadDirectSend implements Sender {
 			provider = of.getProvider();
 		}
 
-		Socket socket = null;
 		try {
 			socket = new Socket(provider.getAddress(), provider.getPort());
 			FileInputStream fip = new FileInputStream(file);
@@ -62,18 +61,21 @@ public class ArrowheadDirectSend implements Sender {
 			ByteBuffer buf = ByteBuffer.allocate((int) file.length() + 4).putInt(n).put(Files.readAllBytes(file.toPath()));
 			out.write(buf.array());
 			fip.close();
-			socket.close();
 		} catch (UnknownHostException e) {
 			System.out.println("What host?");
 		} catch (IOException e) {
 			System.out.println("IOException");
-		} finally {
-			if (socket != null) {
-				try {
-					socket.close();
-				} catch (IOException e) {
-					System.out.println("IOException on closiong");
-				}
+		}
+	}
+
+
+	@Override
+	public void kill() {
+		if (socket != null) {
+			try {
+				socket.close();
+			} catch (IOException e) {
+				System.out.println("IOException on closiong");
 			}
 		}
 	}

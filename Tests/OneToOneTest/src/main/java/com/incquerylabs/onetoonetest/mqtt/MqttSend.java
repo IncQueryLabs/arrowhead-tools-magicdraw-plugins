@@ -18,7 +18,7 @@ public class MqttSend implements Sender {
 	private static String IP = "127.0.0.1";
 	private static int port = MqttRec.MOSQUITTO_PORT;
 	private static String name = "MY life";
-	MqttClient mqc;
+	MqttClient mqc = null;
 
 	public MqttSend() {
 		try {
@@ -27,7 +27,7 @@ public class MqttSend implements Sender {
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
-		
+
 			mqc.connect(options);
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation.");
@@ -35,7 +35,7 @@ public class MqttSend implements Sender {
 	}
 
 	@Override
-	public void send(int n,  File file) {
+	public void send(int n, File file) {
 		try {
 			ByteBuffer buf = ByteBuffer.allocate((int) (file.length() + 5)).putInt(n)
 					.put(Files.readAllBytes(file.toPath()));
@@ -45,7 +45,24 @@ public class MqttSend implements Sender {
 		} catch (IOException e) {
 			System.out.println("bad");
 		} catch (MqttException e) {
-			System.out.println("mqt?");
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	@Override
+	public void kill() {
+		if(mqc != null) {
+			try {
+				mqc.disconnect();
+			} catch (MqttException e) {
+				System.out.println("MQTT rec unable to disconnect");
+			}
+			try {
+				mqc.close();
+			} catch (MqttException e) {
+				System.out.println("MQTT rec unable to close");
+			}
+			mqc = null;
 		}
 	}
 }

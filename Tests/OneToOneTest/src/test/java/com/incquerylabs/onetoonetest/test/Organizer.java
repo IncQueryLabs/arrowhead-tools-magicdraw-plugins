@@ -3,25 +3,35 @@ package com.incquerylabs.onetoonetest.test;
 import java.io.File;
 import java.util.Random;
 
+import com.incquerylabs.onetoonetest.Receiver;
+import com.incquerylabs.onetoonetest.Sender;
 import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectRec;
 import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectSend;
 import com.incquerylabs.onetoonetest.mqtt.MqttRec;
 import com.incquerylabs.onetoonetest.mqtt.MqttSend;
 
-public class Organizer {
+public class Organizer{
+	
+	volatile static boolean run = true;
+	
 	public static void main(String[] args) {
-		
+		Organizer o = new Organizer();
+		o.run();
+	}
+
+	public void run() {
 		Test test = null;
 		File file = null;
-		Integer runs = 12;
-		Integer testToRun = 2;
+		Integer nOfRuns = 12;
+		Integer testToRun = 0;
 		Integer fileToSend = 1;
 		
-		while(true) {
+		while(run) {
 			Random r = new Random();
-			fileToSend = r.nextInt(4);
-			testToRun = r.nextInt(3);
-			
+			fileToSend = r.nextInt(3);
+			//testToRun = r.nextInt(3);
+			Receiver rec = null;
+			Sender send = null;
 			
 			switch (fileToSend) {
 			case 0:
@@ -40,17 +50,27 @@ public class Organizer {
 			
 			switch (testToRun) {
 			case 0:
-				test = new Test(new ArrowheadDirectRec(), new ArrowheadDirectSend() , file, new File("Out/ArrowheadDirect.csv"));
+				System.out.println("Arrowhead Direct Test.");
+				rec = new ArrowheadDirectRec();
+				send = new ArrowheadDirectSend();
+				test = new Test(rec, send, file, new File("Out/ArrowheadDirect.csv"));
 				break;
 			case 1:
-				test = new Test(new ArrowheadDirectRec(), new ArrowheadDirectSend() , file, new File("Out/ArrowheadDirect.csv")); //TO be replaced with dds
+				rec = new MqttRec();
+				send = new MqttSend();
+				System.out.println("MQTT Test.");
+				test = new Test(rec, send, file, new File("Out/Mqtt.csv")); //TO be replaced with dds
 				break;
-			case 2: 
-				test = new Test(new MqttRec(), new MqttSend() , file, new File("Out/Mqtt.csv"));
+			case 2:
+				rec = new MqttRec();
+				send = new MqttSend();
+				System.out.println("MQTT Test.");
+				test = new Test(rec, send, file, new File("Out/Mqtt.csv"));
 				break;
 			}
-			
-			test.test(runs);
+			test.test(nOfRuns);
+			rec.kill();
+			send.kill();
 		}
 	}
 }

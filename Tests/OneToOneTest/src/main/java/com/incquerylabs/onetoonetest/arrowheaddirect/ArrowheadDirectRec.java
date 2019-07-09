@@ -29,6 +29,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 	static final String SR_PATH = "serviceregistry/register";
 	Map<Integer, Instant> mid = new HashMap<Integer, Instant>();
 	Map<Integer, Instant> end = new HashMap<Integer, Instant>();
+	ServerSocket serverSocket = null;
 
 	@Override
 	public void run() {
@@ -45,15 +46,12 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
-				System.out.println(
-						"Received DuplicateEntryException from SR, sending delete request and then registering again.");
+				System.out.println("Received DuplicateEntryException from SR, sending delete request and then registering again.");
 				String unregUri = Utility.getUri(SR_IP, SR_PORT, "serviceregistry/remove", false, false);
 				Utility.sendRequest(unregUri, "PUT", sre);
 				Utility.sendRequest(srUri, "POST", sre);
 			}
 		}
-
-		ServerSocket serverSocket = null;
 
 		try {
 			serverSocket = new ServerSocket(PROVIDER_PORT);
@@ -69,15 +67,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				end.put(index, Instant.now());
 			}
 		} catch (IOException e) {
-			System.out.println("Server downed!!!?");
-		} finally {
-			if (serverSocket != null) {
-				try {
-					serverSocket.close();
-				} catch (IOException e) {
-					System.out.println("Writer unclosing!!!?");
-				}
-			}
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -89,5 +79,18 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 	@Override
 	public Instant getMid(Integer n) {
 		return mid.get(n);
+	}
+
+	@Override
+	public void kill() {
+		if(serverSocket != null) {
+			try {
+				serverSocket.close();
+				serverSocket = null;
+			} catch (IOException e) {
+				System.out.println("Arr Rec unable to kill serversocket");
+			}
+		}
+		this.interrupt();
 	}
 }

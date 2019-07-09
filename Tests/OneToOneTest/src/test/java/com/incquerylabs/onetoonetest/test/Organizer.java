@@ -7,6 +7,8 @@ import com.incquerylabs.onetoonetest.Receiver;
 import com.incquerylabs.onetoonetest.Sender;
 import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectRec;
 import com.incquerylabs.onetoonetest.arrowheaddirect.ArrowheadDirectSend;
+import com.incquerylabs.onetoonetest.dds.DdsRec;
+import com.incquerylabs.onetoonetest.dds.DdsSend;
 import com.incquerylabs.onetoonetest.mqtt.MqttRec;
 import com.incquerylabs.onetoonetest.mqtt.MqttSend;
 
@@ -23,13 +25,13 @@ public class Organizer{
 		Test test = null;
 		File file = null;
 		Integer nOfRuns = 12;
-		Integer testToRun = 0;
-		Integer fileToSend = 1;
+		Integer testToRun = 1;
+		Integer fileToSend = 2;
 		
 		while(run) {
 			Random r = new Random();
-			fileToSend = r.nextInt(3);
-			//testToRun = r.nextInt(3);
+			fileToSend = r.nextInt(4);
+			testToRun = r.nextInt(3);
 			Receiver rec = null;
 			Sender send = null;
 			
@@ -56,10 +58,10 @@ public class Organizer{
 				test = new Test(rec, send, file, new File("Out/ArrowheadDirect.csv"));
 				break;
 			case 1:
-				rec = new MqttRec();
-				send = new MqttSend();
-				System.out.println("MQTT Test.");
-				test = new Test(rec, send, file, new File("Out/Mqtt.csv")); //TO be replaced with dds
+				rec = new DdsRec();
+				send = new DdsSend();
+				System.out.println("DDS Test.");
+				test = new Test(rec, send, file, new File("Out/Dds.csv"));
 				break;
 			case 2:
 				rec = new MqttRec();

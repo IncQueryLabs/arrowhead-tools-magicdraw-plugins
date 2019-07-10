@@ -24,10 +24,12 @@ public class MqttSend implements MqttCallback, Sender {
 	private static String name = "MY life";
 	MqttClient mqc = null;
 	Map<Integer, Instant> times = new HashMap<Integer, Instant>();
+	private volatile boolean waitForResponse = true;
 
 	public MqttSend() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.MQTT_SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name, new MemoryPersistence());
+			mqc = new MqttClient("tcp://" + Constants.MQTT_SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
+					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
@@ -43,21 +45,41 @@ public class MqttSend implements MqttCallback, Sender {
 	@Override
 	public void send(int n, File file) {
 		try {
-			ByteBuffer buf = ByteBuffer.allocate((int) (file.length() + 5)).putInt(n)
-					.put(Files.readAllBytes(file.toPath()));
-			MqttMessage message = new MqttMessage(buf.array());
-			message.setQos(2);
-			mqc.publish(Constants.MQTT_TOPIC_NAME, message);
+			ByteBuffer buf = ByteBuffer.allocate((int) (file.length())).put(Files.readAllBytes(file.toPath()));
+			times.put(0, Instant.now());
+			for (int i = 0; i < n; ++i) {
+				MqttMessage message = new MqttMessage(buf.array());
+				message.setQos(Constants.MQTT_QOS);
+				System.out.println("MQTT message number " + Integer.valueOf(i + 1) + " sent.");
+				mqc.publish(Constants.MQTT_TOPIC_NAME, message);
+
+				while (waitForResponse) {
+					try {
+						Thread.sleep(1);
+					} catch (InterruptedException e) {
+						;
+					}
+				}
+
+				waitForResponse = true;
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					;
+				}
+				times.put(Integer.valueOf(i + 1), Instant.now());
+			}
+
 		} catch (IOException e) {
 			System.out.println("bad");
 		} catch (MqttException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@Override
 	public void kill() {
-		if(mqc != null) {
+		if (mqc != null) {
 			try {
 				mqc.disconnect();
 			} catch (MqttException e) {
@@ -90,6 +112,6 @@ public class MqttSend implements MqttCallback, Sender {
 
 	@Override
 	public void deliveryComplete(IMqttDeliveryToken token) {
-		System.out.println("Del c");
+		waitForResponse = false;
 	}
 }

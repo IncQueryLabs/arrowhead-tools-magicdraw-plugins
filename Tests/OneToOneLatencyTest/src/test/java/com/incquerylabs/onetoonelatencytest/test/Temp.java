@@ -15,7 +15,7 @@ public class Temp {
 		rec.start();
 		File inputFile = new File("src/test/resources/aaa.txt");
 		File outputFile = new File("Out/ArrowheadDirect.csv");
-		
+
 		Test test = new Test(send, inputFile, outputFile);
 		test.test(Constants.TEST_REPETITIONS);
 		send.kill();

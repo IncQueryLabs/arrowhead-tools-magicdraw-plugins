@@ -2,6 +2,7 @@ package com.incquerylabs.onetoonelatencytest.arrowheaddirect;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -55,27 +56,30 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 		try {
 			serverSocket = new ServerSocket(Constants.ARROWHEAD_PROVIDER_PORT);
 			System.out.println("Listener started.");
-			BufferedReader checker;
-			PrintWriter out;
 			while (true) {
 				Socket socket = serverSocket.accept();
+				PrintWriter out = new PrintWriter(socket.getOutputStream());
+				InputStream in = socket.getInputStream();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+				byte[] buff = new byte[65536];
+				int count;
+				String s = reader.readLine();
+				Integer fileSize = Integer.parseInt(s);
 				System.out.println("Arrowhead direct message Received");
-				checker = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				out = new PrintWriter(socket.getOutputStream());
-				String h;
-				while (checker.readLine() != null) {
-					while (!(h = checker.readLine()).equals("=====")) {
-						System.out.println(h);
-					}
-					out.println("ggggggg");
-					System.out.println("gggggggggg?");
+				while (fileSize > 0) {
+					count = in.read(buff);
+					fileSize = fileSize - count;
 				}
-				System.out.println("Skip?");
-				socket.close();
+				out.println("gg");
+				try {
+					socket.close();
+				} catch (IOException e) {
+					// expected?
+				}
 			}
 		} catch (IOException e) {
-			// Expected: TCP server shouldn't be rebinded as quickly as in this test
-			System.out.println("In diect rec: " + e.getMessage());
+			// Expected: the kill of organizer interrupts the severSocket.accept()
+			//System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {

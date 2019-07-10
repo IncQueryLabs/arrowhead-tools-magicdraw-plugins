@@ -38,7 +38,7 @@ public class ArrowheadDirectSend implements Sender {
 	@Override
 	public void send(int n, File file) {
 		if (provider == null) {
-			String orchUri = Utility.getUri(Constants.ARROWHEAD_ORCHESTRATOR_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT,
+			String orchUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT,
 					OR_PATH, false, false);
 			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", Constants.LOCALHOST_IP, 1, null);
 			Set<String> interfaces = new HashSet<String>();

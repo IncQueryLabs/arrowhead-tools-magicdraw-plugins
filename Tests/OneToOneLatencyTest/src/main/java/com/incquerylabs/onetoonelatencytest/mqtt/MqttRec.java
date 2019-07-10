@@ -23,7 +23,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 		options.setAutomaticReconnect(true);
 		options.setCleanSession(true);
 		options.setConnectionTimeout(10);
-		String url = "tcp://" + Constants.MQTT_SERVER_IP + ":" + Constants.MQTT_SERVER_PORT;
+		String url = "tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT;
 
 		try {
 			rec = new MqttClient(url, recName, new MemoryPersistence());

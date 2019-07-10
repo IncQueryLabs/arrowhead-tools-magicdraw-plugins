@@ -28,7 +28,7 @@ public class MqttSend implements MqttCallback, Sender {
 
 	public MqttSend() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.MQTT_SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);

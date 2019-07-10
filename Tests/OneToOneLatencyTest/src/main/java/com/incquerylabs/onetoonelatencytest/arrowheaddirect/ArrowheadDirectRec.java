@@ -33,8 +33,8 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 
 	@Override
 	public void run() {
-		String srUri = Utility.getUri(Constants.ARROWHEAD_SERVICE_REGISTRY_IP,
-				Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH, false, true);
+		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
+				false, true);
 		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.LOCALHOST_IP, Constants.ARROWHEAD_PROVIDER_PORT,
 				null);
 		Set<String> interfaces = new HashSet<String>();
@@ -47,8 +47,8 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
 				System.out.println("Duplicate...");
-				String unregUri = Utility.getUri(Constants.ARROWHEAD_SERVICE_REGISTRY_IP,
-						Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_UNREG_PATH, false, false);
+				String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
+						SR_UNREG_PATH, false, false);
 				Utility.sendRequest(unregUri, "PUT", sre);
 				Utility.sendRequest(srUri, "POST", sre);
 			} else {

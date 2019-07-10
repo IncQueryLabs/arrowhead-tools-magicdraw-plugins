@@ -12,8 +12,8 @@ import com.incquerylabs.onetoonelatencytest.mqtt.MqttSend;
 
 public class Temp {
 	public static void main(String[] args) {
-		Receiver rec = new ArrowheadDirectRec();
-		Sender send = new ArrowheadDirectSend();
+		Receiver rec = new MqttRec();
+		Sender send = new MqttSend();
 		rec.start();
 		File inputFile = new File("src/test/resources/enwik8.txt");
 		File outputFile = new File("Out/ArrowheadDirect.csv");

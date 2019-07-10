@@ -37,6 +37,7 @@ public class MqttSend implements MqttCallback, Sender {
 
 			mqc.setCallback(this);
 			mqc.connect(options);
+			mqc.subscribe(Constants.MQTT_BACKWARD_TOPIC_NAME, Constants.MQTT_QOS);
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation.");
 		}
@@ -51,7 +52,7 @@ public class MqttSend implements MqttCallback, Sender {
 				MqttMessage message = new MqttMessage(buf.array());
 				message.setQos(Constants.MQTT_QOS);
 				System.out.println("MQTT message number " + Integer.valueOf(i + 1) + " sent.");
-				mqc.publish(Constants.MQTT_TOPIC_NAME, message);
+				mqc.publish(Constants.MQTT_FORWARD_TOPIC_NAME, message);
 
 				while (waitForResponse) {
 					try {
@@ -107,11 +108,10 @@ public class MqttSend implements MqttCallback, Sender {
 
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
-		System.out.println("MYsterious mqtt message arrived!");
+		waitForResponse = false;
 	}
 
 	@Override
 	public void deliveryComplete(IMqttDeliveryToken token) {
-		waitForResponse = false;
 	}
 }

@@ -10,11 +10,12 @@ public class Constants {
 	public static final int ARROWHEAD_ORCHESTRATOR_PORT = 8440;
 	public static final String ARROWHEAD_SERVICE_NAME = "comptest";
 	public static final String ARROWHEAD_INTERFACE_NAME = "tcp";
-	public static final int ARROWHEAD_PROVIDER_PORT = 9112;
+	public static final int ARROWHEAD_PROVIDER_PORT = 8499;
 
 	// DDS?
 	
 	public static final int MQTT_SERVER_PORT = 1883;
 	public static final int MQTT_QOS = 2;
-	public static final String MQTT_TOPIC_NAME = "compforward";
+	public static final String MQTT_FORWARD_TOPIC_NAME = "compforward";
+	public static final String MQTT_BACKWARD_TOPIC_NAME = "compbackward";
 }

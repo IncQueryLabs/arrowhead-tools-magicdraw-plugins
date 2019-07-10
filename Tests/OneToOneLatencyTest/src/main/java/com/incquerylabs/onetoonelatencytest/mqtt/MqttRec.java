@@ -13,24 +13,23 @@ import com.incquerylabs.onetoonelatencytest.Receiver;
 
 public class MqttRec extends Thread implements MqttCallback, Receiver {
 
-
-	private MqttClient rec = null;
+	private MqttClient mqc = null;
 	private String recName = "Mqtt rec";
 
 	@Override
 	public void run() {
-		MqttConnectOptions options = new MqttConnectOptions();
-		options.setAutomaticReconnect(true);
-		options.setCleanSession(true);
-		options.setConnectionTimeout(10);
-		String url = "tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT;
-
 		try {
-			rec = new MqttClient(url, recName, new MemoryPersistence());
-			rec.setCallback(this);
-			rec.connect(options);
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, recName,
+					new MemoryPersistence());
+			MqttConnectOptions options = new MqttConnectOptions();
+			options.setAutomaticReconnect(true);
+			options.setCleanSession(true);
+			options.setConnectionTimeout(10);
+			
+			mqc.setCallback(this);
+			mqc.connect(options);
 
-			rec.subscribe(Constants.MQTT_TOPIC_NAME, Constants.MQTT_QOS);
+			mqc.subscribe(Constants.MQTT_FORWARD_TOPIC_NAME, Constants.MQTT_QOS);
 		} catch (MqttException e) {
 			System.out.println("MQtteX");
 		}
@@ -49,22 +48,26 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws MqttException {
 		System.out.println("MQTT message received.");
+		
+		MqttMessage response = new MqttMessage("gg".getBytes());
+		response.setQos(Constants.MQTT_QOS);
+		mqc.publish(Constants.MQTT_BACKWARD_TOPIC_NAME, response);
 	}
 
 	@Override
 	public void kill() {
-		if(rec != null) {
+		if (mqc != null) {
 			try {
-				rec.disconnect();
+				mqc.disconnect();
 			} catch (MqttException e) {
 				System.out.println("MQTT rec unable to disconnect");
 			}
 			try {
-				rec.close();
+				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("MQTT rec unable to close");
 			}
-			rec = null;
+			mqc = null;
 			this.interrupt();
 		}
 	}

@@ -30,9 +30,8 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 	Map<Integer, Instant> mid = new HashMap<Integer, Instant>();
 	Map<Integer, Instant> end = new HashMap<Integer, Instant>();
 	ServerSocket serverSocket = null;
-
-	@Override
-	public void run() {
+	
+	public ArrowheadDirectRec() {
 		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
 				false, true);
 		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.LOCALHOST_IP, Constants.ARROWHEAD_PROVIDER_PORT,
@@ -50,11 +49,20 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
 						SR_UNREG_PATH, false, false);
 				Utility.sendRequest(unregUri, "PUT", sre);
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e1) {
+					this.interrupt();
+				}
 				Utility.sendRequest(srUri, "POST", sre);
 			} else {
 				System.out.println(e.getMessage() + "\n" + e.getOrigin() + "\n" + e.getCause().getMessage());
 			}
 		}
+	}
+
+	@Override
+	public void run() {
 		try {
 			serverSocket = new ServerSocket(Constants.ARROWHEAD_PROVIDER_PORT);
 			System.out.println("Listener started.");

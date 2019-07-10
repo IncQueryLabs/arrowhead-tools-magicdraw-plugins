@@ -31,7 +31,7 @@ public class Organizer{
 		while(run) {
 			Random r = new Random();
 			fileToSend = r.nextInt(4);
-			testToRun = r.nextInt(3);
+			//testToRun = r.nextInt(3);
 			Receiver rec = null;
 			Sender send = null;
 			

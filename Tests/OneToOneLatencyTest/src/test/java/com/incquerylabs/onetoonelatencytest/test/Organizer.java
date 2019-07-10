@@ -3,6 +3,7 @@ package com.incquerylabs.onetoonelatencytest.test;
 import java.io.File;
 import java.util.Random;
 
+import com.incquerylabs.onetoonelatencytest.Constants;
 import com.incquerylabs.onetoonelatencytest.Sender;
 import com.incquerylabs.onetoonelatencytest.arrowheaddirect.ArrowheadDirectSend;
 import com.incquerylabs.onetoonelatencytest.dds.DdsSend;
@@ -20,7 +21,6 @@ public class Organizer{
 	public void run() {
 		Test test = null;
 		File file = null;
-		Integer nOfRuns = 12;
 		Integer testToRun = 0;
 		Integer fileToSend = 2;
 		
@@ -65,7 +65,7 @@ public class Organizer{
 				test = new Test(send, file, new File("Out/Mqtt.csv"));
 				break;
 			}
-			test.test(nOfRuns);
+			test.test(Constants.TEST_REPETITIONS);
 			send.kill();
 		}
 	}

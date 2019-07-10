@@ -13,6 +13,7 @@ import com.incquerylabs.onetoonelatencytest.Receiver;
 
 public class MqttRec extends Thread implements MqttCallback, Receiver {
 
+
 	private MqttClient rec = null;
 	private String recName = "Mqtt rec";
 
@@ -29,7 +30,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 			rec.setCallback(this);
 			rec.connect(options);
 
-			rec.subscribe(Constants.MQTT_FORWARD_TOPIC_NAME, Constants.MQTT_QOS);
+			rec.subscribe(Constants.MQTT_TOPIC_NAME, Constants.MQTT_QOS);
 		} catch (MqttException e) {
 			System.out.println("MQtteX");
 		}
@@ -47,7 +48,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws MqttException {
-		//ByteBuffer buf = ByteBuffer.wrap(message.getPayload());
+		System.out.println("MQTT message received.");
 	}
 
 	@Override

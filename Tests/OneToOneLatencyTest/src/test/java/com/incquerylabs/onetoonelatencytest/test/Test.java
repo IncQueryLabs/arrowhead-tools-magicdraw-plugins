@@ -8,7 +8,6 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.incquerylabs.onetoonelatencytest.Receiver;
 import com.incquerylabs.onetoonelatencytest.Sender;
 
 public class Test {
@@ -16,7 +15,6 @@ public class Test {
 	Sender send;
 	File inputFile;
 	File outputFile;
-	Map<Integer, Instant> map = new HashMap<Integer, Instant>();
 
 	public Test(Sender send, File inputFile, File outputFile) {
 		this.send = send;
@@ -31,7 +29,7 @@ public class Test {
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
-		sendFile(rep);
+		send.send(rep, inputFile);
 		System.out.println("Wrapping up.");
 		try {
 			Thread.sleep(5000);
@@ -41,17 +39,11 @@ public class Test {
 		wrapup();
 	}
 
-	public void sendFile(Integer index) {
-		Instant start = Instant.now();
-		send.send(index, inputFile);
-
-		map.put(index, start);
-	}
-
 	public void wrapup() {
 		long l = inputFile.length();
 
 		FileWriter out = null;
+		
 		try {
 			out = new FileWriter(outputFile, true);
 		} catch (IOException e) {
@@ -68,8 +60,6 @@ public class Test {
 		long totalLat = 0;
 		long totalBW = 0;
 
-		map = send.getTimes();
-		
 		/*
 		for (Integer i = 0; i < map.size(); ++i) {
 			Instant start = map.get(i);

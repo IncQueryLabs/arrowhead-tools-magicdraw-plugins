@@ -26,7 +26,7 @@ public class Organizer{
 		
 		while(run) {
 			Random r = new Random();
-			//fileToSend = r.nextInt(4);
+			fileToSend = r.nextInt(5);
 			//testToRun = r.nextInt(3);
 			Sender send = null;
 			
@@ -35,12 +35,15 @@ public class Organizer{
 				file = new File("src/test/resources/a.txt");
 				break;
 			case 1:
-				file = new File("src/test/resources/grammar.lsp");
+				file = new File("src/test/resources/aa.txt");
 				break;
-			case 2: 
-				file = new File("src/test/resources/pi.txt");
+			case 2:
+				file = new File("src/test/resources/aaa.txt");
 				break;
 			case 3: 
+				file = new File("src/test/resources/pi.txt");
+				break;
+			case 4: 
 				file = new File("src/test/resources/enwik8.txt");
 				break;
 			}

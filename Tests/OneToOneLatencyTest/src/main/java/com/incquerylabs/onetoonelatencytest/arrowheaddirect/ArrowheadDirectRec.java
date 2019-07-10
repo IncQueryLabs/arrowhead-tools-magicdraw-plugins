@@ -35,7 +35,8 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 	public void run() {
 		String srUri = Utility.getUri(Constants.ARROWHEAD_SERVICE_REGISTRY_IP,
 				Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH, false, true);
-		ArrowheadSystem me = new ArrowheadSystem("arrdrec", "0.0.0.0", Constants.ARROWHEAD_PROVIDER_PORT, "null");
+		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.LOCALHOST_IP, Constants.ARROWHEAD_PROVIDER_PORT,
+				null);
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
@@ -45,12 +46,13 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
-				System.out.println(
-						"Received DuplicateEntryException from SR, sending delete request and then registering again.");
+				System.out.println("Duplicate...");
 				String unregUri = Utility.getUri(Constants.ARROWHEAD_SERVICE_REGISTRY_IP,
 						Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_UNREG_PATH, false, false);
 				Utility.sendRequest(unregUri, "PUT", sre);
 				Utility.sendRequest(srUri, "POST", sre);
+			} else {
+				System.out.println(e.getMessage() + "\n" + e.getOrigin() + "\n" + e.getCause().getMessage());
 			}
 		}
 		try {
@@ -79,7 +81,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 			}
 		} catch (IOException e) {
 			// Expected: the kill of organizer interrupts the severSocket.accept()
-			//System.out.println("In diect rec: " + e.getMessage());
+			// System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {

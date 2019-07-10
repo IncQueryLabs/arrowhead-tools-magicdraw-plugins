@@ -40,7 +40,7 @@ public class ArrowheadDirectSend implements Sender {
 		if (provider == null) {
 			String orchUri = Utility.getUri(Constants.ARROWHEAD_ORCHESTRATOR_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT,
 					OR_PATH, false, false);
-			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", "0.0.0.0", 1, null);
+			ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", Constants.LOCALHOST_IP, 1, null);
 			Set<String> interfaces = new HashSet<String>();
 			interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 			Map<String, String> serviceMetadata = new HashMap<String, String>();

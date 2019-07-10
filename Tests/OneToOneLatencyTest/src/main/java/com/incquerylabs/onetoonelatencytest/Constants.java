@@ -4,9 +4,9 @@ public class Constants {
 
 	public static final Integer TEST_REPETITIONS = 12;
 
-	public static final String ARROWHEAD_SERVICE_REGISTRY_IP = "127.0.0.1";
+	public static final String ARROWHEAD_SERVICE_REGISTRY_IP = "192.168.0.141";
 	public static final int ARROWHEAD_SERVICE_REGISTRY_PORT = 8442;
-	public static final String ARROWHEAD_ORCHESTRATOR_IP = "127.0.0.1";
+	public static final String ARROWHEAD_ORCHESTRATOR_IP = "192.168.0.141";
 	public static final int ARROWHEAD_ORCHESTRATOR_PORT = 8440;
 	public static final String ARROWHEAD_SERVICE_NAME = "comptest";
 	public static final String ARROWHEAD_INTERFACE_NAME = "tcp";

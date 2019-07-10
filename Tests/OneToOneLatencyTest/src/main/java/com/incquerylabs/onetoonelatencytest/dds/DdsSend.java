@@ -19,7 +19,7 @@ import com.rti.dds.publication.Publisher;
 import com.rti.dds.topic.Topic;
 
 public class DdsSend implements Sender {
-
+/*
 	public static int domainId = 0;
 	int samplecount = 0;
 	DomainParticipant participant = null;
@@ -83,19 +83,25 @@ public class DdsSend implements Sender {
 		} catch (IOException e) {
 			System.out.println("DDS send error on file read");
 		}
-	}
+	}*/
 
 	@Override
 	public void kill() {
-		if (participant != null) {
+		/*if (participant != null) {
 			participant.delete_contained_entities();
 			DomainParticipantFactory.TheParticipantFactory.delete_participant(participant);
 			participant = null;
-		}
+		}*/
 	}
 
 	@Override
 	public Map<Integer, Instant> getTimes() {
-		return times;
+		return null;
+	}
+
+	@Override
+	public void send(int n, File file) {
+		// TODO Auto-generated method stub
+		
 	}
 }

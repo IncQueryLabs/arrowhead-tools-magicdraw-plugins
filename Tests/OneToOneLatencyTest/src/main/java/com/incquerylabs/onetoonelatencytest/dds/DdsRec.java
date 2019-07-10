@@ -23,6 +23,12 @@ import com.rti.dds.topic.Topic;
 
 public class DdsRec extends Thread implements Receiver {
 
+	@Override
+	public void kill() {
+		// TODO Auto-generated method stub
+		
+	}
+	/*
 	public static int domainId = DdsSend.domainId;
 	int samplecount = 0;
 	DomainParticipant participant = null;
@@ -114,5 +120,5 @@ public class DdsRec extends Thread implements Receiver {
 				fileChunkTypeReader.return_loan(dataSeq, infoSeq);
 			}
 		}
-	}
+	}*/
 }

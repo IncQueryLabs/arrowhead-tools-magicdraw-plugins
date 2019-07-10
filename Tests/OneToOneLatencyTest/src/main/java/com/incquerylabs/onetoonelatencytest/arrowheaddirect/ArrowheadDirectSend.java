@@ -65,7 +65,7 @@ public class ArrowheadDirectSend implements Sender {
 				PrintWriter writer = new PrintWriter(out);
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				FileInputStream fip = new FileInputStream(file);
-				System.out.println("Arrowhead message " + (i + 1) + "sent.");
+				System.out.println("Arrowhead message " + (i + 1) + " sent.");
 				writer.println(file.length());
 				writer.flush();
 				int count;

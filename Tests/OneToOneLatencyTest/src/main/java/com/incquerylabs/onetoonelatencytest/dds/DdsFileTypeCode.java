@@ -19,8 +19,8 @@ public class DdsFileTypeCode {
 		int __i = 0;
 		StructMember sm[] = new StructMember[1];
 
-		sm[__i] = new StructMember("File", false, (short) -1, false,
-				(TypeCode) new TypeCode(TCKind.TK_STRING, Integer.MAX_VALUE), 0, false);
+		sm[__i] = new StructMember("chunk", false, (short) -1, false, (TypeCode) new TypeCode(64000, TypeCode.TC_OCTET),
+				0, false);
 		__i++;
 
 		tc = TypeCodeFactory.TheTypeCodeFactory.create_struct_tc("DdsFile", ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY,

@@ -12,14 +12,13 @@ or consult the RTI Connext manual.
 import java.util.Collection;
 
 import com.rti.dds.infrastructure.Copyable;
-import com.rti.dds.util.Enum;
 import com.rti.dds.util.Sequence;
 import com.rti.dds.util.LoanableSequence;
 
 /**
  * A sequence of DdsFile instances.
  */
-@SuppressWarnings({ "serial", "unused" })
+@SuppressWarnings("serial")
 public final class DdsFileSeq extends LoanableSequence implements Copyable {
 	// -----------------------------------------------------------------------
 	// Package Fields

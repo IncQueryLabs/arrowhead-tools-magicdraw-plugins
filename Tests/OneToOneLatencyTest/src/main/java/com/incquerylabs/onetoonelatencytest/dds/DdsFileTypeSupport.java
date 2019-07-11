@@ -13,36 +13,26 @@ import com.rti.dds.cdr.CdrEncapsulation;
 import com.rti.dds.cdr.CdrInputStream;
 import com.rti.dds.cdr.CdrOutputStream;
 import com.rti.dds.cdr.CdrPrimitiveType;
-import com.rti.dds.cdr.CdrBuffer;
-import com.rti.dds.cdr.CdrHelper;
-import com.rti.dds.cdr.CdrMemberInfo;
 import com.rti.dds.domain.DomainParticipant;
 import com.rti.dds.publication.DataWriter;
 import com.rti.dds.publication.DataWriterListener;
 import com.rti.dds.subscription.DataReader;
 import com.rti.dds.subscription.DataReaderListener;
-import com.rti.dds.topic.KeyHash_t;
 import com.rti.dds.topic.TypeSupportImpl;
 import com.rti.dds.topic.TypeSupportType;
-import com.rti.dds.util.Sequence;
 import com.rti.dds.topic.DefaultEndpointData;
-import com.rti.dds.topic.SampleAssignabilityProperty;
 import com.rti.dds.infrastructure.RETCODE_ERROR;
 
-import com.rti.dds.infrastructure.*;
 import com.rti.dds.topic.TypeSupportParticipantInfo;
 import com.rti.dds.topic.TypeSupportEndpointInfo;
 import com.rti.dds.topic.PrintFormatProperty;
 import com.rti.dds.typecode.TypeCode;
 import com.rti.dds.cdr.IllegalCdrStateException;
 
-import com.rti.dds.infrastructure.Copyable;
-
 /**
  * A collection of useful methods for dealing with objects of type DdsFile
  */
 
-@SuppressWarnings("unused")
 public class DdsFileTypeSupport extends TypeSupportImpl {
 	// -----------------------------------------------------------------------
 	// Private Fields
@@ -137,7 +127,26 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 	public long get_serialized_sample_max_size(Object endpoint_data, boolean include_encapsulation,
 			short encapsulation_id, long currentAlignment) {
-		throw new ArithmeticException();
+		long origAlignment = currentAlignment;
+		long encapsulation_size = currentAlignment;
+
+		if (include_encapsulation) {
+			if (!CdrEncapsulation.isValidEncapsulationKind(encapsulation_id)) {
+				throw new RETCODE_ERROR("Unsupported encapsulation");
+			}
+
+			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size -= currentAlignment;
+			currentAlignment = 0;
+			origAlignment = 0;
+		}
+
+		currentAlignment += CdrPrimitiveType.BYTE.getSequenceMaxSizeSerialized(currentAlignment, 64000);
+		if (include_encapsulation) {
+			currentAlignment += encapsulation_size;
+		}
+		return currentAlignment - origAlignment;
 	}
 
 	public long get_serialized_sample_min_size(Object endpoint_data, boolean include_encapsulation,
@@ -158,7 +167,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 			origAlignment = 0;
 		}
 
-		currentAlignment += CdrPrimitiveType.getStringMaxSizeSerialized(currentAlignment, 1);
+		currentAlignment += CdrPrimitiveType.BYTE.getSequenceMaxSizeSerialized(currentAlignment, 0);
 
 		if (include_encapsulation) {
 			currentAlignment += encapsulation_size;
@@ -188,7 +197,8 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 			epd.setBaseAlignment(currentAlignment);
 		}
 
-		currentAlignment += CdrPrimitiveType.getStringSerializedSize(epd.getAlignment(currentAlignment), typedSrc.File);
+		currentAlignment += CdrPrimitiveType.BYTE.getSequenceSerializedSize(epd.getAlignment(currentAlignment),
+				typedSrc.chunk);
 
 		if (include_encapsulation) {
 			currentAlignment += encapsulation_size;
@@ -236,7 +246,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 			DdsFile typedSrc = (DdsFile) src;
 
-			dst.writeString(typedSrc.File, Integer.MAX_VALUE);
+			dst.writeByteSeq(typedSrc.chunk, 64000);
 		}
 
 		if (serialize_encapsulation) {
@@ -249,6 +259,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return super.serialize_to_cdr_buffer(buffer, length, src);
 	}
 
+	@SuppressWarnings("unused")
 	public void serialize_key(Object endpoint_data, Object src, CdrOutputStream dst, boolean serialize_encapsulation,
 			short encapsulation_id, boolean serialize_key, Object endpoint_plugin_qos) {
 		int position = 0;
@@ -287,7 +298,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 			DdsFile typedDst = (DdsFile) dst;
 			typedDst.clear();
 			try {
-				typedDst.File = src.readString();
+				src.readByteSequence(typedDst.chunk, 64000);
 			} catch (IllegalCdrStateException stateEx) {
 				if (src.available() >= CdrEncapsulation.CDR_ENCAPSULATION_PARAMETER_ID_ALIGNMENT) {
 					throw new RETCODE_ERROR("Error deserializing sample! Remainder: " + src.available() + "\n"
@@ -329,6 +340,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 		if (deserialize_key) {
 
+			@SuppressWarnings("unused")
 			DdsFile typedDst = (DdsFile) dst;
 
 			deserialize_sample(endpoint_data, dst, src, false, true, endpoint_plugin_qos);
@@ -353,7 +365,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 		if (skip_sample) {
 
-			src.skipString();
+			src.skipByteSequence();
 
 		}
 
@@ -375,6 +387,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 		if (deserialize_key) {
 
+			@SuppressWarnings("unused")
 			DdsFile typedDst = (DdsFile) sample;
 
 			deserialize_sample(endpoint_data, sample, src, false, true, endpoint_plugin_qos);

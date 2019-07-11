@@ -12,7 +12,11 @@ public class Constants {
 	public static final String ARROWHEAD_INTERFACE_NAME = "tcp";
 	public static final int ARROWHEAD_PROVIDER_PORT = 8499;
 
-	// DDS?
+	public static final int DDS_DOMAIN_ID = 2;
+	public static final int DDS_LOOP_COUNT = 0; //unlimited
+	public static final String DDS_FORWARD_TOPIC_NAME = "compforward";
+	public static final String DDS_BACKWARD_TOPIC_NAME = "compbackward";
+	
 	
 	public static final int MQTT_SERVER_PORT = 1883;
 	public static final int MQTT_QOS = 2;

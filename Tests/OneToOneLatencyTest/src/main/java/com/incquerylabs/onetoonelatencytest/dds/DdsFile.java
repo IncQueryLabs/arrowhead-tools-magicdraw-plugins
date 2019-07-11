@@ -14,10 +14,10 @@ import com.rti.dds.infrastructure.Copyable;
 import java.io.Serializable;
 import com.rti.dds.cdr.CdrHelper;
 
-@SuppressWarnings({ "unused", "serial" })
+@SuppressWarnings("serial")
 public class DdsFile implements Copyable, Serializable {
 
-	public String File = "";
+	public ByteSeq chunk = new ByteSeq(64000);
 
 	public DdsFile() {
 
@@ -40,7 +40,9 @@ public class DdsFile implements Copyable, Serializable {
 
 	public void clear() {
 
-		File = "";
+		if (chunk != null) {
+			chunk.clear();
+		}
 	}
 
 	public boolean equals(Object o) {
@@ -55,7 +57,7 @@ public class DdsFile implements Copyable, Serializable {
 
 		DdsFile otherObj = (DdsFile) o;
 
-		if (!File.equals(otherObj.File)) {
+		if (!chunk.equals(otherObj.chunk)) {
 			return false;
 		}
 
@@ -64,7 +66,7 @@ public class DdsFile implements Copyable, Serializable {
 
 	public int hashCode() {
 		int __result = 0;
-		__result += File.hashCode();
+		__result += chunk.hashCode();
 		return __result;
 	}
 
@@ -86,7 +88,7 @@ public class DdsFile implements Copyable, Serializable {
 		DdsFile typedSrc = (DdsFile) src;
 		DdsFile typedDst = this;
 
-		typedDst.File = typedSrc.File;
+		typedDst.chunk.copy_from(typedSrc.chunk);
 
 		return this;
 	}
@@ -104,7 +106,13 @@ public class DdsFile implements Copyable, Serializable {
 		}
 
 		CdrHelper.printIndent(strBuffer, indent + 1);
-		strBuffer.append("File: ").append(File).append("\n");
+		strBuffer.append("chunk: ");
+		for (int i__ = 0; i__ < chunk.size(); ++i__) {
+			if (i__ != 0)
+				strBuffer.append(", ");
+			strBuffer.append(chunk.get(i__));
+		}
+		strBuffer.append("\n");
 
 		return strBuffer.toString();
 	}

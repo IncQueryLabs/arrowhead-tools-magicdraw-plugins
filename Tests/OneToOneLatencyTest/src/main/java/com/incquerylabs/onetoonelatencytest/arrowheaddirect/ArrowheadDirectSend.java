@@ -94,7 +94,8 @@ public class ArrowheadDirectSend implements Sender {
 		} catch (UnknownHostException e) {
 			System.out.println("What host?");
 		} catch (IOException e) {
-			System.out.println("IOException");
+			System.out.println("IOException on sending.");
+			System.out.println(e.getMessage());
 		} finally {
 			if (socket != null) {
 				try {

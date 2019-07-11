@@ -27,7 +27,7 @@ public class Organizer{
 		while(run) {
 			Random r = new Random();
 			fileToSend = r.nextInt(5);
-			testToRun = r.nextInt(3);
+			//testToRun = r.nextInt(3);
 			Sender send = null;
 			
 			switch (fileToSend) {

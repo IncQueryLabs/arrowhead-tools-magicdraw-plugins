@@ -22,11 +22,11 @@ public class Organizer{
 		Test test = null;
 		File file = null;
 		Integer testToRun = 0;
-		Integer fileToSend = 2;
+		Integer fileToSend = 3;
 		
 		while(run) {
 			Random r = new Random();
-			fileToSend = r.nextInt(5);
+			//fileToSend = r.nextInt(5);
 			//testToRun = r.nextInt(3);
 			Sender send = null;
 			

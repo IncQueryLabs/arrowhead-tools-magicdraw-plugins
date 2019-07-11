@@ -76,6 +76,7 @@ public class DdsSend extends DataReaderAdapter implements Sender{
 				DdsFile instance = new DdsFile();
 				instance.chunk = new ByteSeq(buff);
 				writer.write(instance, null);
+				System.out.println("DDS message number " + Integer.valueOf(i + 1) + " sent.");
 				int count = 0;
 				while((count = fip.read(buff)) > 0) {
 					byte[] bytesRead = Arrays.copyOfRange(buff, 0, count);
@@ -100,7 +101,7 @@ public class DdsSend extends DataReaderAdapter implements Sender{
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
-					;
+					System.out.println("DDS Send interrupted while waiting for confirmation.");
 				}
 			}
 
@@ -108,7 +109,7 @@ public class DdsSend extends DataReaderAdapter implements Sender{
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				;
+				System.out.println("DDS Send interrupted while cleaning up.");
 			}
 			times.put(Integer.valueOf(i + 1), Instant.now());
 		}

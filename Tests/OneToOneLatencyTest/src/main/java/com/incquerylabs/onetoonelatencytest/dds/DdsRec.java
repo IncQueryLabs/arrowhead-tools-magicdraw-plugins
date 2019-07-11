@@ -80,6 +80,7 @@ public class DdsRec extends Thread implements Receiver {
 					if(info.valid_data) {
 						ByteSeq chunk = dataSeq.get(i).chunk;
 						if(fileSize == 0) {
+							System.out.println("DDS message received.");
 							byte[] bytes = new byte[8];
 							for(int q = 0; q < 8; ++q) {
 								bytes[q] = chunk.getByte(q);
@@ -93,6 +94,8 @@ public class DdsRec extends Thread implements Receiver {
 							DdsFile instance = new DdsFile();
 							instance.chunk = new ByteSeq(bytes);
 							writer.write(instance, null);
+							fileSize = 0;
+							readSize = 0;
 						}
 					}
 				}

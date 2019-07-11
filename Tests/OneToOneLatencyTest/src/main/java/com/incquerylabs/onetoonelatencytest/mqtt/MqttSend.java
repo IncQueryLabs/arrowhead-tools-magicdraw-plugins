@@ -58,7 +58,7 @@ public class MqttSend implements MqttCallback, Sender {
 					try {
 						Thread.sleep(1);
 					} catch (InterruptedException e) {
-						;
+						System.out.println("MQTT Send interrupted while waiting for confirmation.");
 					}
 				}
 
@@ -66,7 +66,7 @@ public class MqttSend implements MqttCallback, Sender {
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
-					;
+					System.out.println("MQTT Send interrupted while cleaning up.");
 				}
 				times.put(Integer.valueOf(i + 1), Instant.now());
 			}

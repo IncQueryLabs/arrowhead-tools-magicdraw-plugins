@@ -30,6 +30,7 @@ public class MqttRec extends Thread implements MqttCallback, Receiver {
 			mqc.connect(options);
 
 			mqc.subscribe(Constants.MQTT_FORWARD_TOPIC_NAME, Constants.MQTT_QOS);
+			System.out.println("MQTT Subscription succesful.");
 		} catch (MqttException e) {
 			System.out.println("MQtteX");
 		}

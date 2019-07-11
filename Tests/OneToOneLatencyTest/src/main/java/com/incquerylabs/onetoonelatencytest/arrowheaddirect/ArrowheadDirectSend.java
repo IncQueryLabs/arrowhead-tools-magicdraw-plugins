@@ -6,9 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.ByteBuffer;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.core.Response;
+
+import org.bouncycastle.util.Arrays;
 
 import com.incquerylabs.onetoonelatencytest.Constants;
 import com.incquerylabs.onetoonelatencytest.Sender;
@@ -33,7 +35,7 @@ public class ArrowheadDirectSend implements Sender {
 	ArrowheadSystem provider = null;
 	Socket socket = null;
 	Map<Integer, Instant> times = new HashMap<Integer, Instant>();
-	private static final int BUFFER_SIZE = 65536;
+	private static final int BUFFER_SIZE = 65000;
 
 	@Override
 	public void send(int n, File file) {
@@ -62,21 +64,24 @@ public class ArrowheadDirectSend implements Sender {
 			for (int i = 0; i < n; ++i) {
 				socket = new Socket(provider.getAddress(), provider.getPort());
 				OutputStream out = socket.getOutputStream();
-				PrintWriter writer = new PrintWriter(out);
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				FileInputStream fip = new FileInputStream(file);
+				ByteBuffer buf = ByteBuffer.wrap(buff);
+				buf.putLong(file.length());
+				fip.read(buff, 8, BUFFER_SIZE - 8);
+				out.write(buff);
 				System.out.println("Arrowhead message " + (i + 1) + " sent.");
-				writer.println(file.length());
-				writer.flush();
 				int count;
 				while ((count = fip.read(buff)) > 0) {
-					out.write(buff, 0, count);
+					byte[] bytesRead = Arrays.copyOfRange(buff, 0, count);
+					out.write(bytesRead, 0, count);
+					out.flush();
 				}
 				in.readLine();
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
-					;
+					System.out.println("Arrowhead Send interrupted.");
 				}
 				times.put(Integer.valueOf(i + 1), Instant.now());
 				fip.close();

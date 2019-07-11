@@ -1,12 +1,11 @@
 package com.incquerylabs.onetoonelatencytest.arrowheaddirect;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -70,13 +69,13 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				Socket socket = serverSocket.accept();
 				PrintWriter out = new PrintWriter(socket.getOutputStream());
 				InputStream in = socket.getInputStream();
-				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-				byte[] buff = new byte[65536];
-				int count;
-				String s = reader.readLine();
-				Integer fileSize = Integer.parseInt(s);
-				System.out.println("Arrowhead direct message Received");
-				while (fileSize > 0) {
+				byte[] buff = new byte[65500];
+				int count = in.read(buff);
+				ByteBuffer buf = ByteBuffer.wrap(buff);
+				long fileSize = buf.getLong();
+				System.out.println("Arrowhead Direct message received.");
+				fileSize = fileSize - count + 8;
+				while (fileSize > 10) {
 					count = in.read(buff);
 					fileSize = fileSize - count;
 				}
@@ -89,7 +88,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 			}
 		} catch (IOException e) {
 			// Expected: the kill of organizer interrupts the severSocket.accept()
-			// System.out.println("In diect rec: " + e.getMessage());
+			System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {

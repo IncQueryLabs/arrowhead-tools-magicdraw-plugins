@@ -22,7 +22,7 @@ public class Test {
 	}
 
 	public void test(Integer rep) {
-		System.out.println("Starting Test.");
+		System.out.println("Starting Test using " + inputFile.getName() + ".");
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

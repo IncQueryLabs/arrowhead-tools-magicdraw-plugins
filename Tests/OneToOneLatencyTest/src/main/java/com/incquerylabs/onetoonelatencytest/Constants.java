@@ -10,6 +10,7 @@ public class Constants {
 	public static final int ARROWHEAD_ORCHESTRATOR_PORT = 8440;
 	public static final String ARROWHEAD_SERVICE_NAME = "comptest";
 	public static final String ARROWHEAD_INTERFACE_NAME = "tcp";
+	public static final String ARROWHEAD_PROVIDER_IP = "192.168.0.141";
 	public static final int ARROWHEAD_PROVIDER_PORT = 8499;
 
 	public static final int DDS_DOMAIN_ID = 2;

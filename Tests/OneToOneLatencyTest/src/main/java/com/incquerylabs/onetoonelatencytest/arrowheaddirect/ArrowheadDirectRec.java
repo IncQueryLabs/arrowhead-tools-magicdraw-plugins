@@ -33,7 +33,7 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 	public ArrowheadDirectRec() {
 		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
 				false, true);
-		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.LOCALHOST_IP, Constants.ARROWHEAD_PROVIDER_PORT,
+		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.ARROWHEAD_PROVIDER_IP, Constants.ARROWHEAD_PROVIDER_PORT,
 				null);
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);

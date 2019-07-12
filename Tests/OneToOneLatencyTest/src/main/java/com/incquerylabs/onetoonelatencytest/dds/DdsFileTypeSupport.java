@@ -13,21 +13,23 @@ import com.rti.dds.cdr.CdrEncapsulation;
 import com.rti.dds.cdr.CdrInputStream;
 import com.rti.dds.cdr.CdrOutputStream;
 import com.rti.dds.cdr.CdrPrimitiveType;
-import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.cdr.CdrBuffer;
 import com.rti.dds.publication.DataWriter;
 import com.rti.dds.publication.DataWriterListener;
 import com.rti.dds.subscription.DataReader;
 import com.rti.dds.subscription.DataReaderListener;
+import com.rti.dds.topic.DefaultEndpointData;
 import com.rti.dds.topic.TypeSupportImpl;
 import com.rti.dds.topic.TypeSupportType;
-import com.rti.dds.topic.DefaultEndpointData;
 import com.rti.dds.infrastructure.RETCODE_ERROR;
+import com.rti.dds.topic.PrintFormatProperty;
+import com.rti.dds.typecode.TypeCode;
+import com.rti.dds.typecode.ExtensibilityKind;
+import com.rti.dds.cdr.IllegalCdrStateException;
 
 import com.rti.dds.topic.TypeSupportParticipantInfo;
 import com.rti.dds.topic.TypeSupportEndpointInfo;
-import com.rti.dds.topic.PrintFormatProperty;
-import com.rti.dds.typecode.TypeCode;
-import com.rti.dds.cdr.IllegalCdrStateException;
+import com.rti.dds.domain.DomainParticipant;
 
 /**
  * A collection of useful methods for dealing with objects of type DdsFile
@@ -82,10 +84,12 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return DdsFileTypeCode.VALUE;
 	}
 
+	@Override
 	public Object create_data() {
 		return DdsFile.create();
 	}
 
+	@Override
 	public void destroy_data(Object data) {
 		return;
 	}
@@ -98,8 +102,8 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return;
 	}
 
-	@SuppressWarnings("rawtypes")
-	public Class get_type() {
+	@Override
+	public Class<?> get_type() {
 		return DdsFile.class;
 	}
 
@@ -116,6 +120,7 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 	 *                                 <code>this</code> is not a
 	 *                                 <code>DdsFile</code> type.
 	 */
+	@Override
 	public Object copy_data(Object destination, Object source) {
 
 		DdsFile typedDst = (DdsFile) destination;
@@ -125,8 +130,13 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 	}
 
+	@Override
 	public long get_serialized_sample_max_size(Object endpoint_data, boolean include_encapsulation,
-			short encapsulation_id, long currentAlignment) {
+			short final_encapsulation_id, long currentAlignment) {
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
 		long origAlignment = currentAlignment;
 		long encapsulation_size = currentAlignment;
 
@@ -135,23 +145,32 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 				throw new RETCODE_ERROR("Unsupported encapsulation");
 			}
 
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
 			encapsulation_size -= currentAlignment;
 			currentAlignment = 0;
 			origAlignment = 0;
 		}
 
-		currentAlignment += CdrPrimitiveType.BYTE.getSequenceMaxSizeSerialized(currentAlignment, 64000);
+		if (!xcdr1) {
+			// DHeader
+			currentAlignment += _cdrPrimitiveType.getIntMaxSizeSerialized(currentAlignment);
+		}
+
+		currentAlignment += _cdrPrimitiveType.getByteSequenceMaxSizeSerialized(currentAlignment, 64000);
 		if (include_encapsulation) {
 			currentAlignment += encapsulation_size;
 		}
 		return currentAlignment - origAlignment;
 	}
 
+	@Override
 	public long get_serialized_sample_min_size(Object endpoint_data, boolean include_encapsulation,
-			short encapsulation_id, long currentAlignment) {
-
+			short final_encapsulation_id, long currentAlignment) {
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
 		long origAlignment = currentAlignment;
 		long encapsulation_size = currentAlignment;
 
@@ -160,25 +179,34 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 				throw new RETCODE_ERROR("Unsupported encapsulation");
 			}
 
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
 			encapsulation_size -= currentAlignment;
 			currentAlignment = 0;
 			origAlignment = 0;
 		}
 
-		currentAlignment += CdrPrimitiveType.BYTE.getSequenceMaxSizeSerialized(currentAlignment, 0);
+		if (!xcdr1) {
+			// DHeader
+			currentAlignment += _cdrPrimitiveType.getIntMaxSizeSerialized(currentAlignment);
+		}
+
+		currentAlignment += _cdrPrimitiveType.getByteSequenceMaxSizeSerialized(currentAlignment, 0);
 
 		if (include_encapsulation) {
 			currentAlignment += encapsulation_size;
 		}
 		return currentAlignment - origAlignment;
-
 	}
 
-	public long get_serialized_sample_size(Object endpoint_data, boolean include_encapsulation, short encapsulation_id,
-			long currentAlignment, Object sample) {
+	@Override
+	public long get_serialized_sample_size(Object endpoint_data, boolean include_encapsulation,
+			short final_encapsulation_id, long currentAlignment, Object sample) {
 
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
 		DdsFile typedSrc = (DdsFile) sample;
 		DefaultEndpointData epd = ((DefaultEndpointData) endpoint_data);
 		long origAlignment = currentAlignment;
@@ -189,15 +217,22 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 				throw new RETCODE_ERROR("Unsupported encapsulation");
 			}
 
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
 			encapsulation_size -= currentAlignment;
 			currentAlignment = 0;
 			origAlignment = 0;
-			epd.setBaseAlignment(currentAlignment);
+			if (xcdr1) {
+				epd.setBaseAlignment(currentAlignment);
+			}
 		}
 
-		currentAlignment += CdrPrimitiveType.BYTE.getSequenceSerializedSize(epd.getAlignment(currentAlignment),
+		if (!xcdr1) {
+			// DHeader
+			currentAlignment += _cdrPrimitiveType.getIntMaxSizeSerialized(currentAlignment);
+		}
+
+		currentAlignment += _cdrPrimitiveType.getByteSequenceSerializedSize(epd.getAlignment(currentAlignment),
 				typedSrc.chunk);
 
 		if (include_encapsulation) {
@@ -206,8 +241,14 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return currentAlignment - origAlignment;
 	}
 
-	public long get_serialized_key_max_size(Object endpoint_data, boolean include_encapsulation, short encapsulation_id,
-			long currentAlignment) {
+	
+	@Override
+	public long get_serialized_key_max_size(Object endpoint_data, boolean include_encapsulation,
+			short final_encapsulation_id, long currentAlignment) {
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
 		long origAlignment = currentAlignment;
 		long encapsulation_size = currentAlignment;
 
@@ -216,14 +257,15 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 				throw new RETCODE_ERROR("Unsupported encapsulation");
 			}
 
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
-			encapsulation_size += CdrPrimitiveType.SHORT.getMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
 			encapsulation_size -= currentAlignment;
 			currentAlignment = 0;
 			origAlignment = 0;
 		}
 
-		currentAlignment += get_serialized_sample_max_size(endpoint_data, false, encapsulation_id, currentAlignment);
+		currentAlignment += get_serialized_sample_max_size(endpoint_data, false, final_encapsulation_id,
+				currentAlignment);
 		if (include_encapsulation) {
 			currentAlignment += encapsulation_size;
 		}
@@ -231,50 +273,104 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return currentAlignment - origAlignment;
 	}
 
+	@Override
+	public long get_serialized_key_for_keyhash_max_size(Object endpoint_data, boolean include_encapsulation,
+			short final_encapsulation_id, long currentAlignment) {
+
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
+		if (xcdr1) {
+			return get_serialized_key_max_size(endpoint_data, include_encapsulation, final_encapsulation_id,
+					currentAlignment);
+		}
+		long origAlignment = currentAlignment;
+		long encapsulation_size = currentAlignment;
+
+		if (include_encapsulation) {
+			if (!CdrEncapsulation.isValidEncapsulationKind(encapsulation_id)) {
+				throw new RETCODE_ERROR("Unsupported encapsulation");
+			}
+
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size += _cdrPrimitiveType.getShortMaxSizeSerialized(encapsulation_size);
+			encapsulation_size -= currentAlignment;
+			currentAlignment = 0;
+			origAlignment = 0;
+		}
+
+		currentAlignment += _cdrPrimitiveType.getByteSequenceMaxSizeSerialized(currentAlignment, 64000);
+		if (include_encapsulation) {
+			currentAlignment += encapsulation_size;
+		}
+
+		return currentAlignment - origAlignment;
+
+	}
+
 	public void serialize(Object endpoint_data, Object src, CdrOutputStream dst, boolean serialize_encapsulation,
-			short encapsulation_id, boolean serialize_sample, Object endpoint_plugin_qos) {
+			short final_encapsulation_id, boolean serialize_sample, Object endpoint_plugin_qos) {
 		int position = 0;
+		int dheaderPosition = -1;
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = dst.inBaseClass;
+		dst.inBaseClass = false;
 
 		if (serialize_encapsulation) {
-			dst.serializeAndSetCdrEncapsulation(encapsulation_id);
-
+			dst.serializeAndSetCdrEncapsulation(final_encapsulation_id, ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
 			position = dst.resetAlignment();
-
 		}
 
 		if (serialize_sample) {
+			boolean xcdr1 = (final_encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
 
+			if (!inBaseClass_tmp && !xcdr1) {
+				dheaderPosition = dst.writeDHeader();
+			}
 			DdsFile typedSrc = (DdsFile) src;
 
 			dst.writeByteSeq(typedSrc.chunk, 64000);
+			if (!xcdr1) {
+				if (dheaderPosition != -1) {
+					dst.setDHeader(dheaderPosition);
+				}
+
+			}
 		}
 
 		if (serialize_encapsulation) {
 			dst.restoreAlignment(position);
 		}
-
 	}
 
 	public long serialize_to_cdr_buffer(byte[] buffer, long length, DdsFile src) {
 		return super.serialize_to_cdr_buffer(buffer, length, src);
 	}
 
-	@SuppressWarnings("unused")
-	public void serialize_key(Object endpoint_data, Object src, CdrOutputStream dst, boolean serialize_encapsulation,
-			short encapsulation_id, boolean serialize_key, Object endpoint_plugin_qos) {
-		int position = 0;
+	public long serialize_to_cdr_buffer(byte[] buffer, long length, DdsFile src, short representation) {
+		return super.serialize_to_cdr_buffer(buffer, length, src, representation);
+	}
 
+	@Override
+	public void serialize_key(Object endpoint_data, Object src, CdrOutputStream dst, boolean serialize_encapsulation,
+			short final_encapsulation_id, boolean serialize_key, Object endpoint_plugin_qos) {
+		int position = 0;
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = dst.inBaseClass;
+		dst.inBaseClass = false;
 		if (serialize_encapsulation) {
-			dst.serializeAndSetCdrEncapsulation(encapsulation_id);
+			dst.serializeAndSetCdrEncapsulation(final_encapsulation_id, ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
 
 			position = dst.resetAlignment();
 		}
 
 		if (serialize_key) {
+			boolean xcdr1 = (final_encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
 
 			DdsFile typedSrc = (DdsFile) src;
-			serialize(endpoint_data, src, dst, false, CdrEncapsulation.CDR_ENCAPSULATION_ID_CDR_BE, true,
-					endpoint_plugin_qos);
+			dst.inBaseClass = false;
+			serialize(endpoint_data, src, dst, false, final_encapsulation_id, true, endpoint_plugin_qos);
 
 		}
 
@@ -283,9 +379,55 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		}
 	}
 
+	@Override
+	public void serialize_key_for_keyhash(Object endpoint_data, Object src, CdrOutputStream dst,
+			boolean serialize_encapsulation, short final_encapsulation_id, boolean serialize_key,
+			Object endpoint_plugin_qos) {
+		int position = 0;
+		CdrPrimitiveType _cdrPrimitiveType = CdrPrimitiveType.getInstance(final_encapsulation_id);
+		short encapsulation_id = CdrEncapsulation.getEncapsulationFromFinal(final_encapsulation_id,
+				ExtensibilityKind.EXTENSIBLE_EXTENSIBILITY);
+		boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE);
+		if (xcdr1) {
+			serialize_key(endpoint_data, src, dst, serialize_encapsulation, final_encapsulation_id, serialize_key,
+					endpoint_plugin_qos);
+
+		} else {
+
+			if (serialize_encapsulation) {
+				dst.serializeAndSetCdrEncapsulation(encapsulation_id);
+
+				position = dst.resetAlignment();
+			} else {
+				/*
+				 * We do this to prepare the stream to serialize using xcdr2 if needed as in
+				 * md5Stream we pass serialize_encapsulation ton false.
+				 */
+				dst.setEncapsulationKind(final_encapsulation_id);
+			}
+
+			if (serialize_key) {
+				DdsFile typedSrc = (DdsFile) src;
+				dst.inBaseClass = false;
+				dst.writeByteSeq(typedSrc.chunk, 64000);
+			}
+
+			if (serialize_encapsulation) {
+				dst.restoreAlignment(position);
+			}
+		}
+	}
+
+	@Override
 	public Object deserialize_sample(Object endpoint_data, Object dst, CdrInputStream src,
 			boolean deserialize_encapsulation, boolean deserialize_sample, Object endpoint_plugin_qos) {
 		int position = 0;
+		int tmpPosition = 0, tmpSize = 0;
+		long tmpLength = 0;
+		CdrBuffer buffer = null;
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = src.inBaseClass;
+		src.inBaseClass = false;
 
 		if (deserialize_encapsulation) {
 			src.deserializeAndSetCdrEncapsulation();
@@ -295,10 +437,26 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 		if (deserialize_sample) {
 
+			short encapsulation_id = src.getEncapsulationKind();
+			boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
+			if (!xcdr1) {
+				buffer = src.getBuffer();
+			}
 			DdsFile typedDst = (DdsFile) dst;
 			typedDst.clear();
+			int DHtmpPosition = 0;
+			int DHtmpSize = 0;
+			long DHtmpLength = 0;
+			if (!xcdr1 && !inBaseClass_tmp) {
+				DHtmpLength = src.readInt();
+				DHtmpPosition = buffer.currentPosition();
+				DHtmpSize = buffer.getDesBufferSize();
+				buffer.setDesBufferSize((int) (DHtmpPosition + DHtmpLength));
+			}
+
 			try {
 				src.readByteSequence(typedDst.chunk, 64000);
+
 			} catch (IllegalCdrStateException stateEx) {
 				if (src.available() >= CdrEncapsulation.CDR_ENCAPSULATION_PARAMETER_ID_ALIGNMENT) {
 					throw new RETCODE_ERROR("Error deserializing sample! Remainder: " + src.available() + "\n"
@@ -307,7 +465,9 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 			} catch (Exception ex) {
 				throw new RETCODE_ERROR(ex.getMessage());
 			}
-
+			if (!xcdr1 && !inBaseClass_tmp) {
+				buffer.restore(DHtmpSize, (int) (DHtmpPosition + DHtmpLength));
+			}
 		}
 		if (deserialize_encapsulation) {
 			src.restoreAlignment(position);
@@ -328,10 +488,17 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return super.data_to_string(sample);
 	}
 
+	@Override
 	public Object deserialize_key_sample(Object endpoint_data, Object dst, CdrInputStream src,
 			boolean deserialize_encapsulation, boolean deserialize_key, Object endpoint_plugin_qos) {
 		int position = 0;
+		int tmpPosition = 0, tmpSize = 0;
+		long tmpLength = 0;
+		CdrBuffer buffer = null;
 
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = src.inBaseClass;
+		src.inBaseClass = false;
 		if (deserialize_encapsulation) {
 			src.deserializeAndSetCdrEncapsulation();
 
@@ -339,12 +506,14 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		}
 
 		if (deserialize_key) {
-
-			@SuppressWarnings("unused")
+			short encapsulation_id = src.getEncapsulationKind();
+			boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
+			if (!xcdr1) {
+				buffer = src.getBuffer();
+			}
 			DdsFile typedDst = (DdsFile) dst;
 
 			deserialize_sample(endpoint_data, dst, src, false, true, endpoint_plugin_qos);
-
 		}
 		if (deserialize_encapsulation) {
 			src.restoreAlignment(position);
@@ -353,10 +522,17 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		return dst;
 	}
 
+	@Override
 	public void skip(Object endpoint_data, CdrInputStream src, boolean skip_encapsulation, boolean skip_sample,
 			Object endpoint_plugin_qos) {
 		int position = 0;
+		int tmpPosition = 0, tmpSize = 0;
+		long tmpLength = 0;
+		CdrBuffer buffer = null;
 
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = src.inBaseClass;
+		src.inBaseClass = false;
 		if (skip_encapsulation) {
 			src.skipEncapsulation();
 
@@ -364,6 +540,22 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		}
 
 		if (skip_sample) {
+			short encapsulation_id = src.getEncapsulationKind();
+			boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
+			if (!xcdr1) {
+				buffer = src.getBuffer();
+			}
+			int DHtmpPosition = 0;
+			long DHtmpLength = 0;
+			if (!xcdr1 && !inBaseClass_tmp) {
+				DHtmpLength = src.readInt();
+				DHtmpPosition = buffer.currentPosition();
+				buffer.setCurrentPosition((int) (DHtmpPosition + DHtmpLength));
+				if (skip_encapsulation) {
+					src.restoreAlignment(position);
+				}
+				return;
+			}
 
 			src.skipByteSequence();
 
@@ -374,11 +566,18 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 		}
 	}
 
+	@Override
 	public Object serialized_sample_to_key(Object endpoint_data, Object sample, CdrInputStream src,
 			boolean deserialize_encapsulation, boolean deserialize_key, Object endpoint_plugin_qos) {
 
 		int position = 0;
+		int tmpPosition = 0, tmpSize = 0;
+		long tmpLength = 0;
+		CdrBuffer buffer = null;
 
+		boolean inBaseClass_tmp = false;
+		inBaseClass_tmp = src.inBaseClass;
+		src.inBaseClass = false;
 		if (deserialize_encapsulation) {
 			src.deserializeAndSetCdrEncapsulation();
 
@@ -387,13 +586,15 @@ public class DdsFileTypeSupport extends TypeSupportImpl {
 
 		if (deserialize_key) {
 
-			@SuppressWarnings("unused")
+			short encapsulation_id = src.getEncapsulationKind();
+			boolean xcdr1 = (encapsulation_id <= CdrEncapsulation.CDR_ENCAPSULATION_ID_PL_CDR_LE) ? true : false;
+			if (!xcdr1) {
+				buffer = src.getBuffer();
+			}
 			DdsFile typedDst = (DdsFile) sample;
-
 			deserialize_sample(endpoint_data, sample, src, false, true, endpoint_plugin_qos);
 
 		}
-
 		if (deserialize_encapsulation) {
 			src.restoreAlignment(position);
 		}

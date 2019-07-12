@@ -15,10 +15,10 @@ import com.incquerylabs.onetoonelatencytest.mqtt.MqttSend;
 @SuppressWarnings("unused")
 public class Temp {
 	public static void main(String[] args) {
-		Receiver rec = new ArrowheadDirectRec();
+		Receiver rec = new DdsRec();
 		rec.start();
 		while(true) {
-			Sender send = new ArrowheadDirectSend();
+			Sender send = new DdsSend();
 			
 			File inputFile = new File("src/test/resources/enwik8.txt");
 			File outputFile = new File("Out/ArrowheadDirect.csv");
@@ -26,6 +26,6 @@ public class Temp {
 			Test test = new Test(send, inputFile, outputFile);
 			test.test(Constants.TEST_REPETITIONS);
 			send.kill();
-		}		
+		}
 	}
 }

@@ -1,15 +1,18 @@
 package com.incquerylabs.onetoonetest.arrowheaddirect;
 
-import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.incquerylabs.onetoonetest.Constants;
 import com.incquerylabs.onetoonetest.Receiver;
 
 import eu.arrowhead.client.common.Utility;
@@ -21,51 +24,71 @@ import eu.arrowhead.client.common.model.ServiceRegistryEntry;
 
 public class ArrowheadDirectRec extends Thread implements Receiver {
 
-	static final String SR_IP = "127.0.0.1";
-	static final int SR_PORT = 8442;
-	static final int PROVIDER_PORT = 9112;
-	public static final String SERVICE_NAME = ArrowheadDirectSend.SERVICE_NAME;
-	public static final String INTERFACE = ArrowheadDirectSend.INTERFACE;
-	static final String SR_PATH = "serviceregistry/register";
+	private static final String SR_REG_PATH = "serviceregistry/register";
+	private static final String SR_UNREG_PATH = "serviceregistry/remove";
 	Map<Integer, Instant> mid = new HashMap<Integer, Instant>();
 	Map<Integer, Instant> end = new HashMap<Integer, Instant>();
 	ServerSocket serverSocket = null;
-
-	@Override
-	public void run() {
-		String srUri = Utility.getUri(SR_IP, SR_PORT, SR_PATH, false, true);
-		ArrowheadSystem me = new ArrowheadSystem("arrdrec", "0.0.0.0", PROVIDER_PORT, "null");
+	
+	public ArrowheadDirectRec() {
+		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
+				false, true);
+		ArrowheadSystem me = new ArrowheadSystem("arrdrec", Constants.ARROWHEAD_PROVIDER_IP, Constants.ARROWHEAD_PROVIDER_PORT,
+				null);
 		Set<String> interfaces = new HashSet<String>();
-		interfaces.add(INTERFACE);
+		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
-		ArrowheadService service = new ArrowheadService(SERVICE_NAME, interfaces, serviceMetadata);
+		ArrowheadService service = new ArrowheadService(Constants.ARROWHEAD_SERVICE_NAME, interfaces, serviceMetadata);
 		ServiceRegistryEntry sre = new ServiceRegistryEntry(service, me, "NOTRESTFUL");
 		try {
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
-				System.out.println("Received DuplicateEntryException from SR, sending delete request and then registering again.");
-				String unregUri = Utility.getUri(SR_IP, SR_PORT, "serviceregistry/remove", false, false);
+				System.out.println("Duplicate...");
+				String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
+						SR_UNREG_PATH, false, false);
 				Utility.sendRequest(unregUri, "PUT", sre);
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e1) {
+					this.interrupt();
+				}
 				Utility.sendRequest(srUri, "POST", sre);
+			} else {
+				System.out.println(e.getMessage() + "\n" + e.getOrigin() + "\n" + e.getCause().getMessage());
 			}
 		}
+	}
+
+	@Override
+	public void run() {
 		try {
-			serverSocket = new ServerSocket(PROVIDER_PORT);
+			serverSocket = new ServerSocket(Constants.ARROWHEAD_PROVIDER_PORT);
 			System.out.println("Listener started.");
 			while (true) {
 				Socket socket = serverSocket.accept();
-				System.out.println("Connection Received");
-				DataInputStream in = new DataInputStream(socket.getInputStream());
-				int index = in.readInt();
-				mid.put(index, Instant.now());
-				in.readAllBytes();
-				System.out.println("Test " + index + " finished.");
-				end.put(index, Instant.now());
+				PrintWriter out = new PrintWriter(socket.getOutputStream());
+				InputStream in = socket.getInputStream();
+				byte[] buff = new byte[65500];
+				int count = in.read(buff);
+				ByteBuffer buf = ByteBuffer.wrap(buff);
+				long fileSize = buf.getLong();
+				System.out.println("Arrowhead Direct message received.");
+				fileSize = fileSize - count + 8;
+				while (fileSize > 10) {
+					count = in.read(buff);
+					fileSize = fileSize - count;
+				}
+				out.println("gg");
+				try {
+					socket.close();
+				} catch (IOException e) {
+					// expected?
+				}
 			}
 		} catch (IOException e) {
-			//Expected: TCP server shouldn't be rebinded as quickly as in this test
-			//System.out.println("In diect rec: " + e.getMessage());
+			// Expected: the kill of organizer interrupts the severSocket.accept()
+			System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {
@@ -76,16 +99,6 @@ public class ArrowheadDirectRec extends Thread implements Receiver {
 				}
 			}
 		}
-	}
-
-	@Override
-	public Instant getEnd(Integer n) {
-		return end.get(n);
-	}
-
-	@Override
-	public Instant getMid(Integer n) {
-		return mid.get(n);
 	}
 
 	@Override

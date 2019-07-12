@@ -1,15 +1,15 @@
 package com.incquerylabs.onetoonetest.dds;
 
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.ByteBuffer;
 
+import com.incquerylabs.onetoonetest.Constants;
 import com.incquerylabs.onetoonetest.Receiver;
 import com.rti.dds.domain.DomainParticipant;
 import com.rti.dds.domain.DomainParticipantFactory;
-import com.rti.dds.infrastructure.RETCODE_NO_DATA;
+import com.rti.dds.infrastructure.ByteSeq;
 import com.rti.dds.infrastructure.ResourceLimitsQosPolicy;
 import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.publication.Publisher;
 import com.rti.dds.subscription.DataReader;
 import com.rti.dds.subscription.DataReaderAdapter;
 import com.rti.dds.subscription.DataReaderListener;
@@ -23,66 +23,32 @@ import com.rti.dds.topic.Topic;
 
 public class DdsRec extends Thread implements Receiver {
 
-	public static int domainId = DdsSend.domainId;
-	int samplecount = 0;
-	DomainParticipant participant = null;
-	Subscriber subscriber = null;
-	public static final String TOPIC_NAME = DdsSend.TOPIC_NAME;
-	Topic topic = null;
-	DataReaderListener listener = null;
-	FileChunkTypeDataReader reader = null;
-	Map<Integer, Instant> mid = new HashMap<Integer, Instant>();
-	Map<Integer, Instant> end = new HashMap<Integer, Instant>();
+	DomainParticipant participant;
+	Publisher publisher;
+	DdsFileDataWriter writer;
+	Subscriber subscriber;
+	DataReaderListener listener = new DdsFileListener();
+	DdsFileDataReader reader;
+	Topic forwardTopic;
+	Topic backwardTopic;
 
 	public DdsRec() {
-		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(domainId,
+		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(Constants.DDS_DOMAIN_ID,
 				DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
-		if (participant == null) {
-			System.err.println("create_participant error\n");
-			return;
-		}
-
 		subscriber = participant.create_subscriber(DomainParticipant.SUBSCRIBER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
-		if (subscriber == null) {
-			System.err.println("create_subscriber error\n");
-			return;
-		}
-
-		String typeName = FileChunkTypeTypeSupport.get_type_name();
-		FileChunkTypeTypeSupport.register_type(participant, typeName);
-
-		topic = participant.create_topic(TOPIC_NAME, typeName, DomainParticipant.TOPIC_QOS_DEFAULT, null,
+		publisher = participant.create_publisher(DomainParticipant.PUBLISHER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
-		if (topic == null) {
-			System.err.println("create_topic error\n");
-			return;
-		}
-
-		listener = new FileChunkTypeListener();
-
-		reader = (FileChunkTypeDataReader) subscriber.create_datareader(topic, Subscriber.DATAREADER_QOS_DEFAULT,
+		String typeName = DdsFileTypeSupport.get_type_name();
+		DdsFileTypeSupport.register_type(participant, typeName);
+		forwardTopic = participant.create_topic(Constants.DDS_FORWARD_TOPIC_NAME, typeName,
+				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
+		backwardTopic = participant.create_topic(Constants.DDS_BACKWARD_TOPIC_NAME, typeName,
+				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
+		writer = (DdsFileDataWriter) publisher.create_datawriter(backwardTopic, Publisher.DATAWRITER_QOS_DEFAULT, null,
+				StatusKind.STATUS_MASK_NONE);
+		reader = (DdsFileDataReader) subscriber.create_datareader(forwardTopic, Subscriber.DATAREADER_QOS_DEFAULT,
 				listener, StatusKind.STATUS_MASK_ALL);
-		if (reader == null) {
-			System.err.println("create_datareader error\n");
-			return;
-		}
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		super.run();
-	}
-
-	@Override
-	public Instant getEnd(Integer n) {
-		return end.get(n);
-	}
-
-	@Override
-	public Instant getMid(Integer n) {
-		return mid.get(n);
 	}
 
 	@Override
@@ -95,39 +61,48 @@ public class DdsRec extends Thread implements Receiver {
 		this.interrupt();
 	}
 
-	private class FileChunkTypeListener extends DataReaderAdapter {
-
-		FileChunkTypeSeq dataSeq = new FileChunkTypeSeq();
+	private class DdsFileListener extends DataReaderAdapter {
+		DdsFileSeq dataSeq = new DdsFileSeq();
 		SampleInfoSeq infoSeq = new SampleInfoSeq();
+		long fileSize = 0;
+		long readSize = 0;
 
-		public void on_data_available(DataReader reader) {
-			FileChunkTypeDataReader fileChunkTypeReader = (FileChunkTypeDataReader) reader;
+		@Override
+		public void on_data_available(DataReader arg0) {
+			DdsFileDataReader getter = (DdsFileDataReader) arg0;
 
 			try {
-				fileChunkTypeReader.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED,
+				getter.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED,
 						SampleStateKind.ANY_SAMPLE_STATE, ViewStateKind.ANY_VIEW_STATE,
 						InstanceStateKind.ANY_INSTANCE_STATE);
-				
-				SampleInfo info = (SampleInfo) infoSeq.get(0);
-				FileChunkType fct = null;
-				Integer index = null;
-				if(info.valid_data) {
-					fct = dataSeq.get(0);
-					index = Integer.parseInt(fct.filename);
-					if(mid.get(index) == null) {
-						mid.put(index, Instant.now());
-						System.out.println("Rec: " + index + " at: " + Instant.now().toString());
+				for(int i= 0; i < dataSeq.size(); ++i) {
+					SampleInfo info = infoSeq.get(i);
+					if(info.valid_data) {
+						ByteSeq chunk = dataSeq.get(i).chunk;
+						if(fileSize == 0) {
+							System.out.println("DDS message received.");
+							byte[] bytes = new byte[8];
+							for(int q = 0; q < 8; ++q) {
+								bytes[q] = chunk.getByte(q);
+							}
+							ByteBuffer buf = ByteBuffer.wrap(bytes);
+							fileSize = buf.getLong();
+						}
+						readSize = readSize + chunk.size();
+						if(readSize >= fileSize) {
+							byte[] bytes = {'g', 'g'};
+							DdsFile instance = new DdsFile();
+							instance.chunk = new ByteSeq(bytes);
+							writer.write(instance, null);
+							fileSize = 0;
+							readSize = 0;
+						}
 					}
 				}
-				for (int i = 1; i < dataSeq.size(); ++i) {
-					info = (SampleInfo) infoSeq.get(i);
-					dataSeq.get(i);
-				}
-				end.put(index, Instant.now());
-			} catch (RETCODE_NO_DATA noData) {
-				// No data to process
+			} catch (Exception e) {
+				System.out.println("Problems in ddsrec listener");
 			} finally {
-				fileChunkTypeReader.return_loan(dataSeq, infoSeq);
+				getter.return_loan(dataSeq, infoSeq);
 			}
 		}
 	}

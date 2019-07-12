@@ -46,8 +46,8 @@ public class MqttSend implements MqttCallback, Sender {
 	@Override
 	public void send(int n, File file) {
 		try {
-			ByteBuffer buf = ByteBuffer.allocate((int) (file.length())).put(Files.readAllBytes(file.toPath()));
 			times.put(0, Instant.now());
+			ByteBuffer buf = ByteBuffer.allocate((int) (file.length())).put(Files.readAllBytes(file.toPath()));
 			for (int i = 0; i < n; ++i) {
 				MqttMessage message = new MqttMessage(buf.array());
 				message.setQos(Constants.MQTT_QOS);

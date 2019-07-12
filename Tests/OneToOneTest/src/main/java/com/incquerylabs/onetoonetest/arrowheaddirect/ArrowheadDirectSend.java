@@ -39,6 +39,7 @@ public class ArrowheadDirectSend implements Sender {
 
 	@Override
 	public void send(int n, File file) {
+		times.put(0, Instant.now());
 		if (provider == null) {
 			String orchUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT,
 					OR_PATH, false, false);
@@ -59,7 +60,6 @@ public class ArrowheadDirectSend implements Sender {
 			provider = of.getProvider();
 		}
 		try {
-			times.put(0, Instant.now());
 			byte[] buff = new byte[BUFFER_SIZE];
 			for (int i = 0; i < n; ++i) {
 				socket = new Socket(provider.getAddress(), provider.getPort());

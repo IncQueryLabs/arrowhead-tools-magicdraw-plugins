@@ -19,25 +19,31 @@ public class SenderStarter{
 		
 		while(true) {
 			Random r = new Random();
-			fileToSend = r.nextInt(5);
+			fileToSend = r.nextInt(7);
 			testToRun = r.nextInt(3);
 			Sender send = null;
 			
 			switch (fileToSend) {
 			case 0:
-				file = new File("src/test/resources/a.txt");
-				break;
-			case 1:
-				file = new File("src/test/resources/aa.txt");
-				break;
-			case 2:
 				file = new File("src/test/resources/aaa.txt");
 				break;
+			case 1:
+				file = new File("src/test/resources/prog1.txt");
+				break;
+			case 2:
+				file = new File("src/test/resources/prog2.txt");
+				break;
 			case 3: 
-				file = new File("src/test/resources/pi.txt");
+				file = new File("src/test/resources/prog3.txt");
 				break;
 			case 4: 
-				file = new File("src/test/resources/enwik8.txt");
+				file = new File("src/test/resources/prog4.txt");
+				break;
+			case 5: 
+				file = new File("src/test/resources/prog5.txt");
+				break;
+			case 6: 
+				file = new File("src/test/resources/prog6.txt");
 				break;
 			}
 			

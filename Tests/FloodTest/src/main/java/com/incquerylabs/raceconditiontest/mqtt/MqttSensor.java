@@ -32,10 +32,11 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 			options.setConnectionTimeout(10);
 			mqc.setCallback(this);
 			mqc.connect(options);
+			mqc.publish(Constants.SENT_TOPIC_NAME, null);
 			if (type.equals("A")) {
-				mqc.subscribe(Constants.MQTT_SENSOR_A_FORWARD_TOPIC_NAME);
+				mqc.subscribe(Constants.MQTT_SENSOR_A_TOPIC_NAME);
 			} else {
-				mqc.subscribe(Constants.MQTT_SENSOR_B_FORWARD_TOPIC_NAME);
+				mqc.subscribe(Constants.MQTT_SENSOR_B_TOPIC_NAME);
 			}
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation in Arrowhead Sensor " + type + ".");
@@ -65,11 +66,8 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
 		mqc.publish(Constants.SENT_TOPIC_NAME, null);
-		if(type.equals("A")) {
-			mqc.publish(Constants.MQTT_SENSOR_A_BACKWARD_TOPIC_NAME, null);
-		} else {
-			mqc.publish(Constants.MQTT_SENSOR_B_BACKWARD_TOPIC_NAME, null);
-		}
+		String rect = new String(message.getPayload());
+		mqc.publish(rect, null);
 	}
 
 	@Override

@@ -29,6 +29,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
+			mqc.publish(Constants.SENT_TOPIC_NAME, null);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation in MQTT Consumer.");

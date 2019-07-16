@@ -7,7 +7,6 @@ public class Constants {
 	public static final int MQTT_SERVER_PORT = 1883;
 	public static final String SENT_TOPIC_NAME = "messageSent";
 	public static final String RECEIVED_TOPIC_NAME = "messageReceived";
-	public static final int PROCESSORS = 12;
 	
 	public static final int ARROWHEAD_SERVICE_REGISTRY_PORT = 8442;
 	public static final int ARROWHEAD_ORCHESTRATOR_PORT = 8440;
@@ -22,10 +21,9 @@ public class Constants {
 	public static final int ARROWHEAD_SENSOR_A_PORT = 8498;
 	public static final int ARROWHEAD_SENSOR_B_PORT = 8499;
 	
-	public static final String MQTT_SENSOR_A_FORWARD_TOPIC_NAME = "MSAF";
-	public static final String MQTT_SENSOR_A_BACKWARD_TOPIC_NAME = "MSAB";
-	public static final String MQTT_SENSOR_B_FORWARD_TOPIC_NAME = "MSBF";
-	public static final String MQTT_SENSOR_B_BACKWARD_TOPIC_NAME = "MSBB";
+	public static final String MQTT_SENSOR_A_TOPIC_NAME = "MSAF";
+	public static final String MQTT_SENSOR_B_TOPIC_NAME = "MSBF";
+	public static final String MQTT_SENSOR_BACK_TOPIC_BASENAME = "sensbackMQTT";
 	public static final String MQTT_PROCESSOR_FORWARD_TOPIC_NAME = "MSPF";
 	public static final String MQTT_PROCESSOR_BACKWARD_TOPIC_NAME = "MSPB";
 }

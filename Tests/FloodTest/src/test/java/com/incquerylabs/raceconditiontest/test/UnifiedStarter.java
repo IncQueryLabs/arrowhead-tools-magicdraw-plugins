@@ -3,7 +3,6 @@ package com.incquerylabs.raceconditiontest.test;
 import java.time.Duration;
 
 import com.incquerylabs.raceconditiontest.Auxillary;
-import com.incquerylabs.raceconditiontest.Constants;
 import com.incquerylabs.raceconditiontest.Consumer;
 import com.incquerylabs.raceconditiontest.Processor;
 import com.incquerylabs.raceconditiontest.Sensor;
@@ -23,6 +22,7 @@ public class UnifiedStarter {
 		Sensor sensorA;
 		Sensor sensorB;
 		Processor[] procs;
+		int q = 1;
 		
 		switch (verse) {
 		case "Arrowhead":
@@ -30,8 +30,8 @@ public class UnifiedStarter {
 			sensorB = new ArrowheadSensor("B");
 			sensorA.start();
 			sensorB.start();
-			procs = new Processor[Constants.PROCESSORS];
-			for(int i = 0; i < Constants.PROCESSORS; ++i) {
+			procs = new Processor[q];
+			for(int i = 0; i < q; ++i) {
 				Processor proc = new ArrowheadProcessor(i);
 				procs[i] = proc;
 				proc.start();
@@ -43,8 +43,8 @@ public class UnifiedStarter {
 			sensorB = new MqttSensor("B");
 			sensorA.start();
 			sensorB.start();
-			procs = new Processor[Constants.PROCESSORS];
-			for(int i = 0; i < Constants.PROCESSORS; ++i) {
+			procs = new Processor[q];
+			for(int i = 0; i < q; ++i) {
 				Processor proc = new MqttProcessor(i);
 				procs[i] = proc;
 				proc.start();
@@ -65,6 +65,6 @@ public class UnifiedStarter {
 			System.out.println("Receits: " + aux.getReceits());
 			System.out.println("Time: " + d.toMillis());
 		}
-		//TODO kilé
+		//TODO kill
 	}
 }

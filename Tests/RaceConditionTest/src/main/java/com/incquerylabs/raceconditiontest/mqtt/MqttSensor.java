@@ -48,10 +48,11 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 			try {
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in Aux");
+				System.out.println("Problem on closing MQTT connection in MqttSensor");
 			}
 			mqc = null;
 		}
+		this.interrupt();
 	}
 
 	@Override

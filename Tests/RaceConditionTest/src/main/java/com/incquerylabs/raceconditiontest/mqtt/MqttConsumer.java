@@ -18,6 +18,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 	Instant start;
 	Instant end;
 	MqttClient mqc = null;
+	volatile boolean waiting = true;
 	
 	public MqttConsumer() {
 		try {
@@ -30,13 +31,25 @@ public class MqttConsumer implements Consumer, MqttCallback{
 			mqc.connect(options);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Consumer.");
+			System.out.println("Excepton in MQTT creation in MQTT Consumer.");
 		}
 	}
 	
 	@Override
 	public void go() {
-		
+		try {
+			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME, null);
+			while(waiting) {
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					System.out.println("Waiting interrupted in MQTT Consumer.");
+				}
+			}
+		} catch (MqttException e) {
+			System.out.println("Excepton in MQTT publishing in MQTT Consumer.");
+		}
 	}
 
 	@Override
@@ -59,6 +72,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
 		end = Instant.now();
+		waiting = false;
 	}
 
 	@Override

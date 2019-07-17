@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest;
+package com.incquerylabs.floodtest;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;

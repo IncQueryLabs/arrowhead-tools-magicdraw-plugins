@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest;
+package com.incquerylabs.floodtest;
 
 public class Constants {
 	
@@ -26,4 +26,8 @@ public class Constants {
 	public static final String MQTT_SENSOR_BACK_TOPIC_BASENAME = "sensbackMQTT";
 	public static final String MQTT_PROCESSOR_FORWARD_TOPIC_NAME = "MSPF";
 	public static final String MQTT_PROCESSOR_BACKWARD_TOPIC_NAME = "MSPB";
+	
+	public static final int DDS_DOMAIN_NUMBER = 0;
+	public static final String DDS_PROCESSOR_FORWARD_TOPIC_NAME = "DDPF";
+	public static final String DDS_PROCESSOR_BACKWARD_TOPIC_NAME = "DDPB";
 }

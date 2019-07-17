@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest.mqtt;
+package com.incquerylabs.floodtest.mqtt;
 
 import java.net.ServerSocket;
 
@@ -10,8 +10,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import com.incquerylabs.raceconditiontest.Constants;
-import com.incquerylabs.raceconditiontest.Processor;
+import com.incquerylabs.floodtest.Constants;
+import com.incquerylabs.floodtest.Processor;
 
 public class MqttProcessor extends Thread implements Processor, MqttCallback {
 

@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest.mqtt;
+package com.incquerylabs.floodtest.mqtt;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -8,8 +8,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import com.incquerylabs.raceconditiontest.Constants;
-import com.incquerylabs.raceconditiontest.Sensor;
+import com.incquerylabs.floodtest.Constants;
+import com.incquerylabs.floodtest.Sensor;
 
 public class MqttSensor extends Thread implements Sensor, MqttCallback {
 

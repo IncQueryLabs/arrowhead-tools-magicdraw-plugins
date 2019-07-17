@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest;
+package com.incquerylabs.floodtest;
 
 import java.time.Instant;
 

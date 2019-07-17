@@ -1,4 +1,4 @@
-package com.incquerylabs.raceconditiontest.arrowhead;
+package com.incquerylabs.floodtest.arrowhead;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,8 +17,8 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import com.incquerylabs.raceconditiontest.Constants;
-import com.incquerylabs.raceconditiontest.Processor;
+import com.incquerylabs.floodtest.Constants;
+import com.incquerylabs.floodtest.Processor;
 
 import eu.arrowhead.client.common.Utility;
 import eu.arrowhead.client.common.exception.ArrowheadException;

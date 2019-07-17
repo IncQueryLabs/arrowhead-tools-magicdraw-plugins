@@ -121,7 +121,6 @@ public class ArrowheadSensor extends Thread implements Sensor {
 			}
 		} catch (IOException e) {
 			// Expected: the kill of organizer interrupts the severSocket.accept()
-			System.out.println("In diect rec: " + e.getMessage());
 		} finally {
 			if (serverSocket != null) {
 				try {
@@ -156,6 +155,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 		}
 		if (mqc != null) {
 			try {
+				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("Problem on closing MQTT connection in Arrowhead Sensor " + type + ".");

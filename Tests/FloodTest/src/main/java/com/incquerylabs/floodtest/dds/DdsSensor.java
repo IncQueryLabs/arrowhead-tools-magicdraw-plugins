@@ -84,6 +84,7 @@ public class DdsSensor extends Thread implements Sensor {
 	public void kill() {
 		if(mqc != null) {
 			try {
+				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("Problem on closing MQTT connection in MqttSensor");

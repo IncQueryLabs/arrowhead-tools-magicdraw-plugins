@@ -19,7 +19,7 @@ import com.incquerylabs.floodtest.mqtt.MqttSensor;
 public class UnifiedStarter {
 	
 	public static void main(String[] args) {
-		String verse = "Arrowhead";
+		String verse = "MQTT";
 		int q = 1;
 		
 		Auxillary aux = new Auxillary();
@@ -95,5 +95,6 @@ public class UnifiedStarter {
 				procs[i].kill();
 			}
 		}
+		return;
 	}
 }

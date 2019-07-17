@@ -201,9 +201,11 @@ public class ArrowheadProcessor extends Thread implements Processor{
 		}
 		if(mqc != null) {
 			try {
+				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("Problem on closing MQTT connection in Arrowhead Processor " + n + ".");
+				System.out.println(e.getMessage());
 			}
 			mqc = null;
 		}

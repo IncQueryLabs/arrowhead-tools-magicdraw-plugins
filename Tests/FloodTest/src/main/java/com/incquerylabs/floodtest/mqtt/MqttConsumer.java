@@ -52,6 +52,15 @@ public class MqttConsumer implements Consumer, MqttCallback{
 			end = Instant.now();
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT publishing in MQTT Consumer.");
+		} finally {
+			if(mqc != null) {
+				try {
+					mqc.disconnect();
+					mqc.close();
+				} catch (MqttException m) {
+					System.out.println("Excepton in closing in MQTT Consumer.");
+				}
+			}
 		}
 	}
 

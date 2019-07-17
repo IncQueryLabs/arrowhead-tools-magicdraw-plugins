@@ -166,6 +166,7 @@ public class DdsProcessor extends Thread implements Processor {
 	public void kill() {
 		if(mqc != null) {
 			try {
+				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("Problem on closing MQTT connection in MqttSensor");

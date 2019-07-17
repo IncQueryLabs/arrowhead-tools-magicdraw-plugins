@@ -48,6 +48,7 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 	public void kill() {
 		if(mqc != null) {
 			try {
+				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
 				System.out.println("Problem on closing MQTT connection in MqttSensor");

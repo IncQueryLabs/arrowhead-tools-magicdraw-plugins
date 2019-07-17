@@ -23,18 +23,21 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 	volatile boolean b = false;
 	final String sensorATopic;
 	final String sensorBTopic;
+	String name;
 
 	public MqttProcessor(int i) {
 		n = i;
+		name = "MqttProc" + n;
 		sensorATopic = Constants.MQTT_SENSOR_BACK_TOPIC_BASENAME + "A" + n;
 		sensorBTopic = Constants.MQTT_SENSOR_BACK_TOPIC_BASENAME + "B" + n;
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "MqttProc" + n,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
+			mqc.setCallback(this);
 			mqc.connect(options);
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME);
@@ -43,8 +46,13 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(sensorBTopic);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Processor " + n + ".");
+			System.out.println("Excepton in MQTT creation in " + name );
 		}
+	}
+	
+	@Override
+	public void run() {
+		System.out.println(name + " ready");
 	}
 
 	@Override
@@ -54,7 +62,7 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in MqttProcessor");
+				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
 		}
@@ -71,6 +79,7 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 		if (topic.equals(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME)) {
+			System.out.println(name + " received request from Consumer.");
 			MqttMessage ma = new MqttMessage(sensorATopic.getBytes());
 			MqttMessage mb = new MqttMessage(sensorBTopic.getBytes());
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
@@ -80,6 +89,7 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 			a = false;
 			b = false;
 		} else if (topic.equals(sensorATopic)) {
+			System.out.println(name + " received response from Sensor A.");
 			if (b == true) {
 				if(a != true) {
 					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
@@ -90,6 +100,7 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 				a = true;
 			}
 		} else if (topic.equals(sensorBTopic)) {
+			System.out.println(name + " received response from Sensor B.");
 			if (a == true) {
 				if(b != true) {
 					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);

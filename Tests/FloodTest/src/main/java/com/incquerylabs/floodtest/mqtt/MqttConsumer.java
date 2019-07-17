@@ -16,49 +16,52 @@ import com.incquerylabs.floodtest.Consumer;
 public class MqttConsumer implements Consumer, MqttCallback{
 
 	Instant start;
-	Instant end;
+	Instant end = null;
 	MqttClient mqc = null;
 	MqttMessage emptyMessage = new MqttMessage();
 	volatile boolean waiting = true;
+	String name = "MttqConsumer";
 	
 	public MqttConsumer() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "MCONS",
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
+			mqc.setCallback(this);
 			mqc.connect(options);
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in MQTT Consumer.");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 	}
 	
 	@Override
 	public void go() {
+		start = Instant.now();
 		try {
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.publish(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME, emptyMessage);
+			System.out.println(name + " sent for Processor");
 			while(waiting) {
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
-					System.out.println("Waiting interrupted in MQTT Consumer.");
+					System.out.println("Waiting interrupted in" + name);
 				}
 			}
-			end = Instant.now();
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT publishing in MQTT Consumer.");
+			System.out.println("Excepton in MQTT publishing in " + name);
 		} finally {
 			if(mqc != null) {
 				try {
 					mqc.disconnect();
 					mqc.close();
 				} catch (MqttException m) {
-					System.out.println("Excepton in closing in MQTT Consumer.");
+					System.out.println("Excepton in closing in " + name);
 				}
 			}
 		}
@@ -82,9 +85,12 @@ public class MqttConsumer implements Consumer, MqttCallback{
 
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
+		System.out.println(name + " received answer from Processor.");
 		mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
-		end = Instant.now();
-		waiting = false;
+		if(end == null) {
+			end = Instant.now();
+			waiting = false;
+		}
 	}
 
 	@Override

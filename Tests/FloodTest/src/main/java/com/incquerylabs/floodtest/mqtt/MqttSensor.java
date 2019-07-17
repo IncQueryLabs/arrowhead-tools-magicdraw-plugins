@@ -16,17 +16,15 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 	String type;
 	MqttClient mqc = null;
 	MqttMessage emptyMessage = new MqttMessage();
+	String name;
 
 	public MqttSensor(String type) {
 		this.type = type;
+		name = "MqttSensor" + type;
 		try {
-			if (type.equals("A")) {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "MSensorA",
-						new MemoryPersistence());
-			} else {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "MSensorB",
-						new MemoryPersistence());
-			}
+
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
+					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
@@ -40,13 +38,18 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 				mqc.subscribe(Constants.MQTT_SENSOR_B_TOPIC_NAME);
 			}
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Sensor " + type + ".");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 	}
 
 	@Override
+	public void run() {
+		System.out.println(name + " ready");
+	}
+
+	@Override
 	public void kill() {
-		if(mqc != null) {
+		if (mqc != null) {
 			try {
 				mqc.disconnect();
 				mqc.close();
@@ -67,6 +70,7 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+		System.out.println(name + "received request from Processor.");
 		mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 		String rect = new String(message.getPayload());
 		mqc.publish(rect, emptyMessage);

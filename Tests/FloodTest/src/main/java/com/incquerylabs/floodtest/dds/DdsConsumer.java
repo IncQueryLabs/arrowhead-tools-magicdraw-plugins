@@ -5,6 +5,7 @@ import java.time.Instant;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -42,6 +43,7 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 	StringSeq dataSeq = new StringSeq();
 	SampleInfoSeq infoSeq = new SampleInfoSeq();
 	MqttClient mqc;
+	MqttMessage emptyMessage = new MqttMessage();
 
 	public DdsConsumer() {
 		try {
@@ -76,7 +78,7 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 	public void go() {
 		try {
 			start = Instant.now();
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			writer.write("", null);
 			while (waitForResponse) {
 				try {
@@ -107,7 +109,7 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 			getter.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED, SampleStateKind.ANY_SAMPLE_STATE,
 					ViewStateKind.ANY_VIEW_STATE, InstanceStateKind.ALIVE_INSTANCE_STATE);
 			for (int i = 0; i < dataSeq.size(); ++i) {
-				mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+				mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 				if (infoSeq.get(i).valid_data) {
 					waitForResponse = false;
 				}

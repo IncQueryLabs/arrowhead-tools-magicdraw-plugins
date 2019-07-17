@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -35,7 +36,8 @@ public class ArrowheadConsumer implements Consumer {
 	Instant start;
 	Instant end;
 	MqttClient mqc = null;
-
+	MqttMessage emptyMessage = new MqttMessage();
+	
 	public ArrowheadConsumer() {
 		try {
 			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "arrCons",
@@ -68,16 +70,16 @@ public class ArrowheadConsumer implements Consumer {
 		Response r = Utility.sendRequest(orchUri, "POST", srf);
 		Socket socket = null;
 		try {
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			OrchestrationResponse or = r.readEntity(OrchestrationResponse.class);
-			mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+			mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 			List<OrchestrationForm> forms = or.getResponse();
 			boolean done = false;
 			for (int i = 0; (i < forms.size()) && !done; ++i) {
 				OrchestrationForm form = forms.get(i);
 				ArrowheadSystem processor = form.getProvider();
 				try {
-					mqc.publish(Constants.SENT_TOPIC_NAME, null);
+					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 					socket = new Socket(processor.getAddress(), processor.getPort());
 					OutputStream out = socket.getOutputStream();
 					InputStream in = socket.getInputStream();

@@ -5,6 +5,7 @@ import java.time.Instant;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -49,6 +50,7 @@ public class DdsProcessor extends Thread implements Processor {
 	StringSeq dataSeq = new StringSeq();
 	SampleInfoSeq infoSeq = new SampleInfoSeq();
 	MqttClient mqc;
+	MqttMessage emptyMessage = new MqttMessage();
 	String type;
 	String typeName;
 	volatile boolean a = false;
@@ -57,7 +59,7 @@ public class DdsProcessor extends Thread implements Processor {
 	public DdsProcessor(int n) {
 
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ddsproc",
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ddsproc" + n,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
@@ -118,18 +120,18 @@ public class DdsProcessor extends Thread implements Processor {
 						SampleStateKind.ANY_SAMPLE_STATE, ViewStateKind.ANY_VIEW_STATE,
 						InstanceStateKind.ALIVE_INSTANCE_STATE);
 				for (int i = 0; i < dataSeq.size(); ++i) {
-					mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					switch (type) {
 					case "P":
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 						sensorAWriter.write("", null);
 						sensorBWriter.write("", null);
 						break;
 					case "A":
 						if (b == true) {
 							if(a != true) {
-								mqc.publish(Constants.SENT_TOPIC_NAME, null);
+								mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 								processorWriter.write("", null);
 								a = true;
 							}
@@ -140,7 +142,7 @@ public class DdsProcessor extends Thread implements Processor {
 					case "B":
 						if (a == true) {
 							if(b != true) {
-								mqc.publish(Constants.SENT_TOPIC_NAME, null);
+								mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 								processorWriter.write("", null);
 								b = true;
 							}

@@ -15,6 +15,7 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 
 	String type;
 	MqttClient mqc = null;
+	MqttMessage emptyMessage = new MqttMessage();
 
 	public MqttSensor(String type) {
 		this.type = type;
@@ -32,7 +33,7 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 			options.setConnectionTimeout(10);
 			mqc.setCallback(this);
 			mqc.connect(options);
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			if (type.equals("A")) {
 				mqc.subscribe(Constants.MQTT_SENSOR_A_TOPIC_NAME);
 			} else {
@@ -64,10 +65,10 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
-		mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
-		mqc.publish(Constants.SENT_TOPIC_NAME, null);
+		mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+		mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 		String rect = new String(message.getPayload());
-		mqc.publish(rect, null);
+		mqc.publish(rect, emptyMessage);
 	}
 
 	@Override

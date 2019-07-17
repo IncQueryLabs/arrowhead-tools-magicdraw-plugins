@@ -13,6 +13,7 @@ import java.util.Set;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -33,6 +34,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 	String type;
 	MqttClient mqc = null;
 	ServiceRegistryEntry sre = null;
+	MqttMessage emptyMessage = new MqttMessage();
 
 	public ArrowheadSensor(String type) {
 		this.type = type;
@@ -78,7 +80,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 		}
 		sre = new ServiceRegistryEntry(service, me, "NOTRESTFUL");
 		try {
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
@@ -109,10 +111,10 @@ public class ArrowheadSensor extends Thread implements Sensor {
 				InputStream in = socket.getInputStream();
 				OutputStream out = socket.getOutputStream();
 				try {
-					mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					in.read();
 					out.write(111);
-					mqc.publish(Constants.SENT_TOPIC_NAME, null);
+					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 				} catch (MqttException e) {
 					System.out.println("Excepton in aux publishing in Arrowhead Sensor " + type + ".");
 				}
@@ -138,7 +140,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 			String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
 					SR_UNREG_PATH, false, false);
 			try {
-				mqc.publish(Constants.SENT_TOPIC_NAME, null);
+				mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			} catch (MqttException e) {
 				System.out.println("Excepton in aux publishing in Arrowhead Sensor " + type + ".");
 			}

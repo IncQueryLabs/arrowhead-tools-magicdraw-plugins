@@ -18,6 +18,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 	Instant start;
 	Instant end;
 	MqttClient mqc = null;
+	MqttMessage emptyMessage = new MqttMessage();
 	volatile boolean waiting = true;
 	
 	public MqttConsumer() {
@@ -29,7 +30,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation in MQTT Consumer.");
@@ -39,8 +40,8 @@ public class MqttConsumer implements Consumer, MqttCallback{
 	@Override
 	public void go() {
 		try {
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
-			mqc.publish(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
+			mqc.publish(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME, emptyMessage);
 			while(waiting) {
 				try {
 					Thread.sleep(1);
@@ -72,7 +73,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
-		mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+		mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 		end = Instant.now();
 		waiting = false;
 	}

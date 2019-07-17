@@ -5,6 +5,7 @@ import java.time.Instant;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -39,6 +40,7 @@ public class DdsSensor extends Thread implements Sensor {
 	StringSeq dataSeq = new StringSeq();
 	SampleInfoSeq infoSeq = new SampleInfoSeq();
 	MqttClient mqc;
+	MqttMessage emptyMessage = new MqttMessage();
 	String type;
 	String typeName;
 
@@ -80,8 +82,15 @@ public class DdsSensor extends Thread implements Sensor {
 
 	@Override
 	public void kill() {
-		// TODO Auto-generated method stub
-
+		if(mqc != null) {
+			try {
+				mqc.close();
+			} catch (MqttException e) {
+				System.out.println("Problem on closing MQTT connection in MqttSensor");
+			}
+			mqc = null;
+		}
+		this.interrupt();
 	}
 
 	private class DdsSensorListener extends DataReaderAdapter {
@@ -93,14 +102,14 @@ public class DdsSensor extends Thread implements Sensor {
 						SampleStateKind.ANY_SAMPLE_STATE, ViewStateKind.ANY_VIEW_STATE,
 						InstanceStateKind.ALIVE_INSTANCE_STATE);
 				for (int i = 0; i < dataSeq.size(); ++i) {
-					mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					if (infoSeq.get(i).valid_data) {
 						String got = (String) dataSeq.get(i);
 						Topic responseTopic = participant.create_topic(got, typeName,
 								DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 						StringDataWriter writer = (StringDataWriter) publisher.create_datawriter(responseTopic,
 								Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
-						mqc.publish(Constants.SENT_TOPIC_NAME, null);
+						mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 						writer.write("", null);
 					}
 				}

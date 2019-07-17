@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import com.incquerylabs.floodtest.Constants;
@@ -40,6 +41,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 	int n;
 	ArrowheadSystem me;
 	ServiceRegistryEntry sre = null;
+	MqttMessage emptyMessage = new MqttMessage();
 	
 	public ArrowheadProcessor(int ft) {
 		n = ft;
@@ -70,7 +72,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 				serviceMetadata);
 		sre = new ServiceRegistryEntry(service, me, "NOTRESTFUL");
 		try {
-			mqc.publish(Constants.SENT_TOPIC_NAME, null);
+			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			Utility.sendRequest(srUri, "POST", sre);
 		} catch (ArrowheadException e) {
 			if (e.getExceptionType() == ExceptionType.DUPLICATE_ENTRY) {
@@ -102,7 +104,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 				byte[] inBuff = new byte[10];
 				in.read(inBuff);
 				try {
-					mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					String orchUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT,
 							ORCH_PATH, false, false);
 					Set<String> interfaces = new HashSet<String>();
@@ -131,10 +133,10 @@ public class ArrowheadProcessor extends Thread implements Processor{
 						caller = new Socket(sensorA.getAddress(), sensorA.getPort());
 						InputStream inA = caller.getInputStream();
 						OutputStream outA = caller.getOutputStream();
-						mqc.publish(Constants.SENT_TOPIC_NAME, null);
+						mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 						outA.write(11);
 						inA.read();
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					} catch (MqttException e) {
 						System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
 					} catch (IOException e) {
@@ -154,10 +156,10 @@ public class ArrowheadProcessor extends Thread implements Processor{
 						caller = new Socket(sensorB.getAddress(), sensorB.getPort());
 						InputStream inA = caller.getInputStream();
 						OutputStream outA = caller.getOutputStream();
-						mqc.publish(Constants.SENT_TOPIC_NAME, null);
+						mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 						outA.write(11);
 						inA.read();
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, null);
+						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					} catch (MqttException e) {
 						System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
 					} catch (IOException e) {
@@ -172,7 +174,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 							caller = null;
 						}
 					}
-					mqc.publish(Constants.SENT_TOPIC_NAME, null);
+					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 					out.write(33);
 				} catch (MqttException e) {
 					System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
@@ -191,7 +193,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 			String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
 					SR_UNREG_PATH, false, false);
 			try {
-				mqc.publish(Constants.SENT_TOPIC_NAME, null);
+				mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			} catch (MqttException e) {
 				System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
 			}

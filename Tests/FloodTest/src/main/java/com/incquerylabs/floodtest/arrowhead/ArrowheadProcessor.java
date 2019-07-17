@@ -37,16 +37,14 @@ public class ArrowheadProcessor extends Thread implements Processor{
 	private static final String ORCH_PATH = "orchestrator/orchestration";
 	MqttClient mqc = null;
 	ServerSocket serverSocket = null;
-	private static final String NAME = "arrProc";
 	int n;
 	ArrowheadSystem me;
 	ServiceRegistryEntry sre = null;
 	
-	//RANDOM KILL ??
 	public ArrowheadProcessor(int ft) {
 		n = ft;
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, NAME + n,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "arrProc" + n,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);

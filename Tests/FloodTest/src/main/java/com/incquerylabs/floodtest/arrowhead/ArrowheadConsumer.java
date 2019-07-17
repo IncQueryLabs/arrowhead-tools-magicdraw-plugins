@@ -35,11 +35,10 @@ public class ArrowheadConsumer implements Consumer {
 	Instant start;
 	Instant end;
 	MqttClient mqc = null;
-	private static final String NAME = "arrCons";
 
 	public ArrowheadConsumer() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, NAME,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "arrCons",
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);

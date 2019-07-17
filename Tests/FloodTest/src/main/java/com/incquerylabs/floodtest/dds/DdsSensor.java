@@ -45,8 +45,13 @@ public class DdsSensor extends Thread implements Sensor {
 	public DdsSensor(String type) {
 		this.type = type;
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ddscon",
-					new MemoryPersistence());
+			if (type.equals("A")) {
+				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "DDSSensorA",
+						new MemoryPersistence());
+			} else {
+				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "DDSSensorB",
+						new MemoryPersistence());
+			}
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);

@@ -48,6 +48,7 @@ public class MqttConsumer implements Consumer, MqttCallback{
 					System.out.println("Waiting interrupted in MQTT Consumer.");
 				}
 			}
+			end = Instant.now();
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT publishing in MQTT Consumer.");
 		}

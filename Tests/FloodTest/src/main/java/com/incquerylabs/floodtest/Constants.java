@@ -30,4 +30,7 @@ public class Constants {
 	public static final int DDS_DOMAIN_NUMBER = 0;
 	public static final String DDS_PROCESSOR_FORWARD_TOPIC_NAME = "DDPF";
 	public static final String DDS_PROCESSOR_BACKWARD_TOPIC_NAME = "DDPB";
+	public static final String DDS_SENSOR_A_TOPIC_NAME = "DDAF";
+	public static final String DDS_SENSOR_B_TOPIC_NAME = "DDBF";
+	public static final String DDS_SENSOR_TOPIC_BASENAME = "DDSB";
 }

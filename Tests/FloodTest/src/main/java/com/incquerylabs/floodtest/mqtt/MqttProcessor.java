@@ -75,20 +75,20 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 			a = false;
 			b = false;
 		} else if (topic.equals(sensorATopic)) {
-			if (b = true) {
+			if (b == true) {
 				if(a != true) {
 					mqc.publish(Constants.SENT_TOPIC_NAME, null);
-					mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
+					mqc.publish(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME, null);
 					a = true;
 				}
 			} else {
 				a = true;
 			}
 		} else if (topic.equals(sensorBTopic)) {
-			if (a = true) {
+			if (a == true) {
 				if(b != true) {
 					mqc.publish(Constants.SENT_TOPIC_NAME, null);
-					mqc.subscribe(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME);
+					mqc.publish(Constants.MQTT_PROCESSOR_BACKWARD_TOPIC_NAME, null);
 					b = true;
 				}
 			} else {

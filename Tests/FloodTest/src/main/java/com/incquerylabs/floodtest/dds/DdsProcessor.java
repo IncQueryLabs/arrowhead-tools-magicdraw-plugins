@@ -12,17 +12,13 @@ import com.incquerylabs.floodtest.Constants;
 import com.incquerylabs.floodtest.Processor;
 import com.rti.dds.domain.DomainParticipant;
 import com.rti.dds.domain.DomainParticipantFactory;
-import com.rti.dds.infrastructure.ResourceLimitsQosPolicy;
 import com.rti.dds.infrastructure.StatusKind;
 import com.rti.dds.infrastructure.StringSeq;
 import com.rti.dds.publication.Publisher;
 import com.rti.dds.subscription.DataReader;
 import com.rti.dds.subscription.DataReaderAdapter;
-import com.rti.dds.subscription.InstanceStateKind;
 import com.rti.dds.subscription.SampleInfoSeq;
-import com.rti.dds.subscription.SampleStateKind;
 import com.rti.dds.subscription.Subscriber;
-import com.rti.dds.subscription.ViewStateKind;
 import com.rti.dds.topic.Topic;
 import com.rti.dds.type.builtin.StringDataReader;
 import com.rti.dds.type.builtin.StringDataWriter;
@@ -47,19 +43,18 @@ public class DdsProcessor extends Thread implements Processor {
 	Topic sensorBBackwardTopic;
 	Instant start;
 	Instant end;
-	StringSeq dataSeq = new StringSeq();
-	SampleInfoSeq infoSeq = new SampleInfoSeq();
 	MqttClient mqc;
 	MqttMessage emptyMessage = new MqttMessage();
 	String type;
 	String typeName;
 	volatile boolean a = false;
 	volatile boolean b = false;
+	String name;
 
 	public DdsProcessor(int n) {
-
+		name = "DdsProc" + n;
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ddsproc" + n,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
@@ -67,7 +62,7 @@ public class DdsProcessor extends Thread implements Processor {
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in DDS Consumer.");
+			System.out.println("Excepton in MQTT creation in " + n);
 		}
 		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(Constants.DDS_DOMAIN_NUMBER,
 				DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
@@ -76,10 +71,11 @@ public class DdsProcessor extends Thread implements Processor {
 		publisher = participant.create_publisher(DomainParticipant.PUBLISHER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
 		typeName = StringTypeSupport.get_type_name();
-
+		StringTypeSupport.register_type(participant, typeName);
+		
 		processorForwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_FORWARD_TOPIC_NAME, typeName,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
-		processorBackwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_BACKWARD_TOPIC_NAME, typeName,
+		/*processorBackwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_BACKWARD_TOPIC_NAME, typeName,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		sensorAForwardTopic = participant.create_topic(Constants.DDS_SENSOR_A_TOPIC_NAME, typeName,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
@@ -88,91 +84,81 @@ public class DdsProcessor extends Thread implements Processor {
 		sensorBForwardTopic = participant.create_topic(Constants.DDS_SENSOR_B_TOPIC_NAME, typeName,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		sensorBBackwardTopic = participant.create_topic(Constants.DDS_SENSOR_TOPIC_BASENAME + "B" + n, typeName,
-				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
+				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);*/
 
 		processorReader = (StringDataReader) subscriber.create_datareader(processorForwardTopic,
-				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProceesorListener("P"), StatusKind.STATUS_MASK_NONE);
-		sensorAReader = (StringDataReader) subscriber.create_datareader(sensorABackwardTopic,
-				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProceesorListener("A"), StatusKind.STATUS_MASK_NONE);
+				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProcessorListener("P"), StatusKind.STATUS_MASK_NONE);
+		/*sensorAReader = (StringDataReader) subscriber.create_datareader(sensorABackwardTopic,
+				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProcessorListener("A"), StatusKind.STATUS_MASK_NONE);
 		sensorBReader = (StringDataReader) subscriber.create_datareader(sensorBBackwardTopic,
-				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProceesorListener("B"), StatusKind.STATUS_MASK_NONE);
+				Subscriber.DATAREADER_QOS_DEFAULT, new DdsProcessorListener("B"), StatusKind.STATUS_MASK_NONE);
 
 		processorWriter = (StringDataWriter) publisher.create_datawriter(processorBackwardTopic,
 				Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		sensorAWriter = (StringDataWriter) publisher.create_datawriter(sensorAForwardTopic,
 				Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		sensorBWriter = (StringDataWriter) publisher.create_datawriter(sensorBForwardTopic,
-				Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
+				Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);*/
+		System.out.println("halt");
 	}
 
-	private class DdsProceesorListener extends DataReaderAdapter {
-		String type;
+	private static class DdsProcessorListener extends DataReaderAdapter {
+		StringSeq dataSeq = new StringSeq();
+		SampleInfoSeq infoSeq = new SampleInfoSeq();
 
-		public DdsProceesorListener(String s) {
-			type = s;
+		public DdsProcessorListener(String string) {
 		}
 
 		@Override
 		public void on_data_available(DataReader arg0) {
-			StringDataReader getter = (StringDataReader) arg0;
-			try {
-				getter.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED,
-						SampleStateKind.ANY_SAMPLE_STATE, ViewStateKind.ANY_VIEW_STATE,
-						InstanceStateKind.ALIVE_INSTANCE_STATE);
-				for (int i = 0; i < dataSeq.size(); ++i) {
-					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
-					switch (type) {
-					case "P":
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
-						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
-						sensorAWriter.write("", null);
-						sensorBWriter.write("", null);
-						break;
-					case "A":
-						if (b == true) {
-							if(a != true) {
-								mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
-								processorWriter.write("", null);
-								a = true;
-							}
-						} else {
-							a = true;
-						}
-						break;
-					case "B":
-						if (a == true) {
-							if(b != true) {
-								mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
-								processorWriter.write("", null);
-								b = true;
-							}
-						} else {
-							a = true;
-						}
-						break;
-					}
-				}
-			} catch (MqttException m) {
-				System.out.println("Excepton in Aux publishing in DDS Processor listener.");
-			} catch (Exception e) {
-				System.out.println("Exception in DDS Consumer listener");
-			} finally {
-				getter.return_loan(dataSeq, infoSeq);
-			}
+			System.out.println("Get");
+			arg0.return_loan_untyped(dataSeq, infoSeq);
 		}
 	}
 
+	/*
+	 * private class DdsProceesorListener extends DataReaderAdapter { String type;
+	 * 
+	 * public DdsProceesorListener(String s) { type = s; }
+	 * 
+	 * @Override public void on_data_available(DataReader arg0) {
+	 * System.out.println(name); StringDataReader getter = (StringDataReader) arg0;
+	 * try { getter.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED,
+	 * SampleStateKind.ANY_SAMPLE_STATE, ViewStateKind.ANY_VIEW_STATE,
+	 * InstanceStateKind.ALIVE_INSTANCE_STATE); for (int i = 0; i < dataSeq.size();
+	 * ++i) { mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage); switch
+	 * (type) { case "P": System.out.println(name +
+	 * " received request from Consumer.");
+	 * mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+	 * mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+	 * sensorAWriter.write("", null); sensorBWriter.write("", null); break; case
+	 * "A": System.out.println(name + " received response from Sensor A."); if (b ==
+	 * true) { if(a != true) { mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
+	 * processorWriter.write("", null); a = true; } } else { a = true; } break; case
+	 * "B": System.out.println(name + " received response from Sensor B."); if (a ==
+	 * true) { if(b != true) { mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
+	 * processorWriter.write("", null); b = true; } } else { a = true; } break; } }
+	 * } catch (MqttException m) {
+	 * System.out.println("Excepton in Aux publishing in " + name + " listener"); }
+	 * catch (Exception e) { System.out.println("Exception in" + name +
+	 * " listener"); } finally { getter.return_loan(dataSeq, infoSeq); } } }
+	 */
 	@Override
 	public void kill() {
-		if(mqc != null) {
+		if (mqc != null) {
 			try {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in MqttSensor");
+				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
 		}
 		this.interrupt();
+	}
+
+	@Override
+	public void run() {
+		System.out.println(name + " ready");
 	}
 }

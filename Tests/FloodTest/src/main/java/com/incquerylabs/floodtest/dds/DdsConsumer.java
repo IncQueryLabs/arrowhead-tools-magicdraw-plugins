@@ -40,14 +40,13 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 	Instant start;
 	Instant end;
 	private volatile boolean waitForResponse = true;
-	StringSeq dataSeq = new StringSeq();
-	SampleInfoSeq infoSeq = new SampleInfoSeq();
 	MqttClient mqc;
 	MqttMessage emptyMessage = new MqttMessage();
+	String name = "DdsConsumer";
 
 	public DdsConsumer() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ddscon",
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
@@ -55,7 +54,7 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in DDS Consumer.");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(Constants.DDS_DOMAIN_NUMBER,
 				DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
@@ -64,6 +63,8 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 		publisher = participant.create_publisher(DomainParticipant.PUBLISHER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
 		String typeName = StringTypeSupport.get_type_name();
+		StringTypeSupport.register_type(participant, typeName);
+		
 		forwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_FORWARD_TOPIC_NAME, typeName,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		backwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_BACKWARD_TOPIC_NAME, typeName,
@@ -79,24 +80,25 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 		try {
 			start = Instant.now();
 			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
-			writer.write("", null);
+			String fal = new String("fgh");
+			writer.write(fal, null);
+			System.out.println(name + " sent for Processor");
 			while (waitForResponse) {
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
-					System.out.println("Waiting interrupted in DDS Consumer.");
+					System.out.println("Waiting interrupted in " + name);
 				}
 			}
-			end = Instant.now();
 		} catch (MqttException m) {
-			System.out.println("Excepton in Aux publishing in DDS Consumer.");
+			System.out.println("Excepton in Aux publishing in " + name);
 		} finally {
 			if (mqc != null) {
 				try {
 					mqc.disconnect();
 					mqc.close();
 				} catch (MqttException e) {
-					System.out.println("Problem on closing MQTT connection in Arrowhead Consumer.");
+					System.out.println("Problem on closing MQTT connection in " + name);
 				}
 				mqc = null;
 			}
@@ -105,20 +107,27 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 
 	@Override
 	public void on_data_available(DataReader arg0) {
+		StringSeq dataSeq = new StringSeq();
+		SampleInfoSeq infoSeq = new SampleInfoSeq();
+		
 		StringDataReader getter = (StringDataReader) arg0;
 		try {
 			getter.take(dataSeq, infoSeq, ResourceLimitsQosPolicy.LENGTH_UNLIMITED, SampleStateKind.ANY_SAMPLE_STATE,
 					ViewStateKind.ANY_VIEW_STATE, InstanceStateKind.ALIVE_INSTANCE_STATE);
 			for (int i = 0; i < dataSeq.size(); ++i) {
-				mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 				if (infoSeq.get(i).valid_data) {
-					waitForResponse = false;
+					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
+					System.out.println(name + " received answer from Processor.");
+					if (end == null) {
+						waitForResponse = false;
+						end = Instant.now();
+					}
 				}
 			}
 		} catch (MqttException m) {
-			System.out.println("Excepton in Aux publishing in DDS Consumer listener.");
+			System.out.println("Excepton in Aux publishing in " + name + " listener");
 		} catch (Exception e) {
-			System.out.println("Exception in DDS Consumer listener");
+			System.out.println("Exception in " + name + " listener");
 		} finally {
 			getter.return_loan(dataSeq, infoSeq);
 		}

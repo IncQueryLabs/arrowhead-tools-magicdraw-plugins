@@ -31,7 +31,7 @@ import eu.arrowhead.client.common.model.OrchestrationResponse;
 import eu.arrowhead.client.common.model.ServiceRegistryEntry;
 import eu.arrowhead.client.common.model.ServiceRequestForm;
 
-public class ArrowheadProcessor extends Thread implements Processor{
+public class ArrowheadProcessor extends Thread implements Processor {
 
 	private static final String SR_REG_PATH = "serviceregistry/register";
 	private static final String SR_UNREG_PATH = "serviceregistry/remove";
@@ -42,11 +42,13 @@ public class ArrowheadProcessor extends Thread implements Processor{
 	ArrowheadSystem me;
 	ServiceRegistryEntry sre = null;
 	MqttMessage emptyMessage = new MqttMessage();
-	
+	String name;
+
 	public ArrowheadProcessor(int ft) {
 		n = ft;
+		name = "ArrowheadProcessor" + n;
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "arrProc" + n,
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name + n,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
@@ -54,17 +56,17 @@ public class ArrowheadProcessor extends Thread implements Processor{
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Processor " + n + ".");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 		try {
 			serverSocket = new ServerSocket(Constants.ARROWHEAD_PROCESSOR_BASEPORT + n);
 		} catch (IOException e) {
-			System.out.println("Excepton in server creation in Arrowhead Processor " + n + ".");
+			System.out.println("Excepton in server creation in " + name);
 		}
 		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
 				false, true);
-		me = new ArrowheadSystem(Constants.ARROWHEAD_PROCESSOR_BASENAME + n, Constants.ARROWHEAD_PRCESSOR_IP,
-				Constants.ARROWHEAD_PROCESSOR_BASEPORT + n, null);
+		me = new ArrowheadSystem(name, Constants.ARROWHEAD_PRCESSOR_IP, Constants.ARROWHEAD_PROCESSOR_BASEPORT + n,
+				null);
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
@@ -96,9 +98,11 @@ public class ArrowheadProcessor extends Thread implements Processor{
 
 	@Override
 	public void run() {
+		System.out.println(name + " ready");
 		try {
 			while (true) {
 				Socket socket = serverSocket.accept();
+				System.out.println(name + " received request from Consumer.");
 				InputStream in = socket.getInputStream();
 				OutputStream out = socket.getOutputStream();
 				byte[] inBuff = new byte[10];
@@ -136,6 +140,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 						mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 						outA.write(11);
 						inA.read();
+						System.out.println(name + " received response from Sensor A.");
 						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					} catch (MqttException e) {
 						System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
@@ -145,7 +150,7 @@ public class ArrowheadProcessor extends Thread implements Processor{
 						if (caller != null) {
 							try {
 								caller.close();
-							}catch (IOException e) {
+							} catch (IOException e) {
 								// probably expected
 							}
 							caller = null;
@@ -159,16 +164,17 @@ public class ArrowheadProcessor extends Thread implements Processor{
 						mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 						outA.write(11);
 						inA.read();
+						System.out.println(name + " received response from Sensor B.");
 						mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					} catch (MqttException e) {
-						System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
+						System.out.println("Excepton in aux publishing in " + name);
 					} catch (IOException e) {
-						System.out.println("Excepton in sensor communication in Arrowhead Processor " + n + ".");
+						System.out.println("Excepton in sensor communication in " + name);
 					} finally {
 						if (caller != null) {
 							try {
 								caller.close();
-							}catch (IOException e) {
+							} catch (IOException e) {
 								// probably expected
 							}
 							caller = null;
@@ -177,34 +183,34 @@ public class ArrowheadProcessor extends Thread implements Processor{
 					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 					out.write(33);
 				} catch (MqttException e) {
-					System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
+					System.out.println("Excepton in aux publishing in " + name);
 				} catch (ArrowheadException a) {
-					System.out.println("Excepton in arrowhead in Arrowhead Processor " + n + ".");
+					System.out.println("Excepton in arrowhead in " + name);
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Exception in Arrowhead Processor " + n + ".");
+			System.out.println("Exception in " + name);
 			System.out.println(e.getMessage());
 		}
 	}
 
 	public void kill() {
-		if(sre != null) {
+		if (sre != null) {
 			String unregUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT,
 					SR_UNREG_PATH, false, false);
 			try {
 				mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			} catch (MqttException e) {
-				System.out.println("Excepton in aux publishing in Arrowhead Processor " + n + ".");
+				System.out.println("Excepton in aux publishing in " + name);
 			}
 			Utility.sendRequest(unregUri, "PUT", sre);
 		}
-		if(mqc != null) {
+		if (mqc != null) {
 			try {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in Arrowhead Processor " + n + ".");
+				System.out.println("Problem on closing MQTT connection in " + name);
 				System.out.println(e.getMessage());
 			}
 			mqc = null;

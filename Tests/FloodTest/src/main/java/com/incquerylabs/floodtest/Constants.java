@@ -17,7 +17,6 @@ public class Constants {
 	public static final String ARROWHEAD_PRCESSOR_IP = "127.0.0.1";
 	public static final String ARROWHEAD_SENSOR_IP = "127.0.0.1";
 	public static final int ARROWHEAD_PROCESSOR_BASEPORT = 8497;
-	public static final String ARROWHEAD_PROCESSOR_BASENAME = "arrProc";
 	public static final int ARROWHEAD_SENSOR_A_PORT = 8498;
 	public static final int ARROWHEAD_SENSOR_B_PORT = 8499;
 	
@@ -27,7 +26,7 @@ public class Constants {
 	public static final String MQTT_PROCESSOR_FORWARD_TOPIC_NAME = "MSPF";
 	public static final String MQTT_PROCESSOR_BACKWARD_TOPIC_NAME = "MSPB";
 	
-	public static final int DDS_DOMAIN_NUMBER = 0;
+	public static final int DDS_DOMAIN_NUMBER = 2;
 	public static final String DDS_PROCESSOR_FORWARD_TOPIC_NAME = "DDPF";
 	public static final String DDS_PROCESSOR_BACKWARD_TOPIC_NAME = "DDPB";
 	public static final String DDS_SENSOR_A_TOPIC_NAME = "DDAF";

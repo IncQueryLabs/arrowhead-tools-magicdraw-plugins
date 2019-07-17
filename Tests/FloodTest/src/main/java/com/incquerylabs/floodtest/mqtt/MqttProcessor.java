@@ -39,11 +39,8 @@ public class MqttProcessor extends Thread implements Processor, MqttCallback {
 			options.setConnectionTimeout(10);
 			mqc.setCallback(this);
 			mqc.connect(options);
-			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(Constants.MQTT_PROCESSOR_FORWARD_TOPIC_NAME);
-			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(sensorATopic);
-			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			mqc.subscribe(sensorBTopic);
 		} catch (MqttException e) {
 			System.out.println("Excepton in MQTT creation in " + name );

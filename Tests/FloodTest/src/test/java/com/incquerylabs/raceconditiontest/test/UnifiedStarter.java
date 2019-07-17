@@ -17,18 +17,17 @@ import com.incquerylabs.floodtest.mqtt.MqttProcessor;
 import com.incquerylabs.floodtest.mqtt.MqttSensor;
 
 public class UnifiedStarter {
-	
+
 	public static void main(String[] args) {
-		String verse = "MQTT";
+		String verse = "DDS";
 		int q = 1;
-		
+
 		Auxillary aux = new Auxillary();
 		Consumer consumer = null;
 		Sensor sensorA = null;
 		Sensor sensorB = null;
 		Processor[] procs = null;
-		
-		
+
 		switch (verse) {
 		case "Arrowhead":
 			sensorA = new ArrowheadSensor("A");
@@ -36,12 +35,12 @@ public class UnifiedStarter {
 			sensorA.start();
 			sensorB.start();
 			procs = new Processor[q];
-			for(int i = 0; i < q; ++i) {
+			for (int i = 0; i < q; ++i) {
 				Processor proc = new ArrowheadProcessor(i);
 				procs[i] = proc;
 				proc.start();
 			}
-			consumer = new ArrowheadConsumer();			
+			consumer = new ArrowheadConsumer();
 			break;
 		case "DDS":
 			sensorA = new DdsSensor("A");
@@ -49,12 +48,18 @@ public class UnifiedStarter {
 			sensorA.start();
 			sensorB.start();
 			procs = new Processor[q];
-			for(int i = 0; i < q; ++i) {
+			for (int i = 0; i < q; ++i) {
 				Processor proc = new DdsProcessor(i);
 				procs[i] = proc;
 				proc.start();
 			}
-			consumer = new DdsConsumer();			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			consumer = new DdsConsumer();
 			break;
 		case "MQTT":
 			sensorA = new MqttSensor("A");
@@ -62,16 +67,16 @@ public class UnifiedStarter {
 			sensorA.start();
 			sensorB.start();
 			procs = new Processor[q];
-			for(int i = 0; i < q; ++i) {
+			for (int i = 0; i < q; ++i) {
 				Processor proc = new MqttProcessor(i);
 				procs[i] = proc;
 				proc.start();
 			}
-			consumer = new MqttConsumer();			
-			break;			
+			consumer = new MqttConsumer();
+			break;
 		}
-		
-		if(consumer != null) {
+
+		if (consumer != null) {
 			consumer.go();
 			Duration d = Duration.between(consumer.getStart(), consumer.getEnd());
 			try {
@@ -84,14 +89,14 @@ public class UnifiedStarter {
 			System.out.println("Receits: " + aux.getReceits());
 			System.out.println("Time: " + d.toMillis());
 		}
-		if(sensorA != null) {
+		if (sensorA != null) {
 			sensorA.kill();
 		}
-		if(sensorA != null) {
+		if (sensorA != null) {
 			sensorB.kill();
 		}
-		if(procs != null) {
-			for(int i = 0; i < q; ++i) {
+		if (procs != null) {
+			for (int i = 0; i < q; ++i) {
 				procs[i].kill();
 			}
 		}

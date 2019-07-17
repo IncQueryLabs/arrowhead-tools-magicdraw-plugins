@@ -31,7 +31,6 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 			options.setConnectionTimeout(10);
 			mqc.setCallback(this);
 			mqc.connect(options);
-			mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			if (type.equals("A")) {
 				mqc.subscribe(Constants.MQTT_SENSOR_A_TOPIC_NAME);
 			} else {
@@ -54,7 +53,7 @@ public class MqttSensor extends Thread implements Sensor, MqttCallback {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in MqttSensor");
+				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
 		}

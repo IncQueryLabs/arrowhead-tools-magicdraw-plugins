@@ -43,15 +43,17 @@ public class DdsSensor extends Thread implements Sensor {
 	MqttMessage emptyMessage = new MqttMessage();
 	String type;
 	String typeName;
+	String name;
 
 	public DdsSensor(String type) {
 		this.type = type;
+		name = "DdsSensor" + type;
 		try {
 			if (type.equals("A")) {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "DDSSensorA",
+				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 						new MemoryPersistence());
 			} else {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "DDSSensorB",
+				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 						new MemoryPersistence());
 			}
 			MqttConnectOptions options = new MqttConnectOptions();
@@ -60,7 +62,7 @@ public class DdsSensor extends Thread implements Sensor {
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in DDS Consumer.");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(Constants.DDS_DOMAIN_NUMBER,
 				DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
@@ -87,7 +89,7 @@ public class DdsSensor extends Thread implements Sensor {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in MqttSensor");
+				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
 		}
@@ -105,6 +107,7 @@ public class DdsSensor extends Thread implements Sensor {
 				for (int i = 0; i < dataSeq.size(); ++i) {
 					mqc.publish(Constants.RECEIVED_TOPIC_NAME, emptyMessage);
 					if (infoSeq.get(i).valid_data) {
+						System.out.println(name + " received request from Processor.");
 						String got = (String) dataSeq.get(i);
 						Topic responseTopic = participant.create_topic(got, typeName,
 								DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
@@ -122,5 +125,10 @@ public class DdsSensor extends Thread implements Sensor {
 				getter.return_loan(dataSeq, infoSeq);
 			}
 		}
+	}
+	
+	@Override
+	public void run() {
+		System.out.println(name + " ready");
 	}
 }

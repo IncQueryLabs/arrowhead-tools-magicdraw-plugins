@@ -37,10 +37,11 @@ public class ArrowheadConsumer implements Consumer {
 	Instant end;
 	MqttClient mqc = null;
 	MqttMessage emptyMessage = new MqttMessage();
-	
+	String name = "ArrowheadConsumer";
+
 	public ArrowheadConsumer() {
 		try {
-			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "arrCons",
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
@@ -48,7 +49,7 @@ public class ArrowheadConsumer implements Consumer {
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Consumer.");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 	}
 
@@ -57,7 +58,7 @@ public class ArrowheadConsumer implements Consumer {
 		start = Instant.now();
 		String orchUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_ORCHESTRATOR_PORT, ORCH_PATH, false,
 				false);
-		ArrowheadSystem me = new ArrowheadSystem("ArrowheadDirectSender", Constants.LOCALHOST_IP, 1, null);
+		ArrowheadSystem me = new ArrowheadSystem(name, Constants.LOCALHOST_IP, 1, null);
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
@@ -80,6 +81,7 @@ public class ArrowheadConsumer implements Consumer {
 				ArrowheadSystem processor = form.getProvider();
 				try {
 					mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
+					System.out.println(name + " sent for Processor");
 					socket = new Socket(processor.getAddress(), processor.getPort());
 					OutputStream out = socket.getOutputStream();
 					InputStream in = socket.getInputStream();
@@ -92,25 +94,25 @@ public class ArrowheadConsumer implements Consumer {
 				}
 			}
 		} catch (MqttException e1) {
-			System.out.println("Problem on aux publishing in Arrowhead Consumer.");
+			System.out.println("Exception in aux publishing in " + name);
 		} catch (IOException e2) {
-			System.out.println("IOException in the big block in Arrowhead Consumer.");
+			System.out.println("IOException in the big block in " + name);
 			System.out.println(e2.getMessage());
 		} finally {
 			if (socket != null) {
 				try {
 					socket.close();
 				} catch (IOException e) {
-					System.out.println("Problem on closing socket in Arrowhead Consumer.");
+					System.out.println("Exception in closing socket in " + name);
 				}
 				socket = null;
 			}
-			if(mqc != null) {
+			if (mqc != null) {
 				try {
 					mqc.disconnect();
 					mqc.close();
 				} catch (MqttException e) {
-					System.out.println("Problem on closing MQTT connection in Arrowhead Consumer.");
+					System.out.println("Exception in closing MQTT connection in " + name);
 				}
 				mqc = null;
 			}

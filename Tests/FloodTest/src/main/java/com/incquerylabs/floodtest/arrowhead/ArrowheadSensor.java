@@ -35,24 +35,21 @@ public class ArrowheadSensor extends Thread implements Sensor {
 	MqttClient mqc = null;
 	ServiceRegistryEntry sre = null;
 	MqttMessage emptyMessage = new MqttMessage();
+	String name;
 
 	public ArrowheadSensor(String type) {
 		this.type = type;
+		name = "ArrowheadSensor" + type;
 		try {
-			if (type.equals("A")) {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ArrSensorA",
-						new MemoryPersistence());
-			} else {
-				mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ArrSensorB",
-						new MemoryPersistence());
-			}
+			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, name,
+					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setAutomaticReconnect(true);
 			options.setCleanSession(true);
 			options.setConnectionTimeout(10);
 			mqc.connect(options);
 		} catch (MqttException e) {
-			System.out.println("Excepton in MQTT creation in Arrowhead Sensor " + type + ".");
+			System.out.println("Excepton in MQTT creation in " + name);
 		}
 		String srUri = Utility.getUri(Constants.SERVER_IP, Constants.ARROWHEAD_SERVICE_REGISTRY_PORT, SR_REG_PATH,
 				false, true);
@@ -63,19 +60,18 @@ public class ArrowheadSensor extends Thread implements Sensor {
 				serverSocket = new ServerSocket(Constants.ARROWHEAD_SENSOR_B_PORT);
 			}
 		} catch (IOException e) {
-			System.out.println("Excepton in server creation in Arrowhead Sensor " + type + ".");
+			System.out.println("Excepton in server creation in " + name);
 		}
-		System.out.println("Listener started.");
-		ArrowheadSystem me;
+		System.out.println(name + " listener started.");
+		ArrowheadSystem me = new ArrowheadSystem(name, Constants.ARROWHEAD_SENSOR_IP, Constants.ARROWHEAD_SENSOR_A_PORT,
+				null);
 		Set<String> interfaces = new HashSet<String>();
 		interfaces.add(Constants.ARROWHEAD_INTERFACE_NAME);
 		Map<String, String> serviceMetadata = new HashMap<String, String>();
 		ArrowheadService service;
 		if (type.equals("A")) {
-			me = new ArrowheadSystem("sensorA", Constants.ARROWHEAD_SENSOR_IP, Constants.ARROWHEAD_SENSOR_A_PORT, null);
 			service = new ArrowheadService(Constants.ARROWHEAD_SENSOR_A_SERVICE_NAME, interfaces, serviceMetadata);
 		} else {
-			me = new ArrowheadSystem("sensorB", Constants.ARROWHEAD_SENSOR_IP, Constants.ARROWHEAD_SENSOR_B_PORT, null);
 			service = new ArrowheadService(Constants.ARROWHEAD_SENSOR_B_SERVICE_NAME, interfaces, serviceMetadata);
 		}
 		sre = new ServiceRegistryEntry(service, me, "NOTRESTFUL");
@@ -98,16 +94,18 @@ public class ArrowheadSensor extends Thread implements Sensor {
 				System.out.println(e.getMessage());
 			}
 		} catch (MqttException e) {
-			System.out.println("Problem on aux publishing in Arrowhead Sensor " + type + ".");
+			System.out.println("Problem on aux publishing in " + name);
 		}
 	}
 
 	@Override
 
 	public void run() {
+		System.out.println(name + " ready");
 		try {
 			while (true) {
 				Socket socket = serverSocket.accept();
+				System.out.println(name + "received request from Processor.");
 				InputStream in = socket.getInputStream();
 				OutputStream out = socket.getOutputStream();
 				try {
@@ -126,7 +124,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 				try {
 					serverSocket.close();
 				} catch (IOException e) {
-					System.out.println("Server socket unclosing!!!?");
+					System.out.println("Exception in server socket closing in " + name);
 				}
 				serverSocket = null;
 			}
@@ -141,7 +139,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 			try {
 				mqc.publish(Constants.SENT_TOPIC_NAME, emptyMessage);
 			} catch (MqttException e) {
-				System.out.println("Excepton in aux publishing in Arrowhead Sensor " + type + ".");
+				System.out.println("Excepton in aux publishing in " + name);
 			}
 			Utility.sendRequest(unregUri, "PUT", sre);
 		}
@@ -149,7 +147,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 			try {
 				serverSocket.close();
 			} catch (IOException e) {
-				System.out.println("Arr Sen unable to kill serversocket");
+				System.out.println("Exception in server socket killing in " + name);
 			}
 			serverSocket = null;
 		}
@@ -158,7 +156,7 @@ public class ArrowheadSensor extends Thread implements Sensor {
 				mqc.disconnect();
 				mqc.close();
 			} catch (MqttException e) {
-				System.out.println("Problem on closing MQTT connection in Arrowhead Sensor " + type + ".");
+				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
 		}

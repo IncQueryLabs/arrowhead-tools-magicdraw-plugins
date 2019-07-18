@@ -8,13 +8,13 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-public class Auxillary implements MqttCallback {
+public class Auxiliary extends Thread implements MqttCallback {
 
 	MqttClient mqc = null;
 	Integer sends = 0;
 	Integer receits = 0;
 
-	public Auxillary() {
+	public Auxiliary() {
 		try {
 			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "Aux",
 					new MemoryPersistence());
@@ -70,5 +70,6 @@ public class Auxillary implements MqttCallback {
 			}
 			mqc = null;
 		}
+		this.interrupt();
 	}
 }

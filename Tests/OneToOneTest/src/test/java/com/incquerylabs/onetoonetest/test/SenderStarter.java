@@ -14,7 +14,7 @@ public class SenderStarter{
 	public static void main(String[] args) {
 		Test test = null;
 		File file = null;
-		Integer testToRun = 0;
+		Integer testToRun = 2;
 		Integer fileToSend = 3;
 		
 		while(true) {

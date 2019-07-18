@@ -2,7 +2,7 @@ package com.incquerylabs.raceconditiontest.test;
 
 import java.time.Duration;
 
-import com.incquerylabs.floodtest.Auxillary;
+import com.incquerylabs.floodtest.Auxiliary;
 import com.incquerylabs.floodtest.Consumer;
 import com.incquerylabs.floodtest.Processor;
 import com.incquerylabs.floodtest.Sensor;
@@ -22,7 +22,7 @@ public class UnifiedStarter {
 		String verse = "DDS";
 		int q = 1;
 
-		Auxillary aux = new Auxillary();
+		Auxiliary aux = new Auxiliary();
 		Consumer consumer = null;
 		Sensor sensorA = null;
 		Sensor sensorB = null;

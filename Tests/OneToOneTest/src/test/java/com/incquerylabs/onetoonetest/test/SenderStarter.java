@@ -51,17 +51,17 @@ public class SenderStarter{
 			case 0:
 				System.out.println("Arrowhead Direct Test.");
 				send = new ArrowheadDirectSend();
-				test = new Test(send, file, new File("Out/ArrowheadDirect.csv"));
+				test = new Test(send, file, new File("Out/ArrowheadDirect2.csv"));
 				break;
 			case 1:
 				send = new DdsSend();
 				System.out.println("DDS Test.");
-				test = new Test(send, file, new File("Out/Dds.csv"));
+				test = new Test(send, file, new File("Out/Dds2.csv"));
 				break;
 			case 2:
 				send = new MqttSend();
 				System.out.println("MQTT Test.");
-				test = new Test(send, file, new File("Out/Mqtt.csv"));
+				test = new Test(send, file, new File("Out/Mqtt2.csv"));
 				break;
 			}
 			test.test(Constants.TEST_REPETITIONS);

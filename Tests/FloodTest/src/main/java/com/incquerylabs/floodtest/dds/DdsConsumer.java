@@ -26,7 +26,6 @@ import com.rti.dds.subscription.ViewStateKind;
 import com.rti.dds.topic.Topic;
 import com.rti.dds.type.builtin.StringDataReader;
 import com.rti.dds.type.builtin.StringDataWriter;
-import com.rti.dds.type.builtin.StringTypeSupport;
 
 public class DdsConsumer extends DataReaderAdapter implements Consumer {
 
@@ -62,12 +61,10 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 				StatusKind.STATUS_MASK_NONE);
 		publisher = participant.create_publisher(DomainParticipant.PUBLISHER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
-		String typeName = StringTypeSupport.get_type_name();
-		StringTypeSupport.register_type(participant, typeName);
 		
-		forwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_FORWARD_TOPIC_NAME, typeName,
+		forwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_FORWARD_TOPIC_NAME, Constants.DDS_TYPE_NAME,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
-		backwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_BACKWARD_TOPIC_NAME, typeName,
+		backwardTopic = participant.create_topic(Constants.DDS_PROCESSOR_BACKWARD_TOPIC_NAME, Constants.DDS_TYPE_NAME,
 				DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		writer = (StringDataWriter) publisher.create_datawriter(forwardTopic, Publisher.DATAWRITER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);

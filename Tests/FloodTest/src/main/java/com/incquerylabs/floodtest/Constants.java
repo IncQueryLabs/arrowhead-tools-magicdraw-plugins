@@ -1,5 +1,7 @@
 package com.incquerylabs.floodtest;
 
+import com.rti.dds.type.builtin.StringTypeSupport;
+
 public class Constants {
 	
 	public static final String SERVER_IP = "127.0.0.1";
@@ -36,5 +38,5 @@ public class Constants {
 	public static final String DDS_PROCESSOR_BACKWARD_TOPIC_NAME = "DDPB";
 	public static final String DDS_SENSOR_A_TOPIC_NAME = "DDAF";
 	public static final String DDS_SENSOR_B_TOPIC_NAME = "DDBF";
-	public static final String DDS_SENSOR_TOPIC_BASENAME = "DDSB";
+	public static final String DDS_TYPE_NAME = StringTypeSupport.get_type_name();
 }

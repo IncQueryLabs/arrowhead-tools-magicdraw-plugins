@@ -26,7 +26,6 @@ import com.rti.dds.subscription.ViewStateKind;
 import com.rti.dds.topic.Topic;
 import com.rti.dds.type.builtin.StringDataReader;
 import com.rti.dds.type.builtin.StringDataWriter;
-import com.rti.dds.type.builtin.StringTypeSupport;
 
 public class DdsSensor extends Thread implements Sensor {
 
@@ -42,7 +41,6 @@ public class DdsSensor extends Thread implements Sensor {
 	MqttClient mqc;
 	MqttMessage emptyMessage = new MqttMessage();
 	String type;
-	String typeName;
 	String name;
 
 	public DdsSensor(String type) {
@@ -66,16 +64,16 @@ public class DdsSensor extends Thread implements Sensor {
 		}
 		participant = DomainParticipantFactory.TheParticipantFactory.create_participant(Constants.DDS_DOMAIN_NUMBER,
 				DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
+		participant.add_peer("udpv4://" + Constants.SERVER_IP);
 		subscriber = participant.create_subscriber(DomainParticipant.SUBSCRIBER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
 		publisher = participant.create_publisher(DomainParticipant.PUBLISHER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
-		typeName = StringTypeSupport.get_type_name();
 		if (type.equals("A")) {
-			topic = participant.create_topic(Constants.DDS_SENSOR_A_TOPIC_NAME, typeName,
+			topic = participant.create_topic(Constants.DDS_SENSOR_A_TOPIC_NAME, Constants.DDS_TYPE_NAME,
 					DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		} else {
-			topic = participant.create_topic(Constants.DDS_SENSOR_B_TOPIC_NAME, typeName,
+			topic = participant.create_topic(Constants.DDS_SENSOR_B_TOPIC_NAME, Constants.DDS_TYPE_NAME,
 					DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 		}
 		reader = (StringDataReader) subscriber.create_datareader(topic, Subscriber.DATAREADER_QOS_DEFAULT,
@@ -114,7 +112,7 @@ public class DdsSensor extends Thread implements Sensor {
 					if (infoSeq.get(i).valid_data) {
 						System.out.println(name + " received request from Processor.");
 						String got = (String) dataSeq.get(i);
-						Topic responseTopic = participant.create_topic(got, typeName,
+						Topic responseTopic = participant.create_topic(got, Constants.DDS_TYPE_NAME,
 								DomainParticipant.TOPIC_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);
 						StringDataWriter writer = (StringDataWriter) publisher.create_datawriter(responseTopic,
 								Publisher.DATAWRITER_QOS_DEFAULT, null, StatusKind.STATUS_MASK_NONE);

@@ -22,7 +22,6 @@ public class ProcessorFactory extends Thread implements MqttCallback {
 
 	public ProcessorFactory() {
 		try {
-
 			mqc = new MqttClient("tcp://" + Constants.SERVER_IP + ":" + Constants.MQTT_SERVER_PORT, "ProcessorFactory",
 					new MemoryPersistence());
 			MqttConnectOptions options = new MqttConnectOptions();
@@ -54,22 +53,26 @@ public class ProcessorFactory extends Thread implements MqttCallback {
 			temp = new ArrowheadProcessor(procs.size());
 			temp.start();
 			procs.add(temp);
+			System.out.println("Processor Factory created new Arrowhead Processor");
 			break;
 		case Constants.CREATE_DDSPROC_TOPIC_NAME:
 			temp = new DdsProcessor(procs.size());
 			temp.start();
 			procs.add(temp);
+			System.out.println("Processor Factory created new DDS Processor");
 			break;
 		case Constants.CREATE_MQTTPROC_TOPIC_NAME:
 			temp = new MqttProcessor(procs.size());
 			temp.start();
 			procs.add(temp);
+			System.out.println("Processor Factory created new MQTT Processor");
 			break;
 		case Constants.KILLPROC_TOPIC_NAME:
 			for(Processor p : procs) {
 				p.kill();
 			}
 			procs.clear();
+			System.out.println("Processor Factory destroyed all Processors");
 			break;
 		}
 	}

@@ -84,7 +84,7 @@ public class DdsSensor extends Thread implements Sensor {
 
 	@Override
 	public void kill() {
-		if(mqc != null) {
+		if (mqc != null) {
 			try {
 				mqc.disconnect();
 				mqc.close();
@@ -92,6 +92,11 @@ public class DdsSensor extends Thread implements Sensor {
 				System.out.println("Problem on closing MQTT connection in " + name);
 			}
 			mqc = null;
+		}
+		if (participant != null) {
+			participant.delete_contained_entities();
+			DomainParticipantFactory.TheParticipantFactory.delete_participant(participant);
+			participant = null;
 		}
 		this.interrupt();
 	}
@@ -126,7 +131,7 @@ public class DdsSensor extends Thread implements Sensor {
 			}
 		}
 	}
-	
+
 	@Override
 	public void run() {
 		System.out.println(name + " ready");

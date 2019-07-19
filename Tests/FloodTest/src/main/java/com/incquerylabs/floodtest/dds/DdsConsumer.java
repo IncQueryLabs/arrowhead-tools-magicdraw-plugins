@@ -72,7 +72,7 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 		writer = (StringDataWriter) publisher.create_datawriter(forwardTopic, Publisher.DATAWRITER_QOS_DEFAULT, null,
 				StatusKind.STATUS_MASK_NONE);
 		reader = (StringDataReader) subscriber.create_datareader(backwardTopic, Subscriber.DATAREADER_QOS_DEFAULT, this,
-				StatusKind.STATUS_MASK_NONE);
+				StatusKind.STATUS_MASK_ALL);
 	}
 
 	@Override
@@ -102,6 +102,11 @@ public class DdsConsumer extends DataReaderAdapter implements Consumer {
 				}
 				mqc = null;
 			}
+			if (participant != null) {
+				participant.delete_contained_entities();
+				DomainParticipantFactory.TheParticipantFactory.delete_participant(participant);
+			}
+			participant = null;
 		}
 	}
 

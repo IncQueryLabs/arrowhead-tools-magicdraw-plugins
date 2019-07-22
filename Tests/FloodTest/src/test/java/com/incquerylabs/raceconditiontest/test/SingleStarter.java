@@ -16,11 +16,11 @@ import com.incquerylabs.floodtest.mqtt.MqttConsumer;
 import com.incquerylabs.floodtest.mqtt.MqttProcessor;
 import com.incquerylabs.floodtest.mqtt.MqttSensor;
 
-public class UnifiedStarter {
+public class SingleStarter {
 
 	public static void main(String[] args) {
-		String verse = "DDS";
-		int q = 1;
+		String verse = "Arrowhead";
+		int q = 2;
 
 		Auxiliary aux = new Auxiliary();
 		Consumer consumer = null;

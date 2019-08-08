@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
     EFactory.class,
     ENamedElement.class
 })
-public abstract class EModelElement {
+public abstract class EModelElement{
 
     protected List<EAnnotation> eAnnotations;
 

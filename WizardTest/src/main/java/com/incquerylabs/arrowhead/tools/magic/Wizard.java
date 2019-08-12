@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLStreamException;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.jaxbmodel.EAnnotation;
 import org.eclipse.emf.ecore.jaxbmodel.EClassifier;
 import org.eclipse.emf.ecore.jaxbmodel.EObject;
 import org.eclipse.emf.ecore.jaxbmodel.EPackage;
+import org.eclipse.emf.ecore.jaxbmodel.ObjectFactory;
 
 public class Wizard {
 	
@@ -48,9 +50,14 @@ public class Wizard {
                     Files.deleteIfExists(topXml);
                     Files.createFile(topXml);
 
-                    JAXBContext context = JAXBContext.newInstance(EPackage.class);
+                    JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
                     Unmarshaller reader = context.createUnmarshaller();
-                    EPackage ePackage = (EPackage) reader.unmarshal(new FileReader(source.toFile()));
+                    @SuppressWarnings("unchecked")
+					JAXBElement<EPackage> elem = (JAXBElement<EPackage>) reader.unmarshal(new FileReader(source.toFile()));
+                    if(elem.getValue() == null) {
+                    	System.out.println("fuck");
+                    }
+                    EPackage ePackage = elem.getValue();
                     
                     Document doc = DocumentHelper.createDocument();
                     Element root = doc.addElement(new QName("Arrowehead", ah));

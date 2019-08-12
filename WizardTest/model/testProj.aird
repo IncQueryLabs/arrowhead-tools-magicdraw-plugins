@@ -107,7 +107,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Jvyp47zrEemE5qxKf8FIsA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_JvyC0bzrEemE5qxKf8FIsA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JvyC0rzrEemE5qxKf8FIsA" x="780" y="264" width="120" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JvyC0rzrEemE5qxKf8FIsA" x="781" y="228" width="120" height="100"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_nJvmdrzrEemE5qxKf8FIsA" type="2003" element="_nJpf0LzrEemE5qxKf8FIsA">
           <children xmi:type="notation:Node" xmi:id="_nJwNgrzrEemE5qxKf8FIsA" type="5007"/>
@@ -124,7 +124,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_nJwNhbzrEemE5qxKf8FIsA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_nJwNgLzrEemE5qxKf8FIsA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nJwNgbzrEemE5qxKf8FIsA" x="852" y="72" width="120" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nJwNgbzrEemE5qxKf8FIsA" x="780" y="108" width="120" height="100"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_CrI7YrzrEemE5qxKf8FIsA"/>
         <edges xmi:type="notation:Edge" xmi:id="_aZ52wLzrEemE5qxKf8FIsA" type="4001" element="_aZwFwLzrEemE5qxKf8FIsA" source="_Y5kFYLzrEemE5qxKf8FIsA" target="_R2XvcLzrEemE5qxKf8FIsA">
@@ -339,6 +339,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_nJpf0LzrEemE5qxKf8FIsA" name="Color" tooltipText="" width="12" height="10">
       <target xmi:type="ecore:EEnum" href="testProj.ecore#//Color"/>
       <semanticElements xmi:type="ecore:EEnum" href="testProj.ecore#//Color"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_nJpf0bzrEemE5qxKf8FIsA" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="221,236,202">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
       </ownedStyle>

@@ -137,6 +137,7 @@ public class Wizard {
     private static void addCommon(Element root) {
         root.add(ah);
         root.add(xInc);
+        root.add(ec);
     }
 
 	private static final OutputFormat of = OutputFormat.createPrettyPrint();

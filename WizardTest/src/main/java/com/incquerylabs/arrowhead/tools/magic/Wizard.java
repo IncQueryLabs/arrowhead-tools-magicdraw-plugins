@@ -9,37 +9,38 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Set;
-
-import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.namespace.NamespaceContext;
-import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
-
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.Namespace;
+import org.dom4j.QName;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 import org.eclipse.emf.ecore.jaxbmodel.EAnnotation;
 import org.eclipse.emf.ecore.jaxbmodel.EClassifier;
 import org.eclipse.emf.ecore.jaxbmodel.EObject;
 import org.eclipse.emf.ecore.jaxbmodel.EPackage;
 
 public class Wizard {
-
-	private static final NamespaceContext AH_NAMESPACE = new ArrowheadNamespace();
-	private XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
-	Path target;
+	
+	private static final Namespace ah = new Namespace("ah", "https://www.arrowhead.eu/interchange");
+    private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
+    private static final Namespace ec = new Namespace("ec", "http://www.eclipse.org/emf/2002/Ecore");
+    
 	
 	public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException, XMLStreamException {
-        this.target = target;
         if (Files.isReadable(source)) {
             File ecore = source.toFile();
             if (isEcore(ecore)) {
                 if (Files.isDirectory(target)) {
                     Path topDir = target.resolve(name);
                     Path topXml = target.resolve(name + ".xml");
+                    
+                    //delete previous version
                     if (Files.exists(topDir)) {
                         Files.walk(topDir).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
                     }
@@ -50,16 +51,13 @@ public class Wizard {
                     JAXBContext context = JAXBContext.newInstance(EPackage.class);
                     Unmarshaller reader = context.createUnmarshaller();
                     EPackage ePackage = (EPackage) reader.unmarshal(new FileReader(source.toFile()));
-                    XMLStreamWriter writer = outputFactory.createXMLStreamWriter(new FileWriter(topXml.toFile()));
-
-                    writer.setNamespaceContext(AH_NAMESPACE);
-                    writer.writeStartDocument();
-                    //TODO write compartment into topXML (including namespaces
-                    subCompartmentalize(ePackage, topDir, writer);
-                    //TODO write my end tags
-                    writer.writeEndDocument();
-                    writer.flush();
-                    writer.close();
+                    
+                    Document doc = DocumentHelper.createDocument();
+                    Element root = doc.addElement(new QName("Arrowehead", ah));
+                    addCommon(root);
+                    
+                    subCompartmentalize(ePackage, topDir, root, topXml);
+                    writeDocument(topXml, doc);
                 } else {
                     if (Files.exists(target)) {
                         throw new FileNotFoundException("Target is a non-directory file.");
@@ -79,61 +77,65 @@ public class Wizard {
         }
     }
 
-    private void subCompartmentalize(EAnnotation a, Path topDir, XMLStreamWriter writer) {
+    private void subCompartmentalize(EAnnotation a, Path topDir, Element topParent, Path topPath) {
     }
 
-    private void subCompartmentalize(EClassifier c, Path topDir, XMLStreamWriter writer) {
+    private void subCompartmentalize(EClassifier c, Path topDir, Element topParent, Path topPath) {
     }
 
-    private void subCompartmentalize(EObject obj, Path parent, XMLStreamWriter writer) {
+    @SuppressWarnings("unused")
+	private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) {
 
     }
 
-    private void subCompartmentalize(EPackage ePackage, Path parent, XMLStreamWriter writer) throws IOException, XMLStreamException {
-        String name = ePackage.getName();
-        if(name == null){
-            name = "<>";
-        }
-        String temp = name;
-        for(int i = 2; !Files.exists(parent.resolve(name)); ++i){
-            temp = name + i;
-        }
-        name = temp;
+    private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException, XMLStreamException {
+    	String name = ePackage.getName();
         Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
         Path xml = parent.resolve(name + ".xml");
-
-        //write this package's ref into the higher xml
-        writer.writeStartElement("EPackage");
-        writer.writeAttribute("ref", parent.relativize(xml).toString());
-        writer.writeEndElement();
-        writer.flush();
-
-        XMLStreamWriter streamWriter = outputFactory.createXMLStreamWriter(new FileWriter(xml.toFile()));
-
-        streamWriter.setNamespaceContext(AH_NAMESPACE);
-        streamWriter.writeStartDocument();
-        //TODO write my root, my header, the ePackage start tags &
+        Files.createFile(xml);
+        
+        Element ref = topParent.addElement(new QName("include", xInc));
+        ref.addAttribute("href", topPath.relativize(xml).toString());
+        
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement(new QName(name, ec));
+        me.addAttribute("name", name);
+        me.addAttribute("nsUri", ePackage.getNsURI());
+        me.addAttribute("nsPrefix", ePackage.getNsPrefix());
+        me.addAttribute("eFactoryInstance", ePackage.getEFactoryInstance().toString());
+        addCommon(me);
 
         for (EAnnotation a : ePackage.getEAnnotations()) {
-            subCompartmentalize(a, dir, streamWriter);
+            subCompartmentalize(a, dir, me, xml);
         }
         for (EPackage p : ePackage.getESubpackages()) {
-            subCompartmentalize(p, dir, streamWriter);
+            subCompartmentalize(p, dir, me, xml);
         }
         for (EClassifier c : ePackage.getEClassifiers()) {
-            subCompartmentalize(c, dir, streamWriter);
+            subCompartmentalize(c, dir, me, xml);
         }
-
-        //TODO write my end tags
-        streamWriter.writeEndDocument();
-        streamWriter.flush();
-        streamWriter.close();
+        writeDocument(xml, doc);
     }
 
     //actual validation?
     private static boolean isEcore(File file) {
-        String[] temp = file.getName().split(".");
-        return temp[temp.length - 1].equals("ecore");
+        return file.getName().endsWith(".ecore");
+    }
+    
+    
+    private static void addCommon(Element root) {
+        root.add(ah);
+        root.add(xInc);
+    }
+
+	private static final OutputFormat of = OutputFormat.createPrettyPrint();
+	
+    private static void writeDocument(Path target, Document document) throws IOException {
+    	XMLWriter writer = new XMLWriter(new FileWriter(target.toAbsolutePath().toFile()), of);
+    	writer.write(document);
+    	writer.flush();
+    	writer.close();
     }
 	
 	public static void main(String[] args) {
@@ -147,32 +149,4 @@ public class Wizard {
 		}
 		
 	}
-	
-	//TODO finish
-	private static class ArrowheadNamespace implements NamespaceContext{
-
-        @Override
-        public String getNamespaceURI(String prefix) {
-        	if(prefix != null) {
-        		switch (prefix) {
-    			case "ah":
-    				return "https://www.arrowhead.eu/interchange";
-    			default:
-    				return XMLConstants.NULL_NS_URI;
-    			}
-        	} else {
-        		throw new IllegalArgumentException("No prefix provided!");
-        	}
-        }
-
-        @Override
-        public String getPrefix(String namespaceURI) {
-            return "ah";
-        }
-
-        @Override
-        public Iterator<String> getPrefixes(String namespaceURI) {
-            return Set.of("ah").iterator();
-        }
-    }
 }

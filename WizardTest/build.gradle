@@ -10,7 +10,10 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.12'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+    implementation 'org.dom4j:dom4j:2.1.1'
+    compile('javax.xml.bind:jaxb-api:2.3.1')
+	compile('javax.activation:activation:1.1')
+	compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')
 }
 
 mainClassName = 'com.incquerylabs.arrowhead.tools.magic.Wizard'

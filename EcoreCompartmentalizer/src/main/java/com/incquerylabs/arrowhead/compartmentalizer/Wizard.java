@@ -1,4 +1,4 @@
-package com.incquerylabs.arrowhead.compartmentaizer;
+package com.incquerylabs.arrowhead.compartmentalizer;
 
 import org.eclipse.emf.ecore.jaxbmodel.EAnnotation;
 import org.eclipse.emf.ecore.jaxbmodel.EClassifier;
@@ -98,7 +98,6 @@ public class Wizard {
 
         //write this package's ref into the higher xml
         writer.writeStartElement("EPackage");
-        writer.writeAttribute("name", name);
         writer.writeAttribute("ref", parent.relativize(xml).toString());
         writer.writeEndElement();
         writer.flush();

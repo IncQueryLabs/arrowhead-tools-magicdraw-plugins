@@ -34,7 +34,7 @@ public class Wizard {
     private static final Namespace ec = new Namespace("ec", "http://www.eclipse.org/emf/2002/Ecore");
     
 	
-	public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException, XMLStreamException {
+	public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
         if (Files.isReadable(source)) {
             File ecore = source.toFile();
             if (isEcore(ecore)) {
@@ -54,7 +54,7 @@ public class Wizard {
                     Unmarshaller reader = context.createUnmarshaller();
                     @SuppressWarnings("unchecked")
 					JAXBElement<EPackage> elem = (JAXBElement<EPackage>) reader.unmarshal(new FileReader(source.toFile()));
-                    if(elem.getValue() == null) {
+                    if(elem == null) {
                     	System.out.println("fuck");
                     }
                     EPackage ePackage = elem.getValue();
@@ -95,7 +95,7 @@ public class Wizard {
 
     }
 
-    private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException, XMLStreamException {
+    private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException {
     	String name = ePackage.getName();
         Path dir = parent.resolve(name);
         Files.createDirectory(dir);
@@ -110,7 +110,10 @@ public class Wizard {
         me.addAttribute("name", name);
         me.addAttribute("nsUri", ePackage.getNsURI());
         me.addAttribute("nsPrefix", ePackage.getNsPrefix());
-        me.addAttribute("eFactoryInstance", ePackage.getEFactoryInstance().toString());
+        Object fac = ePackage.getEFactoryInstance();
+        if(fac != null) {
+            me.addAttribute("eFactoryInstance", fac.toString());
+        }
         addCommon(me);
 
         for (EAnnotation a : ePackage.getEAnnotations()) {

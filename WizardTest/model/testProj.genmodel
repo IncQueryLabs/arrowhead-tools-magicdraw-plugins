@@ -33,6 +33,7 @@
       <genClasses ecoreClass="testProj.ecore#//Plant/Walnut">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute testProj.ecore#//Plant/Walnut/age"/>
       </genClasses>
+      <genClasses ecoreClass="testProj.ecore#//Plant/BritishWalnut"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

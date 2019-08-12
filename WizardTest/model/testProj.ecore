@@ -25,5 +25,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Walnut" eSuperTypes="#//Plant/Tree">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BritishWalnut" eSuperTypes="#//Plant/Walnut"/>
   </eSubpackages>
 </ecore:EPackage>

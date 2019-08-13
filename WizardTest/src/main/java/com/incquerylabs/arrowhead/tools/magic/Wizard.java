@@ -34,6 +34,7 @@ public class Wizard {
     Path root;
     Integer annotationSuffix = 1;
     Integer factorySuffix = 1;
+    Integer genericTypeSuffix = 1;
     QName refName = new QName("include", xInc);
     String href = "href";
     QName typeName = new QName("type", xsi);
@@ -92,7 +93,7 @@ public class Wizard {
     }
 
     private void subCompartmentalize(EAnnotation a, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "Annotation" + annotationSuffix;
+        String name = "Annotation" + annotationSuffix++;
         Path dir = parent.resolve(name);
         Files.createDirectory(dir);
         Path xml = parent.resolve(name + ".xml");
@@ -141,7 +142,9 @@ public class Wizard {
         for (EAnnotation an : a.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
         }
-        subCompartmentalize(a.getEGenericType(), dir, me, xml);
+        if(a.getEGenericType() != null){
+            subCompartmentalize(a.getEGenericType(), dir, me, xml);
+        }
 
         writeDocument(xml, doc);
     }
@@ -276,7 +279,7 @@ public class Wizard {
     }
 
     private void subCompartmentalize(EFactory f, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "Factory" + factorySuffix;
+        String name = "Factory" + factorySuffix++;
         Path dir = parent.resolve(name);
         Files.createDirectory(dir);
         Path xml = parent.resolve(name + ".xml");
@@ -297,12 +300,41 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
-    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
+    private void subCompartmentalize(EGenericType g, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "GenericType" + genericTypeSuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
 
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eTypeArguments");
+        me.addAttribute(typeName, "ecore:EGenericType"); //TODO find examples
+        me.addAttribute("eRawType", g.getERawType());
+        if(g.getETypeParameter() != null){
+            me.addAttribute("eTypeParameter", g.getETypeParameter().toString());
+        }
+        me.addAttribute("eClassifier", g.getEClassifier());
+
+        if(g.getELowerBound() != null){
+            subCompartmentalize(g.getELowerBound(), dir, me, xml);
+        }
+        for(EGenericType t : g.getETypeArguments()){
+            subCompartmentalize(t, dir, me, xml);
+        }
+        if (g.getEUpperBound() != null){
+            subCompartmentalize(g.getEUpperBound(), dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
     }
 
     private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) {
-
     }
 
     private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {

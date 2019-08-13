@@ -221,6 +221,35 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
+    private void subCompartmentalize(EEnum e, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = e.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(typeName, "ecore:EDataType");
+        me.addAttribute("name", name);
+        writeEClassifierAttributes(me, e);
+        me.addAttribute("serializable", e.getSerializable());
+
+        for (EAnnotation an : e.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+        for (ETypeParameter t : e.getETypeParameters()) {
+            subCompartmentalize(t, dir, me, xml);
+        }
+        for(EEnumLiteral el : e.getELiterals()){
+            subCompartmentalize(el, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
     private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
 
     }

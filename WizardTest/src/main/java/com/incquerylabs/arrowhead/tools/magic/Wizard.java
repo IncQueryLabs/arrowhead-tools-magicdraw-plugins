@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -21,11 +22,7 @@ import org.dom4j.Namespace;
 import org.dom4j.QName;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
-import org.eclipse.emf.ecore.jaxbmodel.EAnnotation;
-import org.eclipse.emf.ecore.jaxbmodel.EClassifier;
-import org.eclipse.emf.ecore.jaxbmodel.EObject;
-import org.eclipse.emf.ecore.jaxbmodel.EPackage;
-import org.eclipse.emf.ecore.jaxbmodel.ObjectFactory;
+import org.eclipse.emf.ecore.jaxbmodel.*;
 
 public class Wizard {
 
@@ -33,6 +30,9 @@ public class Wizard {
     private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
     private static final Namespace ec = new Namespace("ec", "http://www.eclipse.org/emf/2002/Ecore");
     Path root;
+    Integer annotationSuffix = 1;
+    QName refName = new QName("include", xInc);
+    String href = "href";
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
         root = target;
@@ -87,16 +87,54 @@ public class Wizard {
         }
     }
 
-    private void subCompartmentalize(EAnnotation a, Path topDir, Element topParent, Path topPath) {
+    private void subCompartmentalize(EAnnotation a, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "Annotation" + annotationSuffix;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eAnnotations");
+        me.addAttribute("source", a.getSource());
+        List<String> refers = a.getReferences();
+        if (refers.size() > 0) {
+            String references = refers.get(0);
+            for (int i = 1; i < refers.size(); ++i) {
+                references = references + " " + refers.get(i);
+            }
+            me.addAttribute("references", references);
+        }
+
+        for (EAnnotation an : a.getEAnnotations()){
+            subCompartmentalize(an, dir, me, xml);
+        }
+        for (EStringToStringMapEntry ss : a.getDetails()) {
+            subCompartmentalize(ss, dir, me, xml);
+        }
+        for (Object o : a.getContents()) {
+            subCompartmentalize(o, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
     }
 
     private void subCompartmentalize(EClassifier c, Path topDir, Element topParent, Path topPath) {
 
     }
 
-    @SuppressWarnings("unused")
     private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) {
 
+    }
+
+    private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
+        //TODO write with jaxb?
     }
 
     private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException {
@@ -106,12 +144,12 @@ public class Wizard {
         Path xml = parent.resolve(name + ".xml");
         Files.createFile(xml);
 
-        Element ref = topParent.addElement(new QName("include", xInc));
-        ref.addAttribute("href", topPath.relativize(xml).toString());
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
 
         Document doc = DocumentHelper.createDocument();
         Element me;
-        if(topPath.getParent().equals(root)){
+        if (topPath.getParent().equals(root)) {
             me = doc.addElement(new QName("EPackage", ec));
         } else {
             me = doc.addElement("eSubpackages");
@@ -141,7 +179,6 @@ public class Wizard {
     private static boolean isEcore(File file) {
         return file.getName().endsWith(".ecore");
     }
-
 
     private static void addCommon(Element root) {
         root.add(ah);

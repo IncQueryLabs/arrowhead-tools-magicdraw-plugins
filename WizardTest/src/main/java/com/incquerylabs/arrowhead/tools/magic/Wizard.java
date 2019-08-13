@@ -31,14 +31,15 @@ public class Wizard {
     private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
     private static final Namespace ec = new Namespace("ecore", "http://www.eclipse.org/emf/2002/Ecore");
     private static final Namespace xsi = new Namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-    Path root;
-    Integer annotationSuffix = 1;
-    Integer factorySuffix = 1;
-    Integer genericTypeSuffix = 1;
-    Integer objectSuffix = 1;
-    QName refName = new QName("include", xInc);
-    String href = "href";
-    QName typeName = new QName("type", xsi);
+    private Path root;
+    private Integer annotationSuffix = 1;
+    private Integer factorySuffix = 1;
+    private Integer genericTypeSuffix = 1;
+    private Integer objectSuffix = 1;
+    private Integer stringToStringMapEntrySuffix = 1;
+    private QName refName = new QName("include", xInc);
+    private String href = "href";
+    private QName typeName = new QName("type", xsi);
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
         root = target;
@@ -476,9 +477,46 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
-    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "StringToStringMapEntry" + stringToStringMapEntrySuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eDetails");
+        me.addAttribute(typeName, "ecore:EStringToStringMapEntry");
+        me.addAttribute("key", ss.getKey());
+        me.addAttribute("value", ss.getValue());
+
+        writeDocument(xml, doc);
     }
 
+    private void subCompartmentalize(ETypeParameter t, Path parent, Element topParent, Path topPath) throws IOException{
+        String name = t.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("ETypeElement");
+        me.addAttribute("name", name);
+
+        for (EAnnotation an : t.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+        for(EGenericType g: t.getEBounds()){
+            subCompartmentalize(g, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
 
     private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
         //TODO write with jaxb?

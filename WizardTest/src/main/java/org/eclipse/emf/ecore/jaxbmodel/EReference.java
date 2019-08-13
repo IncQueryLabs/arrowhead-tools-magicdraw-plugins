@@ -5,9 +5,16 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,38 +23,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EReference complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EReference">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EStructuralFeature">
- *       &lt;attribute name="containment" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="container" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="resolveProxies" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" default="true" />
- *       &lt;attribute name="eOpposite" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       &lt;attribute name="eReferenceType" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       &lt;attribute name="eKeys">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EReference")
-public class EReference
-    extends EStructuralFeature
-{
+public class EReference extends EStructuralFeature {
 
     @XmlAttribute(name = "containment")
     protected String containment;
@@ -64,62 +42,54 @@ public class EReference
     @XmlAttribute(name = "eKeys")
     protected List<String> eKeys;
 
-    /**
-     * Gets the value of the containment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eReferences");
+        me.addAttribute(Wizard.TYPE, "ecore:EReference");
+        me.addAttribute("name", name);
+        Wizard.writeETypedElementAttributes(me, this);
+        Wizard.writeEStructuralFeatureAttributes(me, this);
+        me.addAttribute("containment", containment);
+        me.addAttribute("container", container);
+        me.addAttribute("resolveProxies", resolveProxies);
+        me.addAttribute("eOpposite", eOpposite);
+        me.addAttribute("eReferenceType", eReferenceType);
+        Wizard.addListAttribute(me, "eKeys", eKeys);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        if (eGenericType != null) {
+            eGenericType.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public String getContainment() {
         return containment;
     }
 
-    /**
-     * Sets the value of the containment property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setContainment(String value) {
         this.containment = value;
     }
 
-    /**
-     * Gets the value of the container property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getContainer() {
         return container;
     }
 
-    /**
-     * Sets the value of the container property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setContainer(String value) {
         this.container = value;
     }
 
-    /**
-     * Gets the value of the resolveProxies property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getResolveProxies() {
         if (resolveProxies == null) {
             return "true";
@@ -128,93 +98,30 @@ public class EReference
         }
     }
 
-    /**
-     * Sets the value of the resolveProxies property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setResolveProxies(String value) {
         this.resolveProxies = value;
     }
 
-    /**
-     * Gets the value of the eOpposite property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEOpposite() {
         return eOpposite;
     }
 
-    /**
-     * Sets the value of the eOpposite property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEOpposite(String value) {
         this.eOpposite = value;
     }
 
-    /**
-     * Gets the value of the eReferenceType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEReferenceType() {
         return eReferenceType;
     }
 
-    /**
-     * Sets the value of the eReferenceType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEReferenceType(String value) {
         this.eReferenceType = value;
     }
 
-    /**
-     * Gets the value of the eKeys property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eKeys property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEKeys().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEKeys() {
         if (eKeys == null) {
             eKeys = new ArrayList<String>();
         }
         return this.eKeys;
     }
-
 }

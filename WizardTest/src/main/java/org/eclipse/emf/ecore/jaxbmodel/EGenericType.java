@@ -5,9 +5,16 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,38 +24,9 @@ import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EGenericType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EGenericType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="eUpperBound" type="{http://www.eclipse.org/emf/2002/Ecore}EGenericType" minOccurs="0"/>
- *         &lt;element name="eTypeArguments" type="{http://www.eclipse.org/emf/2002/Ecore}EGenericType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="eLowerBound" type="{http://www.eclipse.org/emf/2002/Ecore}EGenericType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="eRawType" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       &lt;attribute name="eTypeParameter" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
- *       &lt;attribute name="eClassifier" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EGenericType", propOrder = {
-    "eUpperBound",
-    "eTypeArguments",
-    "eLowerBound"
-})
-public class EGenericType {
+@XmlType(name = "EGenericType", propOrder = {"eUpperBound", "eTypeArguments", "eLowerBound"})
+public class EGenericType extends EObject {
 
     protected EGenericType eUpperBound;
     protected List<EGenericType> eTypeArguments;
@@ -64,52 +42,47 @@ public class EGenericType {
     @XmlSchemaType(name = "anyURI")
     protected String eClassifier;
 
-    /**
-     * Gets the value of the eUpperBound property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EGenericType }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "GenericType" + Wizard.gTypeSuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eTypeArguments");
+        me.addAttribute(Wizard.TYPE, "ecore:EGenericType"); //TODO find examples
+        me.addAttribute("eRawType", eRawType);
+        if (eTypeParameter != null) {
+            me.addAttribute("eTypeParameter", eTypeParameter.toString());
+        }
+        me.addAttribute("eClassifier", eClassifier);
+
+        if (eLowerBound != null) {
+            eLowerBound.subCompartmentalize(dir, me, xml);
+        }
+        for (EGenericType t : eTypeArguments) {
+            t.subCompartmentalize(dir, me, xml);
+        }
+        if (eUpperBound != null) {
+            eUpperBound.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
+
     public EGenericType getEUpperBound() {
         return eUpperBound;
     }
 
-    /**
-     * Sets the value of the eUpperBound property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EGenericType }
-     *     
-     */
     public void setEUpperBound(EGenericType value) {
         this.eUpperBound = value;
     }
 
-    /**
-     * Gets the value of the eTypeArguments property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eTypeArguments property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getETypeArguments().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EGenericType }
-     * 
-     * 
-     */
     public List<EGenericType> getETypeArguments() {
         if (eTypeArguments == null) {
             eTypeArguments = new ArrayList<EGenericType>();
@@ -117,98 +90,34 @@ public class EGenericType {
         return this.eTypeArguments;
     }
 
-    /**
-     * Gets the value of the eLowerBound property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EGenericType }
-     *     
-     */
     public EGenericType getELowerBound() {
         return eLowerBound;
     }
 
-    /**
-     * Sets the value of the eLowerBound property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EGenericType }
-     *     
-     */
     public void setELowerBound(EGenericType value) {
         this.eLowerBound = value;
     }
 
-    /**
-     * Gets the value of the eRawType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getERawType() {
         return eRawType;
     }
 
-    /**
-     * Sets the value of the eRawType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setERawType(String value) {
         this.eRawType = value;
     }
 
-    /**
-     * Gets the value of the eTypeParameter property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
     public Object getETypeParameter() {
         return eTypeParameter;
     }
 
-    /**
-     * Sets the value of the eTypeParameter property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
     public void setETypeParameter(Object value) {
         this.eTypeParameter = value;
     }
 
-    /**
-     * Gets the value of the eClassifier property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEClassifier() {
         return eClassifier;
     }
 
-    /**
-     * Sets the value of the eClassifier property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEClassifier(String value) {
         this.eClassifier = value;
     }

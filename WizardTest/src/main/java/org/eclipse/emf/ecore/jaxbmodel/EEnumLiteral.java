@@ -5,39 +5,24 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
+
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-
-/**
- * <p>Java class for EEnumLiteral complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EEnumLiteral">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}ENamedElement">
- *       &lt;attribute name="value" type="{http://www.eclipse.org/emf/2002/Ecore}EInt" />
- *       &lt;attribute name="instance" type="{http://www.eclipse.org/emf/2002/Ecore}EEnumerator" />
- *       &lt;attribute name="literal" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EEnumLiteral")
-public class EEnumLiteral
-    extends ENamedElement
-{
+public class EEnumLiteral extends ENamedElement {
 
     @XmlAttribute(name = "value")
     protected String value;
@@ -46,74 +31,50 @@ public class EEnumLiteral
     @XmlAttribute(name = "literal")
     protected String literal;
 
-    /**
-     * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eLiterals");
+        me.addAttribute(Wizard.TYPE, "ecore:EEnumLiteral");
+        me.addAttribute(Wizard.N, name);
+        me.addAttribute("value", value);
+        me.addAttribute("instance", instance);
+        me.addAttribute("literal", literal);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setValue(String value) {
         this.value = value;
     }
 
-    /**
-     * Gets the value of the instance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getInstance() {
         return instance;
     }
 
-    /**
-     * Sets the value of the instance property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setInstance(String value) {
         this.instance = value;
     }
 
-    /**
-     * Gets the value of the literal property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getLiteral() {
         return literal;
     }
 
-    /**
-     * Sets the value of the literal property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setLiteral(String value) {
         this.literal = value;
     }

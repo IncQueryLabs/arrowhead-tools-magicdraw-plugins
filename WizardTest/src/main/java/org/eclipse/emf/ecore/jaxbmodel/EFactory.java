@@ -5,8 +5,13 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
+
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.QName;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,58 +19,47 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-
-/**
- * <p>Java class for EFactory complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EFactory">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EModelElement">
- *       &lt;attribute name="ePackage" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EFactory")
-public class EFactory
-    extends EModelElement
-{
+public class EFactory extends EModelElement {
 
     @XmlAttribute(name = "ePackage")
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object ePackage;
 
-    /**
-     * Gets the value of the ePackage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "Factory" + Wizard.factorySuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement(new QName("EFactory", Wizard.EC)); //TODO find a factory
+        if (ePackage != null) {
+            me.addAttribute("ePackage", ePackage.toString());
+        }
+
+        for (EAnnotation an : getEAnnotations()) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public Object getEPackage() {
         return ePackage;
     }
 
-    /**
-     * Sets the value of the ePackage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
     public void setEPackage(Object value) {
         this.ePackage = value;
     }
-
 }

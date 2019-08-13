@@ -5,7 +5,6 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,45 +14,10 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for ETypedElement complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="ETypedElement">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}ENamedElement">
- *       &lt;sequence>
- *         &lt;element name="eGenericType" type="{http://www.eclipse.org/emf/2002/Ecore}EGenericType" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="ordered" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" default="true" />
- *       &lt;attribute name="unique" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" default="true" />
- *       &lt;attribute name="lowerBound" type="{http://www.eclipse.org/emf/2002/Ecore}EInt" />
- *       &lt;attribute name="upperBound" type="{http://www.eclipse.org/emf/2002/Ecore}EInt" default="1" />
- *       &lt;attribute name="many" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="required" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="eType" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ETypedElement", propOrder = {
-    "eGenericType"
-})
-@XmlSeeAlso({
-    EParameter.class,
-    EOperation.class,
-    EStructuralFeature.class
-})
-public abstract class ETypedElement
-    extends ENamedElement
-{
+@XmlType(name = "ETypedElement", propOrder = {"eGenericType"})
+@XmlSeeAlso({EParameter.class, EOperation.class, EStructuralFeature.class})
+public abstract class ETypedElement extends ENamedElement {
 
     protected EGenericType eGenericType;
     @XmlAttribute(name = "ordered")
@@ -72,38 +36,14 @@ public abstract class ETypedElement
     @XmlSchemaType(name = "anyURI")
     protected String eType;
 
-    /**
-     * Gets the value of the eGenericType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EGenericType }
-     *     
-     */
     public EGenericType getEGenericType() {
         return eGenericType;
     }
 
-    /**
-     * Sets the value of the eGenericType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EGenericType }
-     *     
-     */
     public void setEGenericType(EGenericType value) {
         this.eGenericType = value;
     }
 
-    /**
-     * Gets the value of the ordered property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getOrdered() {
         if (ordered == null) {
             return "true";
@@ -112,26 +52,10 @@ public abstract class ETypedElement
         }
     }
 
-    /**
-     * Sets the value of the ordered property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setOrdered(String value) {
         this.ordered = value;
     }
 
-    /**
-     * Gets the value of the unique property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getUnique() {
         if (unique == null) {
             return "true";
@@ -140,50 +64,18 @@ public abstract class ETypedElement
         }
     }
 
-    /**
-     * Sets the value of the unique property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setUnique(String value) {
         this.unique = value;
     }
 
-    /**
-     * Gets the value of the lowerBound property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getLowerBound() {
         return lowerBound;
     }
 
-    /**
-     * Sets the value of the lowerBound property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setLowerBound(String value) {
         this.lowerBound = value;
     }
 
-    /**
-     * Gets the value of the upperBound property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getUpperBound() {
         if (upperBound == null) {
             return "1";
@@ -192,88 +84,31 @@ public abstract class ETypedElement
         }
     }
 
-    /**
-     * Sets the value of the upperBound property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setUpperBound(String value) {
         this.upperBound = value;
     }
 
-    /**
-     * Gets the value of the many property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getMany() {
         return many;
     }
 
-    /**
-     * Sets the value of the many property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setMany(String value) {
         this.many = value;
     }
 
-    /**
-     * Gets the value of the required property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getRequired() {
         return required;
     }
 
-    /**
-     * Sets the value of the required property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setRequired(String value) {
         this.required = value;
     }
 
-    /**
-     * Gets the value of the eType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEType() {
         return eType;
     }
 
-    /**
-     * Sets the value of the eType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEType(String value) {
         this.eType = value;
     }
-
 }

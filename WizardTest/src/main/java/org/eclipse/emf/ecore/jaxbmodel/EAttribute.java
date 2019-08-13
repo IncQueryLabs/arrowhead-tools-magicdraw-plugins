@@ -5,39 +5,25 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
+
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-
-/**
- * <p>Java class for EAttribute complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EAttribute">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EStructuralFeature">
- *       &lt;attribute name="iD" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="eAttributeType" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EAttribute")
-public class EAttribute
-    extends EStructuralFeature
-{
+public class EAttribute extends EStructuralFeature {
 
     @XmlAttribute(name = "iD")
     protected String id;
@@ -45,52 +31,48 @@ public class EAttribute
     @XmlSchemaType(name = "anyURI")
     protected String eAttributeType;
 
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eStructuralFeatures");
+        me.addAttribute(Wizard.TYPE, "ecore:EAttribute");
+        me.addAttribute("name", name);
+        Wizard.writeETypedElementAttributes(me, this);
+        Wizard.writeEStructuralFeatureAttributes(me, this);
+        me.addAttribute("iD", id);
+        me.addAttribute("eAttributeType", eAttributeType);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        if (eGenericType != null) {
+            eGenericType.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public String getID() {
         return id;
     }
 
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setID(String value) {
         this.id = value;
     }
 
-    /**
-     * Gets the value of the eAttributeType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEAttributeType() {
         return eAttributeType;
     }
 
-    /**
-     * Sets the value of the eAttributeType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEAttributeType(String value) {
         this.eAttributeType = value;
     }
-
 }

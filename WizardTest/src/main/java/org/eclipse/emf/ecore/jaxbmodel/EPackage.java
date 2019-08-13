@@ -5,9 +5,17 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.QName;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,38 +25,9 @@ import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EPackage complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EPackage">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}ENamedElement">
- *       &lt;sequence>
- *         &lt;element name="eClassifiers" type="{http://www.eclipse.org/emf/2002/Ecore}EClassifier" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="eSubpackages" type="{http://www.eclipse.org/emf/2002/Ecore}EPackage" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="nsURI" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *       &lt;attribute name="nsPrefix" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *       &lt;attribute name="eFactoryInstance" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EPackage", propOrder = {
-    "eClassifiers",
-    "eSubpackages"
-})
-public class EPackage
-    extends ENamedElement
-{
+@XmlType(name = "EPackage", propOrder = {"eClassifiers", "eSubpackages"})
+public class EPackage extends ENamedElement {
 
     protected List<EClassifier> eClassifiers;
     protected List<EPackage> eSubpackages;
@@ -61,28 +40,44 @@ public class EPackage
     @XmlSchemaType(name = "IDREF")
     protected Object eFactoryInstance;
 
-    /**
-     * Gets the value of the eClassifiers property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eClassifiers property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEClassifiers().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EClassifier }
-     * 
-     * 
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me;
+        if (topParent.getName().equals("Arrowhead")) {
+            me = doc.addElement(new QName("EPackage", Wizard.EC));
+            Wizard.addNamespaces(me);
+        } else {
+            me = doc.addElement("eSubpackages");
+            me.addAttribute(Wizard.TYPE, "ecore:EPackage");
+        }
+        me.addAttribute(Wizard.N, name);
+        me.addAttribute("nsUri", nsURI);
+        me.addAttribute("nsPrefix", nsPrefix);
+
+        if (eFactoryInstance != null) {
+            me.addAttribute("eFactoryInstance", eFactoryInstance.toString());
+        }
+        for (EAnnotation a : eAnnotations) {
+            a.subCompartmentalize(dir, me, xml);
+        }
+        for (EPackage p : eSubpackages) {
+            p.subCompartmentalize(dir, me, xml);
+        }
+        for (EClassifier c : eClassifiers) {
+            c.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public List<EClassifier> getEClassifiers() {
         if (eClassifiers == null) {
             eClassifiers = new ArrayList<EClassifier>();
@@ -90,28 +85,6 @@ public class EPackage
         return this.eClassifiers;
     }
 
-    /**
-     * Gets the value of the eSubpackages property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eSubpackages property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getESubpackages().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EPackage }
-     * 
-     * 
-     */
     public List<EPackage> getESubpackages() {
         if (eSubpackages == null) {
             eSubpackages = new ArrayList<EPackage>();
@@ -119,74 +92,26 @@ public class EPackage
         return this.eSubpackages;
     }
 
-    /**
-     * Gets the value of the nsURI property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getNsURI() {
         return nsURI;
     }
 
-    /**
-     * Sets the value of the nsURI property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setNsURI(String value) {
         this.nsURI = value;
     }
 
-    /**
-     * Gets the value of the nsPrefix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getNsPrefix() {
         return nsPrefix;
     }
 
-    /**
-     * Sets the value of the nsPrefix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setNsPrefix(String value) {
         this.nsPrefix = value;
     }
 
-    /**
-     * Gets the value of the eFactoryInstance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
     public Object getEFactoryInstance() {
         return eFactoryInstance;
     }
 
-    /**
-     * Sets the value of the eFactoryInstance property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
     public void setEFactoryInstance(Object value) {
         this.eFactoryInstance = value;
     }

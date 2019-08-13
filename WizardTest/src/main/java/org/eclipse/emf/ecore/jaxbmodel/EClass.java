@@ -5,9 +5,16 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,90 +24,9 @@ import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EClass complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EClass">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EClassifier">
- *       &lt;sequence>
- *         &lt;element name="eOperations" type="{http://www.eclipse.org/emf/2002/Ecore}EOperation" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="eStructuralFeatures" type="{http://www.eclipse.org/emf/2002/Ecore}EStructuralFeature" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="eGenericSuperTypes" type="{http://www.eclipse.org/emf/2002/Ecore}EGenericType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="abstract" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="interface" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" />
- *       &lt;attribute name="eSuperTypes">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllAttributes">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllReferences">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eReferences">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAttributes">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllContainments">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllOperations">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllStructuralFeatures">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eAllSuperTypes">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="eIDAttribute" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
- *       &lt;attribute name="eAllGenericSuperTypes">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EClass", propOrder = {
-    "eOperations",
-    "eStructuralFeatures",
-    "eGenericSuperTypes"
-})
-public class EClass
-    extends EClassifier
-{
+@XmlType(name = "EClass", propOrder = {"eOperations", "eStructuralFeatures", "eGenericSuperTypes"})
+public class EClass extends EClassifier {
 
     protected List<EOperation> eOperations;
     protected List<EStructuralFeature> eStructuralFeatures;
@@ -134,28 +60,56 @@ public class EClass
     @XmlAttribute(name = "eAllGenericSuperTypes")
     protected List<String> eAllGenericSuperTypes;
 
-    /**
-     * Gets the value of the eOperations property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eOperations property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEOperations().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EOperation }
-     * 
-     * 
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(Wizard.HREF, "ecore:EClass");
+        me.addAttribute("name", name);
+        Wizard.writeEClassifierAttributes(me, this);
+        me.addAttribute("abstract", _abstract);
+        me.addAttribute("interface", _interface);
+        Wizard.addListAttribute(me, "eSuperTypes", eSuperTypes);
+        Wizard.addListAttribute(me, "eAllAttributes", eAllAttributes);
+        Wizard.addListAttribute(me, "eAllReferences", eAllReferences);
+        Wizard.addListAttribute(me, "eReferences", eReferences);
+        Wizard.addListAttribute(me, "eAttributes", eAttributes);
+        Wizard.addListAttribute(me, "eAllContainments", eAllContainments);
+        Wizard.addListAttribute(me, "eAllOperations", eAllOperations);
+        Wizard.addListAttribute(me, "eAllStructuralFeatures", eAllStructuralFeatures);
+        Wizard.addListAttribute(me, "eAllSuperTypes", eAllSuperTypes);
+        if (eidAttribute != null) {
+            me.addAttribute("eIDAttribute", eidAttribute.toString());
+        }
+        Wizard.addListAttribute(me, "eAllGenericSuperTypes", eAllGenericSuperTypes);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        for (ETypeParameter t : eTypeParameters) {
+            t.subCompartmentalize(dir, me, xml);
+        }
+        for (EOperation o : eOperations) {
+            o.subCompartmentalize(dir, me, xml);
+        }
+        for (EStructuralFeature s : eStructuralFeatures) {
+            s.subCompartmentalize(dir, me, xml);
+        }
+        for (EGenericType g : eGenericSuperTypes) {
+            g.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public List<EOperation> getEOperations() {
         if (eOperations == null) {
             eOperations = new ArrayList<EOperation>();
@@ -163,28 +117,6 @@ public class EClass
         return this.eOperations;
     }
 
-    /**
-     * Gets the value of the eStructuralFeatures property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eStructuralFeatures property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEStructuralFeatures().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EStructuralFeature }
-     * 
-     * 
-     */
     public List<EStructuralFeature> getEStructuralFeatures() {
         if (eStructuralFeatures == null) {
             eStructuralFeatures = new ArrayList<EStructuralFeature>();
@@ -192,28 +124,6 @@ public class EClass
         return this.eStructuralFeatures;
     }
 
-    /**
-     * Gets the value of the eGenericSuperTypes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eGenericSuperTypes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEGenericSuperTypes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EGenericType }
-     * 
-     * 
-     */
     public List<EGenericType> getEGenericSuperTypes() {
         if (eGenericSuperTypes == null) {
             eGenericSuperTypes = new ArrayList<EGenericType>();
@@ -221,76 +131,22 @@ public class EClass
         return this.eGenericSuperTypes;
     }
 
-    /**
-     * Gets the value of the abstract property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getAbstract() {
         return _abstract;
     }
 
-    /**
-     * Sets the value of the abstract property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setAbstract(String value) {
         this._abstract = value;
     }
 
-    /**
-     * Gets the value of the interface property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getInterface() {
         return _interface;
     }
 
-    /**
-     * Sets the value of the interface property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setInterface(String value) {
         this._interface = value;
     }
 
-    /**
-     * Gets the value of the eSuperTypes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eSuperTypes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getESuperTypes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getESuperTypes() {
         if (eSuperTypes == null) {
             eSuperTypes = new ArrayList<String>();
@@ -298,28 +154,6 @@ public class EClass
         return this.eSuperTypes;
     }
 
-    /**
-     * Gets the value of the eAllAttributes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllAttributes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllAttributes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllAttributes() {
         if (eAllAttributes == null) {
             eAllAttributes = new ArrayList<String>();
@@ -327,28 +161,6 @@ public class EClass
         return this.eAllAttributes;
     }
 
-    /**
-     * Gets the value of the eAllReferences property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllReferences property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllReferences().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllReferences() {
         if (eAllReferences == null) {
             eAllReferences = new ArrayList<String>();
@@ -356,28 +168,6 @@ public class EClass
         return this.eAllReferences;
     }
 
-    /**
-     * Gets the value of the eReferences property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eReferences property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEReferences().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEReferences() {
         if (eReferences == null) {
             eReferences = new ArrayList<String>();
@@ -385,28 +175,6 @@ public class EClass
         return this.eReferences;
     }
 
-    /**
-     * Gets the value of the eAttributes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAttributes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAttributes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAttributes() {
         if (eAttributes == null) {
             eAttributes = new ArrayList<String>();
@@ -414,28 +182,6 @@ public class EClass
         return this.eAttributes;
     }
 
-    /**
-     * Gets the value of the eAllContainments property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllContainments property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllContainments().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllContainments() {
         if (eAllContainments == null) {
             eAllContainments = new ArrayList<String>();
@@ -443,28 +189,6 @@ public class EClass
         return this.eAllContainments;
     }
 
-    /**
-     * Gets the value of the eAllOperations property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllOperations property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllOperations().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllOperations() {
         if (eAllOperations == null) {
             eAllOperations = new ArrayList<String>();
@@ -472,28 +196,6 @@ public class EClass
         return this.eAllOperations;
     }
 
-    /**
-     * Gets the value of the eAllStructuralFeatures property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllStructuralFeatures property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllStructuralFeatures().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllStructuralFeatures() {
         if (eAllStructuralFeatures == null) {
             eAllStructuralFeatures = new ArrayList<String>();
@@ -501,28 +203,6 @@ public class EClass
         return this.eAllStructuralFeatures;
     }
 
-    /**
-     * Gets the value of the eAllSuperTypes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllSuperTypes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllSuperTypes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllSuperTypes() {
         if (eAllSuperTypes == null) {
             eAllSuperTypes = new ArrayList<String>();
@@ -530,52 +210,14 @@ public class EClass
         return this.eAllSuperTypes;
     }
 
-    /**
-     * Gets the value of the eidAttribute property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
     public Object getEIDAttribute() {
         return eidAttribute;
     }
 
-    /**
-     * Sets the value of the eidAttribute property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
     public void setEIDAttribute(Object value) {
         this.eidAttribute = value;
     }
 
-    /**
-     * Gets the value of the eAllGenericSuperTypes property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eAllGenericSuperTypes property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getEAllGenericSuperTypes().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getEAllGenericSuperTypes() {
         if (eAllGenericSuperTypes == null) {
             eAllGenericSuperTypes = new ArrayList<String>();

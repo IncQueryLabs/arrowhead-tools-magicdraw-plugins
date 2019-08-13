@@ -5,9 +5,16 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,41 +22,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EAnnotation complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EAnnotation">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EModelElement">
- *       &lt;sequence>
- *         &lt;element name="details" type="{http://www.eclipse.org/emf/2002/Ecore}EStringToStringMapEntry" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="contents" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="source" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *       &lt;attribute name="references">
- *         &lt;simpleType>
- *           &lt;list itemType="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EAnnotation", propOrder = {
-    "details",
-    "contents"
-})
-public class EAnnotation
-    extends EModelElement
-{
+@XmlType(name = "EAnnotation", propOrder = {"details", "contents"})
+public class EAnnotation extends EModelElement {
 
     protected List<EStringToStringMapEntry> details;
     protected List<Object> contents;
@@ -58,28 +33,34 @@ public class EAnnotation
     @XmlAttribute(name = "references")
     protected List<String> references;
 
-    /**
-     * Gets the value of the details property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the details property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getDetails().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EStringToStringMapEntry }
-     * 
-     * 
-     */
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "Annotation" + Wizard.annotationSuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eAnnotations");
+        me.addAttribute("source", source);
+        Wizard.addListAttribute(me, "references", references);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        for (EStringToStringMapEntry ss : details) {
+            ss.subCompartmentalize(dir, me, xml);
+        }
+        for (Object o : contents) {
+            Wizard.subCompartmentalize(o, dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public List<EStringToStringMapEntry> getDetails() {
         if (details == null) {
             details = new ArrayList<EStringToStringMapEntry>();
@@ -87,28 +68,6 @@ public class EAnnotation
         return this.details;
     }
 
-    /**
-     * Gets the value of the contents property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the contents property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getContents().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Object }
-     * 
-     * 
-     */
     public List<Object> getContents() {
         if (contents == null) {
             contents = new ArrayList<Object>();
@@ -116,57 +75,18 @@ public class EAnnotation
         return this.contents;
     }
 
-    /**
-     * Gets the value of the source property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getSource() {
         return source;
     }
 
-    /**
-     * Sets the value of the source property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setSource(String value) {
         this.source = value;
     }
 
-    /**
-     * Gets the value of the references property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the references property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getReferences().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
     public List<String> getReferences() {
         if (references == null) {
             references = new ArrayList<String>();
         }
         return this.references;
     }
-
 }

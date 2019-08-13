@@ -5,53 +5,56 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
+
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-
-/**
- * <p>Java class for EDataType complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EDataType">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EClassifier">
- *       &lt;attribute name="serializable" type="{http://www.eclipse.org/emf/2002/Ecore}EBoolean" default="true" />
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EDataType")
-@XmlSeeAlso({
-    EEnum.class
-})
-public class EDataType
-    extends EClassifier
-{
+@XmlSeeAlso({EEnum.class})
+public class EDataType extends EClassifier {
 
     @XmlAttribute(name = "serializable")
     protected String serializable;
 
-    /**
-     * Gets the value of the serializable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(Wizard.TYPE, "ecore:EDataType");
+        me.addAttribute(Wizard.N, name);
+        Wizard.writeEClassifierAttributes(me, this);
+        me.addAttribute("serializable", serializable);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        for (ETypeParameter t : eTypeParameters) {
+            t.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public String getSerializable() {
         if (serializable == null) {
             return "true";
@@ -60,14 +63,6 @@ public class EDataType
         }
     }
 
-    /**
-     * Sets the value of the serializable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setSerializable(String value) {
         this.serializable = value;
     }

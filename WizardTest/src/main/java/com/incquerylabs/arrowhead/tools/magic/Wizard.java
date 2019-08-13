@@ -27,22 +27,21 @@ import org.eclipse.emf.ecore.jaxbmodel.*;
 @SuppressWarnings("unused")
 public class Wizard {
 
-    private static final Namespace ah = new Namespace("ah", "https://www.arrowhead.eu/interchange");
-    private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
-    private static final Namespace ec = new Namespace("ecore", "http://www.eclipse.org/emf/2002/Ecore");
-    private static final Namespace xsi = new Namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-    private Path root;
-    private Integer annotationSuffix = 1;
-    private Integer factorySuffix = 1;
-    private Integer genericTypeSuffix = 1;
-    private Integer objectSuffix = 1;
-    private Integer stringToStringMapEntrySuffix = 1;
-    private QName refName = new QName("include", xInc);
-    private String href = "href";
-    private QName typeName = new QName("type", xsi);
+    public static final Namespace AH = new Namespace("ah", "https://www.arrowhead.eu/interchange");
+    public static final Namespace XINC = new Namespace("xi", "http://www.w3.org/2001/XInclude");
+    public static final Namespace EC = new Namespace("ecore", "http://www.eclipse.org/emf/2002/Ecore");
+    public static final Namespace XSI = new Namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+    public static final QName REF = new QName("include", XINC);
+    public static final String HREF = "href";
+    public static final String N = "name";
+    public static final QName TYPE = new QName("type", XSI);
+    public static Integer objectSuffix = 1;
+    public static Integer factorySuffix = 1;
+    public static Integer annotationSuffix = 1;
+    public static Integer gTypeSuffix = 1;
+    public static Integer ssSuffix = 1;
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
-        root = target;
         if (Files.isReadable(source)) {
             File ecore = source.toFile();
             if (isEcore(ecore)) {
@@ -70,8 +69,8 @@ public class Wizard {
                     EPackage ePackage = elem.getValue();
 
                     Document doc = DocumentHelper.createDocument();
-                    Element root = doc.addElement(new QName("Arrowehead", ah));
-                    addCommon(root);
+                    Element root = doc.addElement(new QName("Arrowehead", AH));
+                    addNamespaces(root);
 
                     subCompartmentalize(ePackage, topDir, root, topXml);
                     writeDocument(topXml, doc);
@@ -94,454 +93,32 @@ public class Wizard {
         }
     }
 
-    private void subCompartmentalize(EAnnotation a, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "Annotation" + annotationSuffix++;
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eAnnotations");
-        me.addAttribute("source", a.getSource());
-        addListAttribute(me, "references", a.getReferences());
-
-        for (EAnnotation an : a.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        for (EStringToStringMapEntry ss : a.getDetails()) {
-            subCompartmentalize(ss, dir, me, xml);
-        }
-        for (Object o : a.getContents()) {
-            subCompartmentalize(o, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EAttribute a, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = a.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eStructuralFeatures");
-        me.addAttribute(typeName, "ecore:EAttribute");
-        me.addAttribute("name", name);
-        writeETypedElementAttributes(me, a);
-        writeEStructuralFeatureAttributes(me, a);
-        me.addAttribute("iD", a.getID());
-        me.addAttribute("eAttributeType", a.getEAttributeType());
-
-        for (EAnnotation an : a.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        if (a.getEGenericType() != null) {
-            subCompartmentalize(a.getEGenericType(), dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EClass c, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = c.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eClassifiers");
-        me.addAttribute(typeName, "ecore:EClass");
-        me.addAttribute("name", name);
-        writeEClassifierAttributes(me, c);
-        me.addAttribute("abstract", c.getAbstract());
-        me.addAttribute("interface", c.getInterface());
-        addListAttribute(me, "eSuperTypes", c.getESuperTypes());
-        addListAttribute(me, "eAllAttributes", c.getEAllAttributes());
-        addListAttribute(me, "eAllReferences", c.getEAllReferences());
-        addListAttribute(me, "eReferences", c.getEAllReferences());
-        addListAttribute(me, "eAttributes", c.getEAttributes());
-        addListAttribute(me, "eAllContainments", c.getEAllContainments());
-        addListAttribute(me, "eAllOperations", c.getEAllOperations());
-        addListAttribute(me, "eAllStructuralFeatures", c.getEAllStructuralFeatures());
-        addListAttribute(me, "eAllSuperTypes", c.getEAllSuperTypes());
-        if (c.getEIDAttribute() != null) {
-            me.addAttribute("eIDAttribute", c.getEIDAttribute().toString());
-        }
-        addListAttribute(me, "eAllGenericSuperTypes", c.getEAllGenericSuperTypes());
-
-        for (EAnnotation an : c.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        for (ETypeParameter t : c.getETypeParameters()) {
-            subCompartmentalize(t, dir, me, xml);
-        }
-        for (EOperation o : c.getEOperations()) {
-            subCompartmentalize(o, dir, me, xml);
-        }
-        for (EStructuralFeature s : c.getEStructuralFeatures()) {
-            subCompartmentalize(s, dir, me, xml);
-        }
-        for (EGenericType g : c.getEGenericSuperTypes()) {
-            subCompartmentalize(g, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EDataType d, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = d.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eClassifiers");
-        me.addAttribute(typeName, "ecore:EDataType");
-        me.addAttribute("name", name);
-        writeEClassifierAttributes(me, d);
-        me.addAttribute("serializable", d.getSerializable());
-
-        for (EAnnotation an : d.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        for (ETypeParameter t : d.getETypeParameters()) {
-            subCompartmentalize(t, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EEnum e, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = e.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eClassifiers");
-        me.addAttribute(typeName, "ecore:EEnum");
-        me.addAttribute("name", name);
-        writeEClassifierAttributes(me, e);
-        me.addAttribute("serializable", e.getSerializable());
-
-        for (EAnnotation an : e.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        for (ETypeParameter t : e.getETypeParameters()) {
-            subCompartmentalize(t, dir, me, xml);
-        }
-        for (EEnumLiteral el : e.getELiterals()) {
-            subCompartmentalize(el, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EEnumLiteral literal, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = literal.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eLiterals");
-        me.addAttribute(typeName, "ecore:EEnumLiteral");
-        me.addAttribute("name", name);
-        me.addAttribute("value", literal.getValue());
-        me.addAttribute("instance", literal.getInstance());
-        me.addAttribute("literal", literal.getLiteral());
-
-        for (EAnnotation an : literal.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EFactory f, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "Factory" + factorySuffix++;
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement(new QName("EFactory", ec)); //TODO find a factory
-        if (f.getEPackage() != null) {
-            me.addAttribute("ePackage", f.getEPackage().toString());
-        }
-
-        for (EAnnotation an : f.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EGenericType g, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "GenericType" + genericTypeSuffix++;
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eTypeArguments");
-        me.addAttribute(typeName, "ecore:EGenericType"); //TODO find examples
-        me.addAttribute("eRawType", g.getERawType());
-        if (g.getETypeParameter() != null) {
-            me.addAttribute("eTypeParameter", g.getETypeParameter().toString());
-        }
-        me.addAttribute("eClassifier", g.getEClassifier());
-
-        if (g.getELowerBound() != null) {
-            subCompartmentalize(g.getELowerBound(), dir, me, xml);
-        }
-        for (EGenericType t : g.getETypeArguments()) {
-            subCompartmentalize(t, dir, me, xml);
-        }
-        if (g.getEUpperBound() != null) {
-            subCompartmentalize(g.getEUpperBound(), dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "Object" + objectSuffix++;
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("EObject"); //TODO find examples
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EOperation o, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = o.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eOperations");
-        me.addAttribute("name", name);
-        writeETypedElementAttributes(me, o);
-        addListAttribute(me, "eExceptions", o.getEExceptions());
-
-        for (EAnnotation a : o.getEAnnotations()) {
-            subCompartmentalize(a, dir, me, xml);
-        }
-        if (o.getEGenericType() != null) {
-            subCompartmentalize(o.getEGenericType(), dir, me, xml);
-        }
-        for (ETypeParameter g : o.getETypeParameters()) {
-            subCompartmentalize(g, dir, me, xml);
-        }
-        for (EParameter t : o.getEParameters()) {
-            subCompartmentalize(t, dir, me, xml);
-        }
-        for (EGenericType g : o.getEGenericExceptions()) {
-            subCompartmentalize(g, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = ePackage.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me;
-        if (topPath.getParent().equals(root)) {
-            me = doc.addElement(new QName("EPackage", ec));
-        } else {
-            me = doc.addElement("eSubpackages");
-            me.addAttribute(typeName, "ecore:EPackage");
-        }
-        me.addAttribute("name", name);
-        me.addAttribute("nsUri", ePackage.getNsURI());
-        me.addAttribute("nsPrefix", ePackage.getNsPrefix());
-        Object fac = ePackage.getEFactoryInstance();
-        if (fac != null) {
-            me.addAttribute("eFactoryInstance", fac.toString());
-        }
-        addCommon(me);
-
-        for (EAnnotation a : ePackage.getEAnnotations()) {
-            subCompartmentalize(a, dir, me, xml);
-        }
-        for (EPackage p : ePackage.getESubpackages()) {
-            subCompartmentalize(p, dir, me, xml);
-        }
-        for (EClassifier c : ePackage.getEClassifiers()) {
-            subCompartmentalize(c, dir, me, xml);
-        }
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EParameter p, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = p.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eParameters");
-        me.addAttribute(typeName, "ecore:EParameter");
-        me.addAttribute("name", name);
-        writeETypedElementAttributes(me, p);
-
-        for (EAnnotation a : p.getEAnnotations()) {
-            subCompartmentalize(a, dir, me, xml);
-        }
-        if (p.getEGenericType() != null) {
-            subCompartmentalize(p.getEGenericType(), dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EReference r, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = r.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eReferences");
-        me.addAttribute(typeName, "ecore:EReference");
-        me.addAttribute("name", name);
-        writeETypedElementAttributes(me, r);
-        writeEStructuralFeatureAttributes(me, r);
-        me.addAttribute("containment", r.getContainment());
-        me.addAttribute("container", r.getContainer());
-        me.addAttribute("resolveProxies", r.getResolveProxies());
-        me.addAttribute("eOpposite", r.getEOpposite());
-        me.addAttribute("eReferenceType", r.getEReferenceType());
-        addListAttribute(me, "eKeys", r.getEKeys());
-
-        for (EAnnotation an : r.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        if (r.getEGenericType() != null) {
-            subCompartmentalize(r.getEGenericType(), dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(EStringToStringMapEntry ss, Path parent, Element topParent, Path topPath) throws IOException {
-        String name = "StringToStringMapEntry" + stringToStringMapEntrySuffix++;
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("eDetails");
-        me.addAttribute(typeName, "ecore:EStringToStringMapEntry");
-        me.addAttribute("key", ss.getKey());
-        me.addAttribute("value", ss.getValue());
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(ETypeParameter t, Path parent, Element topParent, Path topPath) throws IOException{
-        String name = t.getName();
-        Path dir = parent.resolve(name);
-        Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
-        Files.createFile(xml);
-
-        Element ref = topParent.addElement(refName);
-        ref.addAttribute(href, topPath.relativize(xml).toString());
-        Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement("ETypeElement");
-        me.addAttribute("name", name);
-
-        for (EAnnotation an : t.getEAnnotations()) {
-            subCompartmentalize(an, dir, me, xml);
-        }
-        for(EGenericType g: t.getEBounds()){
-            subCompartmentalize(g, dir, me, xml);
-        }
-
-        writeDocument(xml, doc);
-    }
-
-    private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
+    public static void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
         //TODO write with jaxb?
     }
 
-    private static void addListAttribute(Element element, String name, List<String> list) {
-        if (list.size() > 0) {
-            StringBuilder b = new StringBuilder();
-            b.append(list.get(0));
-            for (int i = 1; i < list.size(); ++i) {
-                b.append(" ");
-                b.append(list.get(i));
+    public static void addListAttribute(Element element, String name, List<String> list) {
+        if(list != null){
+            if (list.size() > 0) {
+                StringBuilder b = new StringBuilder();
+                b.append(list.get(0));
+                for (int i = 1; i < list.size(); ++i) {
+                    b.append(" ");
+                    b.append(list.get(i));
+                }
+                element.addAttribute(name, b.toString());
             }
-            element.addAttribute(name, b.toString());
         }
     }
 
-    private static void writeEClassifierAttributes(Element element, EClassifier c) {
+    public static void writeEClassifierAttributes(Element element, EClassifier c) {
         element.addAttribute("instanceClassName", c.getInstanceClassName());
         element.addAttribute("instanceClass", c.getInstanceClass());
         element.addAttribute("defaultValue", c.getDefaultValue());
         element.addAttribute("instanceTypeName", c.getInstanceTypeName());
     }
 
-    private static void writeETypedElementAttributes(Element element, ETypedElement typed) {
+    public static void writeETypedElementAttributes(Element element, ETypedElement typed) {
         element.addAttribute("ordered", typed.getOrdered());
         element.addAttribute("unique", typed.getUnique());
         element.addAttribute("lowerBound", typed.getLowerBound());
@@ -551,7 +128,7 @@ public class Wizard {
         element.addAttribute("eType", typed.getEType());
     }
 
-    private static void writeEStructuralFeatureAttributes(Element element, EStructuralFeature struct) {
+    public static void writeEStructuralFeatureAttributes(Element element, EStructuralFeature struct) {
         element.addAttribute("changeable", struct.getChangeable());
         element.addAttribute("volatile", struct.getVolatile());
         element.addAttribute("transient", struct.getTransient());
@@ -566,15 +143,16 @@ public class Wizard {
         return file.getName().endsWith(".ecore");
     }
 
-    private static void addCommon(Element root) {
-        root.add(ah);
-        root.add(xInc);
-        root.add(ec);
+    public static void addNamespaces(Element root) {
+        root.add(AH);
+        root.add(XINC);
+        root.add(EC);
+        root.add(XSI);
     }
 
     private static final OutputFormat of = OutputFormat.createPrettyPrint();
 
-    private static void writeDocument(Path target, Document document) throws IOException {
+    public static void writeDocument(Path target, Document document) throws IOException {
         XMLWriter writer = new XMLWriter(new FileWriter(target.toAbsolutePath().toFile()), of);
         writer.write(document);
         writer.flush();

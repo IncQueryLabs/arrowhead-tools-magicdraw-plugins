@@ -5,72 +5,61 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
 
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for EEnum complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EEnum">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.eclipse.org/emf/2002/Ecore}EDataType">
- *       &lt;sequence>
- *         &lt;element name="eLiterals" type="{http://www.eclipse.org/emf/2002/Ecore}EEnumLiteral" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EEnum", propOrder = {
-    "eLiterals"
-})
-public class EEnum
-    extends EDataType
-{
+@XmlType(name = "EEnum", propOrder = {"eLiterals"})
+public class EEnum extends EDataType {
 
     protected List<EEnumLiteral> eLiterals;
 
-    /**
-     * Gets the value of the eLiterals property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the eLiterals property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getELiterals().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link EEnumLiteral }
-     * 
-     * 
-     */
+    @Override
+    public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(Wizard.TYPE, "ecore:EEnum");
+        me.addAttribute(Wizard.N, name);
+        Wizard.writeEClassifierAttributes(me, this);
+        me.addAttribute("serializable", serializable);
+
+        for (EAnnotation an : eAnnotations) {
+            an.subCompartmentalize(dir, me, xml);
+        }
+        for (ETypeParameter t : eTypeParameters) {
+            t.subCompartmentalize(dir, me, xml);
+        }
+        for (EEnumLiteral el : eLiterals) {
+            el.subCompartmentalize(dir, me, xml);
+        }
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public List<EEnumLiteral> getELiterals() {
         if (eLiterals == null) {
             eLiterals = new ArrayList<EEnumLiteral>();
         }
         return this.eLiterals;
     }
-
 }

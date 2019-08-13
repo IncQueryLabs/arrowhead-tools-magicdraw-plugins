@@ -5,88 +5,61 @@
 // Generated on: 2019.08.08 at 01:05:25 PM CEST 
 //
 
-
 package org.eclipse.emf.ecore.jaxbmodel;
+
+import com.incquerylabs.arrowhead.tools.magic.Wizard;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-
-/**
- * <p>Java class for EStringToStringMapEntry complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="EStringToStringMapEntry">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="key" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *       &lt;attribute name="value" type="{http://www.eclipse.org/emf/2002/Ecore}EString" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EStringToStringMapEntry")
-public class EStringToStringMapEntry {
+public class EStringToStringMapEntry extends EObject {
 
     @XmlAttribute(name = "key")
     protected String key;
     @XmlAttribute(name = "value")
     protected String value;
 
-    /**
-     * Gets the value of the key property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "StringToStringMapEntry" + Wizard.ssSuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(Wizard.REF);
+        ref.addAttribute(Wizard.HREF, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eDetails");
+        me.addAttribute(Wizard.TYPE, "ecore:EStringToStringMapEntry");
+        me.addAttribute("key", ss.getKey());
+        me.addAttribute("value", ss.getValue());
+
+        Wizard.writeDocument(xml, doc);
+    }
+
     public String getKey() {
         return key;
     }
 
-    /**
-     * Sets the value of the key property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setKey(String value) {
         this.key = value;
     }
 
-    /**
-     * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setValue(String value) {
         this.value = value;
     }
-
 }

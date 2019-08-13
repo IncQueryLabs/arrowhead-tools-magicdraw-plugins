@@ -444,6 +444,38 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
+    private void subCompartmentalize(EReference r, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = r.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eReferences");
+        me.addAttribute(typeName, "ecore:EReference");
+        me.addAttribute("name", name);
+        writeETypedElementAttributes(me, r);
+        writeEStructuralFeatureAttributes(me, r);
+        me.addAttribute("containment", r.getContainment());
+        me.addAttribute("container", r.getContainer());
+        me.addAttribute("resolveProxies", r.getResolveProxies());
+        me.addAttribute("eOpposite", r.getEOpposite());
+        me.addAttribute("eReferenceType", r.getEReferenceType());
+        addListAttribute(me, "eKeys", r.getEKeys());
+
+        for (EAnnotation an : r.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+        if (r.getEGenericType() != null) {
+            subCompartmentalize(r.getEGenericType(), dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
     private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
     }
 

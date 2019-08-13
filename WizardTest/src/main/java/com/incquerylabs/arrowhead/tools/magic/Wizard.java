@@ -28,11 +28,13 @@ public class Wizard {
 
     private static final Namespace ah = new Namespace("ah", "https://www.arrowhead.eu/interchange");
     private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
-    private static final Namespace ec = new Namespace("ec", "http://www.eclipse.org/emf/2002/Ecore");
+    private static final Namespace ec = new Namespace("ecore", "http://www.eclipse.org/emf/2002/Ecore");
+    private static final Namespace xsi = new Namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
     Path root;
     Integer annotationSuffix = 1;
     QName refName = new QName("include", xInc);
     String href = "href";
+    QName typeName = new QName("type", xsi);
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
         root = target;
@@ -102,11 +104,13 @@ public class Wizard {
         me.addAttribute("source", a.getSource());
         List<String> refers = a.getReferences();
         if (refers.size() > 0) {
-            String references = refers.get(0);
+            StringBuilder b = new StringBuilder();
+            b.append(refers.get(0));
             for (int i = 1; i < refers.size(); ++i) {
-                references = references + " " + refers.get(i);
+                b.append(" ");
+                b.append(refers.get(i));
             }
-            me.addAttribute("references", references);
+            me.addAttribute("references", b.toString());
         }
 
         for (EAnnotation an : a.getEAnnotations()){
@@ -117,6 +121,45 @@ public class Wizard {
         }
         for (Object o : a.getContents()) {
             subCompartmentalize(o, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void  subCompartmentalize(EAttribute a, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = a.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eStructuralFeatures");
+        me.addAttribute(typeName, "ecore:EAttribute");
+        me.addAttribute("name", name);
+        me.addAttribute("ordered", a.getOrdered());
+        me.addAttribute("unique", a.getUnique());
+        me.addAttribute("lowerBound", a.getLowerBound());
+        me.addAttribute("upperBound", a.getUpperBound());
+        me.addAttribute("many", a.getMany());
+        me.addAttribute("required", a.getMany());
+        me.addAttribute("eType", a.getEType());
+        me.addAttribute("changeable", a.getChangeable());
+        me.addAttribute("volatile", a.getVolatile());
+        me.addAttribute("transient", a.getTransient());
+        me.addAttribute("defaultValueLiteral", a.getDefaultValueLiteral());
+        me.addAttribute("defaultValue", a.getDefaultValue());
+        me.addAttribute("unsettable", a.getUnsettable());
+        me.addAttribute("derived", a.getDerived());
+        me.addAttribute("iD", a.getID());
+        me.addAttribute("eAttributeType", a.getEAttributeType());
+
+        subCompartmentalize(a.getEGenericType(), dir, me, xml);
+        for(EAnnotation an : a.getEAnnotations()){
+            subCompartmentalize(an, dir, me, xml);
         }
 
         writeDocument(xml, doc);

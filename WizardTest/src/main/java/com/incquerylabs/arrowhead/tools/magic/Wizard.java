@@ -33,6 +33,7 @@ public class Wizard {
     private static final Namespace xsi = new Namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
     Path root;
     Integer annotationSuffix = 1;
+    Integer factorySuffix = 1;
     QName refName = new QName("include", xInc);
     String href = "href";
     QName typeName = new QName("type", xsi);
@@ -243,7 +244,7 @@ public class Wizard {
         for (ETypeParameter t : e.getETypeParameters()) {
             subCompartmentalize(t, dir, me, xml);
         }
-        for(EEnumLiteral el : e.getELiterals()){
+        for (EEnumLiteral el : e.getELiterals()) {
             subCompartmentalize(el, dir, me, xml);
         }
 
@@ -268,6 +269,28 @@ public class Wizard {
         me.addAttribute("literal", literal.getLiteral());
 
         for (EAnnotation an : literal.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EFactory f, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "Factory" + factorySuffix;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement(new QName("EFactory", ec)); //TODO find a factory
+        if(f.getEPackage() != null){
+            me.addAttribute("ePackage", f.getEPackage().toString());
+        }
+
+        for (EAnnotation an : f.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
         }
 

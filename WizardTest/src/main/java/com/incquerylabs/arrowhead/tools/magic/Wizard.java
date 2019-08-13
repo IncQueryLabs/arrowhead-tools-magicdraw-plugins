@@ -35,6 +35,7 @@ public class Wizard {
     Integer annotationSuffix = 1;
     Integer factorySuffix = 1;
     Integer genericTypeSuffix = 1;
+    Integer objectSuffix = 1;
     QName refName = new QName("include", xInc);
     String href = "href";
     QName typeName = new QName("type", xsi);
@@ -331,11 +332,24 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
+    private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = "Object" + objectSuffix++;
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("EObject"); //TODO find examples
+
+        writeDocument(xml, doc);
+    }
+
     private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
     }
 
-    private void subCompartmentalize(EObject obj, Path parent, Element topParent, Path topPath) {
-    }
 
     private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
         //TODO write with jaxb?

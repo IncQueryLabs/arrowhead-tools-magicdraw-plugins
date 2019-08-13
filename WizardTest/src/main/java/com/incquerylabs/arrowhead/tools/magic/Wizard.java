@@ -71,8 +71,7 @@ public class Wizard {
                     Document doc = DocumentHelper.createDocument();
                     Element root = doc.addElement(new QName("Arrowehead", AH));
                     addNamespaces(root);
-
-                    subCompartmentalize(ePackage, topDir, root, topXml);
+                    ePackage.subCompartmentalize(topDir, root, topXml);
                     writeDocument(topXml, doc);
                 } else {
                     if (Files.exists(target)) {

@@ -143,7 +143,7 @@ public class Wizard {
         for (EAnnotation an : a.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
         }
-        if(a.getEGenericType() != null){
+        if (a.getEGenericType() != null) {
             subCompartmentalize(a.getEGenericType(), dir, me, xml);
         }
 
@@ -290,7 +290,7 @@ public class Wizard {
         ref.addAttribute(href, topPath.relativize(xml).toString());
         Document doc = DocumentHelper.createDocument();
         Element me = doc.addElement(new QName("EFactory", ec)); //TODO find a factory
-        if(f.getEPackage() != null){
+        if (f.getEPackage() != null) {
             me.addAttribute("ePackage", f.getEPackage().toString());
         }
 
@@ -314,18 +314,18 @@ public class Wizard {
         Element me = doc.addElement("eTypeArguments");
         me.addAttribute(typeName, "ecore:EGenericType"); //TODO find examples
         me.addAttribute("eRawType", g.getERawType());
-        if(g.getETypeParameter() != null){
+        if (g.getETypeParameter() != null) {
             me.addAttribute("eTypeParameter", g.getETypeParameter().toString());
         }
         me.addAttribute("eClassifier", g.getEClassifier());
 
-        if(g.getELowerBound() != null){
+        if (g.getELowerBound() != null) {
             subCompartmentalize(g.getELowerBound(), dir, me, xml);
         }
-        for(EGenericType t : g.getETypeArguments()){
+        for (EGenericType t : g.getETypeArguments()) {
             subCompartmentalize(t, dir, me, xml);
         }
-        if (g.getEUpperBound() != null){
+        if (g.getEUpperBound() != null) {
             subCompartmentalize(g.getEUpperBound(), dir, me, xml);
         }
 
@@ -347,6 +347,40 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
+    private void subCompartmentalize(EOperation o, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = o.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eOperations");
+        me.addAttribute("name", name);
+        writeETypedElementAttributes(me, o);
+        addListAttribute(me, "eExceptions", o.getEExceptions());
+
+        for (EAnnotation a : o.getEAnnotations()) {
+            subCompartmentalize(a, dir, me, xml);
+        }
+        if (o.getEGenericType() != null) {
+            subCompartmentalize(o.getEGenericType(), dir, me, xml);
+        }
+        for (ETypeParameter g : o.getETypeParameters()) {
+            subCompartmentalize(g, dir, me, xml);
+        }
+        for (EParameter t : o.getEParameters()) {
+            subCompartmentalize(t, dir, me, xml);
+        }
+        for (EGenericType g : o.getEGenericExceptions()) {
+            subCompartmentalize(g, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
     private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
     }
 
@@ -364,7 +398,6 @@ public class Wizard {
 
         Element ref = topParent.addElement(refName);
         ref.addAttribute(href, topPath.relativize(xml).toString());
-
         Document doc = DocumentHelper.createDocument();
         Element me;
         if (topPath.getParent().equals(root)) {

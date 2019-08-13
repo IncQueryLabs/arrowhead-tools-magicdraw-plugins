@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ah:Arrowehead xmlns:ah="https://www.arrowhead.eu/interchange" xmlns:xi="http://www.w3.org/2001/XInclude">
+<ah:Arrowehead xmlns:ah="https://www.arrowhead.eu/interchange" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ec="http://www.eclipse.org/emf/2002/Ecore">
   <xi:include href="..\WizTest\testProj.xml"/>
 </ah:Arrowehead>

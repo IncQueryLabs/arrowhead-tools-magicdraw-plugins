@@ -32,8 +32,10 @@ public class Wizard {
     private static final Namespace ah = new Namespace("ah", "https://www.arrowhead.eu/interchange");
     private static final Namespace xInc = new Namespace("xi", "http://www.w3.org/2001/XInclude");
     private static final Namespace ec = new Namespace("ec", "http://www.eclipse.org/emf/2002/Ecore");
+    Path root;
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
+        root = target;
         if (Files.isReadable(source)) {
             File ecore = source.toFile();
             if (isEcore(ecore)) {
@@ -89,6 +91,7 @@ public class Wizard {
     }
 
     private void subCompartmentalize(EClassifier c, Path topDir, Element topParent, Path topPath) {
+
     }
 
     @SuppressWarnings("unused")
@@ -107,7 +110,12 @@ public class Wizard {
         ref.addAttribute("href", topPath.relativize(xml).toString());
 
         Document doc = DocumentHelper.createDocument();
-        Element me = doc.addElement(new QName(name, ec));
+        Element me;
+        if(topPath.getParent().equals(root)){
+            me = doc.addElement(new QName("EPackage", ec));
+        } else {
+            me = doc.addElement("eSubpackages");
+        }
         me.addAttribute("name", name);
         me.addAttribute("nsUri", ePackage.getNsURI());
         me.addAttribute("nsPrefix", ePackage.getNsPrefix());

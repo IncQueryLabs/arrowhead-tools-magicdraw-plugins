@@ -179,27 +179,49 @@ public class Wizard {
         for (EAnnotation an : c.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
         }
-        for(ETypeParameter t : c.getETypeParameters()){
+        for (ETypeParameter t : c.getETypeParameters()) {
             subCompartmentalize(t, dir, me, xml);
         }
-        for(EOperation o : c.getEOperations()){
+        for (EOperation o : c.getEOperations()) {
             subCompartmentalize(o, dir, me, xml);
         }
-        for(EStructuralFeature s : c.getEStructuralFeatures()){
+        for (EStructuralFeature s : c.getEStructuralFeatures()) {
             subCompartmentalize(s, dir, me, xml);
         }
-        for(EGenericType g : c.getEGenericSuperTypes()){
+        for (EGenericType g : c.getEGenericSuperTypes()) {
             subCompartmentalize(g, dir, me, xml);
         }
 
         writeDocument(xml, doc);
     }
 
-    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
-        
+    private void subCompartmentalize(EDataType d, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = d.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(typeName, "ecore:EDataType");
+        me.addAttribute("name", name);
+        writeEClassifierAttributes(me, d);
+        me.addAttribute("serializable", d.getSerializable());
+
+        for (EAnnotation an : d.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+        for (ETypeParameter t : d.getETypeParameters()) {
+            subCompartmentalize(t, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
     }
 
-    private void subCompartmentalize(EClassifier c, Path topDir, Element topParent, Path topPath) {
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
 
     }
 

@@ -232,7 +232,7 @@ public class Wizard {
         ref.addAttribute(href, topPath.relativize(xml).toString());
         Document doc = DocumentHelper.createDocument();
         Element me = doc.addElement("eClassifiers");
-        me.addAttribute(typeName, "ecore:EDataType");
+        me.addAttribute(typeName, "ecore:EEnum");
         me.addAttribute("name", name);
         writeEClassifierAttributes(me, e);
         me.addAttribute("serializable", e.getSerializable());
@@ -245,6 +245,30 @@ public class Wizard {
         }
         for(EEnumLiteral el : e.getELiterals()){
             subCompartmentalize(el, dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EEnumLiteral literal, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = literal.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eLiterals");
+        me.addAttribute(typeName, "ecore:EEnumLiteral");
+        me.addAttribute("name", name);
+        me.addAttribute("value", literal.getValue());
+        me.addAttribute("instance", literal.getInstance());
+        me.addAttribute("literal", literal.getLiteral());
+
+        for (EAnnotation an : literal.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
         }
 
         writeDocument(xml, doc);

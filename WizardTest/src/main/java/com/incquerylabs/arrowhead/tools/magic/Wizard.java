@@ -24,6 +24,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.eclipse.emf.ecore.jaxbmodel.*;
 
+@SuppressWarnings("unused")
 public class Wizard {
 
     private static final Namespace ah = new Namespace("ah", "https://www.arrowhead.eu/interchange");
@@ -102,18 +103,9 @@ public class Wizard {
         Document doc = DocumentHelper.createDocument();
         Element me = doc.addElement("eAnnotations");
         me.addAttribute("source", a.getSource());
-        List<String> refers = a.getReferences();
-        if (refers.size() > 0) {
-            StringBuilder b = new StringBuilder();
-            b.append(refers.get(0));
-            for (int i = 1; i < refers.size(); ++i) {
-                b.append(" ");
-                b.append(refers.get(i));
-            }
-            me.addAttribute("references", b.toString());
-        }
+        addListAttribute(me, "references", a.getReferences());
 
-        for (EAnnotation an : a.getEAnnotations()){
+        for (EAnnotation an : a.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
         }
         for (EStringToStringMapEntry ss : a.getDetails()) {
@@ -126,7 +118,7 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
-    private void  subCompartmentalize(EAttribute a, Path parent, Element topParent, Path topPath) throws IOException {
+    private void subCompartmentalize(EAttribute a, Path parent, Element topParent, Path topPath) throws IOException {
         String name = a.getName();
         Path dir = parent.resolve(name);
         Files.createDirectory(dir);
@@ -140,32 +132,71 @@ public class Wizard {
         Element me = doc.addElement("eStructuralFeatures");
         me.addAttribute(typeName, "ecore:EAttribute");
         me.addAttribute("name", name);
-        me.addAttribute("ordered", a.getOrdered());
-        me.addAttribute("unique", a.getUnique());
-        me.addAttribute("lowerBound", a.getLowerBound());
-        me.addAttribute("upperBound", a.getUpperBound());
-        me.addAttribute("many", a.getMany());
-        me.addAttribute("required", a.getMany());
-        me.addAttribute("eType", a.getEType());
-        me.addAttribute("changeable", a.getChangeable());
-        me.addAttribute("volatile", a.getVolatile());
-        me.addAttribute("transient", a.getTransient());
-        me.addAttribute("defaultValueLiteral", a.getDefaultValueLiteral());
-        me.addAttribute("defaultValue", a.getDefaultValue());
-        me.addAttribute("unsettable", a.getUnsettable());
-        me.addAttribute("derived", a.getDerived());
+        writeETypedElementAttributes(me, a);
+        writeEStructuralFeatureAttributes(me, a);
         me.addAttribute("iD", a.getID());
         me.addAttribute("eAttributeType", a.getEAttributeType());
 
-        subCompartmentalize(a.getEGenericType(), dir, me, xml);
-        for(EAnnotation an : a.getEAnnotations()){
+        for (EAnnotation an : a.getEAnnotations()) {
             subCompartmentalize(an, dir, me, xml);
+        }
+        subCompartmentalize(a.getEGenericType(), dir, me, xml);
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EClass c, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = c.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eClassifiers");
+        me.addAttribute(typeName, "ecore:EClass");
+        me.addAttribute("name", name);
+        writeEClassifierAttributes(me, c);
+        me.addAttribute("abstract", c.getAbstract());
+        me.addAttribute("interface", c.getInterface());
+        addListAttribute(me, "eSuperTypes", c.getESuperTypes());
+        addListAttribute(me, "eAllAttributes", c.getEAllAttributes());
+        addListAttribute(me, "eAllReferences", c.getEAllReferences());
+        addListAttribute(me, "eReferences", c.getEAllReferences());
+        addListAttribute(me, "eAttributes", c.getEAttributes());
+        addListAttribute(me, "eAllContainments", c.getEAllContainments());
+        addListAttribute(me, "eAllOperations", c.getEAllOperations());
+        addListAttribute(me, "eAllStructuralFeatures", c.getEAllStructuralFeatures());
+        addListAttribute(me, "eAllSuperTypes", c.getEAllSuperTypes());
+        if (c.getEIDAttribute() != null) {
+            me.addAttribute("eIDAttribute", c.getEIDAttribute().toString());
+        }
+        addListAttribute(me, "eAllGenericSuperTypes", c.getEAllGenericSuperTypes());
+
+        for (EAnnotation an : c.getEAnnotations()) {
+            subCompartmentalize(an, dir, me, xml);
+        }
+        for(ETypeParameter t : c.getETypeParameters()){
+            subCompartmentalize(t, dir, me, xml);
+        }
+        for(EOperation o : c.getEOperations()){
+            subCompartmentalize(o, dir, me, xml);
+        }
+        for(EStructuralFeature s : c.getEStructuralFeatures()){
+            subCompartmentalize(s, dir, me, xml);
+        }
+        for(EGenericType g : c.getEGenericSuperTypes()){
+            subCompartmentalize(g, dir, me, xml);
         }
 
         writeDocument(xml, doc);
     }
 
     private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
+        
     }
 
     private void subCompartmentalize(EClassifier c, Path topDir, Element topParent, Path topPath) {
@@ -216,6 +247,45 @@ public class Wizard {
             subCompartmentalize(c, dir, me, xml);
         }
         writeDocument(xml, doc);
+    }
+
+    private static void addListAttribute(Element element, String name, List<String> list) {
+        if (list.size() > 0) {
+            StringBuilder b = new StringBuilder();
+            b.append(list.get(0));
+            for (int i = 1; i < list.size(); ++i) {
+                b.append(" ");
+                b.append(list.get(i));
+            }
+            element.addAttribute(name, b.toString());
+        }
+    }
+
+    private static void writeEClassifierAttributes(Element element, EClassifier c) {
+        element.addAttribute("instanceClassName", c.getInstanceClassName());
+        element.addAttribute("instanceClass", c.getInstanceClass());
+        element.addAttribute("defaultValue", c.getDefaultValue());
+        element.addAttribute("instanceTypeName", c.getInstanceTypeName());
+    }
+
+    private static void writeETypedElementAttributes(Element element, ETypedElement typed) {
+        element.addAttribute("ordered", typed.getOrdered());
+        element.addAttribute("unique", typed.getUnique());
+        element.addAttribute("lowerBound", typed.getLowerBound());
+        element.addAttribute("upperBound", typed.getUpperBound());
+        element.addAttribute("many", typed.getMany());
+        element.addAttribute("required", typed.getMany());
+        element.addAttribute("eType", typed.getEType());
+    }
+
+    private static void writeEStructuralFeatureAttributes(Element element, EStructuralFeature struct) {
+        element.addAttribute("changeable", struct.getChangeable());
+        element.addAttribute("volatile", struct.getVolatile());
+        element.addAttribute("transient", struct.getTransient());
+        element.addAttribute("defaultValueLiteral", struct.getDefaultValueLiteral());
+        element.addAttribute("defaultValue", struct.getDefaultValue());
+        element.addAttribute("unsettable", struct.getUnsettable());
+        element.addAttribute("derived", struct.getDerived());
     }
 
     //actual validation?

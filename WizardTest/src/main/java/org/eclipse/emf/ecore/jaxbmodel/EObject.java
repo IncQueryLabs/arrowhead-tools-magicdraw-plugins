@@ -25,9 +25,14 @@ public class EObject {
 
     public void subCompartmentalize(Path parent, Element topParent, Path topPath) throws IOException {
         String name = "Object" + Wizard.objectSuffix++;
-        Path dir = parent.resolve(name);
+        String filename = Wizard.sanitizeFilename(name);
+        Path xml = parent.resolve(filename + ".xml");
+        if(Files.exists(xml)){
+            filename = Wizard.degenarilzeName(parent, name);
+            xml = parent.resolve(filename + ".xml");
+        }
+        Path dir = parent.resolve(filename);
         Files.createDirectory(dir);
-        Path xml = parent.resolve(name + ".xml");
         Files.createFile(xml);
 
         Element ref = topParent.addElement(Wizard.REF);

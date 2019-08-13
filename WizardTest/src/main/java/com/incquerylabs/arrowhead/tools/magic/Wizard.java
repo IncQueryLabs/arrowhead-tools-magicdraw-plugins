@@ -1,10 +1,8 @@
 package com.incquerylabs.arrowhead.tools.magic;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,6 +38,8 @@ public class Wizard {
     public static Integer annotationSuffix = 1;
     public static Integer gTypeSuffix = 1;
     public static Integer ssSuffix = 1;
+    public static Integer unnamedSuffix = 1;
+
 
     public void compartmentalize(Path source, Path target, String name) throws IOException, JAXBException {
         if (Files.isReadable(source)) {
@@ -97,7 +97,7 @@ public class Wizard {
     }
 
     public static void addListAttribute(Element element, String name, List<String> list) {
-        if(list != null){
+        if (list != null) {
             if (list.size() > 0) {
                 StringBuilder b = new StringBuilder();
                 b.append(list.get(0));
@@ -108,6 +108,15 @@ public class Wizard {
                 element.addAttribute(name, b.toString());
             }
         }
+    }
+
+    public static String degenarilzeName(Path root, String name) {
+        int suffix = 2;
+        Path temp = root.resolve(name + suffix + ".xml");
+        while (Files.exists(temp)) {
+            temp = root.resolve(name + suffix++ + ".xml");
+        }
+        return name + suffix;
     }
 
     public static void writeEClassifierAttributes(Element element, EClassifier c) {
@@ -158,10 +167,25 @@ public class Wizard {
         writer.close();
     }
 
+    public static String sanitizeFilename(String name) {
+        //TODO actual answer
+        String temp = URLEncoder.encode(name, StandardCharsets.UTF_8);
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < temp.length(); ++i) {
+            String s = temp.substring(i, i + 1);
+            if(s.equals("*")){
+                b.append("%2A");
+            } else {
+                b.append(s);
+            }
+        }
+        return b.toString();
+    }
+
     public static void main(String[] args) throws IOException, JAXBException {
-        Path source = Paths.get("model/testProj.ecore");
+        Path source = Paths.get("TMT.ecore");
         Path target = Paths.get("Out");
         Wizard ted = new Wizard();
-        ted.compartmentalize(source, target, "WizTest");
+        ted.compartmentalize(source, target, "TMT");
     }
 }

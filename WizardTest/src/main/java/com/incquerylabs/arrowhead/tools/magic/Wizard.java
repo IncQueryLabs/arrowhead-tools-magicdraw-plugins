@@ -69,7 +69,7 @@ public class Wizard {
                     EPackage ePackage = elem.getValue();
 
                     Document doc = DocumentHelper.createDocument();
-                    Element root = doc.addElement(new QName("Arrowehead", AH));
+                    Element root = doc.addElement(new QName("Arrowhead", AH));
                     addNamespaces(root);
                     ePackage.subCompartmentalize(topDir, root, topXml);
                     writeDocument(topXml, doc);
@@ -158,14 +158,10 @@ public class Wizard {
         writer.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, JAXBException {
         Path source = Paths.get("model/testProj.ecore");
         Path target = Paths.get("Out");
         Wizard ted = new Wizard();
-        try {
-            ted.compartmentalize(source, target, "WizTest");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        ted.compartmentalize(source, target, "WizTest");
     }
 }

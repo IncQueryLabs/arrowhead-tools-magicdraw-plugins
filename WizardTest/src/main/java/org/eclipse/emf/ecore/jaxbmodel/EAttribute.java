@@ -49,9 +49,10 @@ public class EAttribute extends EStructuralFeature {
         Wizard.writeEStructuralFeatureAttributes(me, this);
         me.addAttribute("iD", id);
         me.addAttribute("eAttributeType", eAttributeType);
-
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
         if (eGenericType != null) {
             eGenericType.subCompartmentalize(dir, me, xml);

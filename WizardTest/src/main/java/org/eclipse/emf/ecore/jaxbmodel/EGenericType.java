@@ -64,8 +64,10 @@ public class EGenericType extends EObject {
         if (eLowerBound != null) {
             eLowerBound.subCompartmentalize(dir, me, xml);
         }
-        for (EGenericType t : eTypeArguments) {
-            t.subCompartmentalize(dir, me, xml);
+        if (eTypeArguments != null) {
+            for (EGenericType t : eTypeArguments) {
+                t.subCompartmentalize(dir, me, xml);
+            }
         }
         if (eUpperBound != null) {
             eUpperBound.subCompartmentalize(dir, me, xml);

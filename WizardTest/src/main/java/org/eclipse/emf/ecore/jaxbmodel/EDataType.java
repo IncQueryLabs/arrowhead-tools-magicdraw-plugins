@@ -45,11 +45,15 @@ public class EDataType extends EClassifier {
         Wizard.writeEClassifierAttributes(me, this);
         me.addAttribute("serializable", serializable);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (ETypeParameter t : eTypeParameters) {
-            t.subCompartmentalize(dir, me, xml);
+        if (eTypeParameters != null) {
+            for (ETypeParameter t : eTypeParameters) {
+                t.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

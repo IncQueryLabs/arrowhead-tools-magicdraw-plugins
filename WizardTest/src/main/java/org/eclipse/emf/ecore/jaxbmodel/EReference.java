@@ -64,8 +64,10 @@ public class EReference extends EStructuralFeature {
         me.addAttribute("eReferenceType", eReferenceType);
         Wizard.addListAttribute(me, "eKeys", eKeys);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
         if (eGenericType != null) {
             eGenericType.subCompartmentalize(dir, me, xml);

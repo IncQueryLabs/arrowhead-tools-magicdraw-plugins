@@ -91,20 +91,30 @@ public class EClass extends EClassifier {
         }
         Wizard.addListAttribute(me, "eAllGenericSuperTypes", eAllGenericSuperTypes);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (ETypeParameter t : eTypeParameters) {
-            t.subCompartmentalize(dir, me, xml);
+        if (eTypeParameters != null) {
+            for (ETypeParameter t : eTypeParameters) {
+                t.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EOperation o : eOperations) {
-            o.subCompartmentalize(dir, me, xml);
+        if (eOperations != null) {
+            for (EOperation o : eOperations) {
+                o.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EStructuralFeature s : eStructuralFeatures) {
-            s.subCompartmentalize(dir, me, xml);
+        if (eStructuralFeatures != null) {
+            for (EStructuralFeature s : eStructuralFeatures) {
+                s.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EGenericType g : eGenericSuperTypes) {
-            g.subCompartmentalize(dir, me, xml);
+        if (eGenericSuperTypes != null) {
+            for (EGenericType g : eGenericSuperTypes) {
+                g.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

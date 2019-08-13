@@ -43,14 +43,20 @@ public class EEnum extends EDataType {
         Wizard.writeEClassifierAttributes(me, this);
         me.addAttribute("serializable", serializable);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (ETypeParameter t : eTypeParameters) {
-            t.subCompartmentalize(dir, me, xml);
+        if (eTypeParameters != null) {
+            for (ETypeParameter t : eTypeParameters) {
+                t.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EEnumLiteral el : eLiterals) {
-            el.subCompartmentalize(dir, me, xml);
+        if (eLiterals != null) {
+            for (EEnumLiteral el : eLiterals) {
+                el.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

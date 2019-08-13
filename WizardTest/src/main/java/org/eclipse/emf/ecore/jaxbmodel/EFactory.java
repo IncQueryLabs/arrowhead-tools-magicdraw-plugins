@@ -48,8 +48,10 @@ public class EFactory extends EModelElement {
             me.addAttribute("ePackage", ePackage.toString());
         }
 
-        for (EAnnotation an : getEAnnotations()) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

@@ -38,8 +38,10 @@ public class EParameter extends ETypedElement {
         me.addAttribute("name", name);
         Wizard.writeETypedElementAttributes(me, this);
 
-        for (EAnnotation a : eAnnotations) {
-            a.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation a : eAnnotations) {
+                a.subCompartmentalize(dir, me, xml);
+            }
         }
         if (eGenericType != null) {
             eGenericType.subCompartmentalize(dir, me, xml);

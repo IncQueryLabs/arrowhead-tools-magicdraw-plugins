@@ -48,8 +48,10 @@ public class EEnumLiteral extends ENamedElement {
         me.addAttribute("instance", instance);
         me.addAttribute("literal", literal);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

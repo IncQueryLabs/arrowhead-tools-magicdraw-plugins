@@ -40,11 +40,15 @@ public class ETypeParameter extends ENamedElement {
         Element me = doc.addElement("ETypeElement");
         me.addAttribute("name", name);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EGenericType g : eBounds) {
-            g.subCompartmentalize(dir, me, xml);
+        if (eBounds != null) {
+            for (EGenericType g : eBounds) {
+                g.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

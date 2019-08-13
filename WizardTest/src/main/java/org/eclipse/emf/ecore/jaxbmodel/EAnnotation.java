@@ -48,14 +48,20 @@ public class EAnnotation extends EModelElement {
         me.addAttribute("source", source);
         Wizard.addListAttribute(me, "references", references);
 
-        for (EAnnotation an : eAnnotations) {
-            an.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation an : eAnnotations) {
+                an.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EStringToStringMapEntry ss : details) {
-            ss.subCompartmentalize(dir, me, xml);
+        if (details != null) {
+            for (EStringToStringMapEntry ss : details) {
+                ss.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (Object o : contents) {
-            Wizard.subCompartmentalize(o, dir, me, xml);
+        if (contents != null) {
+            for (Object o : contents) {
+                Wizard.subCompartmentalize(o, dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

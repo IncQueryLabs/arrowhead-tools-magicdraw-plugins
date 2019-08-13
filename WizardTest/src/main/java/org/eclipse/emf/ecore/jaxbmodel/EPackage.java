@@ -65,14 +65,20 @@ public class EPackage extends ENamedElement {
         if (eFactoryInstance != null) {
             me.addAttribute("eFactoryInstance", eFactoryInstance.toString());
         }
-        for (EAnnotation a : eAnnotations) {
-            a.subCompartmentalize(dir, me, xml);
+        if (eAnnotations != null) {
+            for (EAnnotation a : eAnnotations) {
+                a.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EPackage p : eSubpackages) {
-            p.subCompartmentalize(dir, me, xml);
+        if (eSubpackages != null) {
+            for (EPackage p : eSubpackages) {
+                p.subCompartmentalize(dir, me, xml);
+            }
         }
-        for (EClassifier c : eClassifiers) {
-            c.subCompartmentalize(dir, me, xml);
+        if (eClassifiers != null) {
+            for (EClassifier c : eClassifiers) {
+                c.subCompartmentalize(dir, me, xml);
+            }
         }
 
         Wizard.writeDocument(xml, doc);

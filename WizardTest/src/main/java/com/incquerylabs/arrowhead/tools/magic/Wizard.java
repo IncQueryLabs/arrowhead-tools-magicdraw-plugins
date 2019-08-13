@@ -381,14 +381,6 @@ public class Wizard {
         writeDocument(xml, doc);
     }
 
-    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
-    }
-
-
-    private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
-        //TODO write with jaxb?
-    }
-
     private void subCompartmentalize(EPackage ePackage, Path parent, Element topParent, Path topPath) throws IOException {
         String name = ePackage.getName();
         Path dir = parent.resolve(name);
@@ -404,6 +396,7 @@ public class Wizard {
             me = doc.addElement(new QName("EPackage", ec));
         } else {
             me = doc.addElement("eSubpackages");
+            me.addAttribute(typeName, "ecore:EPackage");
         }
         me.addAttribute("name", name);
         me.addAttribute("nsUri", ePackage.getNsURI());
@@ -424,6 +417,39 @@ public class Wizard {
             subCompartmentalize(c, dir, me, xml);
         }
         writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EParameter p, Path parent, Element topParent, Path topPath) throws IOException {
+        String name = p.getName();
+        Path dir = parent.resolve(name);
+        Files.createDirectory(dir);
+        Path xml = parent.resolve(name + ".xml");
+        Files.createFile(xml);
+
+        Element ref = topParent.addElement(refName);
+        ref.addAttribute(href, topPath.relativize(xml).toString());
+        Document doc = DocumentHelper.createDocument();
+        Element me = doc.addElement("eParameters");
+        me.addAttribute(typeName, "ecore:EParameter");
+        me.addAttribute("name", name);
+        writeETypedElementAttributes(me, p);
+
+        for (EAnnotation a : p.getEAnnotations()) {
+            subCompartmentalize(a, dir, me, xml);
+        }
+        if (p.getEGenericType() != null) {
+            subCompartmentalize(p.getEGenericType(), dir, me, xml);
+        }
+
+        writeDocument(xml, doc);
+    }
+
+    private void subCompartmentalize(EStringToStringMapEntry ss, Path dir, Element me, Path xml) {
+    }
+
+
+    private void subCompartmentalize(Object o, Path dir, Element me, Path xml) {
+        //TODO write with jaxb?
     }
 
     private static void addListAttribute(Element element, String name, List<String> list) {

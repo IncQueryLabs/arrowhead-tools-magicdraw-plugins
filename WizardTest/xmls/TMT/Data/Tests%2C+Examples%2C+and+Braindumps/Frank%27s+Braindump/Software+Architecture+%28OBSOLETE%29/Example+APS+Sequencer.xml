@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Example APS Sequencer">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed289.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed290.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed291.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed292.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed293.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed294.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed295.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed296.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed297.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed298.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed299.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Example+APS+Sequencer\Unnamed300.xml"/>
+</eClassifiers>

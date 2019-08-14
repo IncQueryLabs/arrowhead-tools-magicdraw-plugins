@@ -28,19 +28,24 @@ public class Crawler {
             System.out.println(ref.getName());
         }*/
         RevWalk walker = new RevWalk(repo);
-        for( Ref ref : branches ) {
-            walker.markStart( walker.parseCommit( ref.getObjectId() ));
+        for (Ref ref : branches) {
+            if (ref.getName().endsWith("crawler")) {
+                walker.markStart(walker.parseCommit(ref.getObjectId()));
+            }
         }
-        RevTree tree = walker.next().getTree();
+        RevCommit commit = walker.next();
+        System.out.println(commit.getFullMessage());
+        RevTree tree = commit.getTree();
         TreeWalk tralk = new TreeWalk(repo);
         tralk.addTree(tree);
         tralk.setRecursive(true);
         String xml = ".xml";
         byte[] p = xml.getBytes();
         while (tralk.next()) {
-            if(tralk.isPathSuffix(p, p.length)){
-                System.out.println(tralk.getPathString());
-                //System.out.println(tralk.getNameString());
+            String path  = tralk.getPathString();
+            System.out.println(path);
+            if(path.endsWith("-.xml")){
+                System.out.println(path);
             }
         }
         /*

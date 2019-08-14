@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ErrorRollUpPatternElement" abstract="true">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ErrorRollUpPatternElement\subError.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ErrorRollUpPatternElement\errorReq.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ErrorRollUpPatternElement\errorCBE.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ErrorRollUpPatternElement\errorMargin.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ErrorRollUpPatternElement\marginPercentageCalc.xml"/>
+</eClassifiers>

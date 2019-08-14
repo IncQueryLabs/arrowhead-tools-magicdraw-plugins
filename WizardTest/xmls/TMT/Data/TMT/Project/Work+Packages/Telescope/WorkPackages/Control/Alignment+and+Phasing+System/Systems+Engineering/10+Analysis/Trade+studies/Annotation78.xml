@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+Execute &lt;b&gt;Duration TradeStudy&lt;/b&gt; to perform a model-based trade study to find the minimum duration. The result will be shown in the Duration&lt;a href=&quot;mdel://_18_0beta_be00301_1392904062198_323127_13845&quot;&gt; &lt;/a&gt;&lt;a href=&quot;mdel://_18_0_4_baa02e2_1438799229699_161133_151758&quot;&gt;Duration Trade Study Results&lt;/a&gt; table.
+
+    &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;"/>

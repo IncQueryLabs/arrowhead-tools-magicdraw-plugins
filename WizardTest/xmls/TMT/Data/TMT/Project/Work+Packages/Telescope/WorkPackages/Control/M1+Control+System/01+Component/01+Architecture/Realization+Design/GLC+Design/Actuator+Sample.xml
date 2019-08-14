@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Actuator Sample">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\Unnamed184.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\position.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\current.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\time.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\algorithm.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\excitation.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Sample\offloader_pos.xml"/>
+</eClassifiers>

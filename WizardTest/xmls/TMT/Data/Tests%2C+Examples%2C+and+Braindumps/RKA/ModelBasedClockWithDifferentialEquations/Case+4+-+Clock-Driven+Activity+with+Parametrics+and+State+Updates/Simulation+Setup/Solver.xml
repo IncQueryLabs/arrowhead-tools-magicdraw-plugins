@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Solver">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\context.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\torque.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\pwer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\EnergyIncrement.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\drive.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\battery.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\accel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\motion.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\VelocityIncrement.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Solver\PositionIncrement.xml"/>
+</eClassifiers>

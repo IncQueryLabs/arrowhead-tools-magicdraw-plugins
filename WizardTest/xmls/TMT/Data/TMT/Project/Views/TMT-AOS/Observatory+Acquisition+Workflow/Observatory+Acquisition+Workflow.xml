@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Observatory Acquisition Workflow">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\top+level+work+flow.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\chapter+2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\Unnamed270.xml"/>
+</eClassifiers>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Models">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Models\APS+System+Model.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Models\Trace+Tree+Web+Site.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Models\DOORS+Requirements+Data+Base+%28L0+through+L2%29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Models\EMS+Data+Base.xml"/>
+</eSubpackages>

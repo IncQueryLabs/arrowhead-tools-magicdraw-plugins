@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="Matrix" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Matrix2\double%22%5B%5D%5B%5D%22+data.xml"/>
+</eOperations>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+ToDo:
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&amp;#160;
+    &lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+Convert guards (text) into UML expressions - requires CST 18.2
+      &lt;/li&gt;
+      &lt;li&gt;
+Verify that all leave actions have a constraints applied
+      &lt;/li&gt;
+      &lt;li&gt;
+Create a table with all leave actions traversing down from Mission state machine
+      &lt;/li&gt;
+      &lt;li&gt;
+Create problem list, todo list, constrained action list with docgen
+      &lt;/li&gt;
+      &lt;li&gt;
+Check that of all elements (actions with durations) in simulation are reached
+
+      &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;"/>

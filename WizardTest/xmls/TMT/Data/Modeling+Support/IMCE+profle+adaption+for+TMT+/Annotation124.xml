@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="Added TMT ID so it can be imported from DOORS using ReqIF. A script will then need to copy this into the ID field."/>

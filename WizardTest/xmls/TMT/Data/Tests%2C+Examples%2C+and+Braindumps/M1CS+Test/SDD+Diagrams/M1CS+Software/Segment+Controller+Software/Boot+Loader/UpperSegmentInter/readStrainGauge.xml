@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="readStrainGauge" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/M1CS%20Test/SDD%20Diagrams/M1CS%20Software/Actuator%20Software/C2000%20Package/U16">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\readStrainGauge\gaugeNum.xml"/>
+</eOperations>

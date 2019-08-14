@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="APS-M1CS">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS-M1CS\APS+Data.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS-M1CS\M1CS+Data.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS-M1CS\APS+to+M1CS+interface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS-M1CS\M1CS+to+APS+interface.xml"/>
+</eSubpackages>

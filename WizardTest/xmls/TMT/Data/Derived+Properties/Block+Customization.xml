@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Block Customization">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Block+Customization\unnamed1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Block+Customization\Traceability.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Block+Customization\unnamed12.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Block+Customization\Traceability2.xml"/>
+</eClassifiers>

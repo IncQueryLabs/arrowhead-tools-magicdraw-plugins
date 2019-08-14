@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="BoxCarFilter">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\reset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\step.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\length.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\channels.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BoxCarFilter\data.xml"/>
+</eClassifiers>

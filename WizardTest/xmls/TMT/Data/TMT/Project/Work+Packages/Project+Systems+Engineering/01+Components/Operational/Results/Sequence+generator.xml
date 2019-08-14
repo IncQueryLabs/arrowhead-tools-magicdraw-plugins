@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Sequence generator">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sequence+generator\Block+TMT+Mission-to-be+Min+at+2017.02.15+15.11.xml"/>
+</eSubpackages>

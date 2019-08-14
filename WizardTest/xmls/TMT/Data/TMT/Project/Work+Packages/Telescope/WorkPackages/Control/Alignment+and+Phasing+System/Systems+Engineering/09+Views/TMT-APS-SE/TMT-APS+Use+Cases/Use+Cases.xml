@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Use Cases">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\Annotation75.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\post-Segment+Exchange+Alignment.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\maintenance+Alignment.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\m3+Alignment.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\off-Axis+Acquisition.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\warping+Harness+Influence+Function+Analysis.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\self+Test.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\calibration.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\gravity+Calibration.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\wavefront+Calibration.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\pupil+Registration+Relative+to+SH+and+PIT.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Cases\reference+Point+Tracking+on+APT+Camera+Relative+to+PIT+and+SH.xml"/>
+</eClassifiers>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Events">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Client+Address+Table.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Switch+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\M1CS+LAN+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\M1+Switch+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Nodebox+Switch+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\POE+Port+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Port+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Sector+Switch+Status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Events\Segment+Connection.xml"/>
+</eSubpackages>

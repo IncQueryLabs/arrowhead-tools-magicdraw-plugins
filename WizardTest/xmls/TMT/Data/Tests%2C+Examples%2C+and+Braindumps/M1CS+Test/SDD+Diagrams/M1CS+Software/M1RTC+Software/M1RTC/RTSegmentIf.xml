@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="RTSegmentIf">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\clear.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\recv.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\send.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\close.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\mirrorCell.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\ipAddr.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\port.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\socket.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\connectionStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RTSegmentIf\targSeqNum.xml"/>
+</eClassifiers>

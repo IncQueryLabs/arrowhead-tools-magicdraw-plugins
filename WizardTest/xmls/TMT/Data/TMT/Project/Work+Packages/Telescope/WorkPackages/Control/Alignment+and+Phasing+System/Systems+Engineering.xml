@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Systems Engineering">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\02+Roles.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\01+Components.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\09+Views.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\08+ViewPoints.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\10+Analysis.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\03+Processes.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Systems+Engineering\Systems+Engineering.xml"/>
+</eSubpackages>

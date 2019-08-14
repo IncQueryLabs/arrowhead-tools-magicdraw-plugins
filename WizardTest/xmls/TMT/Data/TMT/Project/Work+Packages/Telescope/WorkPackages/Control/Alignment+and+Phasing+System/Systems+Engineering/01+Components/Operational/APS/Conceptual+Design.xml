@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Conceptual Design">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Annotation41.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Components.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Interchange+functions.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Configuration+Tables.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\PEAS+Algorithms.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Signals.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Items+and+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\APS+Conceptual.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\APS+Mission+Conceptual.xml"/>
+</eSubpackages>

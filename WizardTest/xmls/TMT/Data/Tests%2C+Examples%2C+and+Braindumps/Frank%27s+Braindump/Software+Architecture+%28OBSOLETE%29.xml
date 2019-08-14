@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Software Architecture (OBSOLETE)">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Annotation134.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Annotation135.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Annotation136.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Executive+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Sequencers.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Assemblies.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\HCDs.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\APS+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Software+Architecture+%28OBSOLETE%29\Example+APS+Sequencer.xml"/>
+</eSubpackages>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="read" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\read\seg_no.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\read\motor_no.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\read\%26pos.xml"/>
+</eOperations>

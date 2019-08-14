@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="M1CS LAN output">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+LAN+output\Unnamed234.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+LAN+output\Naismith+Switch+data.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+LAN+output\Sector+Switch+data.xml"/>
+</eClassifiers>

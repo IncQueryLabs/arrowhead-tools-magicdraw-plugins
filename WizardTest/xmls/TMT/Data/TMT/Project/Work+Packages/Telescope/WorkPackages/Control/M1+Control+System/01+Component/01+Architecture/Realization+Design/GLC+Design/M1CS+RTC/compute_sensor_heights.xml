@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="compute_sensor_heights" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_sensor_heights\filtered_sensors.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_sensor_heights\%26heights.xml"/>
+</eOperations>

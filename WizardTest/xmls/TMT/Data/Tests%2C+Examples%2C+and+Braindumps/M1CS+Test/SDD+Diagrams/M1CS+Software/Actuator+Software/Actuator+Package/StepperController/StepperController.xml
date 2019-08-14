@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="StepperController" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\StepperController\slewGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\StepperController\slewVel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\StepperController\trackVel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\StepperController\startThresh.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\StepperController\stopThresh.xml"/>
+</eOperations>

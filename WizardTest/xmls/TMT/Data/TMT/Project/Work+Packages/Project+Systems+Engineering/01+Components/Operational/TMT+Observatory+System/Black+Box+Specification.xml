@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Black Box Specification">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Black+Box+Specification\TMT+Requirements+imported+from+DOORS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Black+Box+Specification\TMT+Observatory+System+Black+Box+Specification.xml"/>
+</eSubpackages>

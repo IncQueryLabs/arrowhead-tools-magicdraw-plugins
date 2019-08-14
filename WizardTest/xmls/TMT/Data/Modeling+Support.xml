@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Modeling Support">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modeling+Support\IMCE+profle+adaption+for+TMT+.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modeling+Support\Patterns+for+Pattern+factory.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modeling+Support\Base+Types.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modeling+Support\OOSEM+Profile.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modeling+Support\Roll-up+Pattern.xml"/>
+</eSubpackages>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Base Types">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Base+Types\Annotation125.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Base+Types\EventStream.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Base+Types\Command.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Base+Types\A.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Base+Types\B.xml"/>
+</eSubpackages>

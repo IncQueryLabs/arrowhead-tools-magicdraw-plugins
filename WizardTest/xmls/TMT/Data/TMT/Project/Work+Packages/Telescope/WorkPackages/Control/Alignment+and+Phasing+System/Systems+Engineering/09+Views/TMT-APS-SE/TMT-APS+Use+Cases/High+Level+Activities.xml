@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="High Level Activities" eSuperTypes="SysML_Extensions.ecore#//zzDeprecated/zzImage%20Viewpoint">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\Annotation73.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\acquisition.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\coarse+Tilt+Alignment.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\Rigid+Body+and+Segment+Figure+Correction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\board+Band+Phasing.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\narrow+Band+Phasing.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\measure+Warping+Harness+Influence+Function.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\self+Test.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\High+Level+Activities\Unnamed59.xml"/>
+</eClassifiers>

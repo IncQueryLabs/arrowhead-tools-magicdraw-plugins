@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Procedure Executive and Analysis Software">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\Annotation62.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\functional+concept.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\technical+concept.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\system+and+facilities+design.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\aps_peas+development+environment.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Procedure+Executive+and+Analysis+Software\risks.xml"/>
+</eClassifiers>

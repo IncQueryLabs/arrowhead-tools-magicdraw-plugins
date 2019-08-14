@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Hardware Decomposition and Interfaces" eSuperTypes="#//ViewPoint%20%20Libraries/Simple%20Description%20Viewpoint%20for%20Classes">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Hardware+Decomposition+and+Interfaces\interface+table.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Hardware+Decomposition+and+Interfaces\connection+table.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Hardware+Decomposition+and+Interfaces\interface+Counts.xml"/>
+</eClassifiers>

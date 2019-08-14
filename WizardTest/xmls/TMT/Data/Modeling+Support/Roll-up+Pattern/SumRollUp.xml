@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="SumRollUp" abstract="true" eSuperTypes="#//Modeling%20Support/Roll-up%20Pattern/ErrorRollUpPatternElement">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SumRollUp\errorReqCalcSum.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SumRollUp\errorCBECalcSum.xml"/>
+</eClassifiers>

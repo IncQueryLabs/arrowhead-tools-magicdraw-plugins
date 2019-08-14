@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="VoiceCoilController">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\VoiceCoilController.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\update.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\setFilterParams.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\setFilter.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\changeElevGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\changeGlobGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\filter.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\voicecoil.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\updatePeriod.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\servoGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\elevGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\mode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VoiceCoilController\elevGainCmd.xml"/>
+</eClassifiers>

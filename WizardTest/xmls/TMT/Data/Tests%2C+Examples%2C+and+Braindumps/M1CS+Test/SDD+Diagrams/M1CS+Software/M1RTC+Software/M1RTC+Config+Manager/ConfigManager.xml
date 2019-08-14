@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ConfigManager">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed6.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\mode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\activeCellList.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\G.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\H.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\Ti.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\Ta.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\Tc.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\To.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\sensorFilterLen.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\sensCalibCoefficients.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\actFilterLen.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\FoCoefficients.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\FiCoeffficients.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\elevation.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\actTargList.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\unnamed32.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\B.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\D.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ConfigManager\Unnamed327.xml"/>
+</eClassifiers>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="GLC Design">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Node+Box+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\M1CS+RTC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Warping+Harness+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Segment+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\M1+Control+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\+M1CS+Lan+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\M1CS+Sequencer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\M1CS+Engineering+Interface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Segment+Telemetry+Message.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Actuator+Sample.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Segment+Sample.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Sensor+Sample.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Sector+Switch+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Nasmyth+Switch+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Purge+System+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Purge+System+HCD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Purge+System+Controller.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Segment+Controller.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Warping+Harness+Motor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Warping+Harness+Strain+Gauge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Actuator.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Edge+Sensor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Node+Box+Switch.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Sector+Switch.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Nasmyth+Switch.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\GLC+Design\Temperature+Sensors.xml"/>
+</eSubpackages>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Ex Rolled Up" eSuperTypes="#//Modeling%20Support/Roll-up%20Pattern/ErrorRollUpPatternElement #//Modeling%20Support/Roll-up%20Pattern/RootSumSquaredRollUp">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Ex+Rolled+Up\part+1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Ex+Rolled+Up\part+2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Ex+Rolled+Up\errorCBE.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Ex+Rolled+Up\errorReq.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Ex+Rolled+Up\errorMargin.xml"/>
+</eClassifiers>

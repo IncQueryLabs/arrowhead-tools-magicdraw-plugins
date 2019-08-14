@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Queries">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Queries\workingdir.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Queries\validation_suite.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Queries\Visualization.xml"/>
+</eSubpackages>

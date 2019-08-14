@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Actuator Package">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\MessageHandler.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\VoiceCoilController.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\FIFO.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\StepperController.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\Offloader.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\SensorList.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\PARAMS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\ActuatorServo.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\Snubber.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\CircularBuffer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\ACT_POSITION_DATA.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\ACT_STATUS_DATA.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\ACT_CONFIG_DATA.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Actuator+Package\Time.xml"/>
+</eSubpackages>

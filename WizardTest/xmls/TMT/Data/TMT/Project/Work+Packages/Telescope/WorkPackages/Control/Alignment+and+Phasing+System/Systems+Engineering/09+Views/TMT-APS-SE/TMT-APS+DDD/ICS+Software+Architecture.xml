@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ICS Software Architecture" eSuperTypes="SysML_Extensions.ecore#//zzDeprecated/zzImage%20Viewpoint">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ICS+Software+Architecture\Annotation63.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ICS+Software+Architecture\iCS+Overview.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ICS+Software+Architecture\pEAS+and+APS+Top+Layer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ICS+Software+Architecture\assembly+Layer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ICS+Software+Architecture\adherence+to+TMT+Common+Services.xml"/>
+</eClassifiers>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Optical Bench">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Parts+Old.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Fore-Optics+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\APT+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Collimator+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\SH+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\PIT+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Parts.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\LOWFS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Stimulus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Optical+Bench\Optical+Bench.xml"/>
+</eSubpackages>

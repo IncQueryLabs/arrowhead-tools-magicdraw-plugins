@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="UpperSegmentBox">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\reset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\updateStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\updateStrains.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\configure.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed302.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed303.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed304.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed305.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed306.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed307.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\upperBoxIf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\status.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\strainGauges.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed308.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed309.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed310.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed311.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentBox\Unnamed312.xml"/>
+</eClassifiers>

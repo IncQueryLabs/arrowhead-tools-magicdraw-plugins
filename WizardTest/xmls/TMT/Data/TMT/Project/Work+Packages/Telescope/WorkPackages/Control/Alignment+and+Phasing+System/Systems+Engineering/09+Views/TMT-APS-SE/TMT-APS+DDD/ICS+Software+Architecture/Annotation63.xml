@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;This documents the Alignment and Phasing System (APS) Instrument Control System (ICS) software architecture. Although it mostly deals with the ICS it includes the Procedure Execution and Analysis Software (PEAS), which is the APS executive layer equivalent and in fact is at the TMT executive layer of software. The ICS architecture is at the conceptual stage and will evolve as TMT further defines its software architecture and selects specific implementations technologies. We first describe the Executive to Assembly software layer, followed by the Assembly to HCD layers.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;line-height: 1.42857; font-size: 12pt;&quot;&gt;The governing documents for the TMT software architecture are the following: &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;a class=&quot;moz-txt-link-freetext&quot; style=&quot;line-height: 1.42857; background-color: #ffffff;&quot; href=&quot;https://docushare.tmt.org/docushare/dsweb/Services/Document-24356&quot;&gt;https://docushare.tmt.org/docushare/dsweb/Services/Document-24356&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;a class=&quot;moz-txt-link-freetext&quot; style=&quot;line-height: 1.42857; background-color: #ffffff;&quot; href=&quot;https://docushare.tmt.org/docushare/dsweb/Services/Document-24358&quot;&gt;https://docushare.tmt.org/docushare/dsweb/Services/Document-24358&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;The following figure shows the APS CAD drawing from the APS Conceptual Design Report (2006) for reference. Although the layout may change, the essential sub-assemblies will remain the same. The software architecture is set up to match this hardware configuration. Note that each of these sections also has specific functionality that it provides to the overall APS system.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;" references="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20DDD/ICS%20Software%20Architecture"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Pupil Alignment Error Budget">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Results.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Knowledge+of+APT-TMT+interface+point.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Alignment+of+M3+to+APS-TMT+interface+point.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Error+between+Reference+Point+and+fiducials.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Error+in+global+alignment+of+APS+using+fiducials+%28by+TMT%29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Alignment+of+APS+Stimulus+to+Referenence+Point.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\K-Mirror+Offset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Stimulus+Pupil+Shift+Error.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Interpolation+Error.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Knowledge+due+to+Shear+Plate+position.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Knowledge+of+the+Shear+Plate+angle.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Pupil+Alignment+Error+Budget\Shear+Plate+angle+to+shear+sensitivity.xml"/>
+</eSubpackages>

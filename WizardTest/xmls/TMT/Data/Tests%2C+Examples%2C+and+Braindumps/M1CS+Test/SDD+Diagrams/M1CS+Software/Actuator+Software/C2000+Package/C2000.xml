@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="C2000">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\exit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\GPIO.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\PWM.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\ADC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\Port.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\C2000\clock.xml"/>
+</eClassifiers>

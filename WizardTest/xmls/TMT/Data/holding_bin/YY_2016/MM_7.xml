@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="MM_7">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_7\DD_25.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_7\DD_1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_7\DD_2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_7\DD_8.xml"/>
+</eSubpackages>

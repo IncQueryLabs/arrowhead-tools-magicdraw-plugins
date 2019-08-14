@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Warping Harness HCD">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\move.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\read.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\power_off.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\power_on.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\motor_list.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Warping+Harness+HCD\Unnamed168.xml"/>
+</eClassifiers>

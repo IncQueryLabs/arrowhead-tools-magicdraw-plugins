@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="PWM">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PWM\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PWM\exit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PWM\write.xml"/>
+</eClassifiers>

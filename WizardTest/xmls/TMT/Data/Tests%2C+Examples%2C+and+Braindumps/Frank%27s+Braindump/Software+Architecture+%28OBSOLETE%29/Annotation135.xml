@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="The concern with this architecture is that the timing between when the home sensor senses the slot and when the motor needs to stop is less than 100 milli-seconds."/>

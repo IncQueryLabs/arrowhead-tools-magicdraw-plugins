@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="SegmentReader">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\clearIf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\step.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\processSegData.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\unnamed4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\clockSem.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\rtcMode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\mirrorCellStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\segmentIf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\timeout.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\recordRawTelem.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\Unnamed331.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SegmentReader\Unnamed332.xml"/>
+</eClassifiers>

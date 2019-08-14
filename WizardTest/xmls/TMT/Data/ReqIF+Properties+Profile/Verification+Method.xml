@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Verification Method">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+Method\Test.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+Method\Demonstration.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+Method\Design.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+Method\Inspection.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+Method\Analysis.xml"/>
+</eClassifiers>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Components">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\PEAS+PIT+Tracking.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Pupil+and+Image+Tracking+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\APT+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Internal+Source.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Acquisition+Pointing+and+Tracking+Assembly.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Shear+plate.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\SH+camera.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\K-mirror.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\second.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Procedure+Executive+and+Analysis+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\BeamSplitterStage.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Components\Stimulus.xml"/>
+</eSubpackages>

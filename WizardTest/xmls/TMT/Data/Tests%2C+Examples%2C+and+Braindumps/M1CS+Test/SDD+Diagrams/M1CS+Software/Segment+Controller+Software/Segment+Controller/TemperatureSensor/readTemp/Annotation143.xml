@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="readTemp()
+
+voltage = upSegIf.read(addr)
+rawTemp = sensorGain * voltage + sensorOffset
+temp = lookupTemp(rawTemp)
+return temp" references="#//Tests%2C%20Examples%2C%20and%20Braindumps/M1CS%20Test/SDD%20Diagrams/M1CS%20Software/Segment%20Controller%20Software/Segment%20Controller/TemperatureSensor/readTemp"/>

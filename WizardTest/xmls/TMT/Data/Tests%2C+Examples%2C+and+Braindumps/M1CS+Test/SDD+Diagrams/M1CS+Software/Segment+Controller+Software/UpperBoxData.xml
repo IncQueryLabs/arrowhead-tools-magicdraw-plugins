@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="UpperBoxData">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperBoxData\driveBlkStat.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperBoxData\senseBlkStat.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperBoxData\whStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperBoxData\strainGaugeVal.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperBoxData\tempSensorVal.xml"/>
+</eClassifiers>

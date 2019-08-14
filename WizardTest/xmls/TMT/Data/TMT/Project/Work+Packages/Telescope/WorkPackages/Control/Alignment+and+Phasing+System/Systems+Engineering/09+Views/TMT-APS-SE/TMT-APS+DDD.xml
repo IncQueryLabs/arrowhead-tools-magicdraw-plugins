@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TMT-APS DDD">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Annotation59.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\_18_0_2_baa02e2_1422995790749_241456_91820_no_project.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\TMT-APS+DDD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\References.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Assembly%2C+Integration+and+Commissioning.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Executive+Summary.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\System+Concept.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Procedure+Executive+and+Analysis+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Opto-Mechanical+Design.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Hardware+Decomposition+and+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\ICS+Software+Architecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Operations+Concept.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Introduction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Analyses.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Power+Satisfy.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Issues+and+Risks.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+DDD\Key+and+Driving+Requirements.xml"/>
+</eSubpackages>

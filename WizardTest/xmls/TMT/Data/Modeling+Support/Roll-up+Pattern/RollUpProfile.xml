@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="RollUpProfile">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RollUpProfile\ProductRollUpCustomization.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RollUpProfile\SumRollUpCustomization.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RollUpProfile\RootSumSquaredRollUpCustomization.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RollUpProfile\ErrorRollUpElement.xml"/>
+</eSubpackages>

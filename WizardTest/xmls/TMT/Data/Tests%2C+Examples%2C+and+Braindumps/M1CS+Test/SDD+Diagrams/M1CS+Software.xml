@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="M1CS Software">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\Events.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\Actuator+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\Segment+Controller+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1CS+Data+Types.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1RTC+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1CS+Sequencer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1+Control.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1CS+LAN.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1CS+Engineering+Interface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\M1CS+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Software\Purge+System.xml"/>
+</eSubpackages>

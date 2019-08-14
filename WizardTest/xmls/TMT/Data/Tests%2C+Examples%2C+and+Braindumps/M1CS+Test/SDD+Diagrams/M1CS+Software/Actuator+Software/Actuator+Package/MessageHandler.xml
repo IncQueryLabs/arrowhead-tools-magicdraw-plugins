@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="MessageHandler">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\processMsg.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\updateParam.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\getNextCmd.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\getTarget.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\writeMsg.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\nextTarget.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MessageHandler\cmdFifo.xml"/>
+</eClassifiers>

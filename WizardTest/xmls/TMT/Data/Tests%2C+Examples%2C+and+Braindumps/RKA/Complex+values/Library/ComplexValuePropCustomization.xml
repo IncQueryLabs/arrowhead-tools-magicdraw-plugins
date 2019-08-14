@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ComplexValuePropCustomization">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ComplexValuePropCustomization\keyType.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ComplexValuePropCustomization\valueType.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ComplexValuePropCustomization\Type+Group.xml"/>
+</eClassifiers>

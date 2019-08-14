@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="VA Milestone">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Milestone\FDR.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Milestone\CDR.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Milestone\PDR.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Milestone\Pre-Ship.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Milestone\In+Situ.xml"/>
+</eClassifiers>

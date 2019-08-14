@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="10 Analysis">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\10+Analysis\Trade+studies.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\10+Analysis\Roll-up+Analyses.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\10+Analysis\Queries.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\10+Analysis\Duration+Analyses.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\10+Analysis\Constraint+Library.xml"/>
+</eSubpackages>

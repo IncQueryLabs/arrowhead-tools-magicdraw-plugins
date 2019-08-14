@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="workingdir">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\workingdir\activity_cycle.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\workingdir\DataInterface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\workingdir\Sender.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\workingdir\Receiver.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\workingdir\System.xml"/>
+</eSubpackages>

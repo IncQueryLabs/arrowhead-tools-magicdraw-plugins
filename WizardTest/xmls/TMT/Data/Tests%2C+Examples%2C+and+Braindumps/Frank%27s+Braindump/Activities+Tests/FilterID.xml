@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="FilterID">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\FilterID\6.xml"/>
+</eClassifiers>

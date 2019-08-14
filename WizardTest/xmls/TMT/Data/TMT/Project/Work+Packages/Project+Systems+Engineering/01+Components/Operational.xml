@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Operational">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\Domain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\Mission.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\TMT+Observatory+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\Stakeholders.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\Operational+Use+Cases.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Operational\Results.xml"/>
+</eSubpackages>

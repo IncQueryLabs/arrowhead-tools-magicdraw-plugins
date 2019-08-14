@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="SCI">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\open.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\close.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\reset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\read.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\write.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\SCI_init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\rcvBuf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SCI\xmtBuf.xml"/>
+</eClassifiers>

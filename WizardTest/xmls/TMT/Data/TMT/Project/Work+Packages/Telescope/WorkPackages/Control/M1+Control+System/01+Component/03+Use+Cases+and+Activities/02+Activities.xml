@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="02 Activities">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\02+Activities\00+Flows.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\02+Activities\01+Signals.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\02+Activities\02+SubFunctions.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\02+Activities\03+SubActivities.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\02+Activities\04+MajorActivities.xml"/>
+</eSubpackages>

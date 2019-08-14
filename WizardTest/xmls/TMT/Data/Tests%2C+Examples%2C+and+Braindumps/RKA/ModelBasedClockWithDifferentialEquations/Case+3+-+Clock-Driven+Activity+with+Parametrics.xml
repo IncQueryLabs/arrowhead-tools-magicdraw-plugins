@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Case 3 - Clock-Driven Activity with Parametrics">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+3+-+Clock-Driven+Activity+with+Parametrics\Base+Clock.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+3+-+Clock-Driven+Activity+with+Parametrics\Simulation+Setup.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+3+-+Clock-Driven+Activity+with+Parametrics\System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+3+-+Clock-Driven+Activity+with+Parametrics\Instances.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+3+-+Clock-Driven+Activity+with+Parametrics\Test+Run+Case+3.xml"/>
+</eSubpackages>

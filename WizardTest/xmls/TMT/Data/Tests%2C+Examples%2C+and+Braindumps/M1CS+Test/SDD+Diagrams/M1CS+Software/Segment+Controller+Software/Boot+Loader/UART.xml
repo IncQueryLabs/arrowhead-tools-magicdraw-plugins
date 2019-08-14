@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="UART">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\initialize.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\config.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\open.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\close.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\read.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\write.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\writeCancel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\writePolling.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\readCancel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\readPolling.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\inBuf.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UART\outBuf.xml"/>
+</eClassifiers>

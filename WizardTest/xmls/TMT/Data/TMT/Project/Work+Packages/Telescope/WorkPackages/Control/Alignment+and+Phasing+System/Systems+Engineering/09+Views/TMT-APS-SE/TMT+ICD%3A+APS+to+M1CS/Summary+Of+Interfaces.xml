@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Summary Of Interfaces">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Location.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Optical+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Strucutal+and+Mechanical+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Access+and+Handling+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Communication%2C+Software+and+Control+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Electrical+Power+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Service+and+Utilities.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Thermal+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summary+Of+Interfaces\Safety+Interfaces.xml"/>
+</eClassifiers>

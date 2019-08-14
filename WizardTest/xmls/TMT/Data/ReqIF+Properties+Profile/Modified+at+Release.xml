@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Modified at Release">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR19.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR30.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR21.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR25.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR26.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR17.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR24.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR18.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR27.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR28.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR23.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR22.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Modified+at+Release\CCR20.xml"/>
+</eClassifiers>

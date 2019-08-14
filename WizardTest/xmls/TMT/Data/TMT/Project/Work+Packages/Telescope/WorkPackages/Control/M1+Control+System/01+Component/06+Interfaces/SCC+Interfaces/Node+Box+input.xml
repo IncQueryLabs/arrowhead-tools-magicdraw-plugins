@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Node Box input">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Node+Box+input\Unnamed237.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Node+Box+input\Node+Box+data.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Node+Box+input\Sector+Switch+data.xml"/>
+</eClassifiers>

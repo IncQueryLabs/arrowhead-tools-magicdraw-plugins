@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="PTTReconstructor">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\step.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed6.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\Ta.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\Fa.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\rmsError.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed42.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed52.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\unnamed62.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\Unnamed333.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\PTTReconstructor\Unnamed334.xml"/>
+</eClassifiers>

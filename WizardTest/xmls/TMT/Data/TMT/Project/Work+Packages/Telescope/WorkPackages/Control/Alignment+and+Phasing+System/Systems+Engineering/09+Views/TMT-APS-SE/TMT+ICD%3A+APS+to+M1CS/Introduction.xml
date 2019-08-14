@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Introduction">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Background.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Scope.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Document+Outline.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Applicable+Documents.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Reference+Documents.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Introduction\Abbreviations%2C+Definitions+and+Nomenclature.xml"/>
+</eClassifiers>

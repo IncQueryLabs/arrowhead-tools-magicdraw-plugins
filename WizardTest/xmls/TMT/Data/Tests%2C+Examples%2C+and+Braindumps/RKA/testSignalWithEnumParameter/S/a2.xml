@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="a2" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/RKA/testSignalWithEnumParameter/A2" changeable="true" containment="true"/>

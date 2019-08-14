@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="TMT Mission-to-be Random" eSuperTypes="#//TMT/Project/Work%20Packages/Project%20Systems%20Engineering/01%20Components/Operational/Mission/TMT%20Mission%20to-be">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityBTOOP.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqTelPoint.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityChkLaserProp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqPwfsFirst.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqTTFOIWFS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqTTOIWFSODGW.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqTruthODGWOIWFS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Mission-to-be+Random\ProbabilityAcqPwfsSecond.xml"/>
+</eClassifiers>

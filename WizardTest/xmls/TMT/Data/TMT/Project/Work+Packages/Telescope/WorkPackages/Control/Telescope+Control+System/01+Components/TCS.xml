@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="TCS" eSuperTypes="#//TMT/Project/Work%20Packages/Project%20Systems%20Engineering/01%20Components/Operational/TMT%20Observatory%20System/Conceptual%20Design/Telescope%20Control%20System">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TCS\Unnamed238.xml"/>
+</eClassifiers>

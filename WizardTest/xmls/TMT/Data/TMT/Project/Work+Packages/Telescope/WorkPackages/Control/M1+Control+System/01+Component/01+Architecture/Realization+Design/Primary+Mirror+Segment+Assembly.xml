@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Primary Mirror Segment Assembly">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed217.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\segment_label.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed218.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed219.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed220.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed221.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed222.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed223.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Primary+Mirror+Segment+Assembly\Unnamed224.xml"/>
+</eClassifiers>

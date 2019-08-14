@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="ORD">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Annotation114.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Overall+Description.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Specific+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\TO+BE+MOVE+TO+OAD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Appendix.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Introduction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ORD\Unnamed252.xml"/>
+</eSubpackages>

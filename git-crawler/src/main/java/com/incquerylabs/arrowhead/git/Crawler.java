@@ -1,29 +1,68 @@
 package com.incquerylabs.arrowhead.git;
 
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.Ref;
+import org.eclipse.jgit.lib.RefDatabase;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevSort;
+import org.eclipse.jgit.revwalk.RevTree;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
-import org.eclipse.jgit.transport.TagOpt;
+import org.eclipse.jgit.treewalk.TreeWalk;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
-public class Sage {
+public class Crawler {
 
-    private static void crawl(Path dotGit) throws IOException, GitAPIException {
+    private static void crawl(Path dotGit) throws IOException {
         FileRepositoryBuilder builder = new FileRepositoryBuilder();
         Repository repo = builder.setGitDir(dotGit.toFile()).readEnvironment().findGitDir().setMustExist(true).build();
-        Git git = Git.wrap(repo);
-        git.fetch().setTagOpt(TagOpt.FETCH_TAGS).call();
-
+        //git.fetch().setTagOpt(TagOpt.FETCH_TAGS).call();
+        RefDatabase database = repo.getRefDatabase();
+        List<Ref> branches = database.getRefs();
+        /*
+        for(Ref ref : branches){
+            System.out.println(ref.getName());
+        }*/
+        RevWalk walker = new RevWalk(repo);
+        for( Ref ref : branches ) {
+            walker.markStart( walker.parseCommit( ref.getObjectId() ));
+        }
+        RevTree tree = walker.next().getTree();
+        TreeWalk tralk = new TreeWalk(repo);
+        tralk.addTree(tree);
+        tralk.setRecursive(true);
+        String xml = ".xml";
+        byte[] p = xml.getBytes();
+        while (tralk.next()) {
+            if(tralk.isPathSuffix(p, p.length)){
+                System.out.println(tralk.getPathString());
+                //System.out.println(tralk.getNameString());
+            }
+        }
+        /*
+        for (RevCommit commit : walker) {
+            System.out.println(commit.getFullMessage());
+            RevTree tree = commit.getTree();
+            TreeWalk treeWalk = new TreeWalk(repo);
+            treeWalk.addTree(tree);
+            while (treeWalk.next()){
+                if(!treeWalk.isSubtree()){
+                    treeWalk.
+                } else {
+                    treeWalk.enterSubtree();
+                }
+            }
+        }*/
     }
 
     public static void main(String[] args) {
-        Path iqs = Paths.get("C:/Users/Koltai Kadosa/Desktop/incquery-server/.git");
+        Path iqs = Paths.get("C:/Users/Koltai Kadosa/Desktop/arrowhead-tools/.git");
         try {
-            Sage.crawl(iqs);
+            Crawler.crawl(iqs);
         } catch (Exception i) {
             System.out.println(i.getMessage());
             i.printStackTrace();

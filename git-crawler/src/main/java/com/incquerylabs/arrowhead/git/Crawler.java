@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 
 public class Sage {
 
-    private static void initialCrawl(Path dotGit) throws IOException, GitAPIException {
+    private static void crawl(Path dotGit) throws IOException, GitAPIException {
         FileRepositoryBuilder builder = new FileRepositoryBuilder();
         Repository repo = builder.setGitDir(dotGit.toFile()).readEnvironment().findGitDir().setMustExist(true).build();
         Git git = Git.wrap(repo);
@@ -20,12 +20,11 @@ public class Sage {
 
     }
 
-
     public static void main(String[] args) {
         Path iqs = Paths.get("C:/Users/Koltai Kadosa/Desktop/incquery-server/.git");
-        try{
-            Sage.initialCrawl(iqs);
-        } catch (Exception i){
+        try {
+            Sage.crawl(iqs);
+        } catch (Exception i) {
             System.out.println(i.getMessage());
             i.printStackTrace();
         }

@@ -1,34 +1,63 @@
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.stream.XMLStreamWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import javax.xml.stream.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.Comparator;
 
 public class XPloder {
+    private BufferedReader reader;
+    private int counter = 0;
+    private int c;
+    Path overDir;
 
-    private void xPlode(Path source, Path target) throws IOException, XMLStreamException {
+    public void xPlode(Path source, Path target) throws IOException {
         if (Files.isReadable(source)) {
             File sourceFile = source.toFile();
             if (Files.isDirectory(target)) {
-                String name = sourceFile.getName();
-                Path overDir = target.resolve(name + ".dir");
+                String unName = sourceFile.getName();
+                String name = unName.split(".")[0];
+                Path topDir = target.resolve(name);
+                Path topXml = target.resolve(name + ".xml.iqs");
                 //delete previous version
-                if (Files.exists(overDir)) {
+                if (Files.exists(topDir)) {
                     //noinspection ResultOfMethodCallIgnored
-                    Files.walk(overDir).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
+                    Files.walk(topDir).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
                 }
-                Files.createDirectories(overDir);
-                XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-                XMLStreamReader reader = inputFactory.createXMLStreamReader(new FileReader(sourceFile));
-                while (reader.hasNext()){
-
+                Files.deleteIfExists(topXml);
+                Files.createFile(topXml);
+                Files.createDirectories(topDir);
+                overDir = target;
+                reader = new BufferedReader(new FileReader(sourceFile));
+                //TODO validate xml
+                String first = reader.readLine();
+                FileWriter writer = new FileWriter(topXml.toFile());
+                writer.write(first);
+                c = reader.read();
+                while (c != -1) {
+                    if (c == '<') {
+                        c = reader.read();
+                        switch (c) {
+                            case '!':
+                                c = reader.read();
+                                if (c == '-') {
+                                    writeTroughComment(writer);
+                                } else {
+                                    writeTroughCdata(writer);
+                                }
+                                break;
+                            case '?':
+                                writeTroughProcessingInstructions(writer);
+                                break;
+                            default:
+                                //TODO first one special
+                                //TODO write XInclude namespace
+                                inPlode(topDir, writer); //after first
+                        }
+                    } else {
+                        writer.write(c);
+                    }
+                    c = reader.read();
                 }
             } else {
                 if (Files.exists(target)) {
@@ -46,19 +75,93 @@ public class XPloder {
         }
     }
 
-    private void inPlode(Path parent, XMLStreamReader reader, XMLStreamWriter writer){
-
+    private void inPlode(Path parent, FileWriter backWriter) throws IOException {
+        String name = Base64.getUrlEncoder().encodeToString(String.valueOf(counter++).getBytes());
+        Path xml = parent.resolve(name + ".xml");
+        Path dir = parent.resolve(name);
+        backWriter.write("<xi:include href=\"" + overDir.relativize(xml).toString() + "\"/>");
+        FileWriter writer = new FileWriter(xml.toFile());
+        writer.write("<");
+        writer.write(c);
+        int b = c;
+        c = reader.read();
+        boolean me = true;
+        while (true) {
+            if (c == '>') {
+                if (b == '/') {
+                    writer.write(c);
+                    return;
+                }
+            } else if (c == '<') {
+                b = c;
+                c = reader.read();
+                switch (c) {
+                    case '!':
+                        c = reader.read();
+                        if (c == '-') {
+                            writeTroughComment(writer);
+                        } else {
+                            writeTroughCdata(writer);
+                        }
+                        break;
+                    case '?':
+                        writeTroughProcessingInstructions(writer);
+                        break;
+                    case '/':
+                        writeTroughEndTag(writer);
+                    default:
+                        if (!Files.exists(dir)) {
+                            Files.createDirectory(dir);
+                        }
+                        inPlode(dir, writer);
+                }
+            } else {
+                writer.write(c);
+            }
+            b = c;
+            c = reader.read();
+        }
     }
 
-    public static void main(String[] args) {
-        Path from = Paths.get("fr");
-        Path to = Paths.get("to");
-        XPloder x = new XPloder();
-        try {
-            x.xPlode(from, to);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+    private void writeTroughEndTag(FileWriter writer) throws IOException {
+        writer.write("</");
+        do {
+            c = reader.read();
+            writer.write(c);
+        } while (c != '>');
+    }
+
+    private void writeTroughCdata(FileWriter writer) throws IOException {
+        writer.write("<![");
+        int a;
+        int b = 'x';
+        do {
+            a = b;
+            b = c;
+            c = reader.read();
+            writer.write(c);
+        } while (!(a == ']' && b == ']' && c == '>'));
+    }
+
+    private void writeTroughComment(FileWriter writer) throws IOException {
+        writer.write("<!-");
+        int a;
+        int b = 'x';
+        do {
+            a = b;
+            b = c;
+            c = reader.read();
+            writer.write(c);
+        } while (!(a == '-' && b == '-' && c == '>'));
+    }
+
+    private void writeTroughProcessingInstructions(FileWriter writer) throws IOException {
+        writer.write("<?");
+        int b;
+        do {
+            b = c;
+            c = reader.read();
+            writer.write(c);
+        } while (!(b == '?' && c == '>'));
     }
 }

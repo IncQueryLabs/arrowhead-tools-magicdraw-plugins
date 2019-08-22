@@ -29,7 +29,7 @@ public class XPloder {
                 reader = new BufferedReader(new FileReader(sourceFile));
                 //TODO validate xml
                 String first = reader.readLine();
-                FileWriter writer = new FileWriter(topXml.toFile());
+                BufferedWriter writer = new BufferedWriter(new FileWriter(topXml.toFile()));
                 writer.write(first);
                 c = reader.read();
                 while (c != -1) {
@@ -126,7 +126,7 @@ public class XPloder {
         }
     }
 
-    private void inPlode(Path parent, FileWriter backWriter) throws IOException {
+    private void inPlode(Path parent, BufferedWriter backWriter) throws IOException {
         String name = getName();
         Path xml = parent.resolve(name + ".xml");
         Path dir = parent.resolve(name);
@@ -134,7 +134,8 @@ public class XPloder {
         if(!Files.exists(xml)){
             Files.createFile(xml);
         }
-        FileWriter writer = new FileWriter(xml.toFile());
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(xml.toFile()));
         writer.write("<");
         writer.write(c);
         int b = c;
@@ -183,7 +184,7 @@ public class XPloder {
         writer.close();
     }
 
-    private void writeTroughEndTag(FileWriter writer) throws IOException {
+    private void writeTroughEndTag(BufferedWriter writer) throws IOException {
         writer.write("</");
         do {
             c = reader.read();
@@ -191,7 +192,7 @@ public class XPloder {
         } while (c != '>');
     }
 
-    private void writeTroughCdata(FileWriter writer) throws IOException {
+    private void writeTroughCdata(BufferedWriter writer) throws IOException {
         writer.write("<![");
         int a;
         int b = 'x';
@@ -203,7 +204,7 @@ public class XPloder {
         } while (!(a == ']' && b == ']' && c == '>'));
     }
 
-    private void writeTroughComment(FileWriter writer) throws IOException {
+    private void writeTroughComment(BufferedWriter writer) throws IOException {
         writer.write("<!-");
         int a;
         int b = 'x';
@@ -215,7 +216,7 @@ public class XPloder {
         } while (!(a == '-' && b == '-' && c == '>'));
     }
 
-    private void writeTroughProcessingInstructions(FileWriter writer) throws IOException {
+    private void writeTroughProcessingInstructions(BufferedWriter writer) throws IOException {
         writer.write("<?");
         int b;
         do {
@@ -225,9 +226,9 @@ public class XPloder {
         } while (!(b == '?' && c == '>'));
     }
 
-    String[] dec = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+    private String[] dec = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "-", "_"};
-    Set<String> forbidden = new HashSet<>(Arrays.asList("con prn aux nul com1 com2 com3 com4 com5 com6 com7 com8 com9 com0 lpt1 lpt2 lpt3 lpt4 lpt5 lpt6 lpt7 lpt8 lpt9 lpt0".split(" ")));
+    private Set<String> forbidden = new HashSet<>(Arrays.asList("con prn aux nul com1 com2 com3 com4 com5 com6 com7 com8 com9 com0 lpt1 lpt2 lpt3 lpt4 lpt5 lpt6 lpt7 lpt8 lpt9 lpt0".split(" ")));
 
     private String getName() {
         int y = counter;
@@ -245,11 +246,11 @@ public class XPloder {
         for (int i = temp.size() - 1; i >= 0; --i) {
             b.append(temp.get(i));
         }
-        System.out.println(counter);
         String name = b.toString();
         if(forbidden.contains(name.toLowerCase())){
             name = "+" + fc++;
         }
+        System.out.println(name);
         return name;
     }
 }

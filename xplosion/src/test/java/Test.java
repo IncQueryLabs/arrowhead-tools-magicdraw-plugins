@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 public class Test {
     public static void main(String[] args) {
         Path from = Paths.get("TMT.mdxml");
-        Path to = Paths.get("Out");
+        Path to = Paths.get("Ex");
         XPloder x = new XPloder();
         try {
             x.xPlode(from, to, "TMT");

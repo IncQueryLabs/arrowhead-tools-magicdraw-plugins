@@ -1,8 +1,6 @@
 package com.incquerylabs.arrowhead.git;
 
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.RefDatabase;
-import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevSort;
 import org.eclipse.jgit.revwalk.RevTree;
@@ -11,6 +9,7 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.treewalk.TreeWalk;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -29,12 +28,10 @@ public class Crawler {
         }*/
         RevWalk walker = new RevWalk(repo);
         for (Ref ref : branches) {
-            if (ref.getName().endsWith("crawler")) {
-                walker.markStart(walker.parseCommit(ref.getObjectId()));
-            }
+            walker.markStart(walker.parseCommit(ref.getObjectId()));
         }
         RevCommit commit = walker.next();
-        System.out.println(commit.getFullMessage());
+        //System.out.println(commit.getFullMessage());
         RevTree tree = commit.getTree();
         TreeWalk tralk = new TreeWalk(repo);
         tralk.addTree(tree);
@@ -42,10 +39,17 @@ public class Crawler {
         String xml = ".xml";
         byte[] p = xml.getBytes();
         while (tralk.next()) {
-            String path  = tralk.getPathString();
-            System.out.println(path);
-            if(path.endsWith("-.xml")){
-                System.out.println(path);
+            String path = tralk.getPathString();
+           // System.out.println(path);
+            if (path.endsWith(".iqs")) {
+                ObjectId id = tralk.getObjectId(0);
+                String t = id.toString();
+                String t2 = t.substring(t.indexOf("[") + 1, t.length() - 1);
+                MutableObjectId mu = new MutableObjectId();
+                mu.fromString(t2);
+                ObjectDatabase objs = repo.getObjectDatabase();
+                ObjectLoader loader = objs.open(mu);
+                loader.copyTo(System.out);
             }
         }
         /*
@@ -65,7 +69,7 @@ public class Crawler {
     }
 
     public static void main(String[] args) {
-        Path iqs = Paths.get("C:/Users/Koltai Kadosa/Desktop/arrowhead-tools/.git");
+        Path iqs = Paths.get("C:/Users/Koltai Kadosa/Desktop/trip/.git");
         try {
             Crawler.crawl(iqs);
         } catch (Exception i) {

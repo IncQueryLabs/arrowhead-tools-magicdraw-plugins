@@ -1,18 +1,18 @@
 package com.incquerylabs.emf;
 
-import org.eclipse.emf.ecore.EObject;
-
-import java.util.Collection;
-import java.util.HashSet;
-
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 public class Model {
+
+    ResourceSet res;
+
     Model() {
         ;
     }
 
-    public Collection<EObject> getContents() {
-
-        return new HashSet<>();
+    public TreeIterator<Notifier> getContents() {
+        return res.getAllContents();
     }
 }

@@ -14,7 +14,7 @@ public class Test {
         Path ecore = Paths.get("src/test/resources/model.ecore");
         Path genmodel = Paths.get("src/test/resources/model.genmodel");
         Path model = Paths.get("src/test/resources/example.cyberphysicalsystem");
-        MetaModel cps = new MetaModel(ecore, genmodel);
+        MetaModel cps = new MetaModel(ecore, genmodel, "cyberphysicalsystem");
         Model example = cps.getModel(model);
         example.getContents();
     }

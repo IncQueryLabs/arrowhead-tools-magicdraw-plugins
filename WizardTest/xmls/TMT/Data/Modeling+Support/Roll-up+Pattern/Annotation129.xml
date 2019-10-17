@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eAnnotations source="Could be more concise in JS v1.8, but not supported?
-output = Math.sqrt(inputVals.reduce(function(s,x) {return (s + x*x)}, 0))"/>

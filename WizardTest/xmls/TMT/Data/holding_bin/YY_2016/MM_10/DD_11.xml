@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="DD_11">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\DD_11\HH_8.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\DD_11\HH_9.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\DD_11\HH_7.xml"/>
-</eSubpackages>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="Introduction" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20Use%20Cases/Use%20Case%20Introduction" changeable="true" containment="true"/>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="gapFilter" ordered="false" unique="true" lowerBound="2772" upperBound="2772" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/M1CS%20Test/SDD%20Diagrams/M1CS%20Software/M1RTC%20Software/M1RTC/BoxCarFilter" changeable="true"/>

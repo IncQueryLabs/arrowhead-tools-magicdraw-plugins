@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Part 2" eSuperTypes="#//Modeling%20Support/Roll-up%20Pattern/ErrorRollUpPatternElement">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+2\errorCBE.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+2\errorReq.xml"/>
-</eClassifiers>

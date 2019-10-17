@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eAnnotations source="inheritance vs association.
-how disambiguate a &quot;normal&quot; composition from characterization.
--&gt; (derived) Stereotype on association -&gt; brittle if modeler forgets stereotype either on block or association
-"/>

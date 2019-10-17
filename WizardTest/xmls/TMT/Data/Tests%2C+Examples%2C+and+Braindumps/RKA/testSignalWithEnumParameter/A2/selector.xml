@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="selector" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/RKA/testSignalWithEnumParameter/e" changeable="true" defaultValueLiteral="l1"/>

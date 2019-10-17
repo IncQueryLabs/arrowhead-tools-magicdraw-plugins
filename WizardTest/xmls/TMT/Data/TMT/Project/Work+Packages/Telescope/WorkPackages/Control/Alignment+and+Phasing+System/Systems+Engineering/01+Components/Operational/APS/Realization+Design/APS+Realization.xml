@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="APS Realization" eSuperTypes="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/01%20Components/Operational/APS/Black%20Box%20Specification/Structure/APS%20Operational%20Blackbox%20Specification%20JPL #//Modeling%20Support/Roll-up%20Pattern/MassRollUpPattern #//Modeling%20Support/Roll-up%20Pattern/PowerRollUpPattern">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Realization\Annotation54.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Realization\summit+Installation.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Realization\dome+Installation.xml"/>
-</eClassifiers>

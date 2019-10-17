@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="VA Method">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Method\Design.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Method\Inspection.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Method\Demonstration.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Method\Test.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Method\Analysis.xml"/>
-</eClassifiers>

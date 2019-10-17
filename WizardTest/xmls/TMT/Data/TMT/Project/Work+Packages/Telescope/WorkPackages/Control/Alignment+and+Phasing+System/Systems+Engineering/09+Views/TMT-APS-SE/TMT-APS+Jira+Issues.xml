@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TMT-APS Jira Issues">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+Jira+Issues\Annotation77.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+Jira+Issues\JIRA+Issues.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+Jira+Issues\JIRA+Table+via+Opaque+Action.xml"/>
-</eSubpackages>

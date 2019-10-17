@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="01 Architecture">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Architecture\Conceptual+Design.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Architecture\Realization+Design.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Architecture\Black+Box+Specification.xml"/>
-</eSubpackages>

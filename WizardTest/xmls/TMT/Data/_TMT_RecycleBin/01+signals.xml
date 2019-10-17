@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="01 signals">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+signals\APS-M1CS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+signals\APS-TCS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+signals\APS-Internal.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+signals\APS-CommonService.xml"/>
-</eSubpackages>

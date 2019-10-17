@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="CurValueTable">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\CurValueTable\Unnamed347.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\CurValueTable\Unnamed348.xml"/>
-</eClassifiers>

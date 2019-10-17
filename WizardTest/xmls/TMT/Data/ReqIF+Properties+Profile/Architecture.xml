@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Architecture">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Architecture\Wavefront+Control.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Architecture\Power.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Architecture\Cooling.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Architecture\Software.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Architecture\Safety.xml"/>
-</eClassifiers>

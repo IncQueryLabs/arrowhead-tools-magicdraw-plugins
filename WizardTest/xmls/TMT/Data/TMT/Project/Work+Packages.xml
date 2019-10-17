@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Work Packages">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Work+Packages\DEOPS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Work+Packages\Instruments.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Work+Packages\Telescope.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Work+Packages\Facilities.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Work+Packages\Project+Systems+Engineering.xml"/>
-</eSubpackages>

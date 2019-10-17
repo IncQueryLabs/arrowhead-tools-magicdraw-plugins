@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="M1RTC Data Server">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Data+Server\DataServer.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Data+Server\DataRecorder.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Data+Server\CurValueTable.xml"/>
-</eSubpackages>

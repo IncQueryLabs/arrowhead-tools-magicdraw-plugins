@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eAnnotations source="&lt;html&gt;
-&lt;body&gt;
-&lt;p&gt;Here we show each of the top level APS use cases. These in general map directly to APS Level 1 requirements/functionality specified in the TMT OAD. Each of these use cases are comprised of lower level activities that are described in the next section. The SysML model can execute these in order to check time estimates, and track the time lapsed between each of the lower activities.&lt;/p&gt;&lt;/body&gt;
-&lt;/html&gt;" references="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20Use%20Cases/Use%20Cases"/>

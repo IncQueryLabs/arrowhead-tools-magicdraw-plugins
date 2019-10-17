@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Lander System Model" eSuperTypes="#//Models%20Profile/Model">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lander+System+Model\MS+Risk+Assessment.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lander+System+Model\MS+Credibility+Assessment.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lander+System+Model\Model+Entailments.xml"/>
-</eClassifiers>

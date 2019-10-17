@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Tests, Examples, and Braindumps">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Tests%2C+Examples%2C+and+Braindumps\Frank%27s+Braindump.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Tests%2C+Examples%2C+and+Braindumps\RKA.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Tests%2C+Examples%2C+and+Braindumps\M1CS+Test.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Tests%2C+Examples%2C+and+Braindumps\Mitch%27s+braindump.xml"/>
-</eSubpackages>

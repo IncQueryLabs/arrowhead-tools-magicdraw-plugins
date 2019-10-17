@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="aPS Mission" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/01%20Components/Operational/Mission/APS%20Mission" changeable="true" containment="true"/>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Mailbox">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mailbox\create.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mailbox\delete.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mailbox\pend.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mailbox\post.xml"/>
-</eClassifiers>

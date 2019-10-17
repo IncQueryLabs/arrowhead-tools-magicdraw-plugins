@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="RKA">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RKA\testSignalWithEnumParameter.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RKA\Complex+values.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RKA\ModelBasedClockWithDifferentialEquations.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RKA\Battery-Resistance-Lamp.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\RKA\Constraint+Example.xml"/>
-</eSubpackages>

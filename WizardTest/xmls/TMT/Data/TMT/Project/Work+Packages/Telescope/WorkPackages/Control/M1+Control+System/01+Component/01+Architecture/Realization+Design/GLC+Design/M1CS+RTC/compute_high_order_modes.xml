@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eOperations name="compute_high_order_modes" ordered="true" unique="true" upperBound="1">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_high_order_modes\sensor_heights.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_high_order_modes\%26ctl_modes.xml"/>
-</eOperations>

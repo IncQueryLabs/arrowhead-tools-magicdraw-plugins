@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eOperations name="equal" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\equal\Matrix+A.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\equal\Matrix+B.xml"/>
-</eOperations>

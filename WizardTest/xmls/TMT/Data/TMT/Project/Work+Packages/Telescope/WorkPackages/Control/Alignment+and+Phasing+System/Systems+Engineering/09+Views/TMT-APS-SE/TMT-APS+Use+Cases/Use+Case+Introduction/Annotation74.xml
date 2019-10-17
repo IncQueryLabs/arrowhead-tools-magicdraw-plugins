@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eAnnotations source="&lt;html&gt;
-&lt;body&gt;
-&lt;p&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;This document contains the use cases and activities &lt;span lang=&quot;DA&quot;&gt;for Alignment and Phasing System (APS).&lt;/span&gt; Use cases are high level procedures APS uses to perform various telescope alignments and calibrations. In general, use cases are made up of one or more &lt;em&gt;activities&lt;/em&gt;. Examples of use cases are &quot;Post Segment-Exchange Alignment&quot; and &quot;APS pre-observing internal calibrations&quot;. Example activities include &quot;Coarse Tilt Alignment&quot;, &quot;Broad Band Phasing&quot;, and &quot;Narrow Band Phasing&quot;.&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;This document does not cover use cases that are specific to Assembly, Integrate and Verify (AIV) or commissioning. Those cases will be detailed in the APS integration and test plan. In addition this document does not currently cover off-nominal use cases.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;
-&lt;/html&gt;" references="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20Use%20Cases/Use%20Case%20Introduction"/>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="APS External">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+External\PEAS-CommonService.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+External\PEAS-TCS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+External\PEAS-M2CS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+External\PEAS-M1CS.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+External\PEAS-M3CS.xml"/>
-</eSubpackages>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Verification State">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+State\Not+Started+%3Cdefault%3E.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+State\In-Process.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+State\Waived.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Verification+State\Verified-Final.xml"/>
-</eClassifiers>

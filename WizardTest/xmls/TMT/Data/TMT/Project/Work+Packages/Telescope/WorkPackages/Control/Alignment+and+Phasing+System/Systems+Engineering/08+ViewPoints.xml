@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="08 ViewPoints">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\08+ViewPoints\Viewpoint%3A+Image+with+Caption.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\08+ViewPoints\Signal+in+sequences+table+information.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\08+ViewPoints\Activity+Descriptions.xml"/>
-</eSubpackages>

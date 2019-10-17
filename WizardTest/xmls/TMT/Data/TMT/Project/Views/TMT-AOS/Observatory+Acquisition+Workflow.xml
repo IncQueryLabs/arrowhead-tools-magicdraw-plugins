@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Observatory Acquisition Workflow">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\_18_0_5_baa02e2_1459451974948_722049_165565_no_project.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\Observatory+Acquisition+Workflow.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\Top+level+work+flow.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\Chapter+256782.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Observatory+Acquisition+Workflow\Chapter+123123.xml"/>
-</eSubpackages>

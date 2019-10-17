@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Radial Velocity Precision">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Radial+Velocity+Precision\10+km%2Fs.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Radial+Velocity+Precision\20+m%2Fs.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Radial+Velocity+Precision\5+km%2Fs.xml"/>
-</eClassifiers>

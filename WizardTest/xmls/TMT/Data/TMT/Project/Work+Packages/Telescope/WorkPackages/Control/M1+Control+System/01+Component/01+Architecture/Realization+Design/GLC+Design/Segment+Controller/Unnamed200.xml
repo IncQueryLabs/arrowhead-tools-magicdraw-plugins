@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="Unnamed200" ordered="false" unique="true" lowerBound="21" upperBound="21" eType="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/M1%20Control%20System/01%20Component/01%20Architecture/Realization%20Design/GLC%20Design/Warping%20Harness%20Motor" changeable="true" eOpposite="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/M1%20Control%20System/01%20Component/01%20Architecture/Realization%20Design/GLC%20Design/Warping%20Harness%20Motor/%"/>

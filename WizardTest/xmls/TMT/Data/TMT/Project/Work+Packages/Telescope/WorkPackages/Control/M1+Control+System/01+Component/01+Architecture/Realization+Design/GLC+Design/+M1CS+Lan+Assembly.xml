@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name=" M1CS Lan Assembly">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\+M1CS+Lan+Assembly\get_nodeboxes.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\+M1CS+Lan+Assembly\Unnamed174.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\+M1CS+Lan+Assembly\Unnamed175.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\+M1CS+Lan+Assembly\Unnamed176.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\+M1CS+Lan+Assembly\Unnamed177.xml"/>
-</eClassifiers>

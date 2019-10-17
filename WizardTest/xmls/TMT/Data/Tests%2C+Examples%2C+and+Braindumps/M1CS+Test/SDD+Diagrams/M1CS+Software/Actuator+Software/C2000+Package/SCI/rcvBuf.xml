@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="rcvBuf" ordered="false" unique="true" lowerBound="4096" upperBound="4096" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" changeable="true"/>

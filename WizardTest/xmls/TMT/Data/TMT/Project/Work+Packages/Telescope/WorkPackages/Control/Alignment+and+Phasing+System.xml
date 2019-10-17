@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Alignment and Phasing System">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Alignment+and+Phasing+System\APS+Optical+Bench+Development.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Alignment+and+Phasing+System\PEAS-PCS+Development.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Alignment+and+Phasing+System\Systems+Engineering.xml"/>
-</eSubpackages>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eParameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EParameter" name="distance" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

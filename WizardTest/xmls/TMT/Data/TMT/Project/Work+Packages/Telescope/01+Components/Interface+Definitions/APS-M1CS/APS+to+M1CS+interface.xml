@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="APS to M1CS interface">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+to+M1CS+interface\APS+Data.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+to+M1CS+interface\M1CS+Data.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+to+M1CS+interface\m1CS+to+APS+interface.xml"/>
-</eClassifiers>

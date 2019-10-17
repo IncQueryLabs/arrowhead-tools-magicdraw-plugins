@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="World Context">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\World+Context\clock.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\World+Context\system.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\World+Context\solver.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\World+Context\eq.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\World+Context\Position.xml"/>
-</eClassifiers>

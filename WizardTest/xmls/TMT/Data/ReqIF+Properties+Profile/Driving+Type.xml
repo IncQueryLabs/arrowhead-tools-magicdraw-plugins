@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Driving Type">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Type\Not+Driving.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Type\Driver+-+Schedule.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Type\Driver+-+Technical.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Type\Driver+-+Cost.xml"/>
-</eClassifiers>

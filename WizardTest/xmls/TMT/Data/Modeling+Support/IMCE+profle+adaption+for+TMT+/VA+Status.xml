@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="VA Status">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Status\Not+Started.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Status\In-Process.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Status\Scrubbed.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VA+Status\Completed.xml"/>
-</eClassifiers>

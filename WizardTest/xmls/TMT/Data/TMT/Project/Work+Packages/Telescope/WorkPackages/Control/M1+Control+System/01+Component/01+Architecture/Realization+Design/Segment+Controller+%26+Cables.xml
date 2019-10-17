@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Segment Controller &amp; Cables">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+%26+Cables\Unnamed213.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+%26+Cables\Unnamed214.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+%26+Cables\Unnamed215.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+%26+Cables\Unnamed216.xml"/>
-</eClassifiers>

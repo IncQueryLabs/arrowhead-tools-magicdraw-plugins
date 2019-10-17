@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="HTTPD">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HTTPD\init.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HTTPD\load.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HTTPD\validate.xml"/>
-</eClassifiers>

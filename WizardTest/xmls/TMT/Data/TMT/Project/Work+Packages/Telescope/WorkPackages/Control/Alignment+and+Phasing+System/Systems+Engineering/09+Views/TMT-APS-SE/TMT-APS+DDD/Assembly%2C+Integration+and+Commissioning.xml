@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Assembly, Integration and Commissioning">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Assembly%2C+Integration+and+Commissioning\10.1%09assembly%2C+integration%2C+and+commissioning+procedures.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Assembly%2C+Integration+and+Commissioning\verification.xml"/>
-</eClassifiers>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="03 Use Cases and Activities">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\03+Use+Cases+and+Activities\01+Use+Cases.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\03+Use+Cases+and+Activities\02+Activities.xml"/>
-</eSubpackages>

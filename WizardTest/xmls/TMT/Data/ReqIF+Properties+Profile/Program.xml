@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Program">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Program\Dark+Energy.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Program\Variation+of+fundamental+physical+constants.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Program\Physics+of+extreme+objects.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Program\Nature+of+dark+matter.xml"/>
-</eClassifiers>

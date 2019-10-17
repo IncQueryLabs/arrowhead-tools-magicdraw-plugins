@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Chapter">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Chapter\The+Early+Universe.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Chapter\Galaxy+Formation+and+the+IGM.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Chapter\Fundamental+Physics+and+Cosmology.xml"/>
-</eClassifiers>

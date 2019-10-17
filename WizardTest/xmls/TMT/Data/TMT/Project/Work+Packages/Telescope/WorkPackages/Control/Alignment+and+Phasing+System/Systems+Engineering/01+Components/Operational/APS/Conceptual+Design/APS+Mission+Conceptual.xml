@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="APS Mission Conceptual" eSuperTypes="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/01%20Components/Operational/Mission/APS%20Mission">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Mission+Conceptual\Annotation42.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Mission+Conceptual\APS+Operational+Blackbox.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Mission+Conceptual\maxPhasingTime.xml"/>
-</eClassifiers>

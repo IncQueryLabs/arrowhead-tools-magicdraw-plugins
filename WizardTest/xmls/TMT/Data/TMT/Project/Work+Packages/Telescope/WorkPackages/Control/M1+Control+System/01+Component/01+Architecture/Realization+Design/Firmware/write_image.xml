@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eOperations name="write_image" ordered="true" unique="true" upperBound="1">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\write_image\image_num.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\write_image\data.xml"/>
-</eOperations>

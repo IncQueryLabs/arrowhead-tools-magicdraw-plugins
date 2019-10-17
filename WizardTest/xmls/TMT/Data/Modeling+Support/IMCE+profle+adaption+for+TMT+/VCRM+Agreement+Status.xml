@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="VCRM Agreement Status">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VCRM+Agreement+Status\Unnamed273.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\VCRM+Agreement+Status\Accepted.xml"/>
-</eClassifiers>

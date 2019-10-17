@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Circuit Assembly">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Circuit+Assembly\battery.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Circuit+Assembly\resistance.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Circuit+Assembly\lamp.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Circuit+Assembly\circuit+Loop.xml"/>
-</eClassifiers>

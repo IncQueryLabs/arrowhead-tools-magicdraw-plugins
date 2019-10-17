@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Requirements Information Flow">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements+Information+Flow\Annotation105.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements+Information+Flow\Annotation106.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements+Information+Flow\Annotation107.xml"/>
-</eClassifiers>

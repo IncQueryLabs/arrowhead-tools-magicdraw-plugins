@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="M1 Control">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1+Control\M1CS+RTC.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1+Control\M1+Control+Assembly.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1+Control\Segment+HCD.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1+Control\Segment+Controller.xml"/>
-</eClassifiers>

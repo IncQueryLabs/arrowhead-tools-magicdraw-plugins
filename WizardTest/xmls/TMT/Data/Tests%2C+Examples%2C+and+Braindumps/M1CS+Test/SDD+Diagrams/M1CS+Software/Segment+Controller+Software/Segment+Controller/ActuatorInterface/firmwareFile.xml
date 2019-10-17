@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="firmwareFile" ordered="false" unique="true" lowerBound="256" upperBound="256" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" changeable="true"/>

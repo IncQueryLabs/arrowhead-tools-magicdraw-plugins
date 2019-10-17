@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Sample">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample\Nasmyth+Switch+data.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample\Sector+Switch+data.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample\Sector+Switch+input.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample\Nasmyth+Switch+output.xml"/>
-</eSubpackages>

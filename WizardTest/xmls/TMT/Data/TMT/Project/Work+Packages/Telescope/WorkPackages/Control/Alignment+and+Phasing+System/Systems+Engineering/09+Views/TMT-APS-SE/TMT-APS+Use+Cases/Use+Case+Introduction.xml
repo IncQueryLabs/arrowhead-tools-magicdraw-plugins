@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Use Case Introduction">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Case+Introduction\Annotation74.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Case+Introduction\purpose.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Case+Introduction\overview.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Use+Case+Introduction\modeling+Approach+and+Context.xml"/>
-</eClassifiers>

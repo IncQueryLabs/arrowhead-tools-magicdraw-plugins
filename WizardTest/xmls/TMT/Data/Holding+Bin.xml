@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Holding Bin">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Holding+Bin\TMT+Cover+Page.xml"/>
-</eSubpackages>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="ProbabilityAcqLckLGS" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="ecore:EDataType SysML_Profile.ecore#//Libraries/PrimitiveValueTypes/Real" changeable="true" defaultValueLiteral="0.0"/>

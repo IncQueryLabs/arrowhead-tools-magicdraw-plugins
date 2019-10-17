@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="_Comments">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\_Comments\Annotation85.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\_Comments\Annotation86.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\_Comments\Annotation87.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\_Comments\Annotation88.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\_Comments\Annotation89.xml"/>
-</eSubpackages>

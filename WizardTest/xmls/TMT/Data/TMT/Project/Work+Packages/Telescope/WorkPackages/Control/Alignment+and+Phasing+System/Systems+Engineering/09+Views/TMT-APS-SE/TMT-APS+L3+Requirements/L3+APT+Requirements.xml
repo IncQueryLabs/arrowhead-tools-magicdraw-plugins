@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="L3 APT Requirements" eSuperTypes="#//ViewPoint%20%20Libraries/Recursive%20Requirement%20Diagrams">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\L3+APT+Requirements\Annotation67.xml"/>
-</eClassifiers>

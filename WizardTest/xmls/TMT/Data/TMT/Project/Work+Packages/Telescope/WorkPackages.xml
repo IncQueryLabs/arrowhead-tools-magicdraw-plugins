@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="WorkPackages">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\WorkPackages\Telescope+Structure.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\WorkPackages\Optics.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\WorkPackages\Control.xml"/>
-</eSubpackages>

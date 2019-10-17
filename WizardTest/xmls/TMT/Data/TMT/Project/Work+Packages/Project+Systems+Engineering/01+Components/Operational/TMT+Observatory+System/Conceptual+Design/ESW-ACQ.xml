@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="ESW-ACQ">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ESW-ACQ\numloop.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ESW-ACQ\i.xml"/>
-</eClassifiers>

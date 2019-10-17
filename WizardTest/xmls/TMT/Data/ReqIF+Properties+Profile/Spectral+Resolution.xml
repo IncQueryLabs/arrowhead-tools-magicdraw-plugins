@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Spectral Resolution">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Spectral+Resolution\50000.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Spectral+Resolution\6.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Spectral+Resolution\1000+-+5000.xml"/>
-</eClassifiers>

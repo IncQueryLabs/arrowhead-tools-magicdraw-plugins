@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="HCDs">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HCDs\Solenoids.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HCDs\BN+Sensors.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HCDs\Stepper+Motors.xml"/>
-</eSubpackages>

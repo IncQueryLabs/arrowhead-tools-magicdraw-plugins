@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Case 2 - Clock-Driven Activity Times">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+2+-+Clock-Driven+Activity+Times\Base+Clock.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+2+-+Clock-Driven+Activity+Times\Simulation+Setup.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Case+2+-+Clock-Driven+Activity+Times\Test+Run+Case+2.xml"/>
-</eSubpackages>

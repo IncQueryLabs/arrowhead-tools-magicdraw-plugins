@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eOperations name="move" ordered="true" unique="true" upperBound="1">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\move\segment.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\move\actuator.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\move\target_pos.xml"/>
-</eOperations>

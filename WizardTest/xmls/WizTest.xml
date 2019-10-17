@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ah:Arrowhead xmlns:ah="https://www.arrowhead.eu/interchange" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <xi:include href="..\WizTest\testProj.xml"/>
-</ah:Arrowhead>

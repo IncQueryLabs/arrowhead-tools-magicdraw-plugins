@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Sample Error Budget">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample+Error+Budget\Top+Level+Entry.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample+Error+Budget\Top+level+specification.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample+Error+Budget\Top+Speed+Requirement+from+Buyer.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Sample+Error+Budget\velocity.xml"/>
-</eSubpackages>

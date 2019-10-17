@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Interchange functions">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Interchange+functions\Operator.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Interchange+functions\External.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Interchange+functions\Internal.xml"/>
-</eSubpackages>

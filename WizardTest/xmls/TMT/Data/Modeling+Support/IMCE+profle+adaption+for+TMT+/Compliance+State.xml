@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Compliance State">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Compliance+State\Expected+Compliance.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Compliance+State\Expected+Non-Compliance.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Compliance+State\Compliant.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Compliance+State\Non-Compliant+%3Cdefault%3E.xml"/>
-</eClassifiers>

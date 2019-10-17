@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eOperations name="compute_PTT_modes" ordered="true" unique="true" upperBound="1">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_PTT_modes\act_pos.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\compute_PTT_modes\%26PTT_modes.xml"/>
-</eOperations>

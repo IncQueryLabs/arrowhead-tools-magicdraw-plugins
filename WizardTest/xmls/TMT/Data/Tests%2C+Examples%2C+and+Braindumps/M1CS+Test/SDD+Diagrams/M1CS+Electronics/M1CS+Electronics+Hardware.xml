@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="M1CS Electronics Hardware">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Electronics+Hardware\M1CS+Control+Computer.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Electronics+Hardware\M1CS+LAN.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Electronics+Hardware\Segment+Electronics.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Electronics+Hardware\Purge+System.xml"/>
-</eClassifiers>

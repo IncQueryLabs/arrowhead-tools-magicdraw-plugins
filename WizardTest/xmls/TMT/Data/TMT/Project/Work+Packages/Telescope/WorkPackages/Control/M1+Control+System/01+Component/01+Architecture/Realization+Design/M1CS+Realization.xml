@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="M1CS Realization" eSuperTypes="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/M1%20Control%20System/01%20Component/01%20Architecture/Black%20Box%20Specification/M1CS%20Black%20Box%20Specification%20JPL">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Realization\GLC.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Realization\SCC.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Realization\Actuator.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Realization\M1.xml"/>
-</eClassifiers>

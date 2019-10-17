@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Part 1" eSuperTypes="#//Modeling%20Support/Roll-up%20Pattern/ErrorRollUpPatternElement #//Modeling%20Support/Roll-up%20Pattern/SumRollUp">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+1\Unnamed274.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+1\Unnamed275.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+1\errorCBE.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+1\errorReq.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Part+1\errorMargin.xml"/>
-</eClassifiers>

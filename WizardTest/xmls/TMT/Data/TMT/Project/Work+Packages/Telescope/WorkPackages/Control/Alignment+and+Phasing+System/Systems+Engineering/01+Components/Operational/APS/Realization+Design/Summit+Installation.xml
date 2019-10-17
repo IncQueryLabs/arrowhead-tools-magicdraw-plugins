@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Summit Installation" eSuperTypes="#//Modeling%20Support/Roll-up%20Pattern/MassRollUpPattern #//Modeling%20Support/Roll-up%20Pattern/PowerRollUpPattern">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Summit+Installation\computer.xml"/>
-</eClassifiers>

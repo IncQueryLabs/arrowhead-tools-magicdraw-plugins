@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Error Budgets">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Error+Budgets\Annotation80.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Error+Budgets\Pupil+Alignment+Error+Budget.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Error+Budgets\Sample+Error+Budget.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Error+Budgets\M3+to+APS-TMT+Interface+Point+Alignment+Error+Analysis.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Error+Budgets\APS+M3+to+APS-TMT+Interface+Point%0AAlignment+Error+Analysis.xml"/>
-</eSubpackages>

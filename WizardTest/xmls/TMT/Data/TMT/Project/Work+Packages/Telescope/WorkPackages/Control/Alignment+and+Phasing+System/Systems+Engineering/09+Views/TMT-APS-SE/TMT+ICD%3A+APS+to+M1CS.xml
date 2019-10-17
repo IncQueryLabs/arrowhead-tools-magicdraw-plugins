@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TMT ICD: APS to M1CS">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+ICD%3A+APS+to+M1CS\TMT+ICD%3A+APS+to+M1CS+%28DRAFT%29.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+ICD%3A+APS+to+M1CS\Introduction.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+ICD%3A+APS+to+M1CS\Summary+Of+Interfaces.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+ICD%3A+APS+to+M1CS\Interface+Specifications.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+ICD%3A+APS+to+M1CS\TMT+ICD%3A+APS+to+M1CS+Cover+Page.xml"/>
-</eSubpackages>

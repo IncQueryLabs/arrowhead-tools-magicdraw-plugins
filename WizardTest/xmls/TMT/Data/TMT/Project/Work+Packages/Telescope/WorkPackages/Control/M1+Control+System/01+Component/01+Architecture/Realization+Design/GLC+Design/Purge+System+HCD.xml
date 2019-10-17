@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<eClassifiers href="ecore:EClass" name="Purge System HCD">
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Purge+System+HCD\Unnamed194.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Purge+System+HCD\Unnamed195.xml"/>
-</eClassifiers>

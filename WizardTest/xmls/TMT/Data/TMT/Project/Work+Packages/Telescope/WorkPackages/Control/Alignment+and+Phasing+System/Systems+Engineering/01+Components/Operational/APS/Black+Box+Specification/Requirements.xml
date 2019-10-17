@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Requirements">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\02+Requirements+Flow-down+Views.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\03+APS+Requirements+individual+views.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\01a+Parent+Requirements+%28OLD%3A+to+be+removed+once+they+no+longer+have+links+down+to+APS+requirements%29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\08+Requirements+Tables+and+Views.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\09+APS+Requirement+Templates.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\05+APS+Verification+Plan.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\04+APS+L3+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\03b+OLD%3A+proposed+requirements+%28to+be+replaced+with+DOORS+imported+ones%29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Requirements\10+Formalized+Requirements.xml"/>
+</eSubpackages>

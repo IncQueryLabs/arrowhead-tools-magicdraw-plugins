@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+We document the flow-down of all the Alignment and Phasing System (APS) requirements from their parents.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&amp;#160;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+After the introduction, the requirements are shown by discipline and show only the requirement flow-down. The subsequent chapter has a single diagram for every requirement showing the parents, comments, and further attributes such as driving, key, verification method, and description.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&amp;#160;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+The Appendices containing tables with the requirements. First, we start with a list of all the parents that are applicable to APS. Next are the APS&amp;#160;requirements, which includes a list of the parent requirements. The third appendix is a table of requirements that are indicated to apply to APS; however, we don't believe that they are. Hence we propose removing that flag for these requirements. Finally, the last appendix shows the requirements we reject due to changes in the scope of either TMT or APS.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&amp;#160;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+Note that for now, the introduction for now shows the flow-down process that we are following for the requirements. This can later be moved to an appendix.
+
+    &lt;/p&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+" references="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20Requirements%20Flow-down/Introduction"/>

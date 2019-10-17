@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ElevationInterpolator">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ElevationInterpolator\Unnamed341.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ElevationInterpolator\Unnamed342.xml"/>
+</eClassifiers>

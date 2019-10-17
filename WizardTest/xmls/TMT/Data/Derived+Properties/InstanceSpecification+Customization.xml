@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="InstanceSpecification Customization">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InstanceSpecification+Customization\Type.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InstanceSpecification+Customization\Traceability.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InstanceSpecification+Customization\unnamed1.xml"/>
+</eClassifiers>

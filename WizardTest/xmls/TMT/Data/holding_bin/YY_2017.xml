@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="YY_2017">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_0.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\YY_2017\MM_7.xml"/>
+</eSubpackages>

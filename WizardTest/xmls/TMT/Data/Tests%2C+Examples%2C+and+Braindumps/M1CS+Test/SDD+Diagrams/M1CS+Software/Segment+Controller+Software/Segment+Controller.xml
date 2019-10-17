@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Segment Controller">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\AirflowSensor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\CellID.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\EdgeSensor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\Command+Processor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\SegmentID.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\TemperatureSensor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\WarpingHarness.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\UpperSegmentBox.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\cmdPort.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\ActuatorInterface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\WarpingHarnessConfig.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\SegmentStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\TempCalibTable.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\SegmentConfiguration.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\SegmentStrains.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\ActuatorStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\ActuatorConfig.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller\UpperSegmentInterface.xml"/>
+</eSubpackages>

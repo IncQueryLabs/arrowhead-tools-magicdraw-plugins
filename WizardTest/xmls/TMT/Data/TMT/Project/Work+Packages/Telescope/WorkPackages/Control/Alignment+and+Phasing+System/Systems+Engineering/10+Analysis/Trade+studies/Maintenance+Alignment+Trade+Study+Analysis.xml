@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Maintenance Alignment Trade Study Analysis">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Maintenance+Alignment+Trade+Study+Analysis\Trade+Study+Definition.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Maintenance+Alignment+Trade+Study+Analysis\Analysis+results.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Maintenance+Alignment+Trade+Study+Analysis\Alternatives.xml"/>
+</eSubpackages>

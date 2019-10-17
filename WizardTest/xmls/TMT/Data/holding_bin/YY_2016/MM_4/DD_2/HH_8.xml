@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="HH_8">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed365.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed366.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed367.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed368.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed369.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed370.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed371.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed372.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed373.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed374.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed375.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed376.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed377.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HH_8\Unnamed378.xml"/>
+</eSubpackages>

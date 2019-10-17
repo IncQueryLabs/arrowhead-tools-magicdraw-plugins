@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TMT-APS L3 Requirements">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\TMT-APS+L3+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\Introduction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\L3+APT+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\L3+APT+Requirements+SE+Notes.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\L3+APT+Requirements+Table.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\L3+Empty+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT-APS+L3+Requirements\TMT-APS+L3+Requirements+Cover+Page.xml"/>
+</eSubpackages>

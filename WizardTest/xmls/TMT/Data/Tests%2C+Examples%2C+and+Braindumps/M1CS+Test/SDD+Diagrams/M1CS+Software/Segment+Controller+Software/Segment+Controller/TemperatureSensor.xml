@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="TemperatureSensor">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\configure.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\cfgTempCalib.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\readTemp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\lookupTemp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\addr.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\sensorGain.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\sensorOffset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\temperature.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TemperatureSensor\corrections.xml"/>
+</eClassifiers>

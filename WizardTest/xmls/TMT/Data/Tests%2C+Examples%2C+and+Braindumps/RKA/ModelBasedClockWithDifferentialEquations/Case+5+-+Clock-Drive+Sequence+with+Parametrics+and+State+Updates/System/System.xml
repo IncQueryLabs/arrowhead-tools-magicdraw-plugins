@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="System">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\System\motor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\System\drive+Train.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\System\battery.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\System\location.xml"/>
+</eClassifiers>

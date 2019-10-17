@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Smart Packages">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Smart+Packages\Signals+of+%27Procedure+and+Analysis+software%27.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Smart+Packages\SmartPackageQueries.xml"/>
+</eSubpackages>

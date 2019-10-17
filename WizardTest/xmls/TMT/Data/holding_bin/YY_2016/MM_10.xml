@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="MM_10">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_16.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_8.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_12.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_11.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_10.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MM_10\DD_9.xml"/>
+</eSubpackages>

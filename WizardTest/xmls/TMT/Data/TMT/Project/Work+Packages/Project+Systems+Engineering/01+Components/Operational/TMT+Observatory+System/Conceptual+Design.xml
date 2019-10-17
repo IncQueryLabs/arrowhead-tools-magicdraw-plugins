@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Conceptual Design">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\TMT+Observatory+System+Conceptual.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Data+Management+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Mount+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\M1+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Common+Services.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Executive+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Telescope+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Alignment+and+Phasing+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\M2S.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\M3S.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Observatory+Safety+Systems.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\ESEN.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\AO+Sequencer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\TTS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\DM.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\NSEN.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\IRIS+-+OIWFS+.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\IRIS+-+OIWFS+POA.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\IRIS+Imager+detector.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\BTO.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Laser.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\NSCU.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\RPG.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\ISM.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\NRTC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\LGSF.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\NFIRAOS+CC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\aORC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\ESW-ACQ.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\ESW+Seq.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\LIS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Acquisition+Time+.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\Enclosure.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Conceptual+Design\IRIS+Sequencer.xml"/>
+</eSubpackages>

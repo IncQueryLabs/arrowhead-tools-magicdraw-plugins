@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Project">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Work+Packages.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Concerns.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Management.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Roles.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Views.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\ViewPoints.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Project\Components.xml"/>
+</eSubpackages>

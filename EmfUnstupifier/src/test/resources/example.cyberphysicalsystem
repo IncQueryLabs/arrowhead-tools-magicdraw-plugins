@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cps:CyberPhysicalSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cps="http://org.eclipse.viatra/model/cps">
+  <appTypes identifier="Archiving">
+    <instances identifier="IBM.System.Storage" allocatedTo="Shelob"/>
+    <behavior identifier="Archiving-sm" initial="Wait">
+      <states identifier="Wait">
+        <outgoingTransitions identifier="tr_arch_receive" targetState="Received" action="waitForSignal(msg)"/>
+      </states>
+      <states identifier="Received">
+        <outgoingTransitions identifier="tr_arch-finish" targetState="Wait"/>
+      </states>
+    </behavior>
+  </appTypes>
+  <appTypes identifier="LPC">
+    <instances identifier="Smoke.Detector" allocatedTo="Aragorn"/>
+    <instances identifier="Alarm" allocatedTo="Aragorn"/>
+    <instances identifier="Camera" allocatedTo="Aragorn"/>
+    <behavior identifier="LPC-sm" initial="Init">
+      <states identifier="Init">
+        <outgoingTransitions identifier="tr_lpc-send" targetState="Sent" action="sendSignal(Archiving,msg)"/>
+      </states>
+      <states identifier="Sent">
+        <outgoingTransitions identifier="tr_lpc-finish" targetState="Init"/>
+      </states>
+    </behavior>
+  </appTypes>
+  <requests>
+    <requirements count="1" type="LPC" applications="Alarm Camera Smoke.Detector"/>
+  </requests>
+  <requests>
+    <requirements count="1" type="Archiving" applications="IBM.System.Storage"/>
+  </requests>
+  <hostTypes identifier="ESX">
+    <instances identifier="Cirdan" nodeIp="152.66.102.1" availableCpu="25" availableRam="30" availableHdd="20" totalCpu="25" totalRam="30" totalHdd="20"/>
+    <instances identifier="Arwen" nodeIp="152.66.102.2" availableCpu="5" availableRam="3" availableHdd="12" totalCpu="25" totalRam="30" totalHdd="20"/>
+  </hostTypes>
+  <hostTypes identifier="Storage">
+    <instances identifier="Sauron" nodeIp="152.66.102.3" availableCpu="5" availableRam="10" availableHdd="70" totalCpu="5" totalRam="10" totalHdd="70"/>
+    <instances identifier="Celeborn" nodeIp="152.66.102.4" availableCpu="5" availableRam="5" availableHdd="80" totalCpu="5" totalRam="5" totalHdd="80"/>
+    <instances identifier="Shelob" nodeIp="152.66.102.5" availableCpu="7" availableRam="5" availableHdd="50" totalCpu="7" totalRam="5" totalHdd="70" applications="IBM.System.Storage"/>
+  </hostTypes>
+  <hostTypes identifier="Rawsberry.PI">
+    <instances identifier="Aragorn" nodeIp="152.66.102.6" availableCpu="4" availableRam="7" availableHdd="3" totalCpu="10" totalRam="10" totalHdd="10" applications="Smoke.Detector Alarm Camera" communicateWith="Shelob"/>
+  </hostTypes>
+</cps:CyberPhysicalSystem>

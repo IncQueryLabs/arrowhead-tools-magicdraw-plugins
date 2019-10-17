@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="Unnamed283" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/Frank%27s%20Braindump/Software%20Architecture%20(OBSOLETE)/Assemblies/APS%20Instrument%20Control%20System%20(ICS)" changeable="true" containment="true"/>

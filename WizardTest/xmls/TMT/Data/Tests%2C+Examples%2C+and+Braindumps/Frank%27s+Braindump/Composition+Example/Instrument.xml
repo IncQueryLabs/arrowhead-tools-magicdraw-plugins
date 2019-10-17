@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Instrument">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Instrument\Unnamed276.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Instrument\Unnamed277.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Instrument\Unnamed278.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Instrument\Unnamed279.xml"/>
+</eClassifiers>

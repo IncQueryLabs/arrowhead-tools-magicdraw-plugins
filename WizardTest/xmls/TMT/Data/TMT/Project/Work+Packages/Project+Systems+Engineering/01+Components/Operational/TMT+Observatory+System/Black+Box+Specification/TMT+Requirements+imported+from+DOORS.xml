@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TMT Requirements imported from DOORS">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\APS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\DSC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\M1CS+Actuator.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\M1CS.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\M1CS+Sensor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\ORD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\SRD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\OAD.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TMT+Requirements+imported+from+DOORS\OPSRD.xml"/>
+</eSubpackages>

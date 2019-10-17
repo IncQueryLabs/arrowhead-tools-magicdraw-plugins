@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="top level work flow" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//TMT/Project/Views/TMT-AOS/Observatory%20Acquisition%20Workflow/Top%20level%20work%20flow" changeable="true" containment="true"/>

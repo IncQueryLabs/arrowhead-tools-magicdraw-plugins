@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Control">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Alignment+and+Phasing+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\M1+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Telescope+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Mount+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Test+Instrument+Control.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Telescope+Safety+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Engineering+Sensors.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Control\Power%2C+Lighting%2C+and+Grounding.xml"/>
+</eSubpackages>

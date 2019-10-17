@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="HighOrderReconstructor">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\unnamed1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\unnamed2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\unnamed3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\unnamed4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\gapFilter.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\heightFilter.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\Ti.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\sensCalibAlg.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\unnamed5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\Unnamed335.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\HighOrderReconstructor\Unnamed336.xml"/>
+</eClassifiers>

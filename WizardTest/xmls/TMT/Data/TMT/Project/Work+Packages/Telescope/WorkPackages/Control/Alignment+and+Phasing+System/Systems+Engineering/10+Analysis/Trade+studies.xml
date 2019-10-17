@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Trade studies">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Trade+studies\Annotation78.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Trade+studies\TradeStudyPattern.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Trade+studies\Maintenance+Alignment+Trade+Study+Analysis.xml"/>
+</eSubpackages>

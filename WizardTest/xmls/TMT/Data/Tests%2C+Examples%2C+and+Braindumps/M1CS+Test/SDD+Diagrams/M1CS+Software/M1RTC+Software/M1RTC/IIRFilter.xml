@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="IIRFilter">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\reset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\preset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\config.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\step.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\length.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\channels.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\max.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\min.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\a.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\b.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\aState.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\IIRFilter\bState.xml"/>
+</eClassifiers>

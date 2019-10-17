@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="SDD Diagrams">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\M1CS+Electronics.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\M1CS+Software.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\Telescope+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\Alignment+and+Phasing+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\Data+Management+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\M1+Control+System.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\SDD+Diagrams\Context+Diagram.xml"/>
+</eSubpackages>

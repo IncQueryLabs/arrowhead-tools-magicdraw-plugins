@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="Creating:
+1. Create generalization to &quot;ErrorRollUpPattern&quot; for every block
+2. Set &quot;subsets&quot; property to &quot;subError&quot; of ErrorRollUpPattern&quot;
+3. Redefine error (if wanting to specify) - here, also done in other cases for clarity"/>

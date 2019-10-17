@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="01 Configurations">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Configurations\Satisfy+Peak+Power+Configuration+Instances.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Configurations\Roll-up+Scenario+Standby+Configuration+Instances.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Configurations\Roll-up+Scenario+Online+Configuration+Instances.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Configurations\Updated+Roll-up+Scenario+Online+Configuration.xml"/>
+</eSubpackages>

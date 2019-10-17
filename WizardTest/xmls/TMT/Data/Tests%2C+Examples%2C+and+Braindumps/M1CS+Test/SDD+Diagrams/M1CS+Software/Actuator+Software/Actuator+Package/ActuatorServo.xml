@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ActuatorServo">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\ActuatorServo.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\setMode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\update.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\setTarget.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\configMode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\checkLimits.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\target.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\voicecoil.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\error.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\curMode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\cmdMode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\rmsError.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\rmsErrorPeriod.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\trackThreshold.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\meanVcForce.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\meanVcForcePeriod.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\sensors.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\offloader.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\vc.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\snubber.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\vcForceThreshold.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorServo\targetWaveform.xml"/>
+</eClassifiers>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="segment_label" ordered="false" unique="true" lowerBound="1" upperBound="1" changeable="true">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\segment_label\Annotation108.xml"/>
+</eStructuralFeatures>

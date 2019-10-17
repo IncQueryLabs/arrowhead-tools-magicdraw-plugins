@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Lower Level Activities">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lower+Level+Activities\acquisition+or+Guider+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lower+Level+Activities\%0APIT+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Lower+Level+Activities\setup+and+configuration+procedures.xml"/>
+</eClassifiers>

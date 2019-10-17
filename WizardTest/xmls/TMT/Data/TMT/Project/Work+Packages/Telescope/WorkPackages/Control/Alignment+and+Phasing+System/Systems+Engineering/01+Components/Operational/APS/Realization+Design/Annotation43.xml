@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+  &lt;head&gt;
+		&lt;style&gt;
+			p {padding:0px; margin:0px;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;2014/03/12 meeting note&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- default APS structure above.&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- another similar structure (software/hardware) proposed - picture taken by FD.&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- All blocks are deliverable.&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- Currently model... optical bench and Controller rack only.&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- TMT&amp;#160;meta-model for now is agreed as .       
+&lt;a href=&quot;mdel://_17_0_2_3_897027c_1377647056489_778059_38251&quot; class=&quot;elementLink&quot;&gt;&lt;img width=&quot;16&quot; style=&quot;font-size:12pt;&quot; src=&quot;_mdicon__17_0_2_3_897027c_1377647056489_778059_38251&quot; height=&quot;16&quot; border=&quot;0&quot; /&gt;TMT Metamodel&lt;/a&gt;&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- No need to match the SW structure..&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- Good to modify the part at generic components..&lt;/font&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+&lt;font style=&quot;font-size:12pt;&quot;&gt;- Not clear yet how to define the stereotyping the outside compents.&lt;/font&gt;
+
+    &lt;/p&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+"/>

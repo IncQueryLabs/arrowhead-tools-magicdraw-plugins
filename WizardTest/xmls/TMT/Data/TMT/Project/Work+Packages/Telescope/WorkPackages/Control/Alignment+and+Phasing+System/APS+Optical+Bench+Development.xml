@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="APS Optical Bench Development">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Optical+Bench+Development\Components.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS+Optical+Bench+Development\APS+Optical+Bench+Development.xml"/>
+</eSubpackages>

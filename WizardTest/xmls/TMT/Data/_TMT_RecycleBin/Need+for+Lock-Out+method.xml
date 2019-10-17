@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Need for Lock-Out method">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Need+for+Lock-Out+method\Annotation144.xml"/>
+</eSubpackages>

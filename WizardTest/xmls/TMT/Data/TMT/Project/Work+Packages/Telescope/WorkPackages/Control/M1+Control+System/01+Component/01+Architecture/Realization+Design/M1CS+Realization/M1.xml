@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="M1" ordered="false" unique="true" lowerBound="492" upperBound="492" eType="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/M1%20Control%20System/01%20Component/01%20Architecture/Realization%20Design/Primary%20Mirror%20Segment%20Assembly" changeable="true" containment="true"/>

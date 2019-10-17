@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="BootLoader">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\readCellId.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\initNetworkInetrface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\startHttpdServer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\startPtpdServer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\startSegmentController.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed315.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed316.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed317.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed318.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed319.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed320.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed321.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed322.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed323.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed324.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\Unnamed325.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\BootLoader\cellID.xml"/>
+</eClassifiers>

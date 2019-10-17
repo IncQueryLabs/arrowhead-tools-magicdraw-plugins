@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="Command Processor">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\main.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\mainloop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\processMessage.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\reportStatus.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\cmdPort.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\Unnamed301.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\config.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\upperBox.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Command+Processor\actuators.xml"/>
+</eClassifiers>

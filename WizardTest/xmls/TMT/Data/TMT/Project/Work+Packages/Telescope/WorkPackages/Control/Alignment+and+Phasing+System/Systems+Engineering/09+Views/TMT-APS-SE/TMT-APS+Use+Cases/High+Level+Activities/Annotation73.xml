@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eAnnotations source="&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;This chapter describes high level APS activities. The first is Acquisition and guiding which is used whenever a new star is acquired or if guiding is requested on a star that has already been acquired. The remaining activities are alignment activities and are described in more detail in the APS Algorithms document.&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;" references="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/Alignment%20and%20Phasing%20System/Systems%20Engineering/09%20Views/TMT-APS-SE/TMT-APS%20Use%20Cases/High%20Level%20Activities"/>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="DD_24">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\DD_24\HH_16.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\DD_24\HH_13.xml"/>
+</eSubpackages>

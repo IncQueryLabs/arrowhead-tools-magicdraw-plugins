@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="config" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\config\%2AaCoef.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\config\%2AbCoef.xml"/>
+</eOperations>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Driving Requirement">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Requirement\Unnamed272.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Requirement\Schedule.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Requirement\Cost.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Driving+Requirement\Technical.xml"/>
+</eClassifiers>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="InnerLoopController">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed6.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed7.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\Fi.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\Ti.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\ActuatorLUT.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed42.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed52.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\unnamed62.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\Unnamed337.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\Unnamed338.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\InnerLoopController\Unnamed339.xml"/>
+</eClassifiers>

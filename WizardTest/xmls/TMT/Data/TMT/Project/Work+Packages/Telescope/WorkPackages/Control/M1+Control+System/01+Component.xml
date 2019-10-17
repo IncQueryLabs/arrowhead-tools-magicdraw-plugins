@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="01 Component">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\01+Architecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\03+Use+Cases+and+Activities.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\06+Interfaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\09+Programmatic.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\04+Error+Budgets.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\08+Documents.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\01+Component\05+Requirements.xml"/>
+</eSubpackages>

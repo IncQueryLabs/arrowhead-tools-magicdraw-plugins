@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EEnum" name="Acceptance State">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Accepted.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Not+Accepted-Wrong+Traceability.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Not+Accepted-Incorrect+Allocation.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Not+Accepted-Rewording+Required.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Not+Accepted-Do+Not+Understand.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Acceptance+State\Not+Accepted-Other+%3CDefault%3E.xml"/>
+</eClassifiers>

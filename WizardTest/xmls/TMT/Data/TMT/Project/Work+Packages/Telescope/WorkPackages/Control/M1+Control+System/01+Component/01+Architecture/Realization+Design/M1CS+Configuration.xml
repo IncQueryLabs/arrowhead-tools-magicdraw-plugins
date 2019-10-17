@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="M1CS Configuration">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\date.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\time.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\segment_list.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\node_box_list.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\sector_hub_list.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS+Configuration\actuator_list.xml"/>
+</eClassifiers>

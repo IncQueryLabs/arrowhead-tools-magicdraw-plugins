@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="TradeStudyPattern">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TradeStudyPattern\Alternative.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TradeStudyPattern\Trade+Study+Pattern.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TradeStudyPattern\DefaultCompare.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\TradeStudyPattern\mainSMBehavior.xml"/>
+</eSubpackages>

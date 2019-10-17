@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="APS">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS\Black+Box+Specification.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS\Conceptual+Design.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\APS\Realization+Design.xml"/>
+</eSubpackages>

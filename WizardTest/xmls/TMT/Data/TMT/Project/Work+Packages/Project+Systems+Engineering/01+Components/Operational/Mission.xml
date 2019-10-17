@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Mission">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission-to-be+Random.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group4.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group5.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group6.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Mission\TMT+Mission+to-be+Group0.xml"/>
+</eSubpackages>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="subError" ordered="false" unique="true" upperBound="-1" eType="#//Modeling%20Support/Roll-up%20Pattern/ErrorRollUpPatternElement" changeable="true" derived="true" containment="true"/>

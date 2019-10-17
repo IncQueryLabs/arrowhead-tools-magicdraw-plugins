@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="ActuatorTargets">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorTargets\unnamed1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorTargets\unnamed2.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorTargets\unnamed3.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorTargets\elevation.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\ActuatorTargets\actuatorTargets.xml"/>
+</eClassifiers>

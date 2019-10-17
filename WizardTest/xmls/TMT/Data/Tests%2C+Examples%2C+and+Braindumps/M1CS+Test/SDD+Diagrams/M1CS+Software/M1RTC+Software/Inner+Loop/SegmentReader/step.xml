@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="step" ordered="false" unique="true" lowerBound="1" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\step\sensGap.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\step\sensHeight.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\step\actPos.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\step\timeout.xml"/>
+</eOperations>

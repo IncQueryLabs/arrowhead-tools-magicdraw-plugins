@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eReferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EReference" name="accel" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//Tests%2C%20Examples%2C%20and%20Braindumps/RKA/ModelBasedClockWithDifferentialEquations/Case%203%20-%20Clock-Driven%20Activity%20with%20Parametrics/Simulation%20Setup/Acceleration%20Motion" changeable="true"/>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Segment Controller Software">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\Segment+Controller.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\Boot+Loader.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\Segment+RT+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\Firmware.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\UpperSegData.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Segment+Controller+Software\UpperBoxData.xml"/>
+</eSubpackages>

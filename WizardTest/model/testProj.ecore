@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="testProj" nsURI="http://www.example.org/testProj" nsPrefix="testProj">
+  <eClassifiers xsi:type="ecore:EClass" name="Shroom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mass" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Color">
+    <eLiterals name="Black"/>
+    <eLiterals name="Blue" value="1"/>
+  </eClassifiers>
+  <eSubpackages name="Animal">
+    <eClassifiers xsi:type="ecore:EClass" name="Mammal">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Human" eSuperTypes="#//Animal/Mammal">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mother" eType="#//Animal/Human"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Plant">
+    <eClassifiers xsi:type="ecore:EClass" name="Tree">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="heigth" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Walnut" eSuperTypes="#//Plant/Tree">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BritishWalnut" eSuperTypes="#//Plant/Walnut"/>
+  </eSubpackages>
+</ecore:EPackage>

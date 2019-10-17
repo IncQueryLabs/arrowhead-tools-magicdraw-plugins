@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eOperations name="processSegData" ordered="true" unique="true" upperBound="1">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\processSegData\rtMsg.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\processSegData\%2Agap.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\processSegData\%2Aheight.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\processSegData\%2Apos.xml"/>
+</eOperations>

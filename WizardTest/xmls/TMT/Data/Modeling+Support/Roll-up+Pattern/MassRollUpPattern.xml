@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="MassRollUpPattern">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MassRollUpPattern\sum.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MassRollUpPattern\subMass.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MassRollUpPattern\totalMass.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\MassRollUpPattern\mass.xml"/>
+</eClassifiers>

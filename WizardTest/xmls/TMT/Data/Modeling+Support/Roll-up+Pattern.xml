@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Roll-up Pattern">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation126.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation127.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation128.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation129.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation130.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Annotation131.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Error+Roll-Up+Example.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\RollUpProfile.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\TotalChildren.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\PowerRollUpPattern.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\MassRollUpPattern.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\RootSumSquaredRollUp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\RootSumSquared.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\MarginPercentage.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\SumRollUp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\ProductRollUp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\ErrorRollUpPatternElement.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Sum.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Roll-up+Pattern\Product.xml"/>
+</eSubpackages>

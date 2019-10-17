@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="Frank's Braindump">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\Activities+Tests.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\Composition+Example.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\pattern%3A+refines.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\pattern%3A+requirement.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\Software+Architecture+%28OBSOLETE%29.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\Frank%27s+Braindump\Importing+CSV.xml"/>
+</eSubpackages>

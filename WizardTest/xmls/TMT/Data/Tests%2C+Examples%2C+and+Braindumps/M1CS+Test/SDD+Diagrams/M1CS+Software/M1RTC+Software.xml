@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="M1RTC Software">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Software\M1RTC.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Software\M1RTC+Config+Manager.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Software\Inner+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Software\Outer+Loop.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1RTC+Software\M1RTC+Data+Server.xml"/>
+</eSubpackages>

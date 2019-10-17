@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eStructuralFeatures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EAttribute" name="Sector Switch data" ordered="false" unique="true" lowerBound="1" upperBound="1" eType="#//TMT/Project/Work%20Packages/Telescope/WorkPackages/Control/M1%20Control%20System/01%20Component/06%20Interfaces/SCC%20Interfaces/Sector%20Switch%20data" changeable="true"/>

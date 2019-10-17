@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="OAD">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Annotation116.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\System+Specification.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\System+Definition.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Appendix.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Proposed+New+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Definitions.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\System+Architecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Introduction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Performance+Allocation+and+System+Budgets.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Unnamed255.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Unnamed256.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\OAD\Open+Issues.xml"/>
+</eSubpackages>

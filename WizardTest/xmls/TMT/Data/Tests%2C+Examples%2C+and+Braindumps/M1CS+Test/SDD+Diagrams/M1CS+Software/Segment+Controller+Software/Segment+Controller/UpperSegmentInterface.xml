@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eClassifiers href="ecore:EClass" name="UpperSegmentInterface">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\init.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\reset.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\read.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\write.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\startSensorData.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\stopSensorData.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\encode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\decode.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\port.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\SegmentID.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\firmwareFile.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\Unnamed313.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\sensorDataHandle.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\UpperSegmentInterface\Unnamed314.xml"/>
+</eClassifiers>

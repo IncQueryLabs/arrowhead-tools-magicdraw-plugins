@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eSubpackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ecore:EPackage" name="M1CS">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Annotation112.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Introduction.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Overall+Description.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Specific+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Quality+Control+and+Quality+Assurance+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Proposed+New+Requirements.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Appendix.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\M1CS\Unnamed251.xml"/>
+</eSubpackages>

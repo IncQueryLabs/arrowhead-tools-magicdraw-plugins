@@ -10,10 +10,48 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Arrowhead" basePackage="ecore" disposableProviderFactory="true"
       ecorePackage="arrowhead.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arrowhead.ecore#//SecurityType">
+      <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/NOT_SECURE"/>
+      <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/TOKEN"/>
+      <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/CERTIFICATE"/>
+    </genEnums>
     <genClasses ecoreClass="arrowhead.ecore#//SystemDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemDefinition/producer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemDefinition/project"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemDefinition/services"/>
     </genClasses>
-    <genClasses ecoreClass="arrowhead.ecore#//ServiceDefinition"/>
-    <genClasses ecoreClass="arrowhead.ecore#//InterfaceDefinition"/>
+    <genClasses ecoreClass="arrowhead.ecore#//ServiceDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceDefinition/definer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceDefinition/project"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceDefinition/interfaces"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//InterfaceDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//InterfaceDefinition/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//InterfaceDefinition/secure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//InterfaceDefinition/format"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//SystemRealization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemRealization/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemRealization/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemRealization/authenticationInfo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemRealization/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemRealization/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//ServiceRealization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceRealization/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceRealization/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceRealization/endOfValidity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceRealization/security"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/interfaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//InterfaceDefinition.1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//InterfaceDefinition.1/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//StringToStringMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//StringToStringMap/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//StringToStringMap/value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

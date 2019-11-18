@@ -8,7 +8,7 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>arrowhead.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Arrowhead" basePackage="ecore" disposableProviderFactory="true"
+  <genPackages prefix="Arrowhead" basePackage="com.incquerylabs.arrowhead.ecore" disposableProviderFactory="true"
       ecorePackage="arrowhead.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arrowhead.ecore#//SecurityType">
       <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/NOT_SECURE"/>
@@ -46,12 +46,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/interfaces"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/definition"/>
     </genClasses>
-    <genClasses ecoreClass="arrowhead.ecore#//InterfaceDefinition.1">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//InterfaceDefinition.1/definition"/>
+    <genClasses ecoreClass="arrowhead.ecore#//InterfaceRealization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//InterfaceRealization/definition"/>
     </genClasses>
-    <genClasses ecoreClass="arrowhead.ecore#//StringToStringMap">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//StringToStringMap/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//StringToStringMap/value"/>
+    <genClasses ecoreClass="arrowhead.ecore#//MetaDataEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//MetaDataEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//MetaDataEntry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

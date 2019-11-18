@@ -38,7 +38,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceRealization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" ordered="false"
-        upperBound="-1" eType="#//StringToStringMap"/>
+        upperBound="-1" eType="#//MetaDataEntry"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -46,15 +46,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="security" lowerBound="1"
         eType="#//SecurityType" defaultValueLiteral="NOT_SECURE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" ordered="false"
-        upperBound="-1" eType="#//InterfaceDefinition.1"/>
+        upperBound="-1" eType="#//InterfaceRealization"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="#//ServiceDefinition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InterfaceDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceRealization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="#//InterfaceDefinition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="MetaDataEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

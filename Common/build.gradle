@@ -12,4 +12,5 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.vertx:vertx-core:3.8.3'
 }

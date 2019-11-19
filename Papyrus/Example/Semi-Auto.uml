@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Arrowhead="https://www.arrowhead.eu/papyrus" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="https://www.arrowhead.eu/papyrus ../Papyrus%20Profile/Arrowhead.profile.uml#_RyI8IAoNEeqhPJl0BoeDUQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Arrowhead="https://www.arrowhead.eu/papyrus" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="https://www.arrowhead.eu/papyrus ../Papyrus%20Profile/Arrowhead.profile.uml#_5Py_8ArWEeqUIv832IfNfQ">
   <uml:Model xmi:id="_Din0UAoLEeqhPJl0BoeDUQ" name="Semi-Auto">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_DweqIAoLEeqhPJl0BoeDUQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -7,19 +7,18 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_N2MV4AoLEeqhPJl0BoeDUQ" name="Machine"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_Re3FsAoLEeqhPJl0BoeDUQ" name="MachineStatus"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_WPaDkAoLEeqhPJl0BoeDUQ" name="SimpleStatus"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZRD2sAoLEeqhPJl0BoeDUQ" name="Machine1"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_afyToAoLEeqhPJl0BoeDUQ" name="Machine2"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZRD2sAoLEeqhPJl0BoeDUQ" name="Mech"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_deybYAoLEeqhPJl0BoeDUQ" client="_Din0UAoLEeqhPJl0BoeDUQ" supplier="_Re3FsAoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_eUkM0AoLEeqhPJl0BoeDUQ" client="_Re3FsAoLEeqhPJl0BoeDUQ" supplier="_WPaDkAoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lmjMsAoLEeqhPJl0BoeDUQ" client="_ZRD2sAoLEeqhPJl0BoeDUQ" supplier="_N2MV4AoLEeqhPJl0BoeDUQ"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_mVGUwAoLEeqhPJl0BoeDUQ" client="_afyToAoLEeqhPJl0BoeDUQ" supplier="_N2MV4AoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_rvwmoAoLEeqhPJl0BoeDUQ" name="Statuses"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_uxxmIAoLEeqhPJl0BoeDUQ" client="_rvwmoAoLEeqhPJl0BoeDUQ" supplier="_Re3FsAoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_wrh9EAoLEeqhPJl0BoeDUQ" name="SimpleStatuses"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ymhqIAoLEeqhPJl0BoeDUQ" client="_wrh9EAoLEeqhPJl0BoeDUQ" supplier="_WPaDkAoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0L998AoLEeqhPJl0BoeDUQ" client="_rvwmoAoLEeqhPJl0BoeDUQ" supplier="_wrh9EAoLEeqhPJl0BoeDUQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0ufcMAoLEeqhPJl0BoeDUQ" client="_ZRD2sAoLEeqhPJl0BoeDUQ" supplier="_rvwmoAoLEeqhPJl0BoeDUQ"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_1R9VoAoLEeqhPJl0BoeDUQ" client="_afyToAoLEeqhPJl0BoeDUQ" supplier="_rvwmoAoLEeqhPJl0BoeDUQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WHkcgArXEeqGmZHAH_ep_w" name="Factory"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ZG8XsArXEeqGmZHAH_ep_w" client="_WHkcgArXEeqGmZHAH_ep_w" supplier="_ZRD2sAoLEeqhPJl0BoeDUQ"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lqWSIAoMEeqhPJl0BoeDUQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oAz9wAoNEeqhPJl0BoeDUQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oAz9wQoNEeqhPJl0BoeDUQ" key="Version" value="0.1.1"/>
@@ -29,7 +28,7 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oAz9xQoNEeqhPJl0BoeDUQ" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lqYHUAoMEeqhPJl0BoeDUQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../Papyrus%20Profile/Arrowhead.profile.uml#_RyI8IAoNEeqhPJl0BoeDUQ"/>
+        <references xmi:type="ecore:EPackage" href="../Papyrus%20Profile/Arrowhead.profile.uml#_5Py_8ArWEeqUIv832IfNfQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../Papyrus%20Profile/Arrowhead.profile.uml#_HycnkAoHEeq7vdpu4v-Mlg"/>
     </profileApplication>
@@ -38,16 +37,14 @@
   <Arrowhead:ServiceDefinition xmi:id="_qZErEAoMEeqhPJl0BoeDUQ" base_Class="_Re3FsAoLEeqhPJl0BoeDUQ" definer="Evopro Innovation" project="Semi-Automated Factory"/>
   <Arrowhead:InterfaceDefinition xmi:id="_rLzvkAoMEeqhPJl0BoeDUQ" base_Class="_WPaDkAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:SystemRealization xmi:id="_rxMUkAoMEeqhPJl0BoeDUQ" base_Class="_ZRD2sAoLEeqhPJl0BoeDUQ" host="10.0.1.1" port="8008"/>
-  <Arrowhead:SystemRealization xmi:id="_saKZEAoMEeqhPJl0BoeDUQ" base_Class="_afyToAoLEeqhPJl0BoeDUQ" host="10.0.1.2" port="8008"/>
   <Arrowhead:ServiceRealization xmi:id="_s9r84AoMEeqhPJl0BoeDUQ" base_Class="_rvwmoAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:InterfaceRealization xmi:id="_tqmtQAoMEeqhPJl0BoeDUQ" base_Class="_wrh9EAoLEeqhPJl0BoeDUQ"/>
-  <Arrowhead:RealizesDefinition xmi:id="_uiCrkAoMEeqhPJl0BoeDUQ" base_Dependency="_mVGUwAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:RealizesDefinition xmi:id="_vaunEAoMEeqhPJl0BoeDUQ" base_Dependency="_lmjMsAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:RealizesDefinition xmi:id="_wGNNAAoMEeqhPJl0BoeDUQ" base_Dependency="_uxxmIAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:RealizesDefinition xmi:id="_wp4h0AoMEeqhPJl0BoeDUQ" base_Dependency="_ymhqIAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:ProvidesService xmi:id="_xn8FgAoMEeqhPJl0BoeDUQ" base_Dependency="_deybYAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:ProvidesService xmi:id="_yQNmcAoMEeqhPJl0BoeDUQ" base_Dependency="_0ufcMAoLEeqhPJl0BoeDUQ"/>
-  <Arrowhead:ProvidesService xmi:id="_y7DTMAoMEeqhPJl0BoeDUQ" base_Dependency="_1R9VoAoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:OffersInterface xmi:id="_02YXcAoMEeqhPJl0BoeDUQ" base_Dependency="_0L998AoLEeqhPJl0BoeDUQ"/>
   <Arrowhead:OffersInterface xmi:id="_1dc-gAoMEeqhPJl0BoeDUQ" base_Dependency="_eUkM0AoLEeqhPJl0BoeDUQ"/>
+  <Arrowhead:ContainsSystem xmi:id="_cdO-EArXEeqGmZHAH_ep_w" base_Dependency="_ZG8XsArXEeqGmZHAH_ep_w" multiple="3"/>
 </xmi:XMI>

@@ -69,7 +69,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocalCloud">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="you"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systems" ordered="false"
         upperBound="-1" eType="#//SystemRealization"/>
   </eClassifiers>

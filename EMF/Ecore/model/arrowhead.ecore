@@ -8,6 +8,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="the"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" ordered="false"
         upperBound="-1" eType="#//ServiceDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumed" ordered="false"
+        upperBound="-1" eType="#//InterfaceDefinition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="definer" lowerBound="1"
@@ -35,6 +37,8 @@
         upperBound="-1" eType="#//ServiceRealization"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="#//SystemDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumed" ordered="false"
+        upperBound="-1" eType="#//InterfaceRealization"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceRealization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" ordered="false"
@@ -62,5 +66,11 @@
     <eLiterals name="NOT_SECURE"/>
     <eLiterals name="TOKEN" value="1"/>
     <eLiterals name="CERTIFICATE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalCloud">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" ordered="false"
+        upperBound="-1" eType="#//SystemRealization"/>
   </eClassifiers>
 </ecore:EPackage>

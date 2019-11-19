@@ -19,6 +19,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemDefinition/producer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemDefinition/project"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemDefinition/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemDefinition/consumed"/>
     </genClasses>
     <genClasses ecoreClass="arrowhead.ecore#//ServiceDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//ServiceDefinition/definer"/>
@@ -36,6 +37,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//SystemRealization/authenticationInfo"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemRealization/services"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemRealization/definition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//SystemRealization/consumed"/>
     </genClasses>
     <genClasses ecoreClass="arrowhead.ecore#//ServiceRealization">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//ServiceRealization/metadata"/>
@@ -52,6 +54,10 @@
     <genClasses ecoreClass="arrowhead.ecore#//MetaDataEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//MetaDataEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//MetaDataEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="arrowhead.ecore#//LocalCloud">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arrowhead.ecore#//LocalCloud/operator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arrowhead.ecore#//LocalCloud/systems"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

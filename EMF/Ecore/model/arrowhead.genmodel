@@ -5,11 +5,11 @@
     editorDirectory="/Ecore.editor/src-gen" modelPluginID="Ecore" modelName="Arrowhead"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    operationReflection="true" importOrganizing="true" pluginKey="arrowhead">
   <foreignModel>arrowhead.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Arrowhead" basePackage="com.incquerylabs.arrowhead.ecore" disposableProviderFactory="true"
-      ecorePackage="arrowhead.ecore#/">
+  <genPackages prefix="Arrowhead" basePackage="com.incquerylabs.arrowhead" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="arrowhead.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arrowhead.ecore#//SecurityType">
       <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/NOT_SECURE"/>
       <genEnumLiterals ecoreEnumLiteral="arrowhead.ecore#//SecurityType/TOKEN"/>

@@ -1,4 +1,4 @@
-# Arrwowhead SysML export-import demo
+# Arrowhead SysML export-import demo
 
 *was shown at the Porto workshop on 2019-11-13*
 

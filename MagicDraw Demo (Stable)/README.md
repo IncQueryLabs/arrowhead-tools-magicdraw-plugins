@@ -18,6 +18,6 @@
 2. Import the profile (File -> Use Project -> Use Local Project). Either:
     * Use the *From file system* option
       * The connnection may break if the file containing the profile is moved
-    * Put said file next to the new project and use the *From oredefined location* -> *<project.dir>* option
+    * Put said file next to the new project and use the *From predefined location* -> *<project.dir>* option
       * And move the two of the togeter (the .bak created is just a backup file)
 3. Press finish

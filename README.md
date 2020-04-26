@@ -4,11 +4,7 @@ This repository contains the collection of tools, tests, and other bits develope
 
 See the [Wiki](https://github.com/IncQueryLabs/arrowhead-tools/wiki/) for more details.
 
-## MagicDraw
+## Arrowhead MagicDraw Plugin
 
-Directry containing the MagicDraw Profile and some examples.
-
-## MagicDraw Demo (Stable)
-
-Directory containing the showcase of useful collaboration between IncQuery Labs' MagicDraw plugin and the Management Tool developed by AITIA, using an example use-case provided by Evopro Innovation.
+The plugin is undled with the profile.
 

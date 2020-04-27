@@ -6,5 +6,4 @@ See the [Wiki](https://github.com/IncQueryLabs/arrowhead-tools/wiki/) for more d
 
 ## Arrowhead MagicDraw Plugin
 
-The Arrowhead SysML Profile in MagicDraw (.mdzip) format is available individually here TODO, and also comes bundled with the profile TODO.
-
+The Arrowhead SysML Profile in MagicDraw (.mdzip) format also comes bundled with the [plugin](./Arrowhead MagicDraw Plugin).

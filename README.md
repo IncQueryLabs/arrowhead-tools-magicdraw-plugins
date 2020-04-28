@@ -17,7 +17,7 @@ The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the 
 
 You can locate it in the profiles folder of either the provided .zip plugin or your local MagicDraw installation, after importing the plugin (see below).
 
-For a detailed description of the concepts of the profile itself, refer to its [documentation], automatically generated from MagicDraw using [DocGen](https://github.com/Open-MBEE/mdk/).
+For a detailed description of the concepts of the profile itself, refer to its [documentation](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Profile%20Documentation), automatically generated from MagicDraw using [DocGen](https://github.com/Open-MBEE/mdk/).
 
 ## Advanced MagicDraw Features provided by the plugin
 
@@ -40,7 +40,7 @@ An excerpt of an example AHX JSON:
         "address": "0.0.0.0",
         "port": 1
       },
-      ...
+      {...}
     ],
     "serviceRegistryEntries": [
       {
@@ -56,7 +56,7 @@ An excerpt of an example AHX JSON:
         ],
         "metadata": {}
        },
-       ...
+       {...}
     ],
     "authRules": [
       {
@@ -69,8 +69,7 @@ An excerpt of an example AHX JSON:
           "HTTP-INSECURE-JSON"
         ]
       },
-      ...
-     }
+      {...}
     ]
   }
 ]
@@ -84,7 +83,7 @@ For example, consider changing a port number on some system in the management in
 
 ### Documentation generation
 
-To read more about our documentation approach, visit our first example, the [documentation of the profile itself]. We intend to extend this flexible approach to automated documentation scenarios for industrial use-cases as well.
+To read more about our documentation approach, visit our first example, the [documentation of the profile itself](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Profile%20Documentation). We intend to extend this flexible approach to automated documentation scenarios for industrial use-cases as well.
 
 ### Validation
 

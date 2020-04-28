@@ -89,4 +89,4 @@ To read more about our documentation approach, visit our first example, the [doc
 
 Using [IncQuery Labs' advanced MagicDraw validation add-on](https://incquery.io/incquery-desktop/), we are able to provide automatic, active validation to check the well-formedness of SysML models _during their creation_. Although the validation suite is far from being formally complete, some showcase examples are implemented and active, as shown in the screenshot below:
 
-
+![Validation](https://github.com/IncQueryLabs/arrowhead-tools/blob/master/validation.png?raw=true)

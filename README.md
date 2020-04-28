@@ -31,7 +31,7 @@ The Export feature can be simply invoked from MagicDraw by clicking on File -> E
 
 An example AHX JSON:
 
-''''json
+```json
 [
 {
 "systems": [
@@ -207,10 +207,20 @@ An example AHX JSON:
 ]
 }
 ]
-''''
+```
 
 ### Import from AHX
 
+With some limitations (not to be detailed here), the plugin supports the re-integration of some changes occurring outside MagicDraw.
+
+For example, consider changing a port number on some system in the management interface and exporting it into AHX again (the management tool also supports AHX). Then, using File -> Import -> AHX File, the new model contents are parsed and the changed port number even gets higlighted in MagicDraw!
+
+### Documentation generation
+
+To read more about our documentation approach, visit our first example, the [documentation of the profile itself]. We intend to extend this flexible approach to automated documentation scenarios for industrial use-cases as well.
+
+### Validation
+
+Using [IncQuery Labs' advanced MagicDraw validation add-on](https://incquery.io/incquery-desktop/), we are able to provide automatic, active validation to check the well-formedness of SysML models _during their creation_. Although the validation suite is far from being formally complete, some showcase examples are implemented and active, as shown in the screenshot below:
 
 
-### 

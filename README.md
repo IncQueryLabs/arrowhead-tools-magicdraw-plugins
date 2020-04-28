@@ -13,7 +13,7 @@ on the overall goals and approach of Arrowhead Tools, see the [official website]
 
 ## Arrowhead SysML profile
 
-The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/milan/Arrowhead%20Magicdraw%20Plugin).
+The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Arrowhead%20Magicdraw%20Plugin).
 
 You can locate it in the profiles folder of either the provided .zip plugin or your local MagicDraw installation, after importing the plugin (see below).
 
@@ -21,7 +21,7 @@ For a detailed description of the concepts of the profile itself, refer to its [
 
 ## Advanced MagicDraw Features provided by the plugin
 
-To install the plugin, follow the [MagicDraw plugin import instrcutions](https://docs.nomagic.com/display/NMDOC/Installing+plugins).
+To install the plugin, follow the [MagicDraw plugin import instructions](https://docs.nomagic.com/display/NMDOC/Installing+plugins).
 
 ### Export to AHX
 
@@ -29,183 +29,50 @@ _AHX (ArrowHead eXchange)_ is a slim JSON data format (sometimes also called a _
 
 The Export feature can be simply invoked from MagicDraw by clicking on File -> Export -> AHX File.
 
-An example AHX JSON:
+An excerpt of an example AHX JSON:
 
 ```json
 [
-{
-"systems": [
-{
-"systemName": "Forecaster2",
-"address": "0.0.0.0",
-"port": 1
-},
-{
-"systemName": "Forecaster1",
-"address": "0.0.0.0",
-"port": 1
-},
-{
-"systemName": "IndoorSensor2",
-"address": "127.9.6.3",
-"port": 77
-},
-{
-"systemName": "IndoorSensor1",
-"address": "127.8.1.2",
-"port": 333
-},
-{
-"systemName": "OutdoorSensor",
-"address": "0.0.0.0",
-"port": 9
-},
-{
-"systemName": "HUI",
-"address": "192.168.1.0",
-"port": 0
-}
-],
-"serviceRegistryEntries": [
-{
-"serviceDefinition": "SenML EnergyForecast",
-"provider": {
-"systemName": "Forecaster2",
-"address": "0.0.0.0",
-"port": 1
-},
-"secure": "NOT_SECURE",
-"interfaces": [
-"HTTP-INSECURE-JSON"
-],
-"metadata": {}
-},
-{
-"serviceDefinition": "SenML IndoorData",
-"provider": {
-"systemName": "IndoorSensor1",
-"address": "127.8.1.2",
-"port": 333
-},
-"secure": "NOT_SECURE",
-"interfaces": [
-"HTTP-INSECURE-JSON"
-],
-"metadata": {}
-},
-{
-"serviceDefinition": "SenML IndoorData",
-"provider": {
-"systemName": "IndoorSensor2",
-"address": "127.9.6.3",
-"port": 77
-},
-"secure": "NOT_SECURE",
-"interfaces": [
-"HTTP-INSECURE-JSON"
-],
-"metadata": {}
-},
-{
-"serviceDefinition": "SenML EnergyForecast",
-"provider": {
-"systemName": "Forecaster1",
-"address": "0.0.0.0",
-"port": 1
-},
-"secure": "NOT_SECURE",
-"interfaces": [
-"HTTP-INSECURE-JSON"
-],
-"metadata": {}
-},
-{
-"serviceDefinition": "SenML OutdoorData",
-"provider": {
-"systemName": "OutdoorSensor",
-"address": "0.0.0.0",
-"port": 9
-},
-"secure": "NOT_SECURE",
-"interfaces": [
-"HTTP-INSECURE-JSON"
-],
-"metadata": {}
-}
-],
-"authRules": [
-{
-"consumer": "Forecaster1",
-"serviceDefinition": "SenML OutdoorData",
-"providers": [
-"OutdoorSensor"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "Forecaster2",
-"serviceDefinition": "SenML IndoorData",
-"providers": [
-"IndoorSensor1"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "HUI",
-"serviceDefinition": "SenML EnergyForecast",
-"providers": [
-"Forecaster2"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "Forecaster2",
-"serviceDefinition": "SenML OutdoorData",
-"providers": [
-"OutdoorSensor"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "Forecaster2",
-"serviceDefinition": "SenML IndoorData",
-"providers": [
-"IndoorSensor2"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "Forecaster1",
-"serviceDefinition": "SenML IndoorData",
-"providers": [
-"IndoorSensor1"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-},
-{
-"consumer": "HUI",
-"serviceDefinition": "SenML EnergyForecast",
-"providers": [
-"Forecaster1"
-],
-"interfaces": [
-"HTTP-INSECURE-JSON"
-]
-}
-]
-}
+  {
+    "systems": [
+      {
+        "systemName": "Forecaster1",
+        "address": "0.0.0.0",
+        "port": 1
+      },
+      ...
+    ],
+    "serviceRegistryEntries": [
+      {
+        "serviceDefinition": "SenML EnergyForecast",
+        "provider": {
+          "systemName": "Forecaster1",
+          "address": "0.0.0.0",
+          "port": 1
+        },
+        "secure": "NOT_SECURE",
+        "interfaces": [
+          "HTTP-INSECURE-JSON"
+        ],
+        "metadata": {}
+       },
+       ...
+    ],
+    "authRules": [
+      {
+        "consumer": "Forecaster1",
+        "serviceDefinition": "SenML OutdoorData",
+        "providers": [
+          "OutdoorSensor"
+        ],
+        "interfaces": [
+          "HTTP-INSECURE-JSON"
+        ]
+      },
+      ...
+     }
+    ]
+  }
 ]
 ```
 

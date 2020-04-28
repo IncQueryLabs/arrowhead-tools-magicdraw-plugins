@@ -1,9 +1,216 @@
-# Arrowhead Tools
+# SysML in Arrowhead Tools
 
-This repository contains the collection of tools, tests, and other bits developed by IncQuery Labs.
+This repository contains the *Arrowhead MagicDraw Plugin* developed by IncQuery Labs.
 
-See the [Wiki](https://github.com/IncQueryLabs/arrowhead-tools/wiki/) for more details.
+The purpose of this plugin is to provide
+* a reference realization of the *Arrowhead SysML Profile* (see later),
+* and a collection of MagicDraw-specific features for advanced features and enhanced user experience on this platform.
 
-## Arrowhead MagicDraw Plugin
+Here, we treat MagicDraw and Cameo Systems Modeler equivalently (the latter being MagicDraw with integrated SysML support, which can be individually installed for MagicDraw as well), and refer to both tools as MagicDraw. Development and testing was performed using Cameo Systems Modeler 19.0 SP3.
 
-The Arrowhead SysML Profile in MagicDraw (.mdzip) format also comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/milan/Arrowhead%20Magicdraw%20Plugin).
+This repository focuses on leveraging SySML technology within the Arrowhead Tools project; for more information 
+on the overall goals and approach of Arrowhead Tools, see the [official website](https://www.arrowhead.eu/arrowheadtools).
+
+## Arrowhead SysML profile
+
+The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/milan/Arrowhead%20Magicdraw%20Plugin).
+
+You can locate it in the profiles folder of either the provided .zip plugin or your local MagicDraw installation, after importing the plugin (see below).
+
+For a detailed description of the concepts of the profile itself, refer to its [documentation], automatically generated from MagicDraw using [DocGen](https://github.com/Open-MBEE/mdk/).
+
+## Advanced MagicDraw Features provided by the plugin
+
+To install the plugin, follow the [MagicDraw plugin import instrcutions](https://docs.nomagic.com/display/NMDOC/Installing+plugins).
+
+### Export to AHX
+
+_AHX (ArrowHead eXchange)_ is a slim JSON data format (sometimes also called a _semantics_) for providing a _toolchain_ integrating SysML models (representing design-time considerations) with running Arrowhead local clouds via their management interface.
+
+The Export feature can be simply invoked from MagicDraw by clicking on File -> Export -> AHX File.
+
+An example AHX JSON:
+
+''''json
+[
+{
+"systems": [
+{
+"systemName": "Forecaster2",
+"address": "0.0.0.0",
+"port": 1
+},
+{
+"systemName": "Forecaster1",
+"address": "0.0.0.0",
+"port": 1
+},
+{
+"systemName": "IndoorSensor2",
+"address": "127.9.6.3",
+"port": 77
+},
+{
+"systemName": "IndoorSensor1",
+"address": "127.8.1.2",
+"port": 333
+},
+{
+"systemName": "OutdoorSensor",
+"address": "0.0.0.0",
+"port": 9
+},
+{
+"systemName": "HUI",
+"address": "192.168.1.0",
+"port": 0
+}
+],
+"serviceRegistryEntries": [
+{
+"serviceDefinition": "SenML EnergyForecast",
+"provider": {
+"systemName": "Forecaster2",
+"address": "0.0.0.0",
+"port": 1
+},
+"secure": "NOT_SECURE",
+"interfaces": [
+"HTTP-INSECURE-JSON"
+],
+"metadata": {}
+},
+{
+"serviceDefinition": "SenML IndoorData",
+"provider": {
+"systemName": "IndoorSensor1",
+"address": "127.8.1.2",
+"port": 333
+},
+"secure": "NOT_SECURE",
+"interfaces": [
+"HTTP-INSECURE-JSON"
+],
+"metadata": {}
+},
+{
+"serviceDefinition": "SenML IndoorData",
+"provider": {
+"systemName": "IndoorSensor2",
+"address": "127.9.6.3",
+"port": 77
+},
+"secure": "NOT_SECURE",
+"interfaces": [
+"HTTP-INSECURE-JSON"
+],
+"metadata": {}
+},
+{
+"serviceDefinition": "SenML EnergyForecast",
+"provider": {
+"systemName": "Forecaster1",
+"address": "0.0.0.0",
+"port": 1
+},
+"secure": "NOT_SECURE",
+"interfaces": [
+"HTTP-INSECURE-JSON"
+],
+"metadata": {}
+},
+{
+"serviceDefinition": "SenML OutdoorData",
+"provider": {
+"systemName": "OutdoorSensor",
+"address": "0.0.0.0",
+"port": 9
+},
+"secure": "NOT_SECURE",
+"interfaces": [
+"HTTP-INSECURE-JSON"
+],
+"metadata": {}
+}
+],
+"authRules": [
+{
+"consumer": "Forecaster1",
+"serviceDefinition": "SenML OutdoorData",
+"providers": [
+"OutdoorSensor"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "Forecaster2",
+"serviceDefinition": "SenML IndoorData",
+"providers": [
+"IndoorSensor1"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "HUI",
+"serviceDefinition": "SenML EnergyForecast",
+"providers": [
+"Forecaster2"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "Forecaster2",
+"serviceDefinition": "SenML OutdoorData",
+"providers": [
+"OutdoorSensor"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "Forecaster2",
+"serviceDefinition": "SenML IndoorData",
+"providers": [
+"IndoorSensor2"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "Forecaster1",
+"serviceDefinition": "SenML IndoorData",
+"providers": [
+"IndoorSensor1"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+},
+{
+"consumer": "HUI",
+"serviceDefinition": "SenML EnergyForecast",
+"providers": [
+"Forecaster1"
+],
+"interfaces": [
+"HTTP-INSECURE-JSON"
+]
+}
+]
+}
+]
+''''
+
+### Import from AHX
+
+
+
+### 

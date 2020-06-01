@@ -1,0 +1,1119 @@
+(0, 0.5656564) "The toolchain name is Arrowhead Systems Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Arrowhead Validation Utility as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Systems Management Engine as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The third tool has SysML Engine as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Store as name. It has Arrowhead Validation Utility as source. It has Systems Management Engine as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has Live Store as name. It has Systems Management Engine as source. It has SysML Engine as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Management Connector as name. It has Systems SysML Interface as source. It has Conversion Tool as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(4, 0.49024552)
+"The toolchain name is Validation System Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Validation Runtime as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has System of Systems SysML Runtime as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The third tool has Conversion Interface as tool name. It covers 7 engineering phases. The first engineering phase is Evolution. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design. The fourth engineering phase is Requirements. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Maintenance. The seventh engineering phase is Operation & Management.
+
+The fourth tool has Arrowhead Conversion Engine as tool name. It covers 5 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Operation & Management. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Requirements. The fifth engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Port as name. It has Validation Runtime as source. It has System of Systems SysML Runtime as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Monitoring Store as name. It has Validation Runtime as source. It has System of Systems SysML Runtime as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The third interface has Publication Connector as name. It has Systems Validation Engine as source. It has Systems Conversion Utility as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(21, 0.48688462)
+"The toolchain name is Design Open Toolchain.
+
+It consists of 2 tools.
+
+The first tool has Design Tool as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The second tool has Open Conversion Utility as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Publication Store as name. It has Design Tool as source. It has Open Conversion Utility as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The second interface has SysML Store as name. It has Design Tool as source. It has Open Design Runtime as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Management Port as name. It has Design Tool as source. It has Design Tool as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(2, 0.48044196)
+"The toolchain name is Arrowhead Magic Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Arrowhead SysML Interface as tool name. It covers 8 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Requirements. The third engineering phase is Functional Design. The fourth engineering phase is Operation & Management. The fifth engineering phase is Training & Education. The sixth engineering phase is Evolution. The seventh engineering phase is Procurement & Engineering. The eighth engineering phase is Deployment & Commissioning.
+
+The second tool has Magic Testing Interface as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The third tool has Secure Testing Validator as tool name. It covers 6 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Operation & Management. The third engineering phase is Requirements. The fourth engineering phase is Functional Design. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Connection as name. It has Arrowhead SysML Interface as source. It has Magic Testing Interface as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Live Connection as name. It has Secure Testing Validator as source. It has Design Runtime as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Publication Store as name. It has System of Systems Testing Engine as source. It has System of Systems Testing Tool as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(11, 0.47355893)
+"The toolchain name is Arrowhead SysML Toolchain.
+
+It consists of 2 tools.
+
+The first tool has Arrowhead Design Interface as tool name. It covers 7 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Operation & Management. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Evolution. The fifth engineering phase is Functional Design. The sixth engineering phase is Requirements. The seventh engineering phase is Procurement & Engineering.
+
+The second tool has SysML Utility as tool name. It covers 4 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Deployment & Commissioning. The third engineering phase is Functional Design. The fourth engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Store as name. It has Arrowhead Design Interface as source. It has SysML Utility as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has Arrowhead Connector as name. It has Testing Utility as source. It has Magic Testing Validator as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has Publication Connector as name. It has Arrowhead Design Interface as source. It has Systems Conversion Tool as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(29, 0.4485165)
+"The toolchain name is Arrowhead Testing Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Arrowhead Conversion Tool as tool name. It covers 8 engineering phases. The first engineering phase is Training & Education. The second engineering phase is Operation & Management. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Evolution. The fifth engineering phase is Requirements. The sixth engineering phase is Deployment & Commissioning. The seventh engineering phase is Maintenance. The eighth engineering phase is Functional Design.
+
+The second tool has Testing Validator as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Requirements. The third engineering phase is Training & Education. The fourth engineering phase is Procurement & Engineering. The fifth engineering phase is Operation & Management. The sixth engineering phase is Functional Design. The seventh engineering phase is Evolution. The eighth engineering phase is Maintenance.
+
+The third tool has SysML Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Evolution. The fourth engineering phase is Operation & Management. The fifth engineering phase is Maintenance. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Requirements.
+
+The fourth tool has Arrowhead SysML Runtime as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Operation & Management. The fourth engineering phase is Evolution. The fifth engineering phase is Maintenance. The sixth engineering phase is Training & Education. The seventh engineering phase is Requirements. The eighth engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has SysML Store as name. It has Arrowhead Conversion Tool as source. It has Testing Validator as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The second interface has Arrowhead Store as name. It has System of Systems Management Validator as source. It has System of Systems Testing Tool as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has Management Port as name. It has Arrowhead SysML Runtime as source. It has Open Design Utility as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(35, 0.41361088)
+"The toolchain name is Smart Magic Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Smart Validation Interface as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Requirements. The third engineering phase is Functional Design. The fourth engineering phase is Operation & Management. The fifth engineering phase is Procurement & Engineering. The sixth engineering phase is Maintenance. The seventh engineering phase is Evolution. The eighth engineering phase is Training & Education.
+
+The second tool has Magic Testing Utility as tool name. It covers 8 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Deployment & Commissioning. The third engineering phase is Operation & Management. The fourth engineering phase is Requirements. The fifth engineering phase is Maintenance. The sixth engineering phase is Training & Education. The seventh engineering phase is Evolution. The eighth engineering phase is Functional Design.
+
+The third tool has Conversion Runtime as tool name. It covers 8 engineering phases. The first engineering phase is Requirements. The second engineering phase is Procurement & Engineering. The third engineering phase is Operation & Management. The fourth engineering phase is Functional Design. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Training & Education. The seventh engineering phase is Evolution. The eighth engineering phase is Maintenance.
+
+The fourth tool has Smart Conversion Utility as tool name. It covers 4 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements. The fourth engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Connector as name. It has Smart Validation Interface as source. It has Magic Testing Utility as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has SysML Port as name. It has Arrowhead Validation Validator as source. It has Conversion Runtime as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Monitoring Port as name. It has Arrowhead Testing Tool as source. It has Smart Conversion Utility as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(8, 0.39510378)
+"The toolchain name is Secure Open Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Secure Design Validator as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Open Validation Validator as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The third tool has Open Validation Interface as tool name. It covers 7 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Operation & Management. The sixth engineering phase is Evolution. The seventh engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Store as name. It has Secure Design Validator as source. It has Open Validation Validator as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Monitoring Store as name. It has SysML Engine as source. It has Secure Design Validator as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The third interface has Validation Port as name. It has Open Validation Validator as source. It has Arrowhead Testing Utility as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+
+(17, 0.38787323)
+"The toolchain name is Arrowhead Open Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Arrowhead Testing Utility as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The second tool has Open Management Tool as tool name. It covers 8 engineering phases. The first engineering phase is Evolution. The second engineering phase is Deployment & Commissioning. The third engineering phase is Functional Design. The fourth engineering phase is Maintenance. The fifth engineering phase is Operation & Management. The sixth engineering phase is Training & Education. The seventh engineering phase is Requirements. The eighth engineering phase is Procurement & Engineering.
+
+The third tool has Design Runtime as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements.
+
+The fourth tool has Open Validation Engine as tool name. It covers 5 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Functional Design. The third engineering phase is Operation & Management. The fourth engineering phase is Procurement & Engineering. The fifth engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Connection as name. It has Arrowhead Testing Utility as source. It has Open Management Tool as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has SysML Port as name. It has Design Runtime as source. It has Design Runtime as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Monitoring Store as name. It has Systems Conversion Validator as source. It has System of Systems Testing Engine as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(16, 0.3345989)
+"The toolchain name is Magic Secure Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Magic SysML Engine as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Secure Conversion Tool as tool name. It covers 6 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Functional Design. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Maintenance. The fifth engineering phase is Procurement & Engineering. The sixth engineering phase is Requirements.
+
+The third tool has Open Conversion Runtime as tool name. It covers 8 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Maintenance. The fourth engineering phase is Operation & Management. The fifth engineering phase is Procurement & Engineering. The sixth engineering phase is Requirements. The seventh engineering phase is Evolution. The eighth engineering phase is Training & Education.
+
+The fourth tool has Secure Testing Validator as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The fifth tool has Arrowhead SysML Runtime as tool name. It covers 6 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Deployment & Commissioning. The third engineering phase is Requirements. The fourth engineering phase is Functional Design. The fifth engineering phase is Operation & Management. The sixth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Validation Connector as name. It has Magic SysML Engine as source. It has Secure Conversion Tool as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+The second interface has SysML Exchange as name. It has Testing Engine as source. It has System of Systems SysML Tool as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Live Port as name. It has System of Systems Validation Engine as source. It has SysML Engine as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+
+(38, 0.32922044)
+"The toolchain name is Open Open Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Open Validation Engine as tool name. It covers 6 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Functional Design. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Requirements. The fifth engineering phase is Maintenance. The sixth engineering phase is Operation & Management.
+
+The second tool has Open Conversion Interface as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The third tool has System of Systems Testing Validator as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Operation & Management. The third engineering phase is Maintenance. The fourth engineering phase is Requirements. The fifth engineering phase is Evolution. The sixth engineering phase is Training & Education. The seventh engineering phase is Functional Design. The eighth engineering phase is Procurement & Engineering.
+
+The fourth tool has Secure Testing Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The fifth tool has System of Systems SysML Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Management Connector as name. It has Open Validation Engine as source. It has Open Conversion Interface as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The second interface has Live Connector as name. It has Secure Testing Tool as source. It has Systems Management Validator as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Monitoring Port as name. It has System of Systems Testing Validator as source. It has Arrowhead Validation Engine as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(26, 0.32740062)
+"The toolchain name is System Secure Toolchain.
+
+It consists of 2 tools.
+
+The first tool has System of Systems SysML Runtime as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Requirements.
+
+The second tool has Secure Management Tool as tool name. It covers 3 engineering phases. The first engineering phase is Requirements. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Store as name. It has System of Systems SysML Runtime as source. It has Secure Management Tool as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Arrowhead Exchange as name. It has Secure Management Tool as source. It has System of Systems SysML Runtime as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has Design Exchange as name. It has Systems Testing Engine as source. It has Secure Management Tool as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+
+(10, 0.3240779)
+"The toolchain name is Smart Design Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Smart SysML Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Design Utility as tool name. It covers 4 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements. The fourth engineering phase is Functional Design.
+
+The third tool has System of Systems Testing Utility as tool name. It covers 5 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design. The fourth engineering phase is Requirements. The fifth engineering phase is Operation & Management.
+
+The fourth tool has Smart Management Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Operation & Management. The third engineering phase is Evolution. The fourth engineering phase is Requirements. The fifth engineering phase is Maintenance. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Functional Design.
+
+The fifth tool has System of Systems Conversion Interface as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Connection as name. It has Smart SysML Tool as source. It has Design Utility as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has Publication Port as name. It has System of Systems Conversion Interface as source. It has Smart Management Runtime as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Publication Port as name. It has Design Utility as source. It has Open Testing Tool as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(19, 0.31415266)
+"The toolchain name is Open Secure Toolchain.
+
+It consists of 2 tools.
+
+The first tool has Open Conversion Runtime as tool name. It covers 4 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Functional Design. The third engineering phase is Requirements. The fourth engineering phase is Deployment & Commissioning.
+
+The second tool has Secure Testing Validator as tool name. It covers 6 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Maintenance. The third engineering phase is Operation & Management. The fourth engineering phase is Functional Design. The fifth engineering phase is Requirements. The sixth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Connector as name. It has Open Conversion Runtime as source. It has Secure Testing Validator as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Design Connector as name. It has Secure Testing Validator as source. It has Open SysML Interface as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The third interface has Publication Store as name. It has Open Conversion Runtime as source. It has Magic Testing Validator as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(20, 0.3116325)
+"The toolchain name is SysML SysML Toolchain.
+
+It consists of 4 tools.
+
+The first tool has SysML Runtime as tool name. It covers 8 engineering phases. The first engineering phase is Evolution. The second engineering phase is Maintenance. The third engineering phase is Operation & Management. The fourth engineering phase is Requirements. The fifth engineering phase is Functional Design. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Training & Education. The eighth engineering phase is Deployment & Commissioning.
+
+The second tool has SysML Utility as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Procurement & Engineering. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Requirements.
+
+The third tool has Systems Management Tool as tool name. It covers 4 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Functional Design.
+
+The fourth tool has Arrowhead Design Validator as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Store as name. It has SysML Runtime as source. It has SysML Utility as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has SysML Port as name. It has SysML Runtime as source. It has SysML Runtime as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has SysML Connection as name. It has Smart Validation Engine as source. It has Arrowhead Design Validator as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+
+(32, 0.3064074)
+"The toolchain name is SysML Magic Toolchain.
+
+It consists of 5 tools.
+
+The first tool has SysML Engine as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Magic Testing Engine as tool name. It covers 7 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Operation & Management. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Evolution. The sixth engineering phase is Requirements. The seventh engineering phase is Functional Design.
+
+The third tool has Validation Utility as tool name. It covers 6 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Operation & Management. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Maintenance. The fifth engineering phase is Functional Design. The sixth engineering phase is Requirements.
+
+The fourth tool has Validation Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Evolution. The third engineering phase is Maintenance. The fourth engineering phase is Requirements. The fifth engineering phase is Functional Design. The sixth engineering phase is Operation & Management. The seventh engineering phase is Procurement & Engineering.
+
+The fifth tool has Magic Validation Interface as tool name. It covers 7 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Operation & Management. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Functional Design. The fifth engineering phase is Maintenance. The sixth engineering phase is Requirements. The seventh engineering phase is Evolution.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Connector as name. It has SysML Engine as source. It has Magic Testing Engine as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Design Port as name. It has System of Systems Testing Engine as source. It has Arrowhead Design Validator as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The third interface has SysML Port as name. It has Systems SysML Interface as source. It has Design Interface as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+
+(14, 0.3056274)
+"The toolchain name is SysML Systems Toolchain.
+
+It consists of 5 tools.
+
+The first tool has SysML Utility as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Systems Design Interface as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements.
+
+The third tool has Smart Conversion Engine as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The fourth tool has System of Systems Conversion Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The fifth tool has Smart Testing Engine as tool name. It covers 7 engineering phases. The first engineering phase is Evolution. The second engineering phase is Procurement & Engineering. The third engineering phase is Maintenance. The fourth engineering phase is Functional Design. The fifth engineering phase is Requirements. The sixth engineering phase is Operation & Management. The seventh engineering phase is Deployment & Commissioning.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Connector as name. It has SysML Utility as source. It has Systems Design Interface as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has Monitoring Port as name. It has Smart Testing Engine as source. It has Secure Management Tool as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The third interface has Monitoring Connector as name. It has Systems Design Interface as source. It has Arrowhead Validation Validator as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(12, 0.29905805)
+"The toolchain name is System Smart Toolchain.
+
+It consists of 3 tools.
+
+The first tool has System of Systems Testing Tool as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The second tool has Smart Testing Tool as tool name. It covers 4 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Requirements. The third engineering phase is Functional Design. The fourth engineering phase is Procurement & Engineering.
+
+The third tool has Magic Management Utility as tool name. It covers 8 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Operation & Management. The third engineering phase is Evolution. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Functional Design. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Requirements. The eighth engineering phase is Training & Education.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Connector as name. It has System of Systems Testing Tool as source. It has Smart Testing Tool as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Arrowhead Connection as name. It has Systems Testing Validator as source. It has Magic Management Utility as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has SysML Connector as name. It has Open Validation Engine as source. It has Magic Management Utility as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+
+(27, 0.298825)
+"The toolchain name is Magic System Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Magic Design Utility as tool name. It covers 5 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Functional Design. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Requirements. The fifth engineering phase is Procurement & Engineering.
+
+The second tool has System of Systems Design Runtime as tool name. It covers 6 engineering phases. The first engineering phase is Requirements. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design. The fourth engineering phase is Maintenance. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Operation & Management.
+
+The third tool has Open Testing Validator as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The fourth tool has System of Systems SysML Engine as tool name. It covers 6 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements. The fourth engineering phase is Functional Design. The fifth engineering phase is Maintenance. The sixth engineering phase is Deployment & Commissioning.
+
+The fifth tool has Smart Testing Utility as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Publication Connector as name. It has Magic Design Utility as source. It has System of Systems Design Runtime as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The second interface has Monitoring Connector as name. It has System of Systems SysML Engine as source. It has Open Testing Validator as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The third interface has Live Connector as name. It has Arrowhead SysML Tool as source. It has Smart Testing Utility as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+
+(28, 0.29859498)
+"The toolchain name is SysML Validation Toolchain.
+
+It consists of 3 tools.
+
+The first tool has SysML Validator as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The second tool has Validation Runtime as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The third tool has Arrowhead Conversion Utility as tool name. It covers 7 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Requirements. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Procurement & Engineering. The fifth engineering phase is Maintenance. The sixth engineering phase is Evolution. The seventh engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Connection as name. It has SysML Validator as source. It has Validation Runtime as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Live Connection as name. It has Systems Validation Engine as source. It has Open Management Utility as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Management Connection as name. It has Magic Testing Engine as source. It has Arrowhead SysML Interface as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(5, 0.28744036)
+"The toolchain name is Secure Secure Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Secure Conversion Engine as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Secure Testing Validator as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The third tool has Open Conversion Validator as tool name. It covers 5 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Functional Design. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Operation & Management. The fifth engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Connection as name. It has Secure Conversion Engine as source. It has Secure Testing Validator as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has SysML Connector as name. It has Open Conversion Validator as source. It has Open Conversion Validator as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Validation Store as name. It has Smart Validation Utility as source. It has Secure Design Tool as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+
+(25, 0.2773822)
+"The toolchain name is Secure Secure Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Secure Management Runtime as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Secure SysML Utility as tool name. It covers 7 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Evolution. The third engineering phase is Functional Design. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Requirements. The sixth engineering phase is Maintenance. The seventh engineering phase is Operation & Management.
+
+The third tool has Secure Design Utility as tool name. It covers 6 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Procurement & Engineering. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Operation & Management. The fifth engineering phase is Maintenance. The sixth engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has SysML Connection as name. It has Secure Management Runtime as source. It has Secure SysML Utility as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The second interface has Arrowhead Connector as name. It has Secure SysML Utility as source. It has Secure SysML Utility as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has Management Connector as name. It has System of Systems Design Utility as source. It has Conversion Interface as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(31, 0.2712251)
+"The toolchain name is Secure Systems Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Secure SysML Interface as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Systems Testing Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The third tool has Secure Testing Utility as tool name. It covers 6 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Functional Design. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Operation & Management. The fifth engineering phase is Requirements. The sixth engineering phase is Maintenance.
+
+The fourth tool has Smart Conversion Interface as tool name. It covers 8 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Deployment & Commissioning. The third engineering phase is Functional Design. The fourth engineering phase is Maintenance. The fifth engineering phase is Requirements. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Evolution. The eighth engineering phase is Training & Education.
+
+The fifth tool has Secure Design Tool as tool name. It covers 7 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Evolution. The third engineering phase is Maintenance. The fourth engineering phase is Requirements. The fifth engineering phase is Operation & Management. The sixth engineering phase is Functional Design. The seventh engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Connector as name. It has Secure SysML Interface as source. It has Systems Testing Tool as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has SysML Connector as name. It has Open Conversion Validator as source. It has Smart Conversion Interface as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Design Connector as name. It has Magic Conversion Tool as source. It has Secure Conversion Engine as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+
+(23, 0.2709265)
+"The toolchain name is Arrowhead Open Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Arrowhead SysML Validator as tool name. It covers 6 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Maintenance. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Operation & Management. The sixth engineering phase is Requirements.
+
+The second tool has Open Conversion Utility as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The third tool has Open Design Engine as tool name. It covers 8 engineering phases. The first engineering phase is Evolution. The second engineering phase is Training & Education. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Maintenance. The fifth engineering phase is Procurement & Engineering. The sixth engineering phase is Functional Design. The seventh engineering phase is Requirements. The eighth engineering phase is Operation & Management.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Management Exchange as name. It has Arrowhead SysML Validator as source. It has Open Conversion Utility as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The second interface has Live Connection as name. It has Open Conversion Utility as source. It has Arrowhead SysML Validator as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Design Connector as name. It has Arrowhead Design Interface as source. It has Arrowhead SysML Validator as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+
+(33, 0.25729945)
+"The toolchain name is Smart Magic Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Smart SysML Engine as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Requirements.
+
+The second tool has Magic Validation Runtime as tool name. It covers 8 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Functional Design. The third engineering phase is Training & Education. The fourth engineering phase is Procurement & Engineering. The fifth engineering phase is Evolution. The sixth engineering phase is Requirements. The seventh engineering phase is Operation & Management. The eighth engineering phase is Deployment & Commissioning.
+
+The third tool has Smart Validation Runtime as tool name. It covers 5 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Operation & Management. The fourth engineering phase is Requirements. The fifth engineering phase is Functional Design.
+
+The fourth tool has Magic Conversion Engine as tool name. It covers 2 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements.
+
+The fifth tool has Validation Validator as tool name. It covers 7 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Evolution. The third engineering phase is Requirements. The fourth engineering phase is Operation & Management. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Maintenance. The seventh engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Connector as name. It has Smart SysML Engine as source. It has Magic Validation Runtime as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has Validation Connector as name. It has Magic SysML Interface as source. It has Magic Conversion Engine as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+The third interface has Design Exchange as name. It has Smart SysML Engine as source. It has Arrowhead SysML Runtime as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+
+(6, 0.24274954)
+"The toolchain name is System Smart Toolchain.
+
+It consists of 2 tools.
+
+The first tool has System of Systems Design Runtime as tool name. It covers 4 engineering phases. The first engineering phase is Requirements. The second engineering phase is Procurement & Engineering. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Functional Design.
+
+The second tool has Smart Conversion Interface as tool name. It covers 5 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Requirements. The third engineering phase is Operation & Management. The fourth engineering phase is Functional Design. The fifth engineering phase is Deployment & Commissioning.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Validation Connector as name. It has System of Systems Design Runtime as source. It has Smart Conversion Interface as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+The second interface has Design Connector as name. It has System of Systems Design Runtime as source. It has Smart Conversion Interface as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The third interface has Monitoring Connector as name. It has Smart Conversion Interface as source. It has System of Systems Design Runtime as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(30, 0.237087)
+"The toolchain name is System Arrowhead Toolchain.
+
+It consists of 5 tools.
+
+The first tool has System of Systems SysML Engine as tool name. It covers 5 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Operation & Management. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Functional Design. The fifth engineering phase is Requirements.
+
+The second tool has Arrowhead Testing Utility as tool name. It covers 7 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Evolution. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Functional Design. The fifth engineering phase is Maintenance. The sixth engineering phase is Requirements. The seventh engineering phase is Operation & Management.
+
+The third tool has Secure Conversion Interface as tool name. It covers 4 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Functional Design. The third engineering phase is Requirements. The fourth engineering phase is Procurement & Engineering.
+
+The fourth tool has Systems Design Engine as tool name. It covers 3 engineering phases. The first engineering phase is Requirements. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design.
+
+The fifth tool has Smart Testing Tool as tool name. It covers 6 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Maintenance. The fifth engineering phase is Operation & Management. The sixth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Management Exchange as name. It has System of Systems SysML Engine as source. It has Arrowhead Testing Utility as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The second interface has Management Store as name. It has System of Systems SysML Engine as source. It has Arrowhead Testing Utility as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The third interface has SysML Exchange as name. It has Smart Testing Tool as source. It has Smart Conversion Validator as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+
+(1, 0.22957093)
+"The toolchain name is SysML System Toolchain.
+
+It consists of 3 tools.
+
+The first tool has SysML Interface as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Maintenance. The third engineering phase is Requirements. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Operation & Management. The sixth engineering phase is Evolution. The seventh engineering phase is Procurement & Engineering.
+
+The second tool has System of Systems Validation Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements. The fourth engineering phase is Maintenance. The fifth engineering phase is Evolution. The sixth engineering phase is Functional Design. The seventh engineering phase is Operation & Management.
+
+The third tool has Magic Management Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Publication Exchange as name. It has SysML Interface as source. It has System of Systems Validation Runtime as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The second interface has Management Store as name. It has Arrowhead Conversion Runtime as source. It has SysML Interface as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The third interface has Live Exchange as name. It has SysML Interface as source. It has Systems Testing Utility as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+
+(18, 0.22318876)
+"The toolchain name is System Secure Toolchain.
+
+It consists of 2 tools.
+
+The first tool has System of Systems Conversion Utility as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Operation & Management. The fifth engineering phase is Evolution. The sixth engineering phase is Deployment & Commissioning. The seventh engineering phase is Maintenance.
+
+The second tool has Secure SysML Tool as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Operation & Management. The third engineering phase is Evolution. The fourth engineering phase is Requirements. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Maintenance.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Port as name. It has System of Systems Conversion Utility as source. It has Secure SysML Tool as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has SysML Connection as name. It has Secure SysML Tool as source. It has Magic Design Engine as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+The third interface has Monitoring Connector as name. It has System of Systems SysML Tool as source. It has Systems Conversion Tool as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(34, 0.21637207)
+"The toolchain name is System Secure Toolchain.
+
+It consists of 3 tools.
+
+The first tool has System of Systems Management Tool as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Secure Design Interface as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Evolution. The fourth engineering phase is Requirements. The fifth engineering phase is Maintenance. The sixth engineering phase is Training & Education. The seventh engineering phase is Functional Design. The eighth engineering phase is Operation & Management.
+
+The third tool has Open Validation Utility as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Management Store as name. It has System of Systems Management Tool as source. It has Secure Design Interface as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The second interface has Live Store as name. It has Systems Testing Tool as source. It has Open Validation Utility as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has SysML Port as name. It has System of Systems Management Tool as source. It has Open Validation Utility as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+
+(22, 0.20996794)
+"The toolchain name is Arrowhead Smart Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Arrowhead Design Engine as tool name. It covers 8 engineering phases. The first engineering phase is Evolution. The second engineering phase is Maintenance. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Operation & Management. The fifth engineering phase is Functional Design. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Training & Education. The eighth engineering phase is Requirements.
+
+The second tool has Smart SysML Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Maintenance. The fifth engineering phase is Operation & Management. The sixth engineering phase is Evolution. The seventh engineering phase is Requirements.
+
+The third tool has Arrowhead Testing Runtime as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The fourth tool has Design Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Requirements. The second engineering phase is Deployment & Commissioning. The third engineering phase is Evolution. The fourth engineering phase is Maintenance. The fifth engineering phase is Operation & Management. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Functional Design.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Store as name. It has Arrowhead Design Engine as source. It has Smart SysML Runtime as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has Publication Connection as name. It has Arrowhead Testing Runtime as source. It has Arrowhead Testing Runtime as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Management Port as name. It has Design Runtime as source. It has Arrowhead Testing Runtime as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(3, 0.20483652)
+"The toolchain name is Management Arrowhead Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Management Tool as tool name. It covers 6 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Procurement & Engineering. The third engineering phase is Requirements. The fourth engineering phase is Functional Design. The fifth engineering phase is Operation & Management. The sixth engineering phase is Maintenance.
+
+The second tool has Arrowhead Design Runtime as tool name. It covers 6 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Procurement & Engineering. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Requirements. The fifth engineering phase is Maintenance. The sixth engineering phase is Operation & Management.
+
+The third tool has Arrowhead Conversion Tool as tool name. It covers 7 engineering phases. The first engineering phase is Maintenance. The second engineering phase is Evolution. The third engineering phase is Requirements. The fourth engineering phase is Operation & Management. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Functional Design. The seventh engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Validation Connector as name. It has Management Tool as source. It has Arrowhead Design Runtime as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+The second interface has Validation Exchange as name. It has Systems Conversion Validator as source. It has Arrowhead Design Runtime as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+The third interface has Arrowhead Connector as name. It has Validation Runtime as source. It has Smart Design Runtime as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+
+(7, 0.20432793)
+"The toolchain name is Secure System Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Secure Design Engine as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The second tool has System of Systems Testing Runtime as tool name. It covers 3 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering.
+
+The third tool has Arrowhead Testing Interface as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Connection as name. It has Secure Design Engine as source. It has System of Systems Testing Runtime as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Live Connection as name. It has Arrowhead Testing Interface as source. It has Smart Design Runtime as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The third interface has Publication Connector as name. It has Arrowhead Testing Interface as source. It has Arrowhead Testing Interface as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(9, 0.19259118)
+"The toolchain name is Secure System Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Secure Design Utility as tool name. It covers 6 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Functional Design. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Maintenance. The fifth engineering phase is Procurement & Engineering. The sixth engineering phase is Requirements.
+
+The second tool has System of Systems Management Runtime as tool name. It covers 7 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Maintenance. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Requirements. The sixth engineering phase is Functional Design. The seventh engineering phase is Evolution.
+
+The third tool has System of Systems Testing Runtime as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Procurement & Engineering.
+
+The fourth tool has Open SysML Validator as tool name. It covers 3 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Functional Design. The third engineering phase is Requirements.
+
+The fifth tool has Secure Design Runtime as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Management Connector as name. It has Secure Design Utility as source. It has System of Systems Management Runtime as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+The second interface has Publication Connection as name. It has Smart Testing Tool as source. It has Systems Validation Utility as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Design Connection as name. It has Magic Management Tool as source. It has Systems Conversion Interface as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+
+(36, 0.18222395)
+"The toolchain name is Secure Smart Toolchain.
+
+It consists of 4 tools.
+
+The first tool has Secure Design Interface as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Smart SysML Engine as tool name. It covers 7 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Maintenance. The third engineering phase is Requirements. The fourth engineering phase is Operation & Management. The fifth engineering phase is Deployment & Commissioning. The sixth engineering phase is Functional Design. The seventh engineering phase is Evolution.
+
+The third tool has Secure SysML Engine as tool name. It covers 6 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Operation & Management. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Deployment & Commissioning. The fifth engineering phase is Maintenance. The sixth engineering phase is Requirements.
+
+The fourth tool has Arrowhead Validation Validator as tool name. It covers 8 engineering phases. The first engineering phase is Evolution. The second engineering phase is Deployment & Commissioning. The third engineering phase is Operation & Management. The fourth engineering phase is Functional Design. The fifth engineering phase is Requirements. The sixth engineering phase is Procurement & Engineering. The seventh engineering phase is Training & Education. The eighth engineering phase is Maintenance.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Monitoring Connector as name. It has Secure Design Interface as source. It has Smart SysML Engine as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+The second interface has Publication Connector as name. It has Secure SysML Engine as source. It has Secure Design Interface as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Management Store as name. It has Arrowhead Validation Validator as source. It has Smart Validation Validator as target.
+
+The Arrowhead Tools project aims for digitalisation and automation solutions for the European industry, which will close the gaps that hinder the IT/OT integration by introducing new technologies in an open source platform for the design and run-time engineering of IoT and System of Systems. The project will provide engineering processes, integration platform, tools and tool chains for the cost-efficient development of digitalisation, connectivity and automation system solutions in various fields of application.
+
+
+(24, 0.17101954)
+"The toolchain name is Magic Arrowhead Toolchain.
+
+It consists of 2 tools.
+
+The first tool has Magic Conversion Tool as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Arrowhead Conversion Validator as tool name. It covers 5 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Deployment & Commissioning. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Requirements. The fifth engineering phase is Operation & Management.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Live Store as name. It has Magic Conversion Tool as source. It has Arrowhead Conversion Validator as target.
+
+The Arrowhead project targets five business domains; Production (process and manufacturing), Smart Buildings and infrastructures, Electro mobility, Energy production and Virtual Markets of Energy.
+
+In these domains there is a number of technological architectures used for implementing SOA solutions. One of the grand challenges of Arrowhead is to enable interoperability between systems that are natively based on different technologies.
+
+The second interface has Arrowhead Connector as name. It has System of Systems Design Interface as source. It has Arrowhead Conversion Validator as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The third interface has Publication Exchange as name. It has Magic Design Runtime as source. It has Magic Conversion Tool as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+
+(37, 0.16410291)
+"The toolchain name is Systems Open Toolchain.
+
+It consists of 5 tools.
+
+The first tool has Systems Conversion Validator as tool name. It covers 2 engineering phases. The first engineering phase is Requirements. The second engineering phase is Functional Design.
+
+The second tool has Open Validation Validator as tool name. It covers 3 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Requirements. The third engineering phase is Functional Design.
+
+The third tool has Open Conversion Tool as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Deployment & Commissioning. The fourth engineering phase is Procurement & Engineering.
+
+The fourth tool has SysML Utility as tool name. It covers 7 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Maintenance. The fourth engineering phase is Procurement & Engineering. The fifth engineering phase is Evolution. The sixth engineering phase is Operation & Management. The seventh engineering phase is Deployment & Commissioning.
+
+The fifth tool has Smart SysML Tool as tool name. It covers 4 engineering phases. The first engineering phase is Requirements. The second engineering phase is Deployment & Commissioning. The third engineering phase is Functional Design. The fourth engineering phase is Procurement & Engineering.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Exchange as name. It has Systems Conversion Validator as source. It has Open Validation Validator as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Publication Connection as name. It has Testing Interface as source. It has SysML Utility as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Monitoring Connector as name. It has Open Validation Validator as source. It has Open Conversion Tool as target.
+
+In striving to establish a set of standards, Arrowhead systems need to be implemented and tested to ensure that they communicate smoothly and securely. The sheer volume of operations and systems in the Arrowhead collaboration means that the project produces large quantities of code.
+
+
+(13, 0.13820532)
+"The toolchain name is Secure Smart Toolchain.
+
+It consists of 2 tools.
+
+The first tool has Secure Design Validator as tool name. It covers 3 engineering phases. The first engineering phase is Procurement & Engineering. The second engineering phase is Requirements. The third engineering phase is Functional Design.
+
+The second tool has Smart Management Validator as tool name. It covers 4 engineering phases. The first engineering phase is Functional Design. The second engineering phase is Requirements. The third engineering phase is Procurement & Engineering. The fourth engineering phase is Deployment & Commissioning.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Design Exchange as name. It has Secure Design Validator as source. It has Smart Management Validator as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The second interface has Publication Connector as name. It has Smart Management Validator as source. It has Magic Management Interface as target.
+
+Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. The content of the information exchange requests are unambiguously defined: what is sent is the same as what is understood.
+
+The third interface has Validation Port as name. It has Smart Management Validator as source. It has Smart Management Validator as target.
+
+There are several definitions of system(s) of systems (SoS), some of which are dependent on the particularity of an application area. Maier (1998) postulated five key characteristics (not criteria) of SoS: operational independence of component systems, managerial independence of component systems, geographical distribution, emergent behavior, and evolutionary development processes, and identified operational independence and managerial independence as the two principal distinguishing characteristics for applying the term 'systems-of-systems.' A system that does not exhibit these two characteristics is not considered a system-of-systems regardless of the complexity or geographic distribution of its components.
+
+
+(15, 0.13309598)
+"The toolchain name is Open Smart Toolchain.
+
+It consists of 3 tools.
+
+The first tool has Open Design Validator as tool name. It covers 1 engineering phases. The first engineering phase is Requirements.
+
+The second tool has Smart Conversion Validator as tool name. It covers 5 engineering phases. The first engineering phase is Operation & Management. The second engineering phase is Procurement & Engineering. The third engineering phase is Functional Design. The fourth engineering phase is Requirements. The fifth engineering phase is Deployment & Commissioning.
+
+The third tool has Magic Design Tool as tool name. It covers 8 engineering phases. The first engineering phase is Deployment & Commissioning. The second engineering phase is Functional Design. The third engineering phase is Maintenance. The fourth engineering phase is Operation & Management. The fifth engineering phase is Evolution. The sixth engineering phase is Requirements. The seventh engineering phase is Procurement & Engineering. The eighth engineering phase is Training & Education.
+
+The toolchain consists of 3 interoperability interfaces.
+
+The first interface has Arrowhead Connector as name. It has Open Design Validator as source. It has Smart Conversion Validator as target.
+
+The Arrowhead Framework provides support for building system of systems (SoS) based on service-oriented architecture patterns. Each SoS consists of various Application systems already existing or under development. These Application systems then utilize the Core Systems and their Services that provide support in answering fundamental questions related to governance and operational management.
+
+The second interface has Design Store as name. It has Open Design Validator as source. It has Magic Design Tool as target.
+
+Our vision is to enable collaborative automation by networked embedded devices. The grand challenges are enabling the interoperability and integrability of services provided by almost any device.
+
+We assume that a service-based approach will be the feasible technology that enables collaborative automation in an open-network environment connecting many embedded devices.
+
+The third interface has SysML Exchange as name. It has Smart Conversion Validator as source. It has Magic Design Tool as target.
+
+SysML supports the specification, analysis, design, verification and validation of a broad range of systems and systems-of-systems. These systems may include hardware, software, information, processes, personnel, and facilities.
+
+"

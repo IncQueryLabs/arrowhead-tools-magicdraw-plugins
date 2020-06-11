@@ -13,9 +13,9 @@ on the overall goals and approach of Arrowhead Tools, see the [official website]
 
 ## Arrowhead SysML profile
 
-The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Arrowhead%20Magicdraw%20Plugin).
+The Arrowhead SysML Profile in MagicDraw (.mdzip) format comes bundled with the [plugin](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Arrowhead%20Magicdraw%20Plugin) and can also be downloaded separately [here](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/MagicDraw).
 
-You can locate it in the profiles folder of either the provided .zip plugin or your local MagicDraw installation, after importing the plugin (see below).
+In the case of the plugin, you can locate the profile in the _profiles_ folder of either the provided .zip plugin or your local MagicDraw installation, after importing the plugin (see below).
 
 For a detailed description of the concepts of the profile itself, refer to its [documentation](https://github.com/IncQueryLabs/arrowhead-tools/tree/master/Profile%20Documentation), automatically generated from MagicDraw using [DocGen](https://github.com/Open-MBEE/mdk/).
 

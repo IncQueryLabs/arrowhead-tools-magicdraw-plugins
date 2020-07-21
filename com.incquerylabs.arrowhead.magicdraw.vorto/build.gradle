@@ -29,4 +29,5 @@ dependencies {
 	frame 'com.incquerylabs.v4md:com.incquerylabs.v4md:2.3.0:plugin@zip'
 	frame 'com.incquerylabs:com.incquerylabs.arrowhead.magicdraw:1.0.0-SNAPSHOT@zip'
 	implementation 'org.eclipse.vorto:repository-java-client:0.12.6'
+	implementation 'org.eclipse.vorto.utilities:dsl-reader:0.12.6'
 }

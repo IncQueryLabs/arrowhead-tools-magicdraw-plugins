@@ -1,0 +1,589 @@
+package arrowhead.syntax
+
+import "http://www.nomagic.com/magicdraw/UML/2.5.1"
+
+import util.stereotypedElement
+import util.slotValue
+
+/*
+ * Pattern that queries elements with the stereotype 'DataSemantics' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype DataSemantics.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern DataSemantics(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "DataSemantics");
+}
+/*
+ * Pattern that queries the 'Ontology' attribute of elements with the stereotype 'DataSemantics'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'DataSemantics'.
+ * 	valuespec : LiteralString : A value of the attribute 'Ontology'.
+ */
+pattern DataSemantics_Ontology(element : Class, valuespec : LiteralString){
+	find DataSemantics(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Ontology", valuespec);
+}
+/*
+ * Pattern that queries the 'Schema' attribute of elements with the stereotype 'DataSemantics'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'DataSemantics'.
+ * 	valuespec : LiteralString : A value of the attribute 'Schema'.
+ */
+pattern DataSemantics_Schema(element : Class, valuespec : LiteralString){
+	find DataSemantics(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Schema", valuespec);
+}
+/*
+ * Pattern that queries the 'SemanticModel' attribute of elements with the stereotype 'DataSemantics'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'DataSemantics'.
+ * 	valuespec : LiteralString : A value of the attribute 'SemanticModel'.
+ */
+pattern DataSemantics_SemanticModel(element : Class, valuespec : LiteralString){
+	find DataSemantics(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SemanticModel", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'DeployedDevice' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Property' object with the stereotype DeployedDevice.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern DeployedDevice(element : Property, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "DeployedDevice");
+}
+/*
+ * Pattern that queries the 'MacAddress' attribute of elements with the stereotype 'DeployedDevice'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedDevice'.
+ * 	valuespec : LiteralString : A value of the attribute 'MacAddress'.
+ */
+pattern DeployedDevice_MacAddress(element : Property, valuespec : LiteralString){
+	find DeployedDevice(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "MacAddress", valuespec);
+}
+/*
+ * Pattern that queries the 'MacProtocol' attribute of elements with the stereotype 'DeployedDevice'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedDevice'.
+ * 	valuespec : LiteralString : A value of the attribute 'MacProtocol'.
+ */
+pattern DeployedDevice_MacProtocol(element : Property, valuespec : LiteralString){
+	find DeployedDevice(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "MacProtocol", valuespec);
+}
+/*
+ * Pattern that queries the 'Metadata' attribute of elements with the stereotype 'DeployedDevice'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedDevice'.
+ * 	value : Class : A value of the attribute 'Metadata'.
+ */
+pattern DeployedDevice_Metadata(element : Property, value : Class){
+	find DeployedDevice(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Metadata", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'NetworkInterface' attribute of elements with the stereotype 'DeployedDevice'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedDevice'.
+ * 	value : InterfaceRealization : A value of the attribute 'NetworkInterface'.
+ */
+pattern DeployedDevice_NetworkInterface(element : Property, value : InterfaceRealization){
+	find DeployedDevice(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "NetworkInterface", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'identifier' attribute of elements with the stereotype 'DeployedDevice'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedDevice'.
+ * 	valuespec : LiteralString : A value of the attribute 'identifier'.
+ */
+pattern DeployedDevice_identifier(element : Property, valuespec : LiteralString){
+	find DeployedDevice(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "identifier", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'DeployedEntity' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Property' object with the stereotype DeployedEntity.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern DeployedEntity(element : Property, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "DeployedEntity");
+}
+/*
+ * Pattern that queries the 'identifier' attribute of elements with the stereotype 'DeployedEntity'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedEntity'.
+ * 	valuespec : LiteralString : A value of the attribute 'identifier'.
+ */
+pattern DeployedEntity_identifier(element : Property, valuespec : LiteralString){
+	find DeployedEntity(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "identifier", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'DeployedLocalCloud' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Property' object with the stereotype DeployedLocalCloud.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern DeployedLocalCloud(element : Property, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "DeployedLocalCloud");
+}
+/*
+ * Pattern that queries the 'GatekeeperSystemName' attribute of elements with the stereotype 'DeployedLocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedLocalCloud'.
+ * 	valuespec : LiteralString : A value of the attribute 'GatekeeperSystemName'.
+ */
+pattern DeployedLocalCloud_GatekeeperSystemName(element : Property, valuespec : LiteralString){
+	find DeployedLocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "GatekeeperSystemName", valuespec);
+}
+/*
+ * Pattern that queries the 'identifier' attribute of elements with the stereotype 'DeployedLocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedLocalCloud'.
+ * 	valuespec : LiteralString : A value of the attribute 'identifier'.
+ */
+pattern DeployedLocalCloud_identifier(element : Property, valuespec : LiteralString){
+	find DeployedLocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "identifier", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'DeployedSystem' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Property' object with the stereotype DeployedSystem.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern DeployedSystem(element : Property, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "DeployedSystem");
+}
+/*
+ * Pattern that queries the 'address' attribute of elements with the stereotype 'DeployedSystem'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedSystem'.
+ * 	valuespec : LiteralString : A value of the attribute 'address'.
+ */
+pattern DeployedSystem_address(element : Property, valuespec : LiteralString){
+	find DeployedSystem(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "address", valuespec);
+}
+/*
+ * Pattern that queries the 'authenticationInfo' attribute of elements with the stereotype 'DeployedSystem'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedSystem'.
+ * 	valuespec : LiteralString : A value of the attribute 'authenticationInfo'.
+ */
+pattern DeployedSystem_authenticationInfo(element : Property, valuespec : LiteralString){
+	find DeployedSystem(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "authenticationInfo", valuespec);
+}
+/*
+ * Pattern that queries the 'identifier' attribute of elements with the stereotype 'DeployedSystem'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedSystem'.
+ * 	valuespec : LiteralString : A value of the attribute 'identifier'.
+ */
+pattern DeployedSystem_identifier(element : Property, valuespec : LiteralString){
+	find DeployedSystem(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "identifier", valuespec);
+}
+/*
+ * Pattern that queries the 'metadata' attribute of elements with the stereotype 'DeployedSystem'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedSystem'.
+ * 	value : Class : A value of the attribute 'metadata'.
+ */
+pattern DeployedSystem_metadata(element : Property, value : Class){
+	find DeployedSystem(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "metadata", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'port' attribute of elements with the stereotype 'DeployedSystem'.
+ *
+ * Parameters:
+ * 	element: 'Property' object with the stereotype 'DeployedSystem'.
+ * 	valuespec : LiteralInteger : A value of the attribute 'port'.
+ */
+pattern DeployedSystem_port(element : Property, valuespec : LiteralInteger){
+	find DeployedSystem(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "port", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'Device' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype Device.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern Device(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "Device");
+}
+/*
+ * Pattern that queries the 'LocalCloud' attribute of elements with the stereotype 'Device'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'Device'.
+ * 	value : Class : A value of the attribute 'LocalCloud'.
+ */
+pattern Device_LocalCloud(element : Class, value : Class){
+	find Device(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "LocalCloud", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'Device'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'Device'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern Device_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find Device(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'IDD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype IDD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern IDD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "IDD");
+}
+/*
+ * Pattern that queries the 'Encoding' attribute of elements with the stereotype 'IDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'IDD'.
+ * 	valuespec : LiteralString : A value of the attribute 'Encoding'.
+ */
+pattern IDD_Encoding(element : Class, valuespec : LiteralString){
+	find IDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Encoding", valuespec);
+}
+/*
+ * Pattern that queries the 'Protocol' attribute of elements with the stereotype 'IDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'IDD'.
+ * 	valuespec : LiteralString : A value of the attribute 'Protocol'.
+ */
+pattern IDD_Protocol(element : Class, valuespec : LiteralString){
+	find IDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Protocol", valuespec);
+}
+/*
+ * Pattern that queries the 'Security' attribute of elements with the stereotype 'IDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'IDD'.
+ * 	value : EnumerationLiteral : A value of the attribute 'Security'.
+ */
+pattern IDD_Security(element : Class, value : EnumerationLiteral){
+	find IDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Security", valuespec);
+	InstanceValue.instance(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'IDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'IDD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern IDD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find IDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'LocalCloud' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype LocalCloud.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern LocalCloud(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "LocalCloud");
+}
+/*
+ * Pattern that queries the 'Devices' attribute of elements with the stereotype 'LocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'LocalCloud'.
+ * 	value : Class : A value of the attribute 'Devices'.
+ */
+pattern LocalCloud_Devices(element : Class, value : Class){
+	find LocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "Devices", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'SysDDs' attribute of elements with the stereotype 'LocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'LocalCloud'.
+ * 	value : Class : A value of the attribute 'SysDDs'.
+ */
+pattern LocalCloud_SysDDs(element : Class, value : Class){
+	find LocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SysDDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'SysDs' attribute of elements with the stereotype 'LocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'LocalCloud'.
+ * 	value : Class : A value of the attribute 'SysDs'.
+ */
+pattern LocalCloud_SysDs(element : Class, value : Class){
+	find LocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SysDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'LocalCloud'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'LocalCloud'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern LocalCloud_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find LocalCloud(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'MetaDataEntry' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype MetaDataEntry.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern MetaDataEntry(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "MetaDataEntry");
+}
+/*
+ * Pattern that queries the 'data' attribute of elements with the stereotype 'MetaDataEntry'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'MetaDataEntry'.
+ * 	valuespec : LiteralString : A value of the attribute 'data'.
+ */
+pattern MetaDataEntry_data(element : Class, valuespec : LiteralString){
+	find MetaDataEntry(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "data", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'SD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype SD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SD");
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'SD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern SD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find SD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'SoSD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype SoSD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SoSD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SoSD");
+}
+/*
+ * Pattern that queries the 'SysDs' attribute of elements with the stereotype 'SoSD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SoSD'.
+ * 	value : Class : A value of the attribute 'SysDs'.
+ */
+pattern SoSD_SysDs(element : Class, value : Class){
+	find SoSD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SysDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'SoSD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SoSD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern SoSD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find SoSD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'SoSDD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype SoSDD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SoSDD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SoSDD");
+}
+/*
+ * Pattern that queries the 'SysDDs' attribute of elements with the stereotype 'SoSDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SoSDD'.
+ * 	value : Class : A value of the attribute 'SysDDs'.
+ */
+pattern SoSDD_SysDDs(element : Class, value : Class){
+	find SoSDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SysDDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'SysDs' attribute of elements with the stereotype 'SoSDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SoSDD'.
+ * 	value : Class : A value of the attribute 'SysDs'.
+ */
+pattern SoSDD_SysDs(element : Class, value : Class){
+	find SoSDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SysDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'SoSDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SoSDD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern SoSDD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find SoSDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'SubsetOf' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Dependency' object with the stereotype SubsetOf.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SubsetOf(element : Dependency, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SubsetOf");
+}
+/*
+ * Pattern that queries elements with the stereotype 'SysD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype SysD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SysD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SysD");
+}
+/*
+ * Pattern that queries the 'SoSDs' attribute of elements with the stereotype 'SysD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SysD'.
+ * 	value : Class : A value of the attribute 'SoSDs'.
+ */
+pattern SysD_SoSDs(element : Class, value : Class){
+	find SysD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SoSDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'SysD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SysD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern SysD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find SysD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}
+/*
+ * Pattern that queries elements with the stereotype 'SysDD' or other stereotypes generalizing it.
+ *
+ * Parameters:
+ * element : 'Class' object with the stereotype SysDD.
+ * domainStereotypeInstance : Stereotype Application instance
+ */
+pattern SysDD(element : Class, domainStereotypeInstance : InstanceSpecification){
+	find stereotypedElement(element, domainStereotypeInstance, "Arrowhead", "SysDD");
+}
+/*
+ * Pattern that queries the 'SoSDDs' attribute of elements with the stereotype 'SysDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SysDD'.
+ * 	value : Class : A value of the attribute 'SoSDDs'.
+ */
+pattern SysDD_SoSDDs(element : Class, value : Class){
+	find SysDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SoSDDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'SoSDs' attribute of elements with the stereotype 'SysDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SysDD'.
+ * 	value : Class : A value of the attribute 'SoSDs'.
+ */
+pattern SysDD_SoSDs(element : Class, value : Class){
+	find SysDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "SoSDs", valuespec);
+	ElementValue.element(valuespec, value);
+}
+/*
+ * Pattern that queries the 'isEncapsulated' attribute of elements with the stereotype 'SysDD'.
+ *
+ * Parameters:
+ * 	element: 'Class' object with the stereotype 'SysDD'.
+ * 	valuespec : LiteralBoolean : A value of the attribute 'isEncapsulated'.
+ */
+pattern SysDD_isEncapsulated(element : Class, valuespec : LiteralBoolean){
+	find SysDD(element, domainStereotypeInstance);
+	find slotValue(domainStereotypeInstance, "isEncapsulated", valuespec);
+}

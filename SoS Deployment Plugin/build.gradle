@@ -1,0 +1,33 @@
+plugins {
+  id "incquery-md-plugin" version "0.1.0-SNAPSHOT"
+}
+
+magicDraw {
+	fullName.set('com.incquerylabs.arrowhead.magicdraw.vorto')
+	humanVersion.set('1.0.0-SNAPSHOT')
+	humanName.set('Arrowhead Vorto Extension')
+	pluginClass.set('com.incquerylabs.arrowhead.magicdraw.vorto.VortoPlugin')
+	description.set('Arrowhead Tools: Service Oriented Architecture')
+	type.set('Plugin')
+	id.set('1751')
+	
+	dependencies {
+		csm.set(true)
+		resources.set(['1440:SysML', '1750:Arrowhead'])
+		plugins.set(['com.incquerylabs.arrowhead.magicdraw', 'com.nomagic.magicdraw.sysml', 'com.nomagic.requirements'])
+	}
+}
+
+repositories {
+	mavenLocal()
+	maven {
+		url 'https://build.incquerylabs.com/nexus/repository/v4md/'
+	}
+}
+
+dependencies {
+	frame 'com.incquerylabs.v4md:com.incquerylabs.v4md:2.3.0:plugin@zip'
+	frame 'com.incquerylabs:com.incquerylabs.arrowhead.magicdraw:1.0.0-SNAPSHOT@zip'
+	implementation 'org.eclipse.vorto:repository-java-client:0.12.6'
+	implementation 'org.eclipse.vorto.utilities:dsl-reader:0.12.6'
+}

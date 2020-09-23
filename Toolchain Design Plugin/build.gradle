@@ -1,0 +1,21 @@
+plugins {
+  id "incquery-md-plugin" version "0.1.0-SNAPSHOT"
+  id "eclipse"
+}
+
+magicDraw {
+	fullName.set('com.incquerylabs.arrowhead.tools')
+	humanVersion.set('0.1.0-SNAPSHOT')
+	humanName.set('Arrowhead Tools')
+	pluginClass.set('com.incquerylabs.arrowhead.tools.ArrowheadToolsPlugin')
+	description.set('Arrowhead Tools: Service Oriented Architecture')
+	id.set('14756')
+	
+	dependencies {
+		csm.set(true)
+	}
+}
+
+repositories {
+	mavenLocal()
+}

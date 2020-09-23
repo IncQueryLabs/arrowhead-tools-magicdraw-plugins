@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom_template>
+    <icon>AHT.png</icon>
+    <iconLabel>Arrowhead
+	Tools</iconLabel>
+    <perspective>SysML</perspective>
+    <tooltip>Create a new blank Arrowhead Tools project.</tooltip>
+    <banner_title>Create a new blank Arrowhead Tools project</banner_title>
+    <banner_description>Starting point for projects for modeling Arrowhead Toolchains.</banner_description>
+    <banner_icon>banner.png</banner_icon>
+	<category_id>CATEGORY_ID_SYSTEMS_ENGINEERING</category_id> 
+	<requiredPlugin>com.incquerylabs.arrowhead.tools</requiredPlugin>
+</custom_template>

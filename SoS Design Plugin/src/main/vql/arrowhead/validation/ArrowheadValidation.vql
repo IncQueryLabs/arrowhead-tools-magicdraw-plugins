@@ -1,0 +1,30 @@
+package arrowhead.validation
+
+import "http://www.nomagic.com/magicdraw/UML/2.5.1"
+
+import arrowhead.syntax.IDD
+import arrowhead.syntax.SysDD
+import arrowhead.semantics.ServiceDefinition
+import arrowhead.semantics.SystemDefinition
+
+
+pattern ServiceDefinitionSpecializingRealization(generalization : Generalization){
+	Generalization.general(generalization, realization);
+	Generalization.specific(generalization, definition);
+	find IDD(realization, _);
+	find ServiceDefinition(definition);
+}
+
+pattern SystemDefinitionSpecializingRealization(generalization : Generalization){
+	Generalization.general(generalization, realization);
+	Generalization.specific(generalization, definition);
+	find SysDD(realization, _);
+	find SystemDefinition(definition);
+}
+
+pattern ServicePort(system: Class, port: Port){
+	find SysDD(system, _);
+	Class.ownedAttribute(system, port);
+	Port.type(port, service);
+	find ServiceDefinition(service);
+}

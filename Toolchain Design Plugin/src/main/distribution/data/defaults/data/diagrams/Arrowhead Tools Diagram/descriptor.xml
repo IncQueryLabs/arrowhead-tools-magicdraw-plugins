@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diagram version="8" type="Arrowhead Tools" baseType="Class Diagram" abbreviation="AHT" category="Other Diagrams">
+    <toolbarConfiguration>
+        <category name="Common" id="COMMON_ELEMENTS_STATIC" expandedByDefault="true">
+            <icon type="small" size="16" filename="mdp://resource/com/nomagic/magicdraw/icons/packagenode.png"></icon>
+            <icon type="large" size="16" filename="mdp://resource/com/nomagic/magicdraw/icons/packagenode.svg"></icon>
+            <actions>
+                <group>
+                    <standard action="ADD_NOTE" description="Note" shortcut="pressed N "/>
+                    <standard action="ADD_HTML_NOTE" description="Note(HTML Text)" shortcut="shift pressed N "/>
+                    <standard action="ADD_COMMENT"/>
+                    <standard action="ADD_HTML_COMMENT"/>
+                </group>
+                <group>
+                    <standard action="ADD_TEXT_BOX" shortcut="pressed X "/>
+                    <standard action="ADD_HTML_TEXT_BOX" shortcut="shift pressed X "/>
+                </group>
+                <group>
+                    <standard action="ADD_NOTE_ANCHOR" description="Anchor" shortcut="pressed H "/>
+                </group>
+                <group>
+                    <standard action="CONSTRAINT_ACTION"/>
+                    <standard action="DURATION_CONSTRAINT_ACTION"/>
+                    <standard action="TIME_CONSTRAINT_ACTION"/>
+                    <standard action="ADD_CONSTRAINT_LINK" shortcut="shift pressed H "/>
+                </group>
+                <group>
+                    <standard action="ADD_CONTAINMENT_LINK" shortcut="shift pressed C "/>
+                    <standard action="ADD_CONTAINMENT_LINK_OPPOSITE" shortcut="shift pressed K "/>
+                </group>
+                <group>
+                    <standard action="ADD_ABSTRACTION" shortcut="pressed T "/>
+                    <custom type="com.nomagic.uml2.ext.magicdraw.classes.mddependencies.Abstraction" description="Trace" listAsElement="true" opposite="false" id="IDaction_1297147200209_590759_0">
+                        <stereotype id="magicdraw_1046861421246_733231_63"/>
+                    </custom>
+                </group>
+                <standard action="ADD_DEPENDENCY" shortcut="shift pressed D "/>
+                <standard action="ADD_IMAGE_SHAPE" description="Image Shape" shortcut="pressed I "/>
+                <standard action="ADD_DIAGRAM_OVERVIEW"/>
+                <standard action="ADD_DIAGRAM_LEGEND"/>
+                <group>
+                    <standard action="ADD_SEPARATOR" shortcut="pressed W "/>
+                    <standard action="ADD_SEPARATOR_VERTICAL"/>
+                    <standard action="ADD_RECTANGULAR_SHAPE" shortcut="shift pressed Q "/>
+                </group>
+            </actions>
+        </category>
+        <category name="Arrowhead Tools" id="action_category_1589029910412_430537_0" expandedByDefault="true">
+            <icon type="large" size="16" filename="mdp://resource/arrowhead_blue.svg">3C3F786D6C2076657273696F6E3D22312E3022207374616E64616C6F6E653D226E6F223F3E0A3C21444F435459504520737667205055424C494320222D2F2F5733432F2F445444205356472032303031303930342F2F454E220A2022687474703A2F2F7777772E77332E6F72672F54522F323030312F5245432D5356472D32303031303930342F4454442F73766731302E647464223E0A3C7376672076657273696F6E3D22312E302220786D6C6E733D22687474703A2F2F7777772E77332E6F72672F323030302F737667220A2077696474683D223233372E303030303030707422206865696768743D223230312E3030303030307074222076696577426F783D22302030203233372E303030303030203230312E303030303030220A207072657365727665417370656374526174696F3D22784D6964594D6964206D656574223E0A3C67207472616E73666F726D3D227472616E736C61746528302E3030303030302C3230312E30303030303029207363616C6528302E3130303030302C2D302E31303030303029220A66696C6C3D222330303436373622207374726F6B653D226E6F6E65223E0A3C7061746820643D224D363337203230303320632D34202D33202D37202D323135202D37202D343730206C30202D343634203235202D323420633335202D333520313231202D33360A313632202D312032372032342032382032372033312031343820322036372037203132362031312031333020342034203835202D373120313831202D313637203936202D3936203137310A2D31373820313636202D313832202D34202D34202D323531202D3130202D353439202D3133202D353332202D35202D353432202D35202D353435202D3235202D34202D3238203437380A2D35303820353034202D35303320313720332031392031372032342031343020342031313420382031343020323320313535203136203136203437203138203335352032312034323720340A343138203620353239202D313030203435202D3433203938202D383520313137202D3933203533202D323220343138202D3232203433372031203131203133202D3834203131320A2D37303720373335202D33393520333935202D37323620373139202D37333520373139202D382030202D3139202D33202D3232202D377A222F3E0A3C2F673E0A3C2F7376673E0A</icon>
+            <actions>
+                <custom type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class" description="Tool" listAsElement="false" opposite="false" id="IDaction_1589030203909_246845_4">
+                    <stereotype id="_19_0_3_219804d8_1588927144817_973550_14347"/>
+                </custom>
+                <custom type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class" description="Toolchain" listAsElement="false" opposite="false" id="IDaction_1590140882976_98127_0">
+                    <stereotype id="_19_0_3_219804d8_1590139569953_217851_13483"/>
+                </custom>
+                <custom type="com.nomagic.uml2.ext.magicdraw.classes.mddependencies.Dependency" description="Covers" listAsElement="false" opposite="false" id="IDaction_1589030161071_778504_3">
+                    <stereotype id="_19_0_3_219804d8_1588927083523_74529_14315"/>
+                </custom>
+                <standard action="ADD_PORT" description="Tool I/O" shortcut="shift pressed R "/>
+                <custom type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class" description="Data Structure" listAsElement="false" opposite="false" id="IDaction_1589363777243_797553_0">
+                    <stereotype id="_19_0_3_219804d8_1589362671613_182337_13440"/>
+                </custom>
+                <custom type="com.nomagic.uml2.ext.magicdraw.classes.mddependencies.Dependency" description="Connection" listAsElement="false" opposite="false" id="IDaction_1589449242464_603386_0">
+                    <stereotype id="_19_0_3_219804d8_1589448783010_990183_13463"/>
+                </custom>
+            </actions>
+        </category>
+    </toolbarConfiguration>
+    <icon type="diagraming" size="-1" filename="mdp://resource/arrowhead_blue.svg">3C3F786D6C2076657273696F6E3D22312E3022207374616E64616C6F6E653D226E6F223F3E0A3C21444F435459504520737667205055424C494320222D2F2F5733432F2F445444205356472032303031303930342F2F454E220A2022687474703A2F2F7777772E77332E6F72672F54522F323030312F5245432D5356472D32303031303930342F4454442F73766731302E647464223E0A3C7376672076657273696F6E3D22312E302220786D6C6E733D22687474703A2F2F7777772E77332E6F72672F323030302F737667220A2077696474683D223233372E303030303030707422206865696768743D223230312E3030303030307074222076696577426F783D22302030203233372E303030303030203230312E303030303030220A207072657365727665417370656374526174696F3D22784D6964594D6964206D656574223E0A3C67207472616E73666F726D3D227472616E736C61746528302E3030303030302C3230312E30303030303029207363616C6528302E3130303030302C2D302E31303030303029220A66696C6C3D222330303436373622207374726F6B653D226E6F6E65223E0A3C7061746820643D224D363337203230303320632D34202D33202D37202D323135202D37202D343730206C30202D343634203235202D323420633335202D333520313231202D33360A313632202D312032372032342032382032372033312031343820322036372037203132362031312031333020342034203835202D373120313831202D313637203936202D3936203137310A2D31373820313636202D313832202D34202D34202D323531202D3130202D353439202D3133202D353332202D35202D353432202D35202D353435202D3235202D34202D3238203437380A2D35303820353034202D35303320313720332031392031372032342031343020342031313420382031343020323320313535203136203136203437203138203335352032312034323720340A343138203620353239202D313030203435202D3433203938202D383520313137202D3933203533202D323220343138202D3232203433372031203131203133202D3834203131320A2D37303720373335202D33393520333935202D37323620373139202D37333520373139202D382030202D3139202D33202D3232202D377A222F3E0A3C2F673E0A3C2F7376673E0A</icon>
+    <module name="Arrowhead Tools Profile.mdzip" location="D:\arrowhead-tools-internal\com.incquerylabs.arrowhead.tools\build\install\profiles\Arrowhead Tools Profile.mdzip">
+        <root id="_19_0_3_219804d8_1588926809983_985147_14164"/>
+        <root id="_19_0_3_219804d8_1588926827941_561152_14168"/>
+        <root id="_19_0_3_219804d8_1588930406149_156375_15301"/>
+    </module>
+    <module name="UML_Standard_Profile.mdzip" location="D:\arrowhead-tools-internal\com.incquerylabs.arrowhead.tools\build\install\profiles\UML_Standard_Profile.mdzip">
+        <root id="magicdraw_uml_standard_profile_v_0001"/>
+    </module>
+    <elementstyle name="Port">
+        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+            <mdElement elementClass="PropertyManager">
+                <mdElement elementClass="BooleanProperty">
+                    <propertyID>SHOW_TYPE</propertyID>
+                    <value xmi:value="true"/>
+                </mdElement>
+                <mdElement elementClass="BooleanProperty">
+                    <propertyID>SHOW_PROVIDED_INTERFACES</propertyID>
+                    <value xmi:value="true"/>
+                </mdElement>
+                <mdElement elementClass="BooleanProperty">
+                    <propertyID>SHOW_REQUIRED_INTERFACES</propertyID>
+                    <value xmi:value="true"/>
+                </mdElement>
+            </mdElement>
+        </PropertyVisitorAcceptor>
+    </elementstyle>
+    <stereotypestyle id="_19_0_3_219804d8_1588927144817_973550_14347">
+        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+            <mdElement elementClass="PropertyManager">
+                <mdElement elementClass="ColorProperty">
+                    <propertyID>FILL_COLOR</propertyID>
+                    <value xmi:value="-16765364"/>
+                </mdElement>
+                <mdElement elementClass="ColorProperty">
+                    <propertyID>PEN_COLOR</propertyID>
+                    <value xmi:value="-16777216"/>
+                </mdElement>
+                <mdElement elementClass="ColorProperty">
+                    <propertyID>TEXT_COLOR</propertyID>
+                    <value xmi:value="-1"/>
+                </mdElement>
+                <mdElement elementClass="ColorProperty">
+                    <propertyID>STEREOTYPE_COLOR</propertyID>
+                    <value xmi:value="-1"/>
+                </mdElement>
+                <mdElement elementClass="ChoiceProperty">
+                    <propertyID>STEREOTYPES_DISPLAY_MODE</propertyID>
+                    <value>STEREOTYPE_DISPLAY_MODE_TEXT</value>
+                    <choice xmi:value="STEREOTYPE_DISPLAY_MODE_TEXT_AND_ICON^STEREOTYPE_DISPLAY_MODE_TEXT^STEREOTYPE_DISPLAY_MODE_ICON^STEREOTYPE_DISPLAY_MODE_SHAPE_IMAGE_AND_TEXT^STEREOTYPE_DISPLAY_MODE_SHAPE_IMAGE^STEREOTYPE_DISPLAY_MODE_DO_NOT_DISPLAY_STEREOTYPES"/>
+                    <index xmi:value="1"/>
+                </mdElement>
+            </mdElement>
+        </PropertyVisitorAcceptor>
+    </stereotypestyle>
+    <manipulators>
+        <element>com.nomagic.uml2.ext.magicdraw.compositestructures.mdports.Port</element>
+        <path action="IDaction_1589449242464_603386_0"/>
+    </manipulators>
+    <manipulators>
+        <stereotype id="_19_0_3_219804d8_1588927144817_973550_14347" name="Tool"/>
+        <path action="IDaction_1589030161071_778504_3"/>
+        <path action="ADD_PORT"/>
+    </manipulators>
+</diagram>

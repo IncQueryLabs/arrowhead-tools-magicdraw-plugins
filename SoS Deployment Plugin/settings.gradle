@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+		gradlePluginPortal()
+		mavenCentral()
+		maven {
+			url("https://repo.eclipse.org/content/groups/viatra/")
+		}
+		def deployUser = System.getenv('DEPLOY_USER')
+		def deployPassword = System.getenv('DEPLOY_PASSWORD')
+		maven {
+			url 'https://build.incquerylabs.com/nexus/repository/gradle-plugin-snapshots'
+			if (deployUser != null) {
+                credentials {
+                    username = deployUser
+                    password = deployPassword
+                }
+			}
+        }
+		mavenLocal()
+    }
+}
+
+rootProject.name = 'com.incquerylabs.arrowhead.magicdraw.vorto'

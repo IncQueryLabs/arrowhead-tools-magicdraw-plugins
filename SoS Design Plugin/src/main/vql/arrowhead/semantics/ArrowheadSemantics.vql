@@ -1,0 +1,18 @@
+package arrowhead.semantics
+
+import "http://www.nomagic.com/magicdraw/UML/2.5.1"
+
+import arrowhead.syntax.IDD
+import arrowhead.syntax.SD
+import arrowhead.syntax.SysD
+import arrowhead.syntax.SysDD
+
+pattern ServiceDefinition(serviceDefinition: Class){
+	find SD(serviceDefinition, _);
+	neg find IDD(serviceDefinition, _);
+}
+
+pattern SystemDefinition(systemDefinition: Class){
+	find SysD(systemDefinition, _);
+	neg find SysDD(systemDefinition, _);
+}

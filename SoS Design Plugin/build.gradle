@@ -1,0 +1,65 @@
+plugins {
+  id "incquery-md-plugin" version "0.1.0-SNAPSHOT"
+  id "viatra-gradle-plugin" version "2.4.0-SNAPSHOT"
+  id "eclipse"
+  id 'maven-publish'
+}
+
+group = 'com.incquerylabs'
+version = '1.0.0-SNAPSHOT'
+
+magicDraw {
+	fullName.set('com.incquerylabs.arrowhead.magicdraw')
+	humanVersion.set(version)
+	humanName.set('Arrowhead')
+	pluginClass.set('com.incquerylabs.arrowhead.magicdraw.ArrowheadPlugin')
+	description.set('Arrowhead Tools: Service Oriented Architecture')
+	
+	dependencies {
+		csm.set(true)
+		resources.set(['1440:SysML', '1750:Arrowhead'])
+		plugins.set(['com.incquerylabs.v4md', 'com.nomagic.magicdraw.sysml', 'com.nomagic.requirements'])
+	}
+}
+
+vql {
+	packageClassNames('com.nomagic.uml2.ext.magicdraw.metadata.UMLPackage')
+}
+
+generateVql.dependsOn(Extract)
+
+generateVql.doLast {
+	configurations.implementation.getExcludeRules().each {
+		println it
+	}
+	println "hal"
+	configurations.compileClasspath.getExcludeRules().each {
+		println it
+	}
+}
+
+repositories {
+	mavenLocal()
+	maven {
+    	url 'https://build.incquerylabs.com/nexus/repository/v4md/'
+    }
+}
+
+dependencies {
+	frame 'com.incquerylabs.v4md:com.incquerylabs.v4md:2.3.0:plugin@zip'
+
+	implementation 'com.google.code.gson:gson:2.8.6'
+	
+	//compileOnly 'org.eclipse.viatra:org.eclipse.viatra.query.runtime:2.4.0-SNAPSHOT'
+	
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from components.java
+			artifact tasks.Package
+		}
+	}
+}

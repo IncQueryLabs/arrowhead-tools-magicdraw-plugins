@@ -1,4 +1,4 @@
-##Purpose
+## Purpose
 
 The purpose of this plugin is to provide
 * a reference realization of the *Arrowhead SysML Profile* (see later),

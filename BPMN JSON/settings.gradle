@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+		gradlePluginPortal()
+		mavenCentral()
+		maven {
+			url("https://repo.eclipse.org/content/groups/viatra/")
+		}
+		maven {
+			url 'https://build.incquerylabs.com/nexus/repository/gradle-plugin-snapshots'
+			credentials {
+				username = "$nexusUsername"
+				password = "$nexusPassword"
+			}
+        }
+		mavenLocal()
+    }
+}
+
+rootProject.name = 'com.incquerylabs.arrowhead.bpmn'

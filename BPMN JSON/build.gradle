@@ -1,0 +1,25 @@
+plugins {
+  id "incquery-md-plugin" version "0.1.0-SNAPSHOT"
+}
+
+magicDraw {
+	fullName.set('com.incquerylabs.arrowhead.bpmn')
+	humanVersion.set('0.1.0-SNAPSHOT')
+	humanName.set('BPMN to JSON')
+	pluginClass.set('com.incquerylabs.arrowhead.bpmn.BpmnPlugin')
+	description.set('BPMN to JSON')
+	id.set('14757')
+	
+	dependencies {
+		plugins.set(['com.nomagic.magicdraw.cbm'])
+	}
+}
+
+dependencies {
+	frame 'com.nomagic:cbm:190sp3:Cameo_Business_Modeler_Plugin_190_sp3@zip'
+	implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+repositories {
+	mavenLocal()
+}

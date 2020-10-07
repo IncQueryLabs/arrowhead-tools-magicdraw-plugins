@@ -1,0 +1,34 @@
+# gradle
+build
+.gradle
+
+# eclipse
+.project
+.classpath
+.settings
+bin
+META-INF
+
+# inellij
+out
+**/.idea/*
+!**/.idea/codeStyles
+**/.idea/codeStyles/*
+!**/.idea/codeStyles/Project.xml
+!**/.idea/inspectionProfiles
+**/.idea/inspectionProfiles/*
+!**/.idea/inspectionProfiles/Project_Default.xml
+
+# viatra-gradle-plugin
+*._trace
+src-gen
+
+# other
+javadoc
+target
+*.mdxml.bak
+*.iml
+*.jresult
+*.diff
+.hprof
+*.bak

@@ -7,4 +7,5 @@ public class Step {
     public String name;
     public ArrayList<String> nextStepNames = new ArrayList<>();
     public Integer quantity = 1;
+    public UsedService usedService = new UsedService();
 }

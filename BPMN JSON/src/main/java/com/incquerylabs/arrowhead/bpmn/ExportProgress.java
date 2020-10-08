@@ -83,6 +83,9 @@ public class ExportProgress implements RunnableWithProgress {
         action.steps.add(step);
         step.name = task.getName();
 
+        task.get_commentOfAnnotatedElement().stream().forEach(comment ->
+                step.usedService.requestedService.serviceDefinitionRequirement = comment.getBody());
+
         task.getOutgoing().stream().map(ActivityEdge::getTarget).filter(Objects::nonNull).forEach(target -> {
             step.nextStepNames.add(target.getName());
             exportTask(target, action);

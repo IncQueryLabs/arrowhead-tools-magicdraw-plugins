@@ -15,7 +15,6 @@ import com.nomagic.magicdraw.uml.BaseElement;
 import com.nomagic.magicdraw.uml.ClassTypes;
 import com.nomagic.ui.ProgressStatusRunner;
 import com.nomagic.uml2.ext.magicdraw.activities.mdfundamentalactivities.Activity;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -24,7 +23,7 @@ import java.io.File;
 
 public class ExportAction extends MDAction {
 
-    public static final String ACTION_TITLE = "JSon or something";
+    public static final String ACTION_TITLE = "Choreographer JSON";
     private static final String FILE_CHOOSER_TITLE = "Select output File";
     private static final String FILE_CHOOSER_BUTTON_TEXT = "Export";
     public static final String JSON = "JSON";

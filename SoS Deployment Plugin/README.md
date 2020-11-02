@@ -1,6 +1,6 @@
 ## Purpose and Usage
 
-This plugin is suitable for addressing deployment-layer information in isolation, or even integrated with an SoS model created in the [https://github.com/IncQueryLabs/arrowhead-tools-magicdraw-plugins/tree/master/SoS%20Deployment%20Plugin](SoS Design Plugin).
+This plugin is suitable for addressing deployment-layer information in isolation, or even integrated with an SoS model created in the [SoS Design Plugin](https://github.com/IncQueryLabs/arrowhead-tools-magicdraw-plugins/tree/master/SoS%20Deployment%20Plugin).
 
 The primary conceptual addition of the plugin is a SysML profile refelcting _Vortolang_, the modeling language (DSL) at the heart of [Eclipse Vorto](https://eclipse.org/vorto/). 
 The main feature of the plugin is an import functionality, allowing for browsing the Vorto device digital twin catalogue and importing its entries into MagicDraw in a native SysML format. 
@@ -9,6 +9,6 @@ Vorto device instances represents a _platform-specific_ blueprint of an Arrowhea
 
 ## Installation
 
-See the README for the [https://github.com/IncQueryLabs/arrowhead-tools-magicdraw-plugins/tree/master/SoS%20Deployment%20Plugin](SoS Design Plugin).
+See the README for the [SoS Design Plugin](https://github.com/IncQueryLabs/arrowhead-tools-magicdraw-plugins/tree/master/SoS%20Deployment%20Plugin).
 
 The plugin release will be published here soon!

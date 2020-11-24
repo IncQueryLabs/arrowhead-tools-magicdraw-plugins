@@ -21,20 +21,22 @@ pipeline {
 	}
 
 	stages {
-		stage('Build SoS Design Plug-in') { 
+		stage('Build SoS Deployment Plug-in') { 
 			steps {
-				dir ('./SoS Design Plugin/'){
-					sh "./gradlew clean"
-					sh "./gradlew ${VERSION_STRINGS} assemble"
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+					dir ('./SoS Deployment Plugin/'){
+						sh "./gradlew clean"
+						sh "./gradlew ${VERSION_STRINGS} assemble"
+					}
 				}
 			}
 		}
-		stage('Deploy SoS Design Plugin') {
+		stage('Deploy SoS Deployment Plugin') {
 			when {branch "master"} 
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
-					    dir ('./SoS Design Plugin/') {
+					    dir ('./SoS Deployment Plugin/') {
                     			sh "./gradlew ${VERSION_STRINGS} bundle"
 					    }
 					}
@@ -45,7 +47,8 @@ pipeline {
 
 	post {
 		always {
-			archiveArtifacts artifacts: './build/*.zip', onlyIfSuccessful: true
+			archiveArtifacts artifacts: 'SoS Deployment Plugin/build/bundles/arrowhead-vorto-extension-magicdraw-plugin.zip', onlyIfSuccessful: true
 		}
 	}
 }
+

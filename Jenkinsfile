@@ -31,7 +31,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Deploy SoS Deployment Plugin') {
+		stage('Deploy SoS Deployment Plug-in') {
 			when {branch "master"} 
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
@@ -43,11 +43,34 @@ pipeline {
 				}
 			}
 		}
+		stage('Build SoS Design Plug-in') { 
+			steps {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+					dir ('./SoS Design Plugin/'){
+						sh "./gradlew clean"
+						sh "./gradlew ${VERSION_STRINGS} assemble"
+					}
+				}
+			}
+		}
+		stage('Deploy SoS Design Plug-in') {
+			when {branch "master"} 
+			steps {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+					script{
+					    dir ('./SoS Design Plugin/') {
+                    			sh "./gradlew ${VERSION_STRINGS} bundle"
+					    }
+					}
+				}
+			}
+		}
 	}
 
 	post {
 		always {
 			archiveArtifacts artifacts: 'SoS Deployment Plugin/build/bundles/arrowhead-vorto-extension-magicdraw-plugin.zip', onlyIfSuccessful: true
+			archiveArtifacts artifacts: 'SoS Design Plugin/build/bundles/arrowhead-magicdraw-plugin.zip', onlyIfSuccessful: true
 		}
 	}
 }

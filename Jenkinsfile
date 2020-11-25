@@ -65,12 +65,35 @@ pipeline {
 				}
 			}
 		}
+		stage('Build Toolchain Design Plug-in') { 
+			steps {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+					dir ('./Toolchain Design Plugin/'){
+						sh "./gradlew clean"
+						sh "./gradlew ${VERSION_STRINGS} assemble"
+					}
+				}
+			}
+		}
+		stage('Deploy Toolchain Design Plug-in') {
+			when {branch "master"} 
+			steps {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+					script{
+					    dir ('./Toolchain Design Plugin/') {
+                    			sh "./gradlew ${VERSION_STRINGS} bundle"
+					    }
+					}
+				}
+			}
+		}
 	}
 
 	post {
 		always {
 			archiveArtifacts artifacts: 'SoS Deployment Plugin/build/bundles/arrowhead-vorto-extension-magicdraw-plugin.zip', onlyIfSuccessful: true
 			archiveArtifacts artifacts: 'SoS Design Plugin/build/bundles/arrowhead-magicdraw-plugin.zip', onlyIfSuccessful: true
+			archiveArtifacts artifacts: 'Toolchain Design Plugin/build/bundles/arrowhead-tools-magicdraw-plugin.zip', onlyIfSuccessful: true
 		}
 	}
 }

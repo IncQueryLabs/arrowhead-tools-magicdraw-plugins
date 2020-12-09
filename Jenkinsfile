@@ -26,7 +26,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./SoS Deployment Plugin/'){
 						sh "./gradlew clean"
-						sh "./gradlew ${VERSION_STRINGS} assemble"
+						sh "./gradlew ${VERSION_STRINGS} assemble bundle"
 					}
 				}
 			}
@@ -37,7 +37,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./SoS Deployment Plugin/') {
-                    			sh "./gradlew ${VERSION_STRINGS} bundle"
+                    			sh "./gradlew ${VERSION_STRINGS} publish"
 					    }
 					}
 				}
@@ -48,7 +48,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./SoS Design Plugin/'){
 						sh "./gradlew clean"
-						sh "./gradlew ${VERSION_STRINGS} assemble"
+						sh "./gradlew ${VERSION_STRINGS} assemble bundle"
 					}
 				}
 			}
@@ -59,7 +59,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./SoS Design Plugin/') {
-                    			sh "./gradlew ${VERSION_STRINGS} bundle"
+                    			sh "./gradlew ${VERSION_STRINGS} publish"
 					    }
 					}
 				}
@@ -70,7 +70,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./Toolchain Design Plugin/'){
 						sh "./gradlew clean"
-						sh "./gradlew ${VERSION_STRINGS} assemble"
+						sh "./gradlew ${VERSION_STRINGS} assemble bundle"
 					}
 				}
 			}
@@ -81,7 +81,7 @@ pipeline {
 				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./Toolchain Design Plugin/') {
-                    			sh "./gradlew ${VERSION_STRINGS} bundle"
+                    			sh "./gradlew ${VERSION_STRINGS} publish"
 					    }
 					}
 				}

@@ -172,9 +172,13 @@ class ImportWithProgress implements RunnableWithProgress {
 			
 			for(ModelProperty property : model.getConfigurationProperties()) {
 				importProperty(property, element, profile.getVortoConfiguration());
+				Type confProp = importType(property.getType());
+				importInformationModelContains(property, element, confProp);
 			}
 			for(ModelProperty property : model.getStatusProperties()) {
 				importProperty(property, element, profile.getVortoStatus());
+				Type confProp = importType(property.getType());
+				importInformationModelContains(property, element, confProp);
 			}
 			for(ModelEvent event : model.getEvents()) {
 				importEvent(event, element);
@@ -364,7 +368,8 @@ class ImportWithProgress implements RunnableWithProgress {
 	
 	private void importAbstractModel(AbstractModel model, NamedElement element) {
 		ModelId id = model.getId();
-		element.setName(model.getDisplayName());
+		//element.setName(model.getDisplayName());
+		element.setName(id.getName());
 		VortoProfile.Model.setCategory(element, model.getCategory());
 		VortoProfile.Model.setIdentifier(element, id.getName());
 		VortoProfile.Model.setNamespace(element, id.getNamespace());

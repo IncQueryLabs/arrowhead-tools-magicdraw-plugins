@@ -355,19 +355,15 @@ public class ExportVortoModel extends MDAction {
 						Infomodel im = (Infomodel)exportModel(absModel);
 						List<NamedElement> fbs = getDependencies(absModel, vortoDependencies, vortoElements);
 						exportModel(im, fbs, mainDir + "/" + projectDir );
-						//printAll(absModel, mainDir + "/" + projectDir);	
 					} else if(absModel.getHumanType().equals("Function Block")) {
 						FunctionblockModel im = (FunctionblockModel)exportModel(absModel);
-						exportBlock(im, absModel, mainDir + "/" + projectDir );
-						//printAll(absModel, mainDir + "/" + projectDir);						
+						exportBlock(im, absModel, mainDir + "/" + projectDir );					
 					}else if(absModel.getHumanType().equals("Enumeration")) {
 						EnumModel im = (EnumModel)exportModel(absModel);
 						exportEnum(im, absModel, mainDir + "/" + projectDir );
-						//printAll(absModel, mainDir + "/" + projectDir);	
 					}else if(absModel.getHumanType().equals("Vorto Entity")) {
 						EntityModel im = (EntityModel)exportModel(absModel);
 						exportEntity(im, absModel, mainDir + "/" + projectDir );
-						//printAll(absModel, mainDir + "/" + projectDir);	
 					}else {
 						Logger.getLogger(this.getClass()).error("Export for " + absModel.getClass().getName() + " not implemented yet");
 					}
@@ -404,7 +400,7 @@ public class ExportVortoModel extends MDAction {
 				"description \"" + im.getDescription() + "\"");
 		
 		for (NamedElement fb : fbs) {
-			writer.println("using " + VortoProfile.Model.getNamespace(fb)  + "." + fb.getName() + "; " + VortoProfile.Model.getVersion(fb));			
+			writer.println("using " + VortoProfile.Model.getNamespace(fb)  + "." + VortoProfile.Model.getIdentifier(fb) + "; " + VortoProfile.Model.getVersion(fb));			
 		}
 		
 		writer.println("\ninfomodel " + im.getId().getName() + " {\n" + 
@@ -437,12 +433,31 @@ public class ExportVortoModel extends MDAction {
 				"displayname \"" + im.getId().getName() + "\"\n" +
 				"description \"" + im.getDescription() + "\"");
 		
+		ArrayList<Element> usedElements = new ArrayList<>(); 
+		
 		for (DirectedRelationship rel : fbs.get_directedRelationshipOfSource()) {
 			for (Element target : rel.getTarget()) {
 				if(VortoProfile.Model.getNamespace(target) != null) {
-					writer.println("using " + VortoProfile.Model.getNamespace(target)  + "." + target.getHumanName().substring(target.getHumanType().length()+1) + "; " + VortoProfile.Model.getVersion(target));
+					if(!usedElements.contains(target)) {
+						usedElements.add(target);
+					}
 				}
 			}
+		}
+		for (Element element : fbs.getOwnedElement()) {
+			for (DirectedRelationship rel : element.get_directedRelationshipOfSource()) {
+				for (Element target : rel.getTarget()) {
+					if(VortoProfile.Model.getNamespace(target) != null) {
+						if(!usedElements.contains(target)) {
+							usedElements.add(target);
+						}
+					}
+				}
+			}
+		}
+		
+		for(Element target : usedElements) {
+			writer.println("using " + VortoProfile.Model.getNamespace(target)  + "." + VortoProfile.Model.getIdentifier(target) + "; " + VortoProfile.Model.getVersion(target));
 		}
 		
 		writer.println("functionblock " + im.getId().getName() + " {");
@@ -452,14 +467,19 @@ public class ExportVortoModel extends MDAction {
 		ArrayList<Element> events = new ArrayList<>();
 		
 		for (Element element : fbs.getOwnedElement()) {
-			if(element.getHumanName().contains("Value Property")) {
+			if(element.getHumanName().toLowerCase().contains("value") ||
+					element.getHumanName().toLowerCase().contains("enumeration") ||
+					element.getHumanName().toLowerCase().contains("entity")) {
 				statuses.add(element);
 			}
-			else if(element.getHumanName().contains("Operation")) {
+			else if(element.getHumanName().toLowerCase().contains("operation")) {
 				operations.add(element);
 			}
-			else if(element.getHumanName().contains("Class")) {
+			else if(element.getHumanName().toLowerCase().contains("class")) {
 				events.add(element);
+			}
+			else {
+				//writer.println("unknown element: " + element.getHumanName());
 			}
 		}
 		

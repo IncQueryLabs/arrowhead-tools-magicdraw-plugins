@@ -53,7 +53,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             version "$version"
-            artifact tasks.bundle {
+            artifact Bundle {
 
                 classifier "plugin"
                 extension "zip"

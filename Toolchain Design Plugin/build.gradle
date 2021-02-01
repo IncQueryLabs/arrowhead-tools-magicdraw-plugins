@@ -19,3 +19,29 @@ magicDraw {
 repositories {
 	mavenLocal()
 }
+
+publishing {
+    repositories {
+        maven {
+            url version.endsWith('-SNAPSHOT') ? deploySnapshotUrl: deployReleaseUrl
+            if (deployUser != null) {
+                credentials {
+                    username = deployUser
+                    password = deployPassword
+                }
+            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            version "$version"
+            artifact Bundle {
+
+                classifier "plugin"
+                extension "zip"
+
+            }
+        }
+    }
+}

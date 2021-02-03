@@ -23,7 +23,7 @@ pipeline {
 	stages {
 		stage('Build SoS Deployment Plug-in') { 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./SoS Deployment Plugin/'){
 						sh "./gradlew clean"
 						sh "./gradlew ${VERSION_STRINGS} assemble bundle"

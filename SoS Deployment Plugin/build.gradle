@@ -6,6 +6,8 @@ apply plugin: 'maven-publish'
 
 ext.deployUser = hasProperty('deployUser') ? deployUser : System.getenv('DEPLOY_USER')
 ext.deployPassword = hasProperty('deployPassword') ? deployPassword : System.getenv('DEPLOY_PASSWORD')
+ext.nexusUsername = ext.deployUser
+ext.nexusPassword = ext.deployPassword
 
 magicDraw {
 	fullName.set('com.incquerylabs.arrowhead.magicdraw.vorto')

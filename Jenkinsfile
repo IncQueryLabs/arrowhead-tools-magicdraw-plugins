@@ -34,7 +34,7 @@ pipeline {
 		stage('Deploy SoS Deployment Plug-in') {
 			when {branch "master"} 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./SoS Deployment Plugin/') {
                     			sh "./gradlew ${VERSION_STRINGS} publish"
@@ -45,7 +45,7 @@ pipeline {
 		}
 		stage('Build SoS Design Plug-in') { 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./SoS Design Plugin/'){
 						sh "./gradlew clean"
 						sh "./gradlew ${VERSION_STRINGS} assemble bundle"
@@ -56,7 +56,7 @@ pipeline {
 		stage('Deploy SoS Design Plug-in') {
 			when {branch "master"} 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./SoS Design Plugin/') {
                     			sh "./gradlew ${VERSION_STRINGS} publish"
@@ -67,7 +67,7 @@ pipeline {
 		}
 		stage('Build Toolchain Design Plug-in') { 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					dir ('./Toolchain Design Plugin/'){
 						sh "./gradlew clean"
 						sh "./gradlew ${VERSION_STRINGS} assemble bundle"
@@ -78,7 +78,7 @@ pipeline {
 		stage('Deploy Toolchain Design Plug-in') {
 			when {branch "master"} 
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
+				withCredentials([usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'nexusPassword', usernameVariable: 'nexusUsername'), usernamePassword(credentialsId: 'nexus-buildserver-deploy', passwordVariable: 'DEPLOY_PASSWORD', usernameVariable: 'DEPLOY_USER')]) {
 					script{
 					    dir ('./Toolchain Design Plugin/') {
                     			sh "./gradlew ${VERSION_STRINGS} publish"

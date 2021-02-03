@@ -1,6 +1,7 @@
 plugins {
   id "incquery-md-plugin" version "0.1.0-SNAPSHOT"
   id "eclipse"
+  id "maven-publish"
 }
 
 ext.deployUser = hasProperty('deployUser') ? deployUser : System.getenv('DEPLOY_USER')

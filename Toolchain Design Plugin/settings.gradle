@@ -20,4 +20,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'com.incquerylabs.arrowhead.tols'
+rootProject.name = 'com.incquerylabs.arrowhead.tools'

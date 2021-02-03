@@ -14,7 +14,7 @@ ext.nexusUsername = ext.deployUser
 ext.nexusPassword = ext.deployPassword
 
 magicDraw {
-	fullName.set('com.incquerylabs.arrowhead.magicdraw')
+	fullName.set('com.incquerylabs.arrowhead.magicdraw.design')
 	humanVersion.set(version)
 	humanName.set('Arrowhead')
 	pluginClass.set('com.incquerylabs.arrowhead.magicdraw.ArrowheadPlugin')

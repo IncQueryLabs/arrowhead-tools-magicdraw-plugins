@@ -10,6 +10,7 @@ public class VortoPlugin extends Plugin {
 	private static boolean initialized = false;
 	
 	private static final String IMPORT_ACTION_GROUP = "Import From";
+	private static final String EXPORT_ACTION_GROUP = "Export To";
 	
 	@Override
 	public void init() {
@@ -19,6 +20,9 @@ public class VortoPlugin extends Plugin {
 			for(NMAction a : allActions) {
 				if(a.getName().equals(IMPORT_ACTION_GROUP)) {
 					a.addAction(new ImportVortoModel());
+				}
+				else if(a.getName().equals(EXPORT_ACTION_GROUP)) {
+					a.addAction(new ExportVortoModel());
 				}
 			}
 		});
